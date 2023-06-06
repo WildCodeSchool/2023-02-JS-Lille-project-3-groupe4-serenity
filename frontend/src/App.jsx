@@ -40,15 +40,27 @@ const router = createBrowserRouter([
       {
         path: "/patient",
         element: <PatientMobileDashboard />,
-      } /* ,
-      {
+      },
+      /* {
         path: "/patient/understanding",
         element: <PatientUnderstandingPage />,
       },
       {
         path: "/patient/paperwork",
         element: <PatientPaperworkPage />,
-      }, */,
+      },
+      {
+        path: "/patient/serenity",
+        element: <PatientSerenityPage />,
+      },
+      {
+        path: "/patient/checklist",
+        element: <PatientChecklistPage />,
+      },
+      {
+        path: "/patient/checklist",
+        element: <PatientChecklistPage />,
+      }, */
     ],
   },
   {
