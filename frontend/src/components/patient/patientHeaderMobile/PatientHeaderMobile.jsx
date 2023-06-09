@@ -1,7 +1,7 @@
 import React from "react";
 
 function PatientHeaderMobile() {
-  return <div>Je suis le PatientHeaderMobile</div>;
+  return <div>PatientHeaderMobile</div>;
 }
 
 export default PatientHeaderMobile;

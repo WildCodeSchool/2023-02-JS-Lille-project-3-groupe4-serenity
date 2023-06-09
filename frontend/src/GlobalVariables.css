@@ -1,0 +1,21 @@
+/* Fichier des variables globales du projet
+Penser à l'importer dans chaque fichier .module.css (import from "./chemin vers ce fichier") */
+
+:root {
+  /* COLORS */
+
+  --main-purple: #6c5dd3;
+  --turquoise: #079fa5;
+  --light-turquoise: #47cacf;
+  --yellow: #d9b520;
+  --light-yellow: #ffde86;
+  --green: #44d660;
+  --light-green: #66e47a;
+  --pink: #f8749f;
+  --light-pink: #f8749f;
+  --text-active: #11142d;
+  --grey: #808191;
+  --light-grey: #f6f4f4;
+  --white: #ffffff;
+  --orange: #ff754c;
+}

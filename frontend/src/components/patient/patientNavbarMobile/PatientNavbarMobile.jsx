@@ -1,7 +1,7 @@
 import React from "react";
 
 function PatientNavbarMobile() {
-  return <div>Je suis la PatientNavbarMobile</div>;
+  return <div>PatientNavbarMobile</div>;
 }
 
 export default PatientNavbarMobile;

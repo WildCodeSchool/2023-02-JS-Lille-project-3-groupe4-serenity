@@ -1,15 +1,8 @@
-import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./App.css";
-import AdminHeader from "./components/admin/AdminHeader/AdminHeader";
-import AdminNavbar from "./components/admin/AdminNavbar/AdminNavbar";
-import PatientHeaderDesktop from "./components/patient/patientHeaderDesktop/PatientHeaderDesktop";
-import PatientHeaderMobile from "./components/patient/patientHeaderMobile/PatientHeaderMobile";
-import PatientNavbarDesktop from "./components/patient/patientNavbarDesktop/PatientNavbarDesktop";
-import PatientNavbarMobile from "./components/patient/patientNavbarMobile/PatientNavbarMobile";
-import PratictionnerNavbarMobile from "./components/practitionner/PratictionnerNavbarMobile/PratictionnerNavbarMobile";
-import PratictionnerHeaderDesktop from "./components/practitionner/pratictionnerHeaderDesktop/PratictionnerHeaderDesktop";
-import PratictionnerHeaderMobile from "./components/practitionner/pratictionnerHeaderMobile/PratictionnerHeaderMobile";
-import PratictionnerNavbarDesktop from "./components/practitionner/pratictionnerNavbarDesktop/PratictionnerNavbarDesktop";
+import AdminLayout from "./components/admin/adminLayout/AdminLayout";
+import PatientLayout from "./components/patient/patientLayout/PatientLayout";
+import PractitionerLayout from "./components/practitionner/practitionerLayout/PractitionerLayout";
 import Home from "./pages/Home";
 import AdminDashboardPage from "./pages/admin/AdminDashboardPage";
 import AdminInterventionPage from "./pages/admin/AdminInterventionPage";
@@ -27,40 +20,6 @@ import PractitionerDashboardPage from "./pages/practitioner/PractitionerDashboar
 import PractitionerInterventionPage from "./pages/practitioner/PractitionerInterventionPage";
 import PractitionerPatientPage from "./pages/practitioner/PractitionerPatientPage";
 
-function PatientLayout() {
-  return (
-    <>
-      <PatientHeaderDesktop />
-      <PatientHeaderMobile />
-      <Outlet />
-      <PatientNavbarDesktop />
-      <PatientNavbarMobile />
-    </>
-  );
-}
-
-function AdminLayout() {
-  return (
-    <>
-      <AdminHeader />
-      <Outlet />
-      <AdminNavbar />
-    </>
-  );
-}
-
-function PratictionnerLayout() {
-  return (
-    <>
-      <PratictionnerHeaderDesktop />
-      <PratictionnerHeaderMobile />
-      <Outlet />
-      <PratictionnerNavbarDesktop />
-      <PratictionnerNavbarMobile />
-    </>
-  );
-}
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -71,7 +30,7 @@ const router = createBrowserRouter([
     element: <PatientLayout />,
     children: [
       {
-        path: "/patient",
+        path: "/patient/dashboard",
         element: <PatientDashboardPage />,
       },
       {
@@ -128,7 +87,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/practitioner",
-    element: <PratictionnerLayout />,
+    element: <PractitionerLayout />,
     children: [
       {
         path: "/practitioner",
