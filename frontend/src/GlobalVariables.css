@@ -1,6 +1,11 @@
 /* Fichier des variables globales du projet
 Penser à l'importer dans chaque fichier .module.css (import from "./chemin vers ce fichier") */
 
+/* POLICE */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+/* VARIABLES */
+
 :root {
   /* COLORS */
 
@@ -18,4 +23,6 @@ Penser à l'importer dans chaque fichier .module.css (import from "./chemin vers
   --light-grey: #f6f4f4;
   --white: #ffffff;
   --orange: #ff754c;
+
+  --font: "Inter", sans-serif;
 }
