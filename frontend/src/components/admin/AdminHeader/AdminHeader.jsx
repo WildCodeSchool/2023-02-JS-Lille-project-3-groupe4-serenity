@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./AdminHeader.module.css";
-import DateComponent from "./dateComponent/DateComponent";
+import DateComponent from "../../dateComponent/DateComponent";
 
 function AdminHeader() {
   return (

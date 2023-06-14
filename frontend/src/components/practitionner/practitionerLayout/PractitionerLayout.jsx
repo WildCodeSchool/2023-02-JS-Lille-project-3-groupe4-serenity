@@ -1,5 +1,6 @@
 import React from "react";
 import { useMediaQuery } from "react-responsive";
+import styles from "./PractitionerLayout.module.css";
 import { Outlet } from "react-router-dom";
 import PratictionnerNavbarMobile from "../PratictionnerNavbarMobile/PratictionnerNavbarMobile";
 import PratictionnerHeaderDesktop from "../pratictionnerHeaderDesktop/PratictionnerHeaderDesktop";
@@ -12,11 +13,24 @@ function PractitionerLayout() {
 
   return (
     <div>
-      {isDesktop && <PratictionnerHeaderDesktop />}
-      {isTabletOrMobile && <PratictionnerHeaderMobile />}
-      <Outlet />
-      {isDesktop && <PratictionnerNavbarDesktop />}
-      {isTabletOrMobile && <PratictionnerNavbarMobile />}
+      {isDesktop && (
+        <div className={styles.practitionerDesktopLayout}>
+          <PratictionnerNavbarDesktop />
+          <div className={styles.headerAndPageContainer}>
+            <PratictionnerHeaderDesktop />
+            <div className={styles.outletContainer}>
+              <Outlet />
+            </div>
+          </div>
+        </div>
+      )}
+      {isTabletOrMobile && (
+        <div className={styles.practitionerMobileLayout}>
+          <PratictionnerHeaderMobile />
+          <Outlet />
+          <PratictionnerNavbarMobile />
+        </div>
+      )}
     </div>
   );
 }

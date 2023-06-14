@@ -68,7 +68,7 @@ function AdminNavbar() {
         >
           <div className={styles.iconAndTextContainer}>
             <FaPlusSquare className={styles.linkIcons} />
-            Intervention
+            Interventions
           </div>
         </NavLink>
       </div>

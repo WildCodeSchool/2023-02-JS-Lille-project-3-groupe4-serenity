@@ -46,6 +46,9 @@
   border: solid 1px var(--main-purple);
   cursor: pointer;
   padding: 1rem 0 1rem 2rem;
+  transition: padding 0.1s ease-in;
+  box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%),
+    0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
 }
 
 .activeLink {
@@ -57,6 +60,10 @@
   background-color: var(--main-purple);
   color: var(--white);
   text-decoration: none;
+  transition: background-color 0.5s ease-in;
+  transition: color 0.2s ease-in;
+  box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%),
+    0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
 }
 
 .iconAndTextContainer {
