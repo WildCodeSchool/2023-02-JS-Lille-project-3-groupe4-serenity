@@ -3,20 +3,20 @@ import {
   FaChartBar,
   FaPlusSquare,
   FaRegHospital,
+  FaRocketchat,
   FaUserInjured,
   FaUserMd,
-  FaIdCardAlt,
 } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
-import styles from "./AdminNavbar.module.css";
+import styles from "./SecretariatNavbar.module.css";
 
-function AdminNavbar() {
+function SecretariatNavbar() {
   return (
     <div className={styles.navbarContainer}>
       <div className={styles.logoContainer}>Serenity</div>
       <div className={styles.pageLinksContainer}>
         <NavLink
-          to="/admin"
+          to="/secretariat"
           className={({ isActive }) =>
             isActive ? styles.activeLink : styles.pendingLink
           }
@@ -28,7 +28,7 @@ function AdminNavbar() {
           </div>
         </NavLink>
         <NavLink
-          to="/admin/unit"
+          to="/secretariat/unit"
           className={({ isActive }) =>
             isActive ? styles.activeLink : styles.pendingLink
           }
@@ -39,7 +39,7 @@ function AdminNavbar() {
           </div>
         </NavLink>
         <NavLink
-          to="/admin/practitioner"
+          to="/secretariat/practitioner"
           className={({ isActive }) =>
             isActive ? styles.activeLink : styles.pendingLink
           }
@@ -50,7 +50,7 @@ function AdminNavbar() {
           </div>
         </NavLink>
         <NavLink
-          to="/admin/patient"
+          to="/secretariat/patient"
           className={({ isActive }) =>
             isActive ? styles.activeLink : styles.pendingLink
           }
@@ -61,7 +61,7 @@ function AdminNavbar() {
           </div>
         </NavLink>
         <NavLink
-          to="/admin/intervention"
+          to="/secretariat/intervention"
           className={({ isActive }) =>
             isActive ? styles.activeLink : styles.pendingLink
           }
@@ -71,15 +71,18 @@ function AdminNavbar() {
             Interventions
           </div>
         </NavLink>
+      </div>
+      <div className={styles.separator} />
+      <div className={styles.newsContainer}>
         <NavLink
-          to="/admin/staff"
+          to="/secretariat/messagerie"
           className={({ isActive }) =>
             isActive ? styles.activeLink : styles.pendingLink
           }
         >
           <div className={styles.iconAndTextContainer}>
-            <FaIdCardAlt className={styles.linkIcons} />
-            Staff
+            <FaRocketchat className={styles.linkIcons} />
+            Messagerie
           </div>
         </NavLink>
       </div>
@@ -87,4 +90,4 @@ function AdminNavbar() {
   );
 }
 
-export default AdminNavbar;
+export default SecretariatNavbar;

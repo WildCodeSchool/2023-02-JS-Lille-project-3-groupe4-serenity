@@ -1,0 +1,105 @@
+@import "../GlobalVariables.css";
+
+.homeContainer {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--dark-blue);
+  font-family: var(--font);
+}
+
+.headerContainer {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  border-bottom: solid 1px var(--medium-grey);
+}
+
+.logoContainer {
+  height: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
+
+.rightContainer {
+  height: 100%;
+  flex: 4.5;
+}
+
+.pageContainer {
+  width: 100%;
+  flex: 6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pageTitle {
+  font-size: 3rem;
+  font-weight: 400;
+  margin: 3rem 0;
+}
+
+.text {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-bottom: 6rem;
+}
+
+.connexionLinksContainer {
+  display: flex;
+  align-items: center;
+  gap: 8rem;
+}
+
+.proGlobalBloc,
+.patientGlobalBloc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.professionalContainer,
+.patientContainer {
+  width: 20rem;
+  height: 20rem;
+  background-color: var(--light-grey);
+  border-radius: 1.5rem;
+  box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%),
+    0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
+}
+
+.professionalContainer:hover,
+.patientContainer:hover {
+  cursor: pointer;
+  border: solid 3px var(--dark-blue);
+}
+
+.professionalContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.patientContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.patientLogoClass {
+  margin-top: -20px;
+}
+
+.logoText {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 6rem;
+  margin-top: 1rem;
+}

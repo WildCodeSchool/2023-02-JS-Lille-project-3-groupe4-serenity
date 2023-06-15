@@ -25,6 +25,8 @@ Penser à l'importer dans chaque fichier .module.css (import from "./chemin vers
   --light-grey: #f6f4f4;
   --white: #ffffff;
   --orange: #ff754c;
+  --red: #d35d5d;
+  --dark-blue: #2b445a;
 
   --font: "Inter", sans-serif;
 }

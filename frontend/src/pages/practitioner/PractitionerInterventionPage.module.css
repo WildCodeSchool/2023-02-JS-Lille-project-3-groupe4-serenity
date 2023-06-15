@@ -1,6 +1,6 @@
 @import url("../../GlobalVariables.css");
 
-.dashboardContainer {
+.interventionsContainer {
   width: 100%;
   height: 100%;
   border: solid 3px var(--turquoise);

@@ -8,6 +8,7 @@ import AdminDashboardPage from "./pages/admin/AdminDashboardPage";
 import AdminInterventionPage from "./pages/admin/AdminInterventionPage";
 import AdminPatientPage from "./pages/admin/AdminPatientPage";
 import AdminPractitionerPage from "./pages/admin/AdminPractitionerPage";
+import AdminStaffPage from "./pages/admin/AdminStaffPage";
 import AdminUnitPage from "./pages/admin/AdminUnitPage";
 import PatientBreathePage from "./pages/patient/PatientBreathePage";
 import PatientChecklistPage from "./pages/patient/PatientChecklistPage";
@@ -19,6 +20,12 @@ import PatientUnderstandingPage from "./pages/patient/PatientUnderstandingPage";
 import PractitionerDashboardPage from "./pages/practitioner/PractitionerDashboardPage";
 import PractitionerInterventionPage from "./pages/practitioner/PractitionerInterventionPage";
 import PractitionerPatientPage from "./pages/practitioner/PractitionerPatientPage";
+import SecretariatLayout from "./components/secretariat/secretariatLayout/SecretariatLayout";
+import SecretariatDashboardPage from "./pages/secretariat/SecretariatDashboardPage";
+import SecretariatUnitPage from "./pages/secretariat/SecretariatUnitPage";
+import SecretariatPractitionerPage from "./pages/secretariat/SecretariatPractitionerPage";
+import SecretariatPatientPage from "./pages/secretariat/SecretariatPatientPage";
+import SecretariatInterventionPage from "./pages/secretariat/SecretariatInterventionPage";
 
 const router = createBrowserRouter([
   {
@@ -82,6 +89,36 @@ const router = createBrowserRouter([
       {
         path: "/admin/intervention",
         element: <AdminInterventionPage />,
+      },
+      {
+        path: "/admin/staff",
+        element: <AdminStaffPage />,
+      },
+    ],
+  },
+  {
+    path: "/secretariat",
+    element: <SecretariatLayout />,
+    children: [
+      {
+        path: "/secretariat",
+        element: <SecretariatDashboardPage />,
+      },
+      {
+        path: "/secretariat/unit",
+        element: <SecretariatUnitPage />,
+      },
+      {
+        path: "/secretariat/practitioner",
+        element: <SecretariatPractitionerPage />,
+      },
+      {
+        path: "/secretariat/patient",
+        element: <SecretariatPatientPage />,
+      },
+      {
+        path: "/secretariat/intervention",
+        element: <SecretariatInterventionPage />,
       },
     ],
   },

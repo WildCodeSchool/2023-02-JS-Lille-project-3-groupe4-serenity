@@ -1,16 +1,13 @@
 @import "../../../GlobalVariables.css";
 
 .headerContainer {
-  background-image: url("../../../assets/Hexagon-purple.svg");
-  background-size: cover;
+  background-color: transparent;
   width: 100%;
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: var(--white);
   font-size: 2rem;
-  border-bottom: solid 1px var(--medium-grey);
   padding: 0 3rem;
 }
 

@@ -13,8 +13,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-image: url("../../../assets/Hexagon-red.svg");
+  background-size: cover;
 }
 
 .outletContainer {
+  width: 100%;
+  height: 100%;
   flex: 6;
+  padding: 3rem;
 }

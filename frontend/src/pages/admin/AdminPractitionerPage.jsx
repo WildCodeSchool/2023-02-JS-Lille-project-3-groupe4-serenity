@@ -1,7 +1,8 @@
 import React from "react";
+import styles from "./AdminPractitionerPage.module.css";
 
 function AdminPractitionerPage() {
-  return <div>AdminPractitionerPage</div>;
+  return <div className={styles.practitionerContainer}>PAGE PRATICIENS</div>;
 }
 
 export default AdminPractitionerPage;

@@ -1,8 +1,8 @@
 import React from "react";
-import styles from "./AdminHeader.module.css";
+import styles from "./SecretariatHeader.module.css";
 import DateComponent from "../../dateComponent/DateComponent";
 
-function AdminHeader() {
+function SecretariatHeader() {
   return (
     <div className={styles.headerContainer}>
       Bonjour !
@@ -11,4 +11,4 @@ function AdminHeader() {
   );
 }
 
-export default AdminHeader;
+export default SecretariatHeader;
