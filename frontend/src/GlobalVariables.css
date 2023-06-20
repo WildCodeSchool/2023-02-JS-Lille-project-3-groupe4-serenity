@@ -18,7 +18,8 @@ Penser à l'importer dans chaque fichier .module.css (import from "./chemin vers
   --green: #44d660;
   --light-green: #66e47a;
   --pink: #f8749f;
-  --light-pink: #f8749f;
+  --light-pink: #fd93b8;
+  --very-light-pink: #ffebf6;
   --text-active: #11142d;
   --grey: #808191;
   --medium-grey: #d4d2c9;
@@ -29,4 +30,7 @@ Penser à l'importer dans chaque fichier .module.css (import from "./chemin vers
   --dark-blue: #2b445a;
 
   --font: "Inter", sans-serif;
+
+  --basic-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%),
+    0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
 }

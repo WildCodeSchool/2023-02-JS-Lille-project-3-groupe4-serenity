@@ -6,8 +6,9 @@ import {
   FaUserInjured,
   FaUserMd,
   FaIdCardAlt,
+  FaPowerOff,
 } from "react-icons/fa";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import styles from "./AdminNavbar.module.css";
 
 function AdminNavbar() {
@@ -82,6 +83,14 @@ function AdminNavbar() {
             Staff
           </div>
         </NavLink>
+      </div>
+      <div className={styles.logoutContainer}>
+        <Link to="/" className={styles.logoutLink}>
+          <div className={styles.iconAndTextContainer}>
+            <FaPowerOff className={styles.linkIcons} />
+            Log out
+          </div>
+        </Link>
       </div>
     </div>
   );

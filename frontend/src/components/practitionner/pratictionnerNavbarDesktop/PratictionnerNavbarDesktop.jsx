@@ -5,8 +5,9 @@ import {
   FaRocketchat,
   FaUserInjured,
   FaBell,
+  FaPowerOff,
 } from "react-icons/fa";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import styles from "./PratictionnerNavbarDesktop.module.css";
 
 function PratictionnerNavbarDesktop() {
@@ -74,6 +75,14 @@ function PratictionnerNavbarDesktop() {
             Messagerie
           </div>
         </NavLink>
+      </div>
+      <div className={styles.logoutContainer}>
+        <Link to="/" className={styles.logoutLink}>
+          <div className={styles.iconAndTextContainer}>
+            <FaPowerOff className={styles.linkIcons} />
+            Log out
+          </div>
+        </Link>
       </div>
     </div>
   );

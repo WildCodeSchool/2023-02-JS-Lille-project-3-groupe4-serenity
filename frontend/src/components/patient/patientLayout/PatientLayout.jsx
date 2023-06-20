@@ -13,13 +13,28 @@ function PatientLayout() {
 
   return (
     <div>
-      {isDesktop && <PatientHeaderDesktop />}
-      {isTabletOrMobile && <PatientHeaderMobile />}
-      <div className={styles.patientContent}>
-        <Outlet />
-      </div>
-      {isDesktop && <PatientNavbarDesktop />}
-      {isTabletOrMobile && <PatientNavbarMobile />}
+      {isDesktop && (
+        <div className={styles.patientLayoutDesktopContainer}>
+          <PatientNavbarDesktop />
+          <div className={styles.headerAndPageDesktopContainer}>
+            <PatientHeaderDesktop />
+            <div className={styles.outletDesktopContainer}>
+              <Outlet />
+            </div>
+          </div>
+        </div>
+      )}
+      {isTabletOrMobile && (
+        <div className={styles.patientLayoutMobileContainer}>
+          <PatientNavbarMobile />
+          <div className={styles.headerAndPageMobileContainer}>
+            <PatientHeaderMobile />
+            <div className={styles.outletMobileContainer}>
+              <Outlet />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -19,13 +19,33 @@
   font-size: 2rem;
 }
 
-.pageLinksContainer,
-.newsContainer {
+.pageLinksContainer {
   width: 100%;
   flex: 3;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 1rem;
+  padding-top: 1rem;
+}
+
+.newsContainer {
+  width: 100%;
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 1rem;
+}
+
+.logoutContainer {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
   gap: 1rem;
   padding-top: 1rem;
 }
@@ -81,4 +101,20 @@
   height: 1px;
   width: 80%;
   background-color: var(--medium-grey);
+}
+
+.logoutLink {
+  width: 80%;
+  text-align: left;
+  padding: 1rem 0 1rem 1rem;
+  border: none;
+  background-color: transparent;
+  color: var(--grey);
+  cursor: pointer;
+  border: solid 1px transparent;
+  text-decoration: none;
+}
+
+.logoutLink:hover {
+  color: var(--dark-blue);
 }

@@ -1,14 +1,14 @@
 import React from "react";
-import styles from "./PatientSerenityPage.module.css";
+import styles from "./PatientOutboardingPage.module.css";
 import PatientPreparationMenu from "../../components/patient/patientPreparationMenu/patientPreparationMenu";
 
-function PatientSerenityPage() {
+const PatientOutboardingPage = () => {
   return (
-    <div className={styles.serenityPageContainer}>
+    <div className={styles.outboardingPageContainer}>
       <PatientPreparationMenu />
       <div className={styles.prepContainer}></div>
     </div>
   );
-}
+};
 
-export default PatientSerenityPage;
+export default PatientOutboardingPage;
