@@ -1,0 +1,109 @@
+.prepMenuContainer {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.prepMenu {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 1rem;
+  padding-top: 1rem;
+  background-color: var(--light-grey);
+  border: solid 3px transparent;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  gap: 2rem;
+}
+
+.prepMenu:hover {
+  border: solid 3px var(--medium-grey);
+}
+
+.progressbarContainer {
+  width: 5rem;
+}
+
+.prepMenuActivePaperwork {
+  flex: 1;
+  height: 100%;
+  border-radius: 1rem;
+  background-color: var(--light-grey);
+  border: solid 3px var(--turquoise);
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  gap: 2rem;
+}
+
+.prepMenuActiveUnderstanding {
+  flex: 1;
+  height: 100%;
+  border-radius: 1rem;
+  background-color: var(--light-grey);
+  border: solid 3px var(--yellow);
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  gap: 2rem;
+}
+
+.prepMenuActiveSerenity {
+  flex: 1;
+  height: 100%;
+  border-radius: 1rem;
+  background-color: var(--light-grey);
+  border: solid 3px var(--pink);
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  gap: 2rem;
+}
+
+.prepMenuActiveOutboarding {
+  flex: 1;
+  height: 100%;
+  border-radius: 1rem;
+  background-color: var(--light-grey);
+  border: solid 3px var(--green);
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  gap: 2rem;
+}
+
+.prepMenuActiveChecklist {
+  flex: 1;
+  height: 100%;
+  border-radius: 1rem;
+  background-color: var(--light-grey);
+  border: solid 3px var(--main-purple);
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  gap: 2rem;
+}

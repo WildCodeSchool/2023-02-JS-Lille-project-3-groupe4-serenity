@@ -1,7 +1,8 @@
 import React from "react";
+import styles from "./NavbarMobile.module.css";
 
 function PatientNavbarMobile() {
-  return <div>PatientNavbarMobile</div>;
+  return <div className={styles.navbarContainer}>PatientNavbarMobile</div>;
 }
 
 export default PatientNavbarMobile;

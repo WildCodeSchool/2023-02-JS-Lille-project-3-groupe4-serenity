@@ -1,0 +1,118 @@
+@import "../../../GlobalVariables.css";
+
+.navbarContainer {
+  flex: 1;
+  height: 100%;
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-right: solid 1px var(--medium-grey);
+}
+
+.logoContainer {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
+
+.pageLinksContainer {
+  width: 100%;
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 3rem;
+}
+
+.newsContainer {
+  width: 100%;
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 1rem;
+}
+
+.logoutContainer {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+  padding-top: 1rem;
+}
+
+.pendingLink {
+  width: 80%;
+  text-align: left;
+  padding: 1rem 0 1rem 1rem;
+  border: none;
+  background-color: transparent;
+  color: var(--grey);
+  cursor: pointer;
+  border: solid 1px transparent;
+  text-decoration: none;
+}
+
+.pendingLink:hover {
+  border-radius: 12px;
+  border: solid 1px var(--main-purple);
+  cursor: pointer;
+  padding: 1rem 0 1rem 2rem;
+  transition: padding 0.1s ease-in;
+  box-shadow: var(--basic-shadow);
+}
+
+.activeLink {
+  width: 80%;
+  text-align: left;
+  padding: 1rem 0 1rem 2rem;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--main-purple);
+  color: var(--white);
+  text-decoration: none;
+  transition: background-color 0.5s ease-in;
+  transition: color 0.2s ease-in;
+  box-shadow: var(--basic-shadow);
+}
+
+.iconAndTextContainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.linkIcons {
+  font-size: 1.2rem;
+}
+
+.separator {
+  height: 1px;
+  width: 80%;
+  background-color: var(--medium-grey);
+}
+
+.logoutLink {
+  width: 80%;
+  text-align: left;
+  padding: 1rem 0 1rem 1rem;
+  border: none;
+  background-color: transparent;
+  color: var(--grey);
+  cursor: pointer;
+  border: solid 1px transparent;
+  text-decoration: none;
+}
+
+.logoutLink:hover {
+  color: var(--dark-blue);
+}

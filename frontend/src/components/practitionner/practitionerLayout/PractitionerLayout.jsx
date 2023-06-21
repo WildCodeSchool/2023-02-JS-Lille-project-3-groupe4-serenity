@@ -5,6 +5,7 @@ import PratictionnerNavbarMobile from "../PratictionnerNavbarMobile/Pratictionne
 import PratictionnerHeaderDesktop from "../pratictionnerHeaderDesktop/PratictionnerHeaderDesktop";
 import PratictionnerHeaderMobile from "../pratictionnerHeaderMobile/PratictionnerHeaderMobile";
 import PratictionnerNavbarDesktop from "../pratictionnerNavbarDesktop/PratictionnerNavbarDesktop";
+import styles from "./PractitionerLayout.module.css";
 
 function PractitionerLayout() {
   const isDesktop = useMediaQuery({ query: "(min-width: 991px)" });
@@ -12,11 +13,24 @@ function PractitionerLayout() {
 
   return (
     <div>
-      {isDesktop && <PratictionnerHeaderDesktop />}
-      {isTabletOrMobile && <PratictionnerHeaderMobile />}
-      <Outlet />
-      {isDesktop && <PratictionnerNavbarDesktop />}
-      {isTabletOrMobile && <PratictionnerNavbarMobile />}
+      {isDesktop && (
+        <div className={styles.practitionerDesktopLayout}>
+          <PratictionnerNavbarDesktop />
+          <div className={styles.headerAndPageContainer}>
+            <PratictionnerHeaderDesktop />
+            <div className={styles.outletContainer}>
+              <Outlet />
+            </div>
+          </div>
+        </div>
+      )}
+      {isTabletOrMobile && (
+        <div className={styles.practitionerMobileLayout}>
+          <PratictionnerHeaderMobile />
+          <Outlet />
+          <PratictionnerNavbarMobile />
+        </div>
+      )}
     </div>
   );
 }

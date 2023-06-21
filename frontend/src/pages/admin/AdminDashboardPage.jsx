@@ -1,7 +1,10 @@
 import React from "react";
+import styles from "./AdminDashboardPage.module.css";
 
 function AdminDashboardPage() {
-  return <div>Hello je suis AdminDashboardPage</div>;
+  return (
+    <div className={styles.dashboardPageContainer}>ADMIN DASHBOARD PAGE</div>
+  );
 }
 
 export default AdminDashboardPage;
