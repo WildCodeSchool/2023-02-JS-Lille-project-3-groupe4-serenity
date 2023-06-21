@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { FaRegWindowClose } from "react-icons/fa";
-import styles from "./AddPatient.module.css";
+import { Link } from "react-router-dom";
+import styles from "./AddPractitioner.module.css";
 
-function AddPatient() {
-  const [inputs, setInputs] = useState({ roles: "patient" });
+function AddPractitioner() {
+  const [inputs, setInputs] = useState({ roles: "pratitioner" });
 
   const handleChange = (event) => {
     const { name } = event.target;
@@ -17,13 +17,13 @@ function AddPatient() {
   };
 
   return (
-    <div className={styles.addPatientContainer}>
+    <div className={styles.addPractitionerContainer}>
       <div className={styles.closeButtonContainer}>
-        <Link to="/secretariat/patient">
+        <Link to="/secretariat/practitioner">
           <FaRegWindowClose className={styles.closeIcon} />
         </Link>
       </div>
-      <h3>Ajout d'un nouveau patient</h3>
+      <h3>Ajout d'un nouveau praticien</h3>
       <div className={styles.formContainer}>
         <form onSubmit={handleSubmit}>
           <div className={styles.leftContainer}>
@@ -36,12 +36,13 @@ function AddPatient() {
                 onChange={handleChange}
               />
             </label>
+
             <label>
-              Téléphone:
+              Âge:
               <input
-                type="text"
-                name="phone"
-                value={inputs.phone || ""}
+                type="number"
+                name="age"
+                value={inputs.age || ""}
                 onChange={handleChange}
               />
             </label>
@@ -55,29 +56,7 @@ function AddPatient() {
               />
             </label>
             <label>
-              Groupe sanguin:
-              <select
-                className={styles.multipleChoicesMenu}
-                name="blood_group"
-                value={inputs.blood_group || ""}
-                onChange={handleChange}
-              >
-                <option
-                  value=""
-                  aria-label="Select list for blood group"
-                  disabled
-                  hidden
-                />
-                <option value="a+">A+</option>
-                <option value="a-">A-</option>
-                <option value="b+">B+</option>
-                <option value="b-">B-</option>
-                <option value="ab+">AB+</option>
-                <option value="ab-">AB-</option>
-              </select>
-            </label>
-            <label>
-              N° sécurité sociale:
+              Spécialité:
               <input
                 type="text"
                 name="social_secu_number"
@@ -86,13 +65,8 @@ function AddPatient() {
               />
             </label>
             <label>
-              Email:
-              <input
-                type="text"
-                name="email"
-                value={inputs.email || ""}
-                onChange={handleChange}
-              />
+              Rôle:
+              <input type="text" name="roles" value="Praticien" disabled />
             </label>
           </div>
           <div className={styles.middleContainer}>
@@ -124,41 +98,54 @@ function AddPatient() {
               />
             </label>
             <label>
-              Allergies:
+              N° sécurité sociale:
               <input
                 type="text"
-                name="allergy"
-                value={inputs.allergy || ""}
+                name="social_secu_number"
+                value={inputs.social_secu_number || ""}
                 onChange={handleChange}
               />
             </label>
-            <label>
-              Rôle:
-              <input type="text" name="roles" value="Patient" disabled />
-            </label>
 
             <label>
-              Mot de passe:
+              Email:
               <input
                 type="text"
-                name="pwd"
-                value={inputs.pwd || ""}
+                name="email"
+                value={inputs.email || ""}
                 onChange={handleChange}
               />
             </label>
           </div>
           <div className={styles.rightContainer}>
             <label>
-              Âge:
+              Genre:
+              <select
+                className={styles.multipleChoicesMenu}
+                name="gender"
+                value={inputs.gender || ""}
+                onChange={handleChange}
+              >
+                <option
+                  value=""
+                  aria-label="Select list for gender"
+                  disabled
+                  hidden
+                />
+                <option value="male">Homme</option>
+                <option value="female">Femme</option>
+              </select>
+            </label>
+
+            <label>
+              Téléphone:
               <input
-                type="number"
-                name="age"
-                value={inputs.age || ""}
+                type="text"
+                name="phone"
+                value={inputs.phone || ""}
                 onChange={handleChange}
               />
             </label>
-
-            <div className={styles.divFake} />
 
             <label>
               Ville:
@@ -170,7 +157,7 @@ function AddPatient() {
               />
             </label>
             <label>
-              Remarques:
+              Identifiant RPPS:
               <input
                 type="text"
                 name="remark"
@@ -178,7 +165,7 @@ function AddPatient() {
                 onChange={handleChange}
               />
             </label>
-            <div className={styles.divFake} />
+
             <input type="submit" className={styles.sendButton} />
           </div>
         </form>
@@ -187,4 +174,4 @@ function AddPatient() {
   );
 }
 
-export default AddPatient;
+export default AddPractitioner;

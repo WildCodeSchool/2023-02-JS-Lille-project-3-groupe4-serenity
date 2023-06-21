@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaRegWindowClose } from "react-icons/fa";
-import styles from "./AddPatient.module.css";
+import styles from "./AddIntervention.module.css";
 
-function AddPatient() {
+function AddIntervention() {
   const [inputs, setInputs] = useState({ roles: "patient" });
 
   const handleChange = (event) => {
@@ -17,13 +17,13 @@ function AddPatient() {
   };
 
   return (
-    <div className={styles.addPatientContainer}>
+    <div className={styles.addInterventionContainer}>
       <div className={styles.closeButtonContainer}>
-        <Link to="/secretariat/patient">
+        <Link to="/secretariat/intervention">
           <FaRegWindowClose className={styles.closeIcon} />
         </Link>
       </div>
-      <h3>Ajout d'un nouveau patient</h3>
+      <h3>Ajout d'une nouvelle intervention</h3>
       <div className={styles.formContainer}>
         <form onSubmit={handleSubmit}>
           <div className={styles.leftContainer}>
@@ -187,4 +187,4 @@ function AddPatient() {
   );
 }
 
-export default AddPatient;
+export default AddIntervention;

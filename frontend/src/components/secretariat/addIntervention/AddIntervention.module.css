@@ -1,0 +1,123 @@
+.addInterventionContainer {
+  width: 100%;
+  height: 100%;
+  border: solid 3px var(--main-purple);
+  border-radius: 1.5rem;
+  background-color: var(--white);
+  box-shadow: var(--basic-shadow);
+  background-color: var(--light-grey);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.addInterventionContainer h3 {
+  font-size: 2.5rem;
+  font-weight: 500;
+}
+
+.closeButtonContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.closeIcon {
+  font-size: 1.5rem;
+  color: var(--light-purple);
+}
+
+.closeIcon:hover {
+  color: var(--main-purple);
+}
+
+.formContainer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 3rem;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  gap: 0.5rem;
+}
+
+input,
+.multipleChoicesMenu {
+  height: 2.5rem;
+  border: none;
+  border-radius: 5px;
+  font-weight: 500;
+}
+
+input {
+  padding-left: 5px;
+}
+
+/* ENLEVER LES FLECHES PLUS ET MOINS */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input:focus,
+.multipleChoicesMenu:focus {
+  outline: solid 2px var(--light-purple);
+}
+
+input:disabled {
+  background-color: var(--medium-grey);
+}
+
+.sendButton {
+  width: 80%;
+}
+
+.leftContainer,
+.middleContainer,
+.rightContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.divFake {
+  height: 58px;
+  border: none;
+  border-radius: 5px;
+}
+
+.sendButton {
+  width: 80%;
+  height: 3rem;
+  background-color: var(--main-purple);
+  border: none;
+  color: var(--white);
+  font-weight: 500;
+  border-radius: 0.8rem;
+  box-shadow: var(--basic-shadow);
+  cursor: pointer;
+  margin-top: 18px;
+}
+
+.sendButton:hover {
+  background-color: var(--light-purple);
+}

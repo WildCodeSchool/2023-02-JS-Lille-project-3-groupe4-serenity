@@ -6,7 +6,7 @@ function SecretariatPatientPage() {
   return (
     <div className={styles.patientsContainer}>
       <div className={styles.buttonsContainer}>
-        <Link to="/secretariat/patient/ajouter">
+        <Link to="/secretariat/patient/add">
           <button type="button" className={styles.addButton}>
             Ajouter
           </button>
