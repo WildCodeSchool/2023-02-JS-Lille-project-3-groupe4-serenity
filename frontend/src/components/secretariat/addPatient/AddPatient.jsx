@@ -134,14 +134,7 @@ function AddPatient() {
             </label>
             <label>
               Rôle:
-              <select
-                className={styles.multipleChoicesMenu}
-                name="roles"
-                value={inputs.roles || ""}
-                onChange={handleChange}
-              >
-                <option value="patient">Patient</option>
-              </select>
+              <input type="text" name="roles" value="Patient" disabled />
             </label>
 
             <label>

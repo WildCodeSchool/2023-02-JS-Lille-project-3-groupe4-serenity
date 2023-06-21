@@ -82,6 +82,10 @@ input:focus,
   outline: solid 2px var(--light-purple);
 }
 
+input:disabled {
+  background-color: var(--medium-grey);
+}
+
 .sendButton {
   width: 80%;
 }
@@ -112,4 +116,8 @@ input:focus,
   box-shadow: var(--basic-shadow);
   cursor: pointer;
   margin-top: 18px;
+}
+
+.sendButton:hover {
+  background-color: var(--light-purple);
 }
