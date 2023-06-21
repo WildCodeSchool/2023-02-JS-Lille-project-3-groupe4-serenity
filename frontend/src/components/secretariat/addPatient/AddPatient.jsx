@@ -56,12 +56,25 @@ function AddPatient() {
             </label>
             <label>
               Groupe sanguin:
-              <input
-                type="text"
+              <select
+                className={styles.multipleChoicesMenu}
                 name="blood_group"
                 value={inputs.blood_group || ""}
                 onChange={handleChange}
-              />
+              >
+                <option
+                  value=""
+                  aria-label="Select list for blood group"
+                  disabled
+                  hidden
+                />
+                <option value="a+">A+</option>
+                <option value="a-">A-</option>
+                <option value="b+">B+</option>
+                <option value="b-">B-</option>
+                <option value="ab+">AB+</option>
+                <option value="ab-">AB-</option>
+              </select>
             </label>
             <label>
               N° sécurité sociale:
@@ -121,13 +134,16 @@ function AddPatient() {
             </label>
             <label>
               Rôle:
-              <input
-                type="text"
+              <select
+                className={styles.multipleChoicesMenu}
                 name="roles"
                 value={inputs.roles || ""}
                 onChange={handleChange}
-              />
+              >
+                <option value="patient">Patient</option>
+              </select>
             </label>
+
             <label>
               Mot de passe:
               <input
