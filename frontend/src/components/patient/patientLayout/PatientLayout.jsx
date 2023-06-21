@@ -26,13 +26,11 @@ function PatientLayout() {
       )}
       {isTabletOrMobile && (
         <div className={styles.patientLayoutMobileContainer}>
-          <PatientNavbarMobile />
-          <div className={styles.headerAndPageMobileContainer}>
-            <PatientHeaderMobile />
-            <div className={styles.outletMobileContainer}>
-              <Outlet />
-            </div>
+          <PatientHeaderMobile />
+          <div className={styles.outletMobileContainer}>
+            <Outlet />
           </div>
+          <PatientNavbarMobile />
         </div>
       )}
     </div>

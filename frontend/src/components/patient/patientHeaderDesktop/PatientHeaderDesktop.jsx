@@ -1,6 +1,6 @@
 import React from "react";
-import styles from "./PatientHeaderDesktop.module.css";
 import { FaRegBell } from "react-icons/fa";
+import styles from "./PatientHeaderDesktop.module.css";
 
 function PatientHeaderDesktop() {
   return (

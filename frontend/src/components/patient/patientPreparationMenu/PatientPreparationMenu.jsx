@@ -1,10 +1,10 @@
 import React from "react";
+import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
+import "react-circular-progressbar/dist/styles.css";
 import { NavLink } from "react-router-dom";
 import styles from "./PatientPreparationMenu.module.css";
-import "react-circular-progressbar/dist/styles.css";
-import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 
-const PatientPreparationMenu = () => {
+function PatientPreparationMenu() {
   const percentage = 33;
 
   return (
@@ -112,6 +112,6 @@ const PatientPreparationMenu = () => {
       </NavLink>
     </div>
   );
-};
+}
 
 export default PatientPreparationMenu;

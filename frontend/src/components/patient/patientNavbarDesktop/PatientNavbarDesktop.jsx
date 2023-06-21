@@ -1,10 +1,11 @@
 import React from "react";
 import {
-  FaRegHospital,
   FaRocketchat,
-  FaUserMd,
   FaPowerOff,
   FaRegBell,
+  FaAddressBook,
+  FaMusic,
+  FaOm,
 } from "react-icons/fa";
 import { NavLink, Link } from "react-router-dom";
 import styles from "./PatientNavbarDesktop.module.css";
@@ -21,7 +22,7 @@ function PatientNavbarDesktop() {
           }
         >
           <div className={styles.iconAndTextContainer}>
-            <FaRegHospital className={styles.linkIcons} />
+            <FaAddressBook className={styles.linkIcons} />
             Ma préparation
           </div>
         </NavLink>
@@ -32,7 +33,7 @@ function PatientNavbarDesktop() {
           }
         >
           <div className={styles.iconAndTextContainer}>
-            <FaUserMd className={styles.linkIcons} />
+            <FaOm className={styles.linkIcons} />
             Gagner en sérénité
           </div>
         </NavLink>
@@ -43,7 +44,7 @@ function PatientNavbarDesktop() {
           }
         >
           <div className={styles.iconAndTextContainer}>
-            <FaUserMd className={styles.linkIcons} />
+            <FaMusic className={styles.linkIcons} />
             Musique
           </div>
         </NavLink>
