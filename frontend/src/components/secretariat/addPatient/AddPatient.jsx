@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaRegWindowClose } from "react-icons/fa";
 import styles from "./AddPatient.module.css";
 
 function AddPatient() {
   const [inputs, setInputs] = useState({ roles: "patient" });
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
     const { name } = event.target;
@@ -14,6 +15,7 @@ function AddPatient() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    navigate("/secretariat/patient");
   };
 
   return (

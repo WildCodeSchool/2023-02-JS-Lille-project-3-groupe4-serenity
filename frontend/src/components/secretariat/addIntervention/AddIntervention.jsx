@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaRegWindowClose } from "react-icons/fa";
 import styles from "./AddIntervention.module.css";
 
 function AddIntervention() {
   const [inputs, setInputs] = useState({ roles: "patient" });
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
     const { name } = event.target;
@@ -14,6 +15,7 @@ function AddIntervention() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    navigate("/secretariat/intervention");
   };
 
   return (
@@ -28,53 +30,13 @@ function AddIntervention() {
         <form onSubmit={handleSubmit}>
           <div className={styles.leftContainer}>
             <label>
-              Nom:
+              Nom de l'intervention:
               <input
                 type="text"
-                name="last_name"
-                value={inputs.last_name || ""}
+                name="nom_intervention"
+                value={inputs.nom_intervention || ""}
                 onChange={handleChange}
               />
-            </label>
-            <label>
-              Téléphone:
-              <input
-                type="text"
-                name="phone"
-                value={inputs.phone || ""}
-                onChange={handleChange}
-              />
-            </label>
-            <label>
-              Adresse:
-              <input
-                type="text"
-                name="adress"
-                value={inputs.adress || ""}
-                onChange={handleChange}
-              />
-            </label>
-            <label>
-              Groupe sanguin:
-              <select
-                className={styles.multipleChoicesMenu}
-                name="blood_group"
-                value={inputs.blood_group || ""}
-                onChange={handleChange}
-              >
-                <option
-                  value=""
-                  aria-label="Select list for blood group"
-                  disabled
-                  hidden
-                />
-                <option value="a+">A+</option>
-                <option value="a-">A-</option>
-                <option value="b+">B+</option>
-                <option value="b-">B-</option>
-                <option value="ab+">AB+</option>
-                <option value="ab-">AB-</option>
-              </select>
             </label>
             <label>
               N° sécurité sociale:
@@ -86,99 +48,63 @@ function AddIntervention() {
               />
             </label>
             <label>
-              Email:
+              Identifiant RPPS:
               <input
                 type="text"
-                name="email"
-                value={inputs.email || ""}
+                name="identifier_rpps"
+                value={inputs.identifier_rpps || ""}
+                onChange={handleChange}
+              />
+            </label>
+            <label>
+              Date de procédure:
+              <input
+                type="date"
+                name="procedure_date"
+                value={inputs.procedure_date || ""}
                 onChange={handleChange}
               />
             </label>
           </div>
           <div className={styles.middleContainer}>
             <label>
-              Prénom:
+              Type d'intervention:
+              <select
+                className={styles.multipleChoicesMenu}
+                name="type_intervention"
+                value={inputs.type_intervention || ""}
+                onChange={handleChange}
+              >
+                <option
+                  value=""
+                  aria-label="Select list for intervention type"
+                  disabled
+                  hidden
+                />
+                <option value="Pose implant">Pose implant</option>
+                <option value="Chirurgie">Chirurgie</option>
+              </select>
+            </label>
+            <label>
+              Nom du patient:
               <input
                 type="text"
-                name="first_name"
-                value={inputs.first_name || ""}
+                name="last_name"
+                value={inputs.last_name || ""}
                 onChange={handleChange}
+                disabled
               />
             </label>
             <label>
-              Nationalité:
+              Nom du practicien:
               <input
                 type="text"
-                name="nationality"
-                value={inputs.nationality || ""}
+                name="last_name"
+                value={inputs.last_name || ""}
                 onChange={handleChange}
+                disabled
               />
             </label>
-            <label>
-              Code postal:
-              <input
-                type="text"
-                name="zip_code"
-                value={inputs.zip_code || ""}
-                onChange={handleChange}
-              />
-            </label>
-            <label>
-              Allergies:
-              <input
-                type="text"
-                name="allergy"
-                value={inputs.allergy || ""}
-                onChange={handleChange}
-              />
-            </label>
-            <label>
-              Rôle:
-              <input type="text" name="roles" value="Patient" disabled />
-            </label>
-
-            <label>
-              Mot de passe:
-              <input
-                type="text"
-                name="pwd"
-                value={inputs.pwd || ""}
-                onChange={handleChange}
-              />
-            </label>
-          </div>
-          <div className={styles.rightContainer}>
-            <label>
-              Âge:
-              <input
-                type="number"
-                name="age"
-                value={inputs.age || ""}
-                onChange={handleChange}
-              />
-            </label>
-
-            <div className={styles.divFake} />
-
-            <label>
-              Ville:
-              <input
-                type="text"
-                name="city"
-                value={inputs.city || ""}
-                onChange={handleChange}
-              />
-            </label>
-            <label>
-              Remarques:
-              <input
-                type="text"
-                name="remark"
-                value={inputs.remark || ""}
-                onChange={handleChange}
-              />
-            </label>
-            <div className={styles.divFake} />
             <input type="submit" className={styles.sendButton} />
           </div>
         </form>

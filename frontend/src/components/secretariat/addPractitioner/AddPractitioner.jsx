@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { FaRegWindowClose } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "./AddPractitioner.module.css";
 
 function AddPractitioner() {
-  const [inputs, setInputs] = useState({ roles: "pratitioner" });
+  const [inputs, setInputs] = useState({ roles: "practitioner" });
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
     const { name } = event.target;
@@ -14,6 +15,7 @@ function AddPractitioner() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    navigate("/secretariat/practitioner");
   };
 
   return (
@@ -160,8 +162,8 @@ function AddPractitioner() {
               Identifiant RPPS:
               <input
                 type="text"
-                name="remark"
-                value={inputs.remark || ""}
+                name="identifier_rpps"
+                value={inputs.identifier_rpps || ""}
                 onChange={handleChange}
               />
             </label>
