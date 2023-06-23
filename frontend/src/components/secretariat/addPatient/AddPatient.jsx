@@ -4,7 +4,7 @@ import { FaRegWindowClose } from "react-icons/fa";
 import styles from "./AddPatient.module.css";
 
 function AddPatient() {
-  const [inputs, setInputs] = useState({ roles: "patient" });
+  const [inputs, setInputs] = useState({});
   const navigate = useNavigate();
 
   const handleChange = (event) => {
@@ -51,8 +51,8 @@ function AddPatient() {
               Adresse:
               <input
                 type="text"
-                name="adress"
-                value={inputs.adress || ""}
+                name="address"
+                value={inputs.address || ""}
                 onChange={handleChange}
               />
             </label>
@@ -135,19 +135,25 @@ function AddPatient() {
               />
             </label>
             <label>
-              Rôle:
-              <input type="text" name="roles" value="Patient" disabled />
+              Genre:
+              <select
+                className={styles.multipleChoicesMenu}
+                name="gender"
+                value={inputs.gender || ""}
+                onChange={handleChange}
+              >
+                <option
+                  value=""
+                  aria-label="Select list for gender"
+                  disabled
+                  hidden
+                />
+                <option value="male">Homme</option>
+                <option value="female">Femme</option>
+              </select>
             </label>
 
-            <label>
-              Mot de passe:
-              <input
-                type="text"
-                name="pwd"
-                value={inputs.pwd || ""}
-                onChange={handleChange}
-              />
-            </label>
+            <div className={styles.divFake} />
           </div>
           <div className={styles.rightContainer}>
             <label>

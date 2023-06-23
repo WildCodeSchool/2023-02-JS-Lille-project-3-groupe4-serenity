@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import styles from "./AddPractitioner.module.css";
 
 function AddPractitioner() {
-  const [inputs, setInputs] = useState({ roles: "practitioner" });
+  const [inputs, setInputs] = useState({});
   const navigate = useNavigate();
 
   const handleChange = (event) => {
@@ -52,23 +52,56 @@ function AddPractitioner() {
               Adresse:
               <input
                 type="text"
-                name="adress"
-                value={inputs.adress || ""}
+                name="address"
+                value={inputs.address || ""}
                 onChange={handleChange}
               />
             </label>
             <label>
               Spécialité:
-              <input
-                type="text"
-                name="social_secu_number"
-                value={inputs.social_secu_number || ""}
+              <select
+                className={styles.multipleChoicesMenu}
+                name="speciality"
+                value={inputs.speciality || ""}
                 onChange={handleChange}
-              />
+              >
+                <option
+                  value=""
+                  aria-label="Select list for speciality"
+                  disabled
+                  hidden
+                />
+                <option value="Cardiologie">Cardiologie</option>
+                <option value="Orthopédie">Orthopédie</option>
+                <option value="Chirurgie Dentaire">Chirurgie Dentaire</option>
+                <option value="Chirurgie esthétique">
+                  Chirurgie esthétique
+                </option>
+              </select>
             </label>
             <label>
-              Rôle:
-              <input type="text" name="roles" value="Praticien" disabled />
+              Nom service:
+              <select
+                className={styles.multipleChoicesMenu}
+                name="nom_service"
+                value={inputs.nom_service || ""}
+                onChange={handleChange}
+              >
+                <option
+                  value=""
+                  aria-label="Select list for service"
+                  disabled
+                  hidden
+                />
+                <option value="Cardiologie">Cardiologie</option>
+                <option value="Chirurgie orthopédique">
+                  Chirurgie orthopédique
+                </option>
+                <option value="Chirurgie dentaire">Chirurgie dentaire</option>
+                <option value="Neurologie">Neurologie</option>
+                <option value="Pédiatrie">Pédiatrie</option>
+                <option value="Reanimation">Réanimation</option>
+              </select>
             </label>
           </div>
           <div className={styles.middleContainer}>
@@ -100,13 +133,22 @@ function AddPractitioner() {
               />
             </label>
             <label>
-              N° sécurité sociale:
-              <input
-                type="text"
-                name="social_secu_number"
-                value={inputs.social_secu_number || ""}
+              Type d'intervention:
+              <select
+                className={styles.multipleChoicesMenu}
+                name="type_intervention"
+                value={inputs.type_intervention || ""}
                 onChange={handleChange}
-              />
+              >
+                <option
+                  value=""
+                  aria-label="Select list for intervention type"
+                  disabled
+                  hidden
+                />
+                <option value="Chirurgie">Chirurgie</option>
+                <option value="Pose implant">Pose implant</option>
+              </select>
             </label>
 
             <label>

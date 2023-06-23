@@ -33,8 +33,8 @@ function AddIntervention() {
               Nom de l'intervention:
               <input
                 type="text"
-                name="nom_intervention"
-                value={inputs.nom_intervention || ""}
+                name="nom_Intervention"
+                value={inputs.nom_Intervention || ""}
                 onChange={handleChange}
               />
             </label>
@@ -89,7 +89,6 @@ function AddIntervention() {
               Nom du patient:
               <input
                 type="text"
-                name="last_name"
                 value={inputs.last_name || ""}
                 onChange={handleChange}
                 disabled
@@ -99,7 +98,6 @@ function AddIntervention() {
               Nom du practicien:
               <input
                 type="text"
-                name="last_name"
                 value={inputs.last_name || ""}
                 onChange={handleChange}
                 disabled

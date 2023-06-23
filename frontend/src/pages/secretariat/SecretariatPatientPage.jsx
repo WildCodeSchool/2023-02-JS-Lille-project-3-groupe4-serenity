@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./SecretariatPatientPage.module.css";
+/* import PatientListTable from "../../components/patientListTable/patientListTable"; */
 
 function SecretariatPatientPage() {
   return (
@@ -12,7 +13,7 @@ function SecretariatPatientPage() {
           </button>
         </Link>
       </div>
-      <div className={styles.dataContainer} />
+      <div className={styles.dataContainer}>{/*  <PatientListTable /> */}</div>
     </div>
   );
 }

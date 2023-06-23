@@ -1,0 +1,28 @@
+@import url("../../GlobalVariables.css");
+
+.entete {
+  background-color: var(--light-purple);
+}
+.textEntete {
+  color: white;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+.newClass {
+  color: green;
+}
+
+.ligne:nth-child(2n + 0) {
+  background-color: var(--light-grey);
+}
+
+.ligne:hover {
+  cursor: pointer;
+  background-color: var(--medium-grey);
+}
+
+.textRows {
+  font-weight: 400;
+  font-size: 1.1rem;
+}
