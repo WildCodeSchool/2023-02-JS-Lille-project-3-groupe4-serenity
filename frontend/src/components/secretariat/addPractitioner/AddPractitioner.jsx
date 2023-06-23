@@ -20,7 +20,7 @@ function AddPractitioner() {
       await axios.post("http://localhost:5050/practitioners", inputs);
       navigate("/secretariat/practitioner");
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
   };
 

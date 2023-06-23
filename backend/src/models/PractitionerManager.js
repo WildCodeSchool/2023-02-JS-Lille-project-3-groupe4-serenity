@@ -45,6 +45,16 @@ class PractitionerManager extends AbstractManager {
        2`
     );
   }
+
+  findAllPractitioner() {
+    return this.database.query(
+      `SELECT CONCAT(User.last_name, ' ', User.first_name) AS "Nom du praticien",
+      Practitioner.identifier_rpps as "identifiant RPPS",
+      User.email
+      FROM Practitioner
+      JOIN User ON Practitioner.user_id = User.id`
+    );
+  }
 }
 
 module.exports = PractitionerManager;

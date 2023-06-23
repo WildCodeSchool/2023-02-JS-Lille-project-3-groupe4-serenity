@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaRegWindowClose } from "react-icons/fa";
-import styles from "./AddIntervention.module.css";
 import axios from "axios";
+import styles from "./AddIntervention.module.css";
 
 function AddIntervention() {
   const [inputs, setInputs] = useState({ roles: "patient" });
@@ -20,7 +20,7 @@ function AddIntervention() {
       await axios.post("http://localhost:5050/interventions", inputs);
       navigate("/secretariat/intervention");
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
   };
 

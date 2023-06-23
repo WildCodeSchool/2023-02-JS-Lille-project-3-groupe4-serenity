@@ -41,9 +41,17 @@ class PatientManager extends AbstractManager {
         (SELECT social_secu_number FROM serenity.Patient P WHERE P.user_id = @user_id),
         2)`
     );
-    
   }
-  
+
+  findAllPatient() {
+    return this.database.query(
+      `SELECT CONCAT(User.last_name, ' ', User.first_name) AS "Nom du patient",
+      Patient.social_secu_number AS "numéro de sécurité sociale",
+      User.email
+      FROM User
+      JOIN Patient ON User.id = Patient.user_id`
+    );
+  }
 }
 
 module.exports = PatientManager;

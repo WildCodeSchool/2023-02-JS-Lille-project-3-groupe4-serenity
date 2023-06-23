@@ -2,8 +2,8 @@ const models = require("../models");
 
 const browse = (req, res) => {
   models.patient
-    .findAll()
-    .then(([rows]) => {
+    .findAllPatient()
+    .then((rows) => {
       res.send(rows);
     })
     .catch((err) => {

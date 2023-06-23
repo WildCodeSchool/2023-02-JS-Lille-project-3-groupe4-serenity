@@ -2,8 +2,8 @@ const models = require("../models");
 
 const browse = (req, res) => {
   models.intervention
-    .findAll()
-    .then(([rows]) => {
+    .findAllIntervention()
+    .then((rows) => {
       res.send(rows);
     })
     .catch((err) => {
