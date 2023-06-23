@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./SecretariatPractitionerPage.module.css";
-/* import PractitionerListTable from "../../components/practitionerListTable/practitionerListTable"; */
+import PractitionerListTable from "../../components/practitionerListTable/PractitionerListTable";
 
 function SecretariatPractitionerPage() {
   return (
@@ -14,7 +14,7 @@ function SecretariatPractitionerPage() {
         </Link>
       </div>
       <div className={styles.dataContainer}>
-        {/* <PractitionerListTable /> */}
+        <PractitionerListTable />
       </div>
     </div>
   );

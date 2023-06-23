@@ -9,7 +9,7 @@ import { StyledEngineProvider } from "@mui/material/styles";
 import React from "react";
 import { FaEye } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import styles from "./practitionerListTable.module.css";
+import styles from "./PractitionerListTable.module.css";
 
 const rows = [
   {
