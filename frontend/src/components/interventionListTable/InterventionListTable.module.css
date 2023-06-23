@@ -3,11 +3,6 @@
 .entete {
   background-color: var(--light-purple);
 }
-.textEntete {
-  color: white;
-  font-weight: 500;
-  font-size: 1.2rem;
-}
 
 .newClass {
   color: green;

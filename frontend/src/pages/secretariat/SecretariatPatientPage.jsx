@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import styles from "./SecretariatPatientPage.module.css";
-/* import PatientListTable from "../../components/patientListTable/patientListTable"; */
+import PatientListTable from "../../components/patientListTable/PatientListTable";
 
 function SecretariatPatientPage() {
   const [patients, setPatients] = useState([]);
@@ -21,6 +21,7 @@ function SecretariatPatientPage() {
   return (
     <div className={styles.patientsContainer}>
       <div className={styles.buttonsContainer}>
+        <h1 className={styles.pageTitle}>Patients</h1>
         <Link to="/secretariat/patient/add">
           <button type="button" className={styles.addButton}>
             Ajouter
@@ -28,7 +29,10 @@ function SecretariatPatientPage() {
         </Link>
         {patients && patients.map((patient) => <h1>{patient}</h1>)}
       </div>
-      <div className={styles.dataContainer}>{/*  <PatientListTable /> */}</div>
+      <div className={styles.dataContainer}>
+        {" "}
+        <PatientListTable />
+      </div>
     </div>
   );
 }

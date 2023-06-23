@@ -9,7 +9,7 @@ import { StyledEngineProvider } from "@mui/material/styles";
 import React from "react";
 import { FaEye } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import styles from "./practitionerListTable.module.css";
+import styles from "./PractitionerListTable.module.css";
 
 const rows = [
   {
@@ -45,19 +45,34 @@ function PractitionerListTable() {
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow className={styles.entete}>
-              <TableCell className={styles.textEntete} hover="true">
+              <TableCell
+                sx={{ color: "white", fontSize: "1.2rem" }}
+                hover="true"
+              >
                 Nom
               </TableCell>
-              <TableCell className={styles.textEntete} align="right">
+              <TableCell
+                sx={{ color: "white", fontSize: "1.2rem" }}
+                align="right"
+              >
                 Prénom
               </TableCell>
-              <TableCell className={styles.textEntete} align="right">
+              <TableCell
+                sx={{ color: "white", fontSize: "1.2rem" }}
+                align="right"
+              >
                 Spécialité
               </TableCell>
-              <TableCell className={styles.textEntete} align="right">
+              <TableCell
+                sx={{ color: "white", fontSize: "1.2rem" }}
+                align="right"
+              >
                 N° RPPS
               </TableCell>
-              <TableCell className={styles.textEntete} align="right" />
+              <TableCell
+                sx={{ color: "white", fontSize: "1.2rem" }}
+                align="right"
+              />
             </TableRow>
           </TableHead>
           <TableBody>
