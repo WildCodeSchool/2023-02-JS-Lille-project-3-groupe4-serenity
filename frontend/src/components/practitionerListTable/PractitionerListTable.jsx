@@ -45,19 +45,34 @@ function PractitionerListTable() {
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow className={styles.entete}>
-              <TableCell className={styles.textEntete} hover="true">
+              <TableCell
+                sx={{ color: "white", fontSize: "1.2rem" }}
+                hover="true"
+              >
                 Nom
               </TableCell>
-              <TableCell className={styles.textEntete} align="right">
+              <TableCell
+                sx={{ color: "white", fontSize: "1.2rem" }}
+                align="right"
+              >
                 Prénom
               </TableCell>
-              <TableCell className={styles.textEntete} align="right">
+              <TableCell
+                sx={{ color: "white", fontSize: "1.2rem" }}
+                align="right"
+              >
                 Spécialité
               </TableCell>
-              <TableCell className={styles.textEntete} align="right">
+              <TableCell
+                sx={{ color: "white", fontSize: "1.2rem" }}
+                align="right"
+              >
                 N° RPPS
               </TableCell>
-              <TableCell className={styles.textEntete} align="right" />
+              <TableCell
+                sx={{ color: "white", fontSize: "1.2rem" }}
+                align="right"
+              />
             </TableRow>
           </TableHead>
           <TableBody>
