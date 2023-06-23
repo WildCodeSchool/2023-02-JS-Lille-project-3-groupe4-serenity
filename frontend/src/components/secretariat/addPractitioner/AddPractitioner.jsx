@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { FaRegWindowClose } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
@@ -13,9 +14,14 @@ function AddPractitioner() {
     setInputs((values) => ({ ...values, [name]: value }));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    navigate("/secretariat/practitioner");
+    try {
+      await axios.post("http://localhost:5050/practitioners", inputs);
+      navigate("/secretariat/practitioner");
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (

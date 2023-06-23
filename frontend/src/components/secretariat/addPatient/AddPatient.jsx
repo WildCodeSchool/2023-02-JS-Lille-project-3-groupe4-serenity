@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaRegWindowClose } from "react-icons/fa";
 import styles from "./AddPatient.module.css";
+import axios from "axios";
 
 function AddPatient() {
   const [inputs, setInputs] = useState({});
@@ -13,9 +14,15 @@ function AddPatient() {
     setInputs((values) => ({ ...values, [name]: value }));
   };
 
-  const handleSubmit = (event) => {
+ 
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    navigate("/secretariat/patient");
+    try {
+      await axios.post("http://localhost:5050/patients", inputs);
+      navigate("/secretariat/patient");
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (

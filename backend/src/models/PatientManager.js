@@ -41,7 +41,9 @@ class PatientManager extends AbstractManager {
         (SELECT social_secu_number FROM serenity.Patient P WHERE P.user_id = @user_id),
         2)`
     );
+    
   }
+  
 }
 
 module.exports = PatientManager;
