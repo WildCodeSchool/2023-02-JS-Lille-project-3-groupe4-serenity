@@ -2,7 +2,7 @@ const AbstractManager = require("./AbstractManager");
 
 class PractitionerManager extends AbstractManager {
   constructor() {
-    super({ table: "User" });
+    super({ table: "Practitioner" });
   }
 
   async insert(practitioner) {
@@ -46,14 +46,17 @@ class PractitionerManager extends AbstractManager {
     );
   }
 
-  findAllPractitioner() {
-    return this.database.query(
-      `SELECT CONCAT(User.last_name, ' ', User.first_name) AS "Nom du praticien",
-      Practitioner.identifier_rpps as "identifiant RPPS",
-      User.email
-      FROM Practitioner
-      JOIN User ON Practitioner.user_id = User.id`
-    );
+  async findAllPractitioner() {
+    const query = `
+    SELECT user.last_name AS "nom", user.first_name AS "prenom",
+    practitioner.speciality,
+    practitioner.identifier_rpps as "identifiantrpps"
+    FROM practitioner
+    JOIN user ON practitioner.user_id = user.id
+    `;
+
+    const [rows] = await this.database.query(query);
+    return rows;
   }
 }
 

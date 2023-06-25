@@ -55,15 +55,15 @@ class InterventionManager extends AbstractManager {
 
   findAllIntervention() {
     return this.database.query(
-      `SELECT CONCAT(practitioner_user.first_name, ' ', practitioner_user.last_name) AS "Nom du praticien",
-      CONCAT(patient_user.first_name, ' ', patient_user.last_name) AS "Nom du patient",
-      intervention.nom_intervention AS "Nom de l'intervention" ,
-      intervention.procedure_date AS "Date de l'intervention"
+      `SELECT intervention.social_secu_number AS "social_number",
+      intervention.identifier_rpps AS "identifier_rpps",
+      intervention.type_intervention AS "Nomintervention" ,
+      intervention.procedure_date AS "Dateintervention"
       FROM serenity.Intervention AS intervention
       JOIN serenity.Practitioner AS practitioner ON intervention.identifier_rpps = practitioner.identifier_rpps
       JOIN serenity.User AS practitioner_user ON practitioner.user_id = practitioner_user.id
       JOIN serenity.Patient AS patient ON intervention.social_secu_number = patient.social_secu_number
-      JOIN serenity.User AS patient_user ON patient.user_id = patient_user.id`
+      JOIN serenity.User AS patient_user ON patient.user_id = patient_user.id;`
     );
   }
 }

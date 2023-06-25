@@ -2,7 +2,7 @@ const AbstractManager = require("./AbstractManager");
 
 class PatientManager extends AbstractManager {
   constructor() {
-    super({ table: "User" });
+    super({ table: "Patient" });
   }
 
   async insert(patient) {
@@ -43,14 +43,17 @@ class PatientManager extends AbstractManager {
     );
   }
 
-  findAllPatient() {
-    return this.database.query(
-      `SELECT CONCAT(User.last_name, ' ', User.first_name) AS "Nom du patient",
-      Patient.social_secu_number AS "numéro de sécurité sociale",
-      User.email
-      FROM User
-      JOIN Patient ON User.id = Patient.user_id`
-    );
+  async findAllPatient() {
+    const query = `
+      SELECT user.last_name AS "nom", user.first_name AS "prenom",
+      user.age,
+      patient.social_secu_number AS "social_number"
+      FROM user
+      JOIN patient ON user.id = patient.user_id
+    `;
+
+    const [rows] = await this.database.query(query);
+    return rows;
   }
 }
 
