@@ -38,7 +38,7 @@ function PatientListTable() {
             <td className={styles.rows}>{patient.age}</td>
             <td className={styles.rows}>{patient.social_number}</td>
             <td className={styles.rows}>
-              <Link to="https://reactrouter.com/en/main/components/link">
+              <Link to="/secretariat/patient/infos">
                 <FaEye className={styles.eyeIcon} />
               </Link>
             </td>

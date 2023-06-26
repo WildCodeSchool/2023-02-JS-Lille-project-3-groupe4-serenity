@@ -3,6 +3,10 @@ import "./App.css";
 import AdminLayout from "./components/admin/adminLayout/AdminLayout";
 import PatientLayout from "./components/patient/patientLayout/PatientLayout";
 import PractitionerLayout from "./components/practitionner/practitionerLayout/PractitionerLayout";
+import AddIntervention from "./components/secretariat/addIntervention/AddIntervention";
+import AddPatient from "./components/secretariat/addPatient/AddPatient";
+import AddPractitioner from "./components/secretariat/addPractitioner/AddPractitioner";
+import InfosPatient from "./components/secretariat/infosPatient/InfosPatient";
 import SecretariatLayout from "./components/secretariat/secretariatLayout/SecretariatLayout";
 import Home from "./pages/Home";
 import AdminDashboardPage from "./pages/admin/AdminDashboardPage";
@@ -26,9 +30,6 @@ import SecretariatInterventionPage from "./pages/secretariat/SecretariatInterven
 import SecretariatPatientPage from "./pages/secretariat/SecretariatPatientPage";
 import SecretariatPractitionerPage from "./pages/secretariat/SecretariatPractitionerPage";
 import SecretariatUnitPage from "./pages/secretariat/SecretariatUnitPage";
-import AddPatient from "./components/secretariat/addPatient/AddPatient";
-import AddPractitioner from "./components/secretariat/addPractitioner/AddPractitioner";
-import AddIntervention from "./components/secretariat/addIntervention/AddIntervention";
 
 const router = createBrowserRouter([
   {
@@ -126,6 +127,10 @@ const router = createBrowserRouter([
       {
         path: "/secretariat/patient/add",
         element: <AddPatient />,
+      },
+      {
+        path: "/secretariat/patient/infos",
+        element: <InfosPatient />,
       },
       {
         path: "/secretariat/intervention",
