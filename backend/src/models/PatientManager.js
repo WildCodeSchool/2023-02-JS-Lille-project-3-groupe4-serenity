@@ -47,7 +47,8 @@ class PatientManager extends AbstractManager {
     const query = `
       SELECT user.last_name AS "nom", user.first_name AS "prenom",
       user.age,
-      patient.social_secu_number AS "social_number"
+      patient.social_secu_number AS "social_number",
+      patient.user_id AS "id"
       FROM user
       JOIN patient ON user.id = patient.user_id
     `;

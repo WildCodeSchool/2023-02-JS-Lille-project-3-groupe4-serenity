@@ -1,49 +1,91 @@
-import Paper from "@mui/material/Paper";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import { StyledEngineProvider } from "@mui/material/styles";
 import React, { useEffect, useState } from "react";
 import { FaEye } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import styles from "./PatientListTable.module.css";
 
-// const rows = [
-//   {
-//     last_name: "Durand",
-//     first_name: "Nathalie",
-//     age: 32,
-//     social_secu_number: 2820259000001,
-//   },
-//   {
-//     last_name: "Durand",
-//     first_name: "Michel",
-//     age: 32,
-//     social_secu_number: 1820259000002,
-//   },
-//   {
-//     last_name: "Durand",
-//     first_name: "Michel",
-//     age: 32,
-//     social_secu_number: 1820259000003,
-//   },
-//   {
-//     last_name: "Durand",
-//     first_name: "Michel",
-//     age: 32,
-//     social_secu_number: 1820259000004,
-//   },
-//   {
-//     last_name: "Durand",
-//     first_name: "Michel",
-//     age: 32,
-//     social_secu_number: 1820259000005,
-//   },
-// ];
+/* const patients = [
+  {
+    nom: "Durand",
+    prenom: "Nathalie",
+    age: 32,
+    social_number: 2820259000001,
+    id: 1,
+  },
+  {
+    nom: "Durand",
+    prenom: "Michel",
+    age: 32,
+    social_number: 1820259000002,
+    id: 2,
+  },
+  {
+    nom: "Durand",
+    prenom: "Michel",
+    age: 32,
+    social_number: 1820259000003,
+  },
+  {
+    nom: "Durand",
+    prenom: "Michel",
+    age: 32,
+    social_number: 1820259000004,
+  },
+  {
+    nom: "Durand",
+    prenom: "Michel",
+    age: 32,
+    social_number: 1820259000005,
+  },
+  {
+    nom: "Durand",
+    prenom: "Nathalie",
+    age: 32,
+    social_number: 2820259000006,
+  },
+  {
+    nom: "Durand",
+    prenom: "Michel",
+    age: 32,
+    social_number: 1820259000007,
+  },
+  {
+    nom: "Durand",
+    prenom: "Michel",
+    age: 32,
+    social_number: 1820259000008,
+  },
+  {
+    nom: "Durand",
+    prenom: "Michel",
+    age: 32,
+    social_number: 1820259000009,
+  },
+  {
+    nom: "Durand",
+    prenom: "Michel",
+    age: 32,
+    social_number: 18202590000010,
+  },
+  {
+    nom: "Durand",
+    prenom: "Michel",
+    age: 32,
+    social_number: 18202590000011,
+  },
+  {
+    nom: "Durand",
+    prenom: "Michel",
+    age: 32,
+    social_number: 18202590000012,
+  },
+  {
+    nom: "Durand",
+    prenom: "Michel",
+    age: 32,
+    social_number: 18202590000013,
+  },
+]; */
 
 function PatientListTable() {
   const [patients, setPatients] = useState([]);
@@ -61,76 +103,32 @@ function PatientListTable() {
   }, []);
 
   return (
-    <StyledEngineProvider>
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
-          <TableHead>
-            <TableRow className={styles.entete}>
-              <TableCell
-                sx={{ color: "white", fontSize: "1.2rem" }}
-                hover="true"
-              >
-                Nom
-              </TableCell>
-              <TableCell
-                sx={{ color: "white", fontSize: "1.2rem" }}
-                align="right"
-              >
-                Prénom
-              </TableCell>
-              <TableCell
-                sx={{ color: "white", fontSize: "1.2rem" }}
-                align="right"
-              >
-                Age
-              </TableCell>
-              <TableCell
-                sx={{ color: "white", fontSize: "1.2rem" }}
-                align="right"
-              >
-                N° de sécurité sociale
-              </TableCell>
-              <TableCell
-                sx={{ color: "white", fontSize: "1.2rem" }}
-                align="right"
-              />
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {patients.length > 0 &&
-              patients.map((row) => (
-                <TableRow
-                  className={styles.ligne}
-                  key={row.social_number}
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                >
-                  <TableCell
-                    className={styles.textRows}
-                    component="th"
-                    scope="row"
-                  >
-                    {row.nom}
-                  </TableCell>
-                  <TableCell className={styles.textRows} align="right">
-                    {row.prenom}
-                  </TableCell>
-                  <TableCell className={styles.textRows} align="right">
-                    {row.age}
-                  </TableCell>
-                  <TableCell className={styles.textRows} align="right">
-                    {row.social_number}
-                  </TableCell>
-                  <TableCell className={styles.textRows} align="right">
-                    <Link to="https://reactrouter.com/en/main/components/link">
-                      <FaEye />
-                    </Link>
-                  </TableCell>
-                </TableRow>
-              ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-    </StyledEngineProvider>
+    <table className={styles.tableContainer}>
+      <thead>
+        <tr>
+          <th className={styles.theadRow}>Nom</th>
+          <th className={styles.theadRow}>Prénom</th>
+          <th className={styles.theadRow}>Âge</th>
+          <th className={styles.theadRow}>N°sécurité sociale</th>
+          <th className={styles.theadRow}>Détails</th>
+        </tr>
+      </thead>
+      <tbody>
+        {patients.map((patient) => (
+          <tr className={styles.bodyRows} key={patient.social_number}>
+            <td className={styles.rows}>{patient.nom}</td>
+            <td className={styles.rows}>{patient.prenom}</td>
+            <td className={styles.rows}>{patient.age}</td>
+            <td className={styles.rows}>{patient.social_number}</td>
+            <td className={styles.rows}>
+              <Link to="https://reactrouter.com/en/main/components/link">
+                <FaEye className={styles.eyeIcon} />
+              </Link>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
   );
 }
 

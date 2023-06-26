@@ -58,7 +58,8 @@ class InterventionManager extends AbstractManager {
       `SELECT intervention.social_secu_number AS "social_number",
       intervention.identifier_rpps AS "identifier_rpps",
       intervention.type_intervention AS "Nomintervention" ,
-      intervention.procedure_date AS "Dateintervention"
+      intervention.procedure_date AS "Dateintervention",
+      intervention.id AS "id_intervention"
       FROM serenity.Intervention AS intervention
       JOIN serenity.Practitioner AS practitioner ON intervention.identifier_rpps = practitioner.identifier_rpps
       JOIN serenity.User AS practitioner_user ON practitioner.user_id = practitioner_user.id
