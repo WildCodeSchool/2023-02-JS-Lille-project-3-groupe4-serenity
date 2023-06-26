@@ -12,7 +12,7 @@ tr {
 }
 
 .theadRow {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 400;
   height: 60px;
   color: var(--white);
@@ -35,7 +35,6 @@ tr {
 
 .bodyRows:hover {
   background-color: var(--medium-grey);
-  cursor: pointer;
 }
 .rows {
   font-size: 1.2rem;
@@ -44,4 +43,8 @@ tr {
 .eyeIcon {
   font-size: 1.3rem;
   color: var(--light-purple);
+}
+
+.eyeIcon:hover {
+  color: var(--main-purple);
 }
