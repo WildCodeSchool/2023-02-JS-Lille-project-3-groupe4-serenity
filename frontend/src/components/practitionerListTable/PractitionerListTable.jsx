@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { FaEye } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import styles from "./PractitionerListTable.module.css";
+import styles from "./PractitionerList.module.css";
 
 // const rows = [
 //   {
