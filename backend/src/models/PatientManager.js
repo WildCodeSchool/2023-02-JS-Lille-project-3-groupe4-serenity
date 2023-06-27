@@ -56,6 +56,26 @@ class PatientManager extends AbstractManager {
     const [rows] = await this.database.query(query);
     return rows;
   }
+
+  async findPatientBySocialSecuNumber(socialSecuNumber) {
+    const query = `
+      SELECT u.gender AS "Sexe", u.last_name AS "Nom", u.first_name AS "Prénom", u.age,
+      u.phone AS "Téléphone", u.nationality AS "Nationalité", u.address AS "Adresse", u.city AS "Ville",
+      u.zip_code AS "Code_Postal", u.email AS "Email",
+      i.pwd AS "Mot_de_Passe",
+      pt.blood_group AS "Groupe_Sanguin",
+      pt.allergy AS "Allergie",
+      pt.remark AS "Remarques",
+      pt.social_secu_number AS "Numéro_de_sécurité_Sociale"
+      FROM serenity.User u
+      JOIN serenity.Identification i ON u.id = i.user_id
+      JOIN serenity.Patient pt ON u.id = pt.user_id
+      WHERE pt.social_secu_number = ?
+    `;
+
+    const [rows] = await this.database.query(query, [socialSecuNumber]);
+    return rows;
+  }
 }
 
 module.exports = PatientManager;
