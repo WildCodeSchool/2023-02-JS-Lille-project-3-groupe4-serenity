@@ -1,18 +1,17 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FaRegWindowClose } from "react-icons/fa";
-import axios from "axios";
+/* import axios from "axios"; */
 import styles from "./InfosPatient.module.css";
 
 function AddPatient() {
-  const [inputs, setInputs] = useState({});
-  const navigate = useNavigate();
+  const [inputs] = useState({});
 
-  const handleChange = (event) => {
+  /*   const handleChange = (event) => {
     const { name } = event.target;
     const { value } = event.target;
     setInputs((values) => ({ ...values, [name]: value }));
-  };
+  }; */
 
   return (
     <div className={styles.addPatientContainer}>
