@@ -13,10 +13,12 @@ const browse = (req, res) => {
 };
 
 const read = (req, res) => {
+  const identifiantRpps = req.params.identifier_rpps;
+
   models.practitioner
-    .find(req.params.id)
-    .then(([rows]) => {
-      if (rows[0] == null) {
+    .findPatientByIdentifiantRpps(identifiantRpps)
+    .then((rows) => {
+      if (rows.length === 0) {
         res.sendStatus(404);
       } else {
         res.send(rows[0]);

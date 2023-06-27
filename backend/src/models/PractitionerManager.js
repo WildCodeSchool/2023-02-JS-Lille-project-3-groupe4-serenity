@@ -58,6 +58,24 @@ class PractitionerManager extends AbstractManager {
     const [rows] = await this.database.query(query);
     return rows;
   }
+
+  async findPatientByIdentifiantRpps(identifiantRpps) {
+    const query = `
+    SELECT u.gender AS "Sexe", u.last_name AS "Nom", u.first_name AS "Prénom", u.age,
+    u.phone AS "Téléphone", u.nationality AS "Nationalité", u.address AS "Adresse", u.city AS "Ville",
+    u.zip_code AS "Code_Postal", u.email AS "Email",
+    p.speciality AS "Spécialité", p.service_id AS "Service",
+    p.identifier_rpps AS "Identifiant_RPPS",
+    i.pwd AS "Mot_de_Passe"
+  FROM serenity.User u
+  JOIN serenity.Practitioner p ON u.id = p.user_id
+  JOIN serenity.Identification i ON u.id = i.user_id
+  WHERE p.identifier_rpps = ?;
+    `;
+
+    const [rows] = await this.database.query(query, [identifiantRpps]);
+    return rows;
+  }
 }
 
 module.exports = PractitionerManager;
