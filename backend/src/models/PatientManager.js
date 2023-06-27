@@ -45,10 +45,10 @@ class PatientManager extends AbstractManager {
 
   async findAllPatient() {
     const query = `
-      SELECT user.last_name AS "nom", user.first_name AS "prenom",
+      SELECT user.last_name, user.first_name,
       user.age,
-      patient.social_secu_number AS "social_number",
-      patient.user_id AS "id"
+      patient.social_secu_number,
+      patient.user_id
       FROM user
       JOIN patient ON user.id = patient.user_id
     `;
@@ -59,14 +59,14 @@ class PatientManager extends AbstractManager {
 
   async findPatientBySocialSecuNumber(socialSecuNumber) {
     const query = `
-      SELECT u.gender AS "Sexe", u.last_name AS "Nom", u.first_name AS "Prénom", u.age,
-      u.phone AS "Téléphone", u.nationality AS "Nationalité", u.address AS "Adresse", u.city AS "Ville",
-      u.zip_code AS "Code_Postal", u.email AS "Email",
-      i.pwd AS "Mot_de_Passe",
-      pt.blood_group AS "Groupe_Sanguin",
-      pt.allergy AS "Allergie",
-      pt.remark AS "Remarques",
-      pt.social_secu_number AS "Numéro_de_sécurité_Sociale"
+      SELECT u.gender, u.last_name, u.first_name ,u.age,
+      u.phone, u.nationality, u.address, u.city,
+      u.zip_code, u.email,
+      i.pwd,
+      pt.blood_group,
+      pt.allergy,
+      pt.remark,
+      pt.social_secu_number
       FROM serenity.User u
       JOIN serenity.Identification i ON u.id = i.user_id
       JOIN serenity.Patient pt ON u.id = pt.user_id

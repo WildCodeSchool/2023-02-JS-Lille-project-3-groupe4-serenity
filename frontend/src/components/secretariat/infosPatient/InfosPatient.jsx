@@ -1,17 +1,26 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
 import { FaRegWindowClose } from "react-icons/fa";
-/* import axios from "axios"; */
+import axios from "axios";
 import styles from "./InfosPatient.module.css";
 
 function AddPatient() {
-  const [inputs] = useState({});
+  const [patient, setPatient] = useState({});
+  const socialSecuNumber = useParams().social_secu_number;
 
-  /*   const handleChange = (event) => {
-    const { name } = event.target;
-    const { value } = event.target;
-    setInputs((values) => ({ ...values, [name]: value }));
-  }; */
+  useEffect(() => {
+    const fectchPatientById = async () => {
+      try {
+        const response = await axios.get(
+          `http://localhost:5050/patients/${socialSecuNumber}`
+        );
+        setPatient(response.data);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    fectchPatientById();
+  }, []);
 
   return (
     <div className={styles.addPatientContainer}>
@@ -29,7 +38,7 @@ function AddPatient() {
               <input
                 type="text"
                 name="last_name"
-                value={inputs.last_name || ""}
+                value={patient.last_name || ""}
                 disabled
               />
             </label>
@@ -38,7 +47,7 @@ function AddPatient() {
               <input
                 type="text"
                 name="phone"
-                value={inputs.phone || ""}
+                value={patient.phone || ""}
                 disabled
               />
             </label>
@@ -47,7 +56,7 @@ function AddPatient() {
               <input
                 type="text"
                 name="address"
-                value={inputs.address || ""}
+                value={patient.address || ""}
                 disabled
               />
             </label>
@@ -56,7 +65,7 @@ function AddPatient() {
               <input
                 type="text"
                 name="bloog_group"
-                value={inputs.blood_group || ""}
+                value={patient.blood_group || ""}
                 disabled
               />
             </label>
@@ -65,7 +74,7 @@ function AddPatient() {
               <input
                 type="text"
                 name="social_secu_number"
-                value={inputs.social_secu_number || ""}
+                value={patient.social_secu_number || ""}
                 disabled
               />
             </label>
@@ -74,7 +83,7 @@ function AddPatient() {
               <input
                 type="text"
                 name="email"
-                value={inputs.email || ""}
+                value={patient.email || ""}
                 disabled
               />
             </label>
@@ -85,7 +94,7 @@ function AddPatient() {
               <input
                 type="text"
                 name="first_name"
-                value={inputs.first_name || ""}
+                value={patient.first_name || ""}
                 disabled
               />
             </label>
@@ -94,7 +103,7 @@ function AddPatient() {
               <input
                 type="text"
                 name="nationality"
-                value={inputs.nationality || ""}
+                value={patient.nationality || ""}
                 disabled
               />
             </label>
@@ -103,7 +112,7 @@ function AddPatient() {
               <input
                 type="text"
                 name="zip_code"
-                value={inputs.zip_code || ""}
+                value={patient.zip_code || ""}
                 disabled
               />
             </label>
@@ -112,7 +121,7 @@ function AddPatient() {
               <input
                 type="text"
                 name="allergy"
-                value={inputs.allergy || ""}
+                value={patient.allergy || ""}
                 disabled
               />
             </label>
@@ -121,7 +130,7 @@ function AddPatient() {
               <input
                 type="text"
                 name="gender"
-                value={inputs.gender || ""}
+                value={patient.gender || ""}
                 disabled
               />
             </label>
@@ -134,7 +143,7 @@ function AddPatient() {
               <input
                 type="number"
                 name="age"
-                value={inputs.age || ""}
+                value={patient.age || ""}
                 disabled
               />
             </label>
@@ -146,7 +155,7 @@ function AddPatient() {
               <input
                 type="text"
                 name="city"
-                value={inputs.city || ""}
+                value={patient.city || ""}
                 disabled
               />
             </label>
@@ -155,7 +164,7 @@ function AddPatient() {
               <input
                 type="text"
                 name="remark"
-                value={inputs.remark || ""}
+                value={patient.remark || ""}
                 disabled
               />
             </label>

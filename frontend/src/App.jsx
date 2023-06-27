@@ -129,7 +129,7 @@ const router = createBrowserRouter([
         element: <AddPatient />,
       },
       {
-        path: "/secretariat/patient/infos",
+        path: "/secretariat/patient/infos/:social_secu_number",
         element: <InfosPatient />,
       },
       {

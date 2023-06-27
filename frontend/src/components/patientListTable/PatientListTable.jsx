@@ -32,13 +32,15 @@ function PatientListTable() {
       </thead>
       <tbody>
         {patients.map((patient) => (
-          <tr className={styles.bodyRows} key={patient.social_number}>
-            <td className={styles.rows}>{patient.nom}</td>
-            <td className={styles.rows}>{patient.prenom}</td>
+          <tr className={styles.bodyRows} key={patient.social_secu_number}>
+            <td className={styles.rows}>{patient.last_name}</td>
+            <td className={styles.rows}>{patient.first_name}</td>
             <td className={styles.rows}>{patient.age}</td>
-            <td className={styles.rows}>{patient.social_number}</td>
+            <td className={styles.rows}>{patient.social_secu_number}</td>
             <td className={styles.rows}>
-              <Link to="/secretariat/patient/infos">
+              <Link
+                to={`/secretariat/patient/infos/${patient.social_secu_number}`}
+              >
                 <FaEye className={styles.eyeIcon} />
               </Link>
             </td>
