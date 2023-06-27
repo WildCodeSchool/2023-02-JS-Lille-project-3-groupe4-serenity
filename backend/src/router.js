@@ -13,7 +13,7 @@ router.delete("/items/:id", itemControllers.destroy);
 const patientControllers = require("./controllers/patientControllers");
 
 router.get("/patients", patientControllers.browse);
-router.get("/patients/:id", patientControllers.read);
+router.get("/patients/:social_secu_number", patientControllers.read);
 router.put("/patients/:id", patientControllers.edit);
 router.post("/patients", patientControllers.add);
 router.delete("/patients/:id", patientControllers.destroy);
@@ -21,7 +21,7 @@ router.delete("/patients/:id", patientControllers.destroy);
 const practitionerControllers = require("./controllers/practitionerControllers");
 
 router.get("/practitioners", practitionerControllers.browse);
-router.get("/practitioners/:id", practitionerControllers.read);
+router.get("/practitioners/:identifier_rpps", practitionerControllers.read);
 router.put("/practitioners/:id", practitionerControllers.edit);
 router.post("/practitioners", practitionerControllers.add);
 router.delete("/practitioners/:id", practitionerControllers.destroy);
