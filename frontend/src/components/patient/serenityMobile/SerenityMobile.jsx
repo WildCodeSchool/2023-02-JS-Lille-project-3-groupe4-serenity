@@ -16,7 +16,7 @@ function SerenityMobile() {
   return (
     <div className={styles.serenityMobileContainer}>
       <div className={styles.progressBarContainer}>
-        <p className={styles.blocTitle}>Comprendre mon opération</p>
+        <p className={styles.blocTitle}>Préparer mon arrivée</p>
         <ProgressBar
           completed={60}
           maxCompleted={100}
