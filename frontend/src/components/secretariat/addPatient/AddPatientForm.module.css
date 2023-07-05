@@ -1,3 +1,6 @@
+@import url("../../../GlobalVariables.css");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
 .closeButtonContainer {
   position: absolute;
   top: 0;
@@ -29,7 +32,23 @@
   overflow: hidden;
 }
 
-.ButtonAddPatient {
+.AddPatientFormContainer{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(12, 0.8fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 5px;
+}
+
+.AddNewPatient{
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.ButtonAddPatientContainer {
+  grid-area: 1 / 5 / 2 / 6;
+}
+
+.ButtonAddPatientContainer {
   display: grid;
   place-items: center;
   justify-content: center;
@@ -47,31 +66,15 @@
   font-size: 1.2rem;
 }
 
-.ButtonAddPatient:hover {
+.ButtonAddPatientContainer:hover {
   background-color: var(--light-purple);
 }
 
-.ButtonAddPatient form {
+.ButtonAddPatientContainer form {
   margin: 0;
 }
 
-.AddPatientForm {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(12, 0.8fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 3px;
-}
-
-.AddNewPatient {
-  grid-area: 1 / 1 / 2 / 2;
-}
-
-.ButtonAddPatient {
-  grid-area: 1 / 5 / 2 / 6;
-}
-
-.MaritalStatus {
+.MaritalStatusContainer {
   grid-area: 3 / 1 / 4 / 2;
   font-size: 1rem;
   font-weight: 600;
@@ -92,71 +95,71 @@
   margin-right: 10px;
 }
 
-.RadioButtonLabel {
+.RadioButtonLabelContainer {
   margin-left: 5px;
 }
 
-.LastNamePatient {
+.LastNamePatientContainer{
   grid-area: 4 / 3 / 5 / 4;
 }
 
-.FirstNamePatient {
+.FirstNamePatientContainer {
   grid-area: 4 / 5 / 5 / 6;
 }
 
-.SocialSecuNumber {
+.SocialSecuNumberContainer {
   grid-area: 5 / 1 / 6 / 2;
 }
 
-.Nationality {
+.NationalityContainer {
   grid-area: 5 / 3 / 6 / 4;
 }
 
-.Age {
+.AgeContainer {
   grid-area: 5 / 5 / 6 / 6;
 }
 
-.AdressAndContact {
+.AdressAndContactContainer {
   grid-area: 7 / 1 / 8 / 2;
   font-size: 1rem;
   font-weight: 600;
 }
 
-.Adress {
+.AdressContainer {
   grid-area: 8 / 1 / 9 / 2;
 }
 
-.ZipCode {
+.ZipCodeContainer {
   grid-area: 8 / 3 / 9 / 4;
 }
 
-.City {
+.CityContainer{
   grid-area: 8 / 5 / 9 / 6;
 }
 
-.PhoneNumber {
+.PhoneNumberContainer {
   grid-area: 9 / 1 / 10 / 2;
 }
 
-.Email {
+.emailContainer {
   grid-area: 9 / 5 / 10 / 6;
 }
 
-.Important {
+.ImportantContainer{
   grid-area: 11 / 1 / 12 / 2;
   font-size: 1rem;
   font-weight: 600;
 }
 
-.Allergy {
+.AllergyContainer{
   grid-area: 12 / 1 / 13 / 2;
 }
 
-.BloodGroup {
+.BloodGroupContainer{
   grid-area: 12 / 3 / 13 / 4;
 }
 
-.Remark {
+.RemarkContainer {
   grid-area: 12 / 5 / 13 / 6;
 }
 

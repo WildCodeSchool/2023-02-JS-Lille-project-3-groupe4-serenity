@@ -30,14 +30,14 @@ function AddPatient() {
           <FaRegWindowClose className={styles.closeIcon} />
         </Link>
       </div>
-      <div className={styles.AddPatientForm}>
+      <div className={styles.AddPatientFormContainer}>
         <div className={styles.AddNewPatientContainer}>
           Ajout d'un nouveau patient
         </div>
-        <div className={styles.ButtonAddPatient}>
+        <div className={styles.ButtonAddPatientContainer}>
           <form onSubmit={handleSubmit}>Ajouter</form>
         </div>
-        <div className={styles.MaritalStatus}>Etat Civil</div>
+        <div className={styles.MaritalStatusContainer}>Etat Civil</div>
         <div className={styles.SexContainer}>
           <div>
             Sexe
@@ -50,7 +50,9 @@ function AddPatient() {
                   checked={inputs.sex === "feminin"}
                   onChange={handleChange}
                 />
-                <span className={styles.RadioButtonLabel}>Féminin</span>
+                <span className={styles.RadioButtonLabelContainer}>
+                  Féminin
+                </span>
               </label>
             </div>
             <div className={styles.RadioButtonContainer}>
@@ -62,12 +64,14 @@ function AddPatient() {
                   checked={inputs.sex === "masculin"}
                   onChange={handleChange}
                 />
-                <span className={styles.RadioButtonLabel}>Masculin</span>
+                <span className={styles.RadioButtonLabelContainer}>
+                  Masculin
+                </span>
               </label>
             </div>
           </div>
         </div>
-        <div className={styles.LastNamePatient}>
+        <div className={styles.LastNamePatientContainer}>
           <label>
             Nom:
             <input
@@ -78,7 +82,7 @@ function AddPatient() {
             />
           </label>
         </div>
-        <div className={styles.FirstNamePatient}>
+        <div className={styles.FirstNamePatientContainer}>
           <label>
             Prénom:
             <input
@@ -89,7 +93,7 @@ function AddPatient() {
             />
           </label>
         </div>
-        <div className={styles.SocialSecuNumber}>
+        <div className={styles.SocialSecuNumberContainer}>
           <label>
             Numéro de Sécurité Sociale:
             <input
@@ -100,7 +104,7 @@ function AddPatient() {
             />
           </label>
         </div>
-        <div className={styles.Age}>
+        <div className={styles.AgeContainer}>
           <label>
             Age:
             <input
@@ -111,7 +115,7 @@ function AddPatient() {
             />
           </label>
         </div>
-        <div className={styles.Nationality}>
+        <div className={styles.NationalityContainer}>
           <label>
             Nationalité:
             <input
@@ -122,8 +126,10 @@ function AddPatient() {
             />
           </label>
         </div>
-        <div className={styles.AdressAndContact}>Adresse et Contact</div>
-        <div className={styles.Adress}>
+        <div className={styles.AdressAndContactContainer}>
+          Adresse et Contact
+        </div>
+        <div className={styles.AdressContainer}>
           <label>
             Adresse:
             <input
@@ -134,7 +140,7 @@ function AddPatient() {
             />
           </label>
         </div>
-        <div className={styles.ZipCode}>
+        <div className={styles.ZipCodeContainer}>
           <label>
             Code Postal:
             <input
@@ -145,7 +151,7 @@ function AddPatient() {
             />
           </label>
         </div>
-        <div className={styles.City}>
+        <div className={styles.CityContainer}>
           <label>
             Ville:
             <input
@@ -156,7 +162,7 @@ function AddPatient() {
             />
           </label>
         </div>
-        <div className={styles.PhoneNumber}>
+        <div className={styles.PhoneNumberContainer}>
           <label>
             Numéro de téléphone:
             <input
@@ -167,7 +173,7 @@ function AddPatient() {
             />
           </label>
         </div>
-        <div className={styles.Email}>
+        <div className={styles.emailContainer}>
           <label>
             E-mail
             <input
@@ -178,8 +184,8 @@ function AddPatient() {
             />
           </label>
         </div>
-        <div className={styles.Important}>Important</div>
-        <div className={styles.Allergy}>
+        <div className={styles.ImportantContainer}>Important</div>
+        <div className={styles.AllergyContainer}>
           <label>
             Allergies:
             <input
@@ -190,7 +196,7 @@ function AddPatient() {
             />
           </label>
         </div>
-        <div className={styles.BloodGroup}>
+        <div className={styles.BloodGroupContainer}>
           <label>
             Groupe sanguin:
             <select
@@ -216,7 +222,7 @@ function AddPatient() {
             </select>
           </label>
         </div>
-        <div className={styles.Remark}>
+        <div className={styles.RemarkContainer}>
           <label>
             Remarques:
             <input
