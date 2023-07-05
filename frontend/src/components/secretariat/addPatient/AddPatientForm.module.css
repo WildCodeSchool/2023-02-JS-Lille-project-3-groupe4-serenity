@@ -1,0 +1,162 @@
+.closeButtonContainer {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.addPatientContainer {
+  width: 100%;
+  height: 100%;
+  border: solid 3px var(--main-purple);
+  border-radius: 1.5rem;
+  background-color: var(--white);
+  box-shadow: var(--basic-shadow);
+  background-color: var(--light-grey);
+  padding: 2rem;
+}
+
+.AddNewPatientContainer {
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+.dataContainer {
+  flex: 5;
+  width: 100%;
+  background-color: azure;
+  border-radius: 10px;
+  box-shadow: var(--basic-shadow);
+  overflow: hidden;
+}
+
+.ButtonAddPatient {
+  display: grid;
+  place-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 4rem;
+  background-color: var(--main-purple);
+  border: none;
+  color: var(--white);
+  border-radius: 0.8rem;
+  box-shadow: var(--basic-shadow);
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--white);
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+
+.ButtonAddPatient:hover {
+  background-color: var(--light-purple);
+}
+
+.ButtonAddPatient form {
+  margin: 0;
+}
+
+.AddPatientForm {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(12, 0.8fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 3px;
+}
+
+.AddNewPatient {
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.ButtonAddPatient {
+  grid-area: 1 / 5 / 2 / 6;
+}
+
+.MaritalStatus {
+  grid-area: 3 / 1 / 4 / 2;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.SexContainer {
+  display: flex;
+  align-items: center;
+  grid-area: 4 / 1 / 5 / 2;
+}
+
+.SexContainer > div {
+  display: flex;
+  align-items: center;
+}
+
+.RadioButtonContainer {
+  margin-right: 10px;
+}
+
+.RadioButtonLabel {
+  margin-left: 5px;
+}
+
+.LastNamePatient {
+  grid-area: 4 / 3 / 5 / 4;
+}
+
+.FirstNamePatient {
+  grid-area: 4 / 5 / 5 / 6;
+}
+
+.SocialSecuNumber {
+  grid-area: 5 / 1 / 6 / 2;
+}
+
+.Nationality {
+  grid-area: 5 / 3 / 6 / 4;
+}
+
+.Age {
+  grid-area: 5 / 5 / 6 / 6;
+}
+
+.AdressAndContact {
+  grid-area: 7 / 1 / 8 / 2;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.Adress {
+  grid-area: 8 / 1 / 9 / 2;
+}
+
+.ZipCode {
+  grid-area: 8 / 3 / 9 / 4;
+}
+
+.City {
+  grid-area: 8 / 5 / 9 / 6;
+}
+
+.PhoneNumber {
+  grid-area: 9 / 1 / 10 / 2;
+}
+
+.Email {
+  grid-area: 9 / 5 / 10 / 6;
+}
+
+.Important {
+  grid-area: 11 / 1 / 12 / 2;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.Allergy {
+  grid-area: 12 / 1 / 13 / 2;
+}
+
+.BloodGroup {
+  grid-area: 12 / 3 / 13 / 4;
+}
+
+.Remark {
+  grid-area: 12 / 5 / 13 / 6;
+}
+
