@@ -16,7 +16,7 @@ function PatientHeaderMobile() {
           <ProgressBar
             completed={60}
             maxCompleted={100}
-            height="30px"
+            height="3vh"
             baseBgColor="var(--medium-grey)"
             bgColor="var(--light-purple)"
             labelClassName={styles.textProgressBar}

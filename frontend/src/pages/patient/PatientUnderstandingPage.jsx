@@ -1,8 +1,8 @@
 import React from "react";
 import { useMediaQuery } from "react-responsive";
-import styles from "./PatientUnderstandingPage.module.css";
 import PatientPreparationMenu from "../../components/patient/patientPreparationMenu/PatientPreparationMenu";
 import UnderstandingMobile from "../../components/patient/understandingMobile/UnderstandingMobile";
+import styles from "./PatientUnderstandingPage.module.css";
 
 function PatientUnderstandingPage() {
   const isDesktop = useMediaQuery({ query: "(min-width: 991px)" });

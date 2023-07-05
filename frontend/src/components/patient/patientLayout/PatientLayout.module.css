@@ -69,6 +69,14 @@
   font-size: 1.5rem;
   color: var(--grey);
   font-weight: 400;
+  text-decoration: none;
+}
+
+.activeLinkText {
+  font-size: 1.5rem;
+  color: var(--main-purple);
+  font-weight: 600;
+  text-decoration: none;
 }
 
 .separator {

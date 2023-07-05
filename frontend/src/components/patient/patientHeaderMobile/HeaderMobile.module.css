@@ -44,7 +44,7 @@
 
 .patientName {
   font-size: 5vw;
-  font-weight: 300;
+  font-weight: 400;
   margin-bottom: 0.5rem;
   color: var(--dark-blue);
 }
@@ -52,7 +52,7 @@
 .textProgressBar {
   font-weight: 500;
   font-family: var(--font);
-  font-size: 1vw;
+  font-size: 3vw;
   color: var(--white);
   padding-right: 0.5rem;
 }
@@ -76,6 +76,7 @@
 .dateContainer p,
 .hourContainer p {
   color: var(--main-purple);
+  font-size: 4vw;
 }
 
 .dateContainer h4,
