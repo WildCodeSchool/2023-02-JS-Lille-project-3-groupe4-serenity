@@ -9,8 +9,6 @@
   align-items: center;
   justify-content: space-between;
   border-radius: 20px 20px 0 0;
-  position: fixed;
-  bottom: 0;
 }
 
 .menuIcon {
@@ -30,6 +28,7 @@
 }
 
 .menuChatIcon {
-  font-size: 2rem;
+  font-size: 3rem;
   color: var(--white);
+  font-weight: 100;
 }

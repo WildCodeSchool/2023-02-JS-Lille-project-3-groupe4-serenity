@@ -1,5 +1,6 @@
 import React from "react";
-import { FaHome, FaRegBell, FaMusic, FaRocketchat } from "react-icons/fa";
+import { FaHome, FaRegBell, FaMusic } from "react-icons/fa";
+import { HiOutlineChatBubbleOvalLeftEllipsis } from "react-icons/hi2";
 import { MdOutlineMenu } from "react-icons/md";
 import PropTypes from "prop-types";
 import styles from "./NavbarMobile.module.css";
@@ -14,7 +15,7 @@ function PatientNavbarMobile({ isMenuOpen, setMenuOpen }) {
         <FaRegBell className={styles.menuIcon} />
       </div>
       <div className={styles.navbarChatContainer}>
-        <FaRocketchat className={styles.menuChatIcon} />
+        <HiOutlineChatBubbleOvalLeftEllipsis className={styles.menuChatIcon} />
       </div>
       <div className={styles.navbarIconContainer}>
         <FaMusic className={styles.menuIcon} />
@@ -31,7 +32,7 @@ function PatientNavbarMobile({ isMenuOpen, setMenuOpen }) {
 
 PatientNavbarMobile.propTypes = {
   isMenuOpen: PropTypes.bool.isRequired,
-  setMenuOpen: PropTypes.bool.isRequired,
+  setMenuOpen: PropTypes.func.isRequired,
 };
 
 export default PatientNavbarMobile;
