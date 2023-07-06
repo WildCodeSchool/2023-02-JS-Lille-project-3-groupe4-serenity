@@ -10,7 +10,9 @@ function PatientListTable() {
   useEffect(() => {
     const fectchAllPatient = async () => {
       try {
-        const response = await axios.get("http://localhost:5050/patients");
+        const response = await axios.get(
+          `${import.meta.env.VITE_BACKEND_URL}/patients`
+        );
         setPatients(response.data);
       } catch (err) {
         console.error(err);

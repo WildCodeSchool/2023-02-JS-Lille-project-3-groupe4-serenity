@@ -17,7 +17,11 @@ function AddIntervention() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post("http://localhost:5050/interventions", inputs);
+      await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}/interventions`,
+        inputs
+      );
+
       navigate("/secretariat/intervention");
     } catch (err) {
       console.error(err);

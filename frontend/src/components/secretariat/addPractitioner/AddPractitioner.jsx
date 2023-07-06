@@ -17,7 +17,11 @@ function AddPractitioner() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post("http://localhost:5050/practitioners", inputs);
+      await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}/practitioners`,
+        inputs
+      );
+
       navigate("/secretariat/practitioner");
     } catch (err) {
       console.error(err);

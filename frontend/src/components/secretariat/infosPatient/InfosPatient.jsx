@@ -16,7 +16,7 @@ function AddPatient() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post("http://localhost:5050/patients", inputs);
+      await axios.post(`${import.meta.env.VITE_BACKEND_URL}/patients`, inputs);
       navigate("/secretariat/patient");
     } catch (err) {
       console.error(err);
