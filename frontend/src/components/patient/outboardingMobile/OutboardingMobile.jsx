@@ -77,11 +77,15 @@ function OutboardingMobile() {
               position={[practitioner.latitude, practitioner.longitude]}
             >
               <Popup>
-                {practitioner.first_name} {practitioner.last_name}
-                <br /> {practitioner.address}
-                <br /> {practitioner.zip_code} {practitioner.city}
-                <br /> {practitioner.phone}
-                <br /> {practitioner.email}
+                <div className={styles.practitionerName}>
+                  {practitioner.first_name} {practitioner.last_name}
+                </div>
+                <div className={styles.practitionerInfos}>
+                  {practitioner.address}
+                  <br /> {practitioner.zip_code} {practitioner.city}
+                  <br /> {practitioner.phone}
+                  <br /> {practitioner.email}
+                </div>
               </Popup>
             </Marker>
           ))}

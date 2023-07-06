@@ -21,8 +21,6 @@ function PractitionerListTable() {
     fectchAllPractitionner();
   }, []);
 
-  console.log(practitioners);
-
   return (
     <table className={styles.tableContainer}>
       <thead>
