@@ -31,194 +31,220 @@ function AddPractitioner() {
           <FaRegWindowClose className={styles.closeIcon} />
         </Link>
       </div>
-      <h3>Ajout d'un nouveau praticien</h3>
-      <div className={styles.formContainer}>
-        <form onSubmit={handleSubmit}>
-          <div className={styles.leftContainer}>
-            <label>
-              Nom:
-              <input
-                type="text"
-                name="last_name"
-                value={inputs.last_name || ""}
-                onChange={handleChange}
-              />
-            </label>
-
-            <label>
-              Âge:
-              <input
-                type="number"
-                name="age"
-                value={inputs.age || ""}
-                onChange={handleChange}
-              />
-            </label>
-            <label>
-              Adresse:
-              <input
-                type="text"
-                name="address"
-                value={inputs.address || ""}
-                onChange={handleChange}
-              />
-            </label>
-            <label>
-              Spécialité:
-              <select
-                className={styles.multipleChoicesMenu}
-                name="speciality"
-                value={inputs.speciality || ""}
-                onChange={handleChange}
-              >
-                <option
-                  value=""
-                  aria-label="Select list for speciality"
-                  disabled
-                  hidden
+      <div className={styles.AddPractitionerFormContainer}>
+        <div className={styles.AddNewPractitionerContainer}>
+          Ajout d'un nouveau praticien
+        </div>
+        <div className={styles.ButtonAddPractitionerContainer}>
+          <form onSubmit={handleSubmit}>Ajouter</form>
+        </div>
+        <div className={styles.MaritalStatusContainer}>Etat Civil</div>
+        <div className={styles.SexContainer}>
+          <div>
+            Sexe
+            <div className={styles.RadioButtonContainer}>
+              <label>
+                <input
+                  type="radio"
+                  value="feminin"
+                  name="sex"
+                  checked={inputs.sex === "feminin"}
+                  onChange={handleChange}
                 />
-                <option value="Cardiologie">Cardiologie</option>
-                <option value="Orthopédie">Orthopédie</option>
-                <option value="Chirurgie Dentaire">Chirurgie Dentaire</option>
-                <option value="Chirurgie esthétique">
-                  Chirurgie esthétique
-                </option>
-              </select>
-            </label>
-            <label>
-              Nom service:
-              <select
-                className={styles.multipleChoicesMenu}
-                name="nom_service"
-                value={inputs.nom_service || ""}
-                onChange={handleChange}
-              >
-                <option
-                  value=""
-                  aria-label="Select list for service"
-                  disabled
-                  hidden
+                <span className={styles.RadioButtonLabelContainer}>
+                  Féminin
+                </span>
+              </label>
+            </div>
+            <div className={styles.RadioButtonContainer}>
+              <label>
+                <input
+                  type="radio"
+                  value="masculin"
+                  name="sex"
+                  checked={inputs.sex === "masculin"}
+                  onChange={handleChange}
                 />
-                <option value="Cardiologie">Cardiologie</option>
-                <option value="Chirurgie orthopédique">
-                  Chirurgie orthopédique
-                </option>
-                <option value="Chirurgie dentaire">Chirurgie dentaire</option>
-                <option value="Neurologie">Neurologie</option>
-                <option value="Pédiatrie">Pédiatrie</option>
-                <option value="Reanimation">Réanimation</option>
-              </select>
-            </label>
+                <span className={styles.RadioButtonLabelContainer}>
+                  Masculin
+                </span>
+              </label>
+            </div>
           </div>
-          <div className={styles.middleContainer}>
-            <label>
-              Prénom:
-              <input
-                type="text"
-                name="first_name"
-                value={inputs.first_name || ""}
-                onChange={handleChange}
+        </div>
+        <div className={styles.LastNamePractitionerContainer}>
+          <label>
+            Nom:
+            <input
+              type="text"
+              name="last_name"
+              value={inputs.last_name || ""}
+              onChange={handleChange}
+            />
+          </label>
+        </div>
+        <div className={styles.FirstNamePractitionerContainer}>
+          <label>
+            Prénom:
+            <input
+              type="text"
+              name="first_name"
+              value={inputs.first_name || ""}
+              onChange={handleChange}
+            />
+          </label>
+        </div>
+        <div className={styles.IdentifierRppsContainer}>
+          <label>
+            N. d'identifiant RPPS:
+            <input
+              type="text"
+              name="identifier_rpps"
+              value={inputs.identifier_rpps || ""}
+              onChange={handleChange}
+            />
+          </label>
+        </div>
+        <div className={styles.AgeContainer}>
+          <label>
+            Age:
+            <input
+              type="number"
+              name="age"
+              value={inputs.age || ""}
+              onChange={handleChange}
+            />
+          </label>
+        </div>
+        <div className={styles.NationalityContainer}>
+          <label>
+            Nationalité:
+            <input
+              type="text"
+              name="nationality"
+              value={inputs.nationality || ""}
+              onChange={handleChange}
+            />
+          </label>
+        </div>
+        <div className={styles.AdressAndContactContainer}>
+          Adresse et Contact
+        </div>
+        <div className={styles.AdressContainer}>
+          <label>
+            Adresse:
+            <input
+              type="text"
+              name="address"
+              value={inputs.address || ""}
+              onChange={handleChange}
+            />
+          </label>
+        </div>
+        <div className={styles.ZipCodeContainer}>
+          <label>
+            Code Postal:
+            <input
+              type="text"
+              name="zip_code"
+              value={inputs.zip_code || ""}
+              onChange={handleChange}
+            />
+          </label>
+        </div>
+        <div className={styles.CityContainer}>
+          <label>
+            Ville:
+            <input
+              type="text"
+              name="city"
+              value={inputs.city || ""}
+              onChange={handleChange}
+            />
+          </label>
+        </div>
+        <div className={styles.PhoneNumberContainer}>
+          <label>
+            Numéro de téléphone:
+            <input
+              type="text"
+              name="phone"
+              value={inputs.phone || ""}
+              onChange={handleChange}
+            />
+          </label>
+        </div>
+        <div className={styles.emailContainer}>
+          <label>
+            E-mail
+            <input
+              type="text"
+              name="email"
+              value={inputs.email || ""}
+              onChange={handleChange}
+            />
+          </label>
+        </div>
+        <div className={styles.ImportantContainer}>Important</div>
+        <div className={styles.SpecialityContainer}>
+          <label>
+            Spécialité:
+            <select
+              className={styles.multipleChoicesMenu}
+              name="speciality"
+              value={inputs.speciality || ""}
+              onChange={handleChange}
+            >
+              <option
+                value=""
+                aria-label="Select list for speciality"
+                disabled
+                hidden
               />
-            </label>
-            <label>
-              Nationalité:
-              <input
-                type="text"
-                name="nationality"
-                value={inputs.nationality || ""}
-                onChange={handleChange}
+              <option value="Cardiologie">Cardiologie</option>
+              <option value="Orthopédie">Orthopédie</option>
+              <option value="Chirurgie Dentaire">Chirurgie Dentaire</option>
+              <option value="Chirurgie esthétique">Chirurgie esthétique</option>
+            </select>
+          </label>
+        </div>
+        <div className={styles.ServiceContainer}>
+          <label>
+            Nom service:
+            <select
+              className={styles.multipleChoicesMenu}
+              name="nom_service"
+              value={inputs.nom_service || ""}
+              onChange={handleChange}
+            >
+              <option
+                value=""
+                aria-label="Select list for service"
+                disabled
+                hidden
               />
-            </label>
-            <label>
-              Code postal:
-              <input
-                type="text"
-                name="zip_code"
-                value={inputs.zip_code || ""}
-                onChange={handleChange}
-              />
-            </label>
-            <label>
-              Type d'intervention:
-              <select
-                className={styles.multipleChoicesMenu}
-                name="type_intervention"
-                value={inputs.type_intervention || ""}
-                onChange={handleChange}
-              >
-                <option
-                  value=""
-                  aria-label="Select list for intervention type"
-                  disabled
-                  hidden
-                />
-                <option value="Chirurgie">Chirurgie</option>
-                <option value="Pose implant">Pose implant</option>
-              </select>
-            </label>
-
-            <label>
-              Email:
-              <input
-                type="text"
-                name="email"
-                value={inputs.email || ""}
-                onChange={handleChange}
-              />
-            </label>
-          </div>
-          <div className={styles.rightContainer}>
-            <label>
-              Genre:
-              <select
-                className={styles.multipleChoicesMenu}
-                name="gender"
-                value={inputs.gender || ""}
-                onChange={handleChange}
-              >
-                <option
-                  value=""
-                  aria-label="Select list for gender"
-                  disabled
-                  hidden
-                />
-                <option value="male">Homme</option>
-                <option value="female">Femme</option>
-              </select>
-            </label>
-
-            <label>
-              Téléphone:
-              <input
-                type="text"
-                name="phone"
-                value={inputs.phone || ""}
-                onChange={handleChange}
-              />
-            </label>
-
-            <label>
-              Ville:
-              <input
-                type="text"
-                name="city"
-                value={inputs.city || ""}
-                onChange={handleChange}
-              />
-            </label>
-            <label>
-              Identifiant RPPS:
-              <input
-                type="text"
-                name="identifier_rpps"
-                value={inputs.identifier_rpps || ""}
-                onChange={handleChange}
-              />
-            </label>
-
-            <input type="submit" className={styles.sendButton} />
-          </div>
-        </form>
+              <option value="Cardiologie">Cardiologie</option>
+              <option value="Chirurgie orthopédique">
+                Chirurgie orthopédique
+              </option>
+              <option value="Chirurgie dentaire">Chirurgie dentaire</option>
+              <option value="Neurologie">Neurologie</option>
+              <option value="Pédiatrie">Pédiatrie</option>
+              <option value="Reanimation">Réanimation</option>
+            </select>
+          </label>
+        </div>
+        <div className={styles.RemarkContainer}>
+          <label>
+            Remarques:
+            <input
+              type="text"
+              name="remark"
+              value={inputs.remark || ""}
+              onChange={handleChange}
+            />
+          </label>
+        </div>
       </div>
     </div>
   );
