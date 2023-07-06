@@ -4,7 +4,7 @@ import { FaRegWindowClose } from "react-icons/fa";
 import axios from "axios";
 import styles from "./InfosPatient.module.css";
 
-function AddPatient() {
+function InfosPatient() {
   const [inputs, setInputs] = useState({});
   const navigate = useNavigate();
 
@@ -24,23 +24,23 @@ function AddPatient() {
   };
 
   return (
-    <div className={styles.addPatientContainer}>
+    <div className={styles.ManagementPatientContainer}>
       <div className={styles.closeButtonContainer}>
         <Link to="/secretariat/patient">
           <FaRegWindowClose className={styles.closeIcon} />
         </Link>
       </div>
-      <div className={styles.AddPatientForm}>
-        <div className={styles.AddNewPatientContainer}>
+      <div className={styles.ManagePatientContainer}>
+        <div className={styles.ManagementPatientSelectedContainer}>
           Gestion d'un patient
         </div>
-        <div className={styles.ButtonModifyPatient}>
+        <div className={styles.ButtonModifyPatientContainer}>
           <form onSubmit={handleSubmit}>Modifier</form>
         </div>
-        <div className={styles.ButtonDeletePatient}>
+        <div className={styles.ButtonDeletePatientContainer}>
           <form onSubmit={handleSubmit}>Supprimer</form>
         </div>
-        <div className={styles.MaritalStatus}>Etat Civil</div>
+        <div className={styles.MaritalStatusContainer}>Etat Civil</div>
         <div className={styles.SexContainer}>
           <div>
             Sexe
@@ -54,7 +54,9 @@ function AddPatient() {
                   onChange={handleChange}
                   disabled
                 />
-                <span className={styles.RadioButtonLabel}>Féminin</span>
+                <span className={styles.RadioButtonLabelContainer}>
+                  Féminin
+                </span>
               </label>
             </div>
             <div className={styles.RadioButtonContainer}>
@@ -67,12 +69,14 @@ function AddPatient() {
                   onChange={handleChange}
                   disabled
                 />
-                <span className={styles.RadioButtonLabel}>Masculin</span>
+                <span className={styles.RadioButtonLabelContainer}>
+                  Masculin
+                </span>
               </label>
             </div>
           </div>
         </div>
-        <div className={styles.LastNamePatient}>
+        <div className={styles.LastNamePatientContainer}>
           <label>
             Nom:
             <input
@@ -84,7 +88,7 @@ function AddPatient() {
             />
           </label>
         </div>
-        <div className={styles.FirstNamePatient}>
+        <div className={styles.FirstNamePatientContainer}>
           <label>
             Prénom:
             <input
@@ -96,7 +100,7 @@ function AddPatient() {
             />
           </label>
         </div>
-        <div className={styles.SocialSecuNumber}>
+        <div className={styles.SocialSecuNumberContainer}>
           <label>
             Numéro de Sécurité Sociale:
             <input
@@ -108,7 +112,7 @@ function AddPatient() {
             />
           </label>
         </div>
-        <div className={styles.Age}>
+        <div className={styles.AgeContainer}>
           <label>
             Age:
             <input
@@ -120,7 +124,7 @@ function AddPatient() {
             />
           </label>
         </div>
-        <div className={styles.Nationality}>
+        <div className={styles.NationalityContainer}>
           <label>
             Nationalité:
             <input
@@ -132,8 +136,10 @@ function AddPatient() {
             />
           </label>
         </div>
-        <div className={styles.AdressAndContact}>Adresse et Contact</div>
-        <div className={styles.Adress}>
+        <div className={styles.AdressAndContactContainer}>
+          Adresse et Contact
+        </div>
+        <div className={styles.AdressContainer}>
           <label>
             Adresse:
             <input
@@ -145,7 +151,7 @@ function AddPatient() {
             />
           </label>
         </div>
-        <div className={styles.ZipCode}>
+        <div className={styles.ZipCodeContainer}>
           <label>
             Code Postal:
             <input
@@ -157,7 +163,7 @@ function AddPatient() {
             />
           </label>
         </div>
-        <div className={styles.City}>
+        <div className={styles.CityContainer}>
           <label>
             Ville:
             <input
@@ -169,7 +175,7 @@ function AddPatient() {
             />
           </label>
         </div>
-        <div className={styles.PhoneNumber}>
+        <div className={styles.PhoneNumberContainer}>
           <label>
             Numéro de téléphone:
             <input
@@ -181,7 +187,7 @@ function AddPatient() {
             />
           </label>
         </div>
-        <div className={styles.Email}>
+        <div className={styles.emailContainer}>
           <label>
             E-mail
             <input
@@ -193,8 +199,8 @@ function AddPatient() {
             />
           </label>
         </div>
-        <div className={styles.Important}>Important</div>
-        <div className={styles.Allergy}>
+        <div className={styles.ImportantContainer}>Important</div>
+        <div className={styles.AllergyContainer}>
           <label>
             Allergies:
             <input
@@ -206,7 +212,7 @@ function AddPatient() {
             />
           </label>
         </div>
-        <div className={styles.BloodGroup}>
+        <div className={styles.BloodGroupContainer}>
           <label>
             Groupe sanguin:
             <select
@@ -233,7 +239,7 @@ function AddPatient() {
             </select>
           </label>
         </div>
-        <div className={styles.Remark}>
+        <div className={styles.RemarkContainer}>
           <label>
             Remarques:
             <input
@@ -250,4 +256,4 @@ function AddPatient() {
   );
 }
 
-export default AddPatient;
+export default InfosPatient;
