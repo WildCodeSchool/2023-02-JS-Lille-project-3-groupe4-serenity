@@ -1,0 +1,76 @@
+.checklistMobilePageContainer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+
+.progressBarContainer {
+  width: 100%;
+}
+
+.textProgressBar {
+  font-size: 5vw;
+  color: var(--white);
+}
+
+.blocTitle {
+  color: var(--dark-blue);
+  font-size: 5vw;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.documentsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 50vh;
+  margin-top: 3vh;
+  gap: 1vh;
+}
+
+.document {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-radius: 20px;
+  padding: 1rem;
+  box-shadow: var(--basic-shadow);
+}
+
+.documentInfosBloc {
+  width: 75%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1vh;
+}
+
+.documentName {
+  color: var(--dark-blue);
+  font-size: 5vw;
+}
+
+.documentDetails {
+  color: var(--grey);
+}
+
+.rightIconBloc {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rightIcon {
+  font-size: 5vw;
+  color: var(--grey);
+}

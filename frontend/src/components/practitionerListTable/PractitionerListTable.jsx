@@ -4,33 +4,6 @@ import { FaEye } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import styles from "./PractitionerList.module.css";
 
-// const rows = [
-//   {
-//     nom: "Durand",
-//     prenom: "Nathalie",
-//     speciality: 32,
-//     identifiantrpps: 2820259,
-//   },
-//   {
-//     nom: "Durand",
-//     prenom: "Nathalie",
-//     speciality: 32,
-//     identifiantrpps: 2820251,
-//   },
-//   {
-//     nom: "Durand",
-//     prenom: "Nathalie",
-//     speciality: 32,
-//     identifiantrpps: 28202592,
-//   },
-//   {
-//     nom: "Durand",
-//     prenom: "Nathalie",
-//     speciality: 32,
-//     identifiantrpps: 28202593,
-//   },
-// ];
-
 function PractitionerListTable() {
   const [practitioners, setPractitioners] = useState([]);
 
@@ -61,11 +34,11 @@ function PractitionerListTable() {
       </thead>
       <tbody>
         {practitioners.map((practitioner) => (
-          <tr className={styles.bodyRows} key={practitioner.identifiantrpps}>
-            <td className={styles.rows}>{practitioner.nom}</td>
-            <td className={styles.rows}>{practitioner.prenom}</td>
+          <tr className={styles.bodyRows} key={practitioner.identifier_rpps}>
+            <td className={styles.rows}>{practitioner.last_name}</td>
+            <td className={styles.rows}>{practitioner.first_name}</td>
             <td className={styles.rows}>{practitioner.speciality}</td>
-            <td className={styles.rows}>{practitioner.identifiantrpps}</td>
+            <td className={styles.rows}>{practitioner.identifier_rpps}</td>
             <td className={styles.rows}>
               <Link to="https://reactrouter.com/en/main/components/link">
                 <FaEye className={styles.eyeIcon} />
