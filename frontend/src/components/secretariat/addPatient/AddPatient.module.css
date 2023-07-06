@@ -9,7 +9,6 @@
 
 .addPatientContainer {
   width: 100%;
-  height: 100%;
   border: solid 0.1875rem var(--main-purple); 
   border-radius: 1.5rem;
   background-color: var(--white);
