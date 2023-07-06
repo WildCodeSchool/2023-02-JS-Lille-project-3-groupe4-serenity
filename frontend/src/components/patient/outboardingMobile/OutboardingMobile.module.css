@@ -53,6 +53,15 @@
   border: none;
 }
 
+.menuList {
+  margin-bottom: 2vh;
+}
+
 .menuList:focus {
   outline-color: var(--green);
+}
+
+.mapContainer {
+  width: 100%;
+  height: 30vh;
 }

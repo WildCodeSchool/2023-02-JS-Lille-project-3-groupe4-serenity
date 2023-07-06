@@ -48,12 +48,16 @@ class PractitionerManager extends AbstractManager {
 
   async findAllPractitioner() {
     const query = `
-    SELECT user.last_name AS "nom", user.first_name AS "prenom",
-    practitioner.speciality,
-    practitioner.identifier_rpps as "identifiantrpps"
-    FROM practitioner
-    JOIN user ON practitioner.user_id = user.id
-    `;
+    SELECT user.last_name, user.first_name,
+  user.phone, user.address,
+  user.city, user.zip_code, user.email,
+  practitioner.speciality,
+  practitioner.identifier_rpps,
+  practitioner.longitude,
+  practitioner.latitude
+  FROM practitioner
+  JOIN user ON practitioner.user_id = user.id
+  `;
 
     const [rows] = await this.database.query(query);
     return rows;
