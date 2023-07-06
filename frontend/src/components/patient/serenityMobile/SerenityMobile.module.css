@@ -1,0 +1,94 @@
+.serenityMobileContainer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+
+.progressBarContainer {
+  width: 100%;
+}
+
+.textProgressBar {
+  font-size: 5vw;
+  color: var(--white);
+}
+
+.blocTitle {
+  color: var(--dark-blue);
+  font-size: 5vw;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+.quizBloc {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3vh;
+}
+
+.startPage {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.startText {
+  text-align: center;
+  color: var(--dark-blue);
+  font-size: 5vw;
+  font-weight: 400;
+  margin-bottom: 4vh;
+}
+
+.quizButton {
+  border: none;
+  background-color: var(--pink);
+  color: var(--white);
+  width: 35vw;
+  height: 50px;
+  border-radius: 20px;
+  font-size: 1.1rem;
+}
+
+.previousButton {
+  background-color: var(--dark-blue);
+}
+
+.quizFirst {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.stepText {
+  color: var(--turquoise);
+  margin-bottom: 2vh;
+}
+
+.stepTitle {
+  color: var(--dark-blue);
+  font-size: 5vw;
+  margin-bottom: 2vh;
+}
+
+.stepContent {
+  width: 80%;
+  height: 30vh;
+  background-color: var(--medium-grey);
+  margin-bottom: 2vh;
+  border-radius: 20px;
+}
+
+.buttonsContainer {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

@@ -37,7 +37,9 @@ function PractitionerListTable() {
   useEffect(() => {
     const fectchAllPractitionner = async () => {
       try {
-        const response = await axios.get("http://localhost:5050/practitioners");
+        const response = await axios.get(
+          `${import.meta.env.VITE_BACKEND_URL}/practitioners`
+        );
         setPractitioners(response.data);
       } catch (err) {
         console.error(err);

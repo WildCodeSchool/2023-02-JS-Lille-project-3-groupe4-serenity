@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaRegWindowClose } from "react-icons/fa";
 import axios from "axios";
-import styles from "./AddPatient.module.css";
+import styles from "./InfosPatient.module.css";
 
 function AddPatient() {
   const [inputs, setInputs] = useState({});
@@ -17,7 +17,6 @@ function AddPatient() {
     event.preventDefault();
     try {
       await axios.post(`${import.meta.env.VITE_BACKEND_URL}/patients`, inputs);
-
       navigate("/secretariat/patient");
     } catch (err) {
       console.error(err);
@@ -31,14 +30,17 @@ function AddPatient() {
           <FaRegWindowClose className={styles.closeIcon} />
         </Link>
       </div>
-      <div className={styles.AddPatientFormContainer}>
+      <div className={styles.AddPatientForm}>
         <div className={styles.AddNewPatientContainer}>
-          Ajout d'un nouveau patient
+          Gestion d'un patient
         </div>
-        <div className={styles.ButtonAddPatientContainer}>
-          <form onSubmit={handleSubmit}>Ajouter</form>
+        <div className={styles.ButtonModifyPatient}>
+          <form onSubmit={handleSubmit}>Modifier</form>
         </div>
-        <div className={styles.MaritalStatusContainer}>Etat Civil</div>
+        <div className={styles.ButtonDeletePatient}>
+          <form onSubmit={handleSubmit}>Supprimer</form>
+        </div>
+        <div className={styles.MaritalStatus}>Etat Civil</div>
         <div className={styles.SexContainer}>
           <div>
             Sexe
@@ -50,10 +52,9 @@ function AddPatient() {
                   name="sex"
                   checked={inputs.sex === "feminin"}
                   onChange={handleChange}
+                  disabled
                 />
-                <span className={styles.RadioButtonLabelContainer}>
-                  Féminin
-                </span>
+                <span className={styles.RadioButtonLabel}>Féminin</span>
               </label>
             </div>
             <div className={styles.RadioButtonContainer}>
@@ -64,15 +65,14 @@ function AddPatient() {
                   name="sex"
                   checked={inputs.sex === "masculin"}
                   onChange={handleChange}
+                  disabled
                 />
-                <span className={styles.RadioButtonLabelContainer}>
-                  Masculin
-                </span>
+                <span className={styles.RadioButtonLabel}>Masculin</span>
               </label>
             </div>
           </div>
         </div>
-        <div className={styles.LastNamePatientContainer}>
+        <div className={styles.LastNamePatient}>
           <label>
             Nom:
             <input
@@ -80,10 +80,11 @@ function AddPatient() {
               name="last_name"
               value={inputs.last_name || ""}
               onChange={handleChange}
+              disabled
             />
           </label>
         </div>
-        <div className={styles.FirstNamePatientContainer}>
+        <div className={styles.FirstNamePatient}>
           <label>
             Prénom:
             <input
@@ -91,10 +92,11 @@ function AddPatient() {
               name="first_name"
               value={inputs.first_name || ""}
               onChange={handleChange}
+              disabled
             />
           </label>
         </div>
-        <div className={styles.SocialSecuNumberContainer}>
+        <div className={styles.SocialSecuNumber}>
           <label>
             Numéro de Sécurité Sociale:
             <input
@@ -102,10 +104,11 @@ function AddPatient() {
               name="social_secu_number"
               value={inputs.social_secu_number || ""}
               onChange={handleChange}
+              disabled
             />
           </label>
         </div>
-        <div className={styles.AgeContainer}>
+        <div className={styles.Age}>
           <label>
             Age:
             <input
@@ -113,10 +116,11 @@ function AddPatient() {
               name="age"
               value={inputs.age || ""}
               onChange={handleChange}
+              disabled
             />
           </label>
         </div>
-        <div className={styles.NationalityContainer}>
+        <div className={styles.Nationality}>
           <label>
             Nationalité:
             <input
@@ -124,13 +128,12 @@ function AddPatient() {
               name="nationality"
               value={inputs.nationality || ""}
               onChange={handleChange}
+              disabled
             />
           </label>
         </div>
-        <div className={styles.AdressAndContactContainer}>
-          Adresse et Contact
-        </div>
-        <div className={styles.AdressContainer}>
+        <div className={styles.AdressAndContact}>Adresse et Contact</div>
+        <div className={styles.Adress}>
           <label>
             Adresse:
             <input
@@ -138,10 +141,11 @@ function AddPatient() {
               name="address"
               value={inputs.address || ""}
               onChange={handleChange}
+              disabled
             />
           </label>
         </div>
-        <div className={styles.ZipCodeContainer}>
+        <div className={styles.ZipCode}>
           <label>
             Code Postal:
             <input
@@ -149,10 +153,11 @@ function AddPatient() {
               name="zip_code"
               value={inputs.zip_code || ""}
               onChange={handleChange}
+              disabled
             />
           </label>
         </div>
-        <div className={styles.CityContainer}>
+        <div className={styles.City}>
           <label>
             Ville:
             <input
@@ -160,10 +165,11 @@ function AddPatient() {
               name="city"
               value={inputs.city || ""}
               onChange={handleChange}
+              disabled
             />
           </label>
         </div>
-        <div className={styles.PhoneNumberContainer}>
+        <div className={styles.PhoneNumber}>
           <label>
             Numéro de téléphone:
             <input
@@ -171,10 +177,11 @@ function AddPatient() {
               name="phone"
               value={inputs.phone || ""}
               onChange={handleChange}
+              disabled
             />
           </label>
         </div>
-        <div className={styles.emailContainer}>
+        <div className={styles.Email}>
           <label>
             E-mail
             <input
@@ -182,11 +189,12 @@ function AddPatient() {
               name="email"
               value={inputs.email || ""}
               onChange={handleChange}
+              disabled
             />
           </label>
         </div>
-        <div className={styles.ImportantContainer}>Important</div>
-        <div className={styles.AllergyContainer}>
+        <div className={styles.Important}>Important</div>
+        <div className={styles.Allergy}>
           <label>
             Allergies:
             <input
@@ -194,10 +202,11 @@ function AddPatient() {
               name="allergy"
               value={inputs.allergy || ""}
               onChange={handleChange}
+              disabled
             />
           </label>
         </div>
-        <div className={styles.BloodGroupContainer}>
+        <div className={styles.BloodGroup}>
           <label>
             Groupe sanguin:
             <select
@@ -205,6 +214,7 @@ function AddPatient() {
               name="blood_group"
               value={inputs.blood_group || ""}
               onChange={handleChange}
+              disabled
             >
               <option
                 value=""
@@ -223,7 +233,7 @@ function AddPatient() {
             </select>
           </label>
         </div>
-        <div className={styles.RemarkContainer}>
+        <div className={styles.Remark}>
           <label>
             Remarques:
             <input
@@ -231,6 +241,7 @@ function AddPatient() {
               name="remark"
               value={inputs.remark || ""}
               onChange={handleChange}
+              disabled
             />
           </label>
         </div>

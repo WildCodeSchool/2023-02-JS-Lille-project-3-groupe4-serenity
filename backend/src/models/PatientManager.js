@@ -2,12 +2,12 @@ const AbstractManager = require("./AbstractManager");
 
 class PatientManager extends AbstractManager {
   constructor() {
-    super({ table: "Patient" });
+    super({ table: "patient" });
   }
 
   async insert(patient) {
     await this.database.query(
-      `INSERT INTO USER (last_name, first_name, age, gender, phone, nationality, address, city, zip_code, roles, email) VALUES (?,?,?,?,?,?,?,?,?,"Patient",?)`,
+      `INSERT INTO user (last_name, first_name, age, gender, phone, nationality, address, city, zip_code, roles, email) VALUES (?,?,?,?,?,?,?,?,?,"Patient",?)`,
       [
         patient.last_name,
         patient.first_name,
@@ -25,7 +25,7 @@ class PatientManager extends AbstractManager {
     await this.database.query(`SET @user_id = LAST_INSERT_ID();`);
 
     await this.database.query(
-      `INSERT INTO Patient (social_secu_number, blood_group, allergy, remark, user_id) VALUES (?, ?, ?, ?, @user_id)`,
+      `INSERT INTO patient (social_secu_number, blood_group, allergy, remark, user_id) VALUES (?, ?, ?, ?, @user_id)`,
       [
         patient.social_secu_number,
         patient.blood_group,
@@ -34,26 +34,46 @@ class PatientManager extends AbstractManager {
       ]
     );
     await this.database.query(
-      `INSERT INTO Identification (pwd, roles, email, user_id, social_secu_number, staff_id) 
+      `INSERT INTO identification (pwd, roles, email, user_id, social_secu_number, staff_id) 
        VALUES ('password123', 'Patient',
-        (SELECT email FROM serenity.User AS U WHERE U.id = @user_id),
+        (SELECT email FROM serenity.user AS U WHERE U.id = @user_id),
         @user_id,
-        (SELECT social_secu_number FROM serenity.Patient P WHERE P.user_id = @user_id),
+        (SELECT social_secu_number FROM serenity.patient P WHERE P.user_id = @user_id),
         2)`
     );
   }
 
   async findAllPatient() {
     const query = `
-      SELECT user.last_name AS "nom", user.first_name AS "prenom",
+      SELECT user.last_name, user.first_name,
       user.age,
-      patient.social_secu_number AS "social_number",
-      patient.user_id AS "id"
+      patient.social_secu_number,
+      patient.user_id
       FROM user
       JOIN patient ON user.id = patient.user_id
     `;
 
     const [rows] = await this.database.query(query);
+    return rows;
+  }
+
+  async findPatientBySocialSecuNumber(socialSecuNumber) {
+    const query = `
+      SELECT u.gender, u.last_name, u.first_name ,u.age,
+      u.phone, u.nationality, u.address, u.city,
+      u.zip_code, u.email,
+      i.pwd,
+      pt.blood_group,
+      pt.allergy,
+      pt.remark,
+      pt.social_secu_number
+      FROM serenity.User u
+      JOIN serenity.Identification i ON u.id = i.user_id
+      JOIN serenity.Patient pt ON u.id = pt.user_id
+      WHERE pt.social_secu_number = ?
+    `;
+
+    const [rows] = await this.database.query(query, [socialSecuNumber]);
     return rows;
   }
 }

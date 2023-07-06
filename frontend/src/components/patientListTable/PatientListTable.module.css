@@ -2,9 +2,9 @@
 
 .tableContainer {
   width: 100%;
+  max-height: 100%;
   border-spacing: 0;
   border-collapse: collapse;
-  max-height: 100%;
 }
 
 tr {
@@ -14,10 +14,9 @@ tr {
 .theadRow {
   font-size: 1.2rem;
   font-weight: 400;
-  height: 60px;
+  height: 40px;
   color: var(--white);
   box-shadow: var(--basic-shadow);
-  margin-bottom: -2px;
   background-color: var(--light-purple);
   position: sticky;
   top: 0;
@@ -25,7 +24,7 @@ tr {
 
 .bodyRows {
   text-align: center;
-  height: 50px;
+  height: 40px;
   background-color: var(--white);
 }
 

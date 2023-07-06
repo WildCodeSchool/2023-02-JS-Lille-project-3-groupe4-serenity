@@ -13,10 +13,12 @@ const browse = (req, res) => {
 };
 
 const read = (req, res) => {
+  const socialSecuNumber = req.params.social_secu_number;
+
   models.patient
-    .find(req.params.id)
-    .then(([rows]) => {
-      if (rows[0] == null) {
+    .findPatientBySocialSecuNumber(socialSecuNumber)
+    .then((rows) => {
+      if (rows.length === 0) {
         res.sendStatus(404);
       } else {
         res.send(rows[0]);

@@ -1,3 +1,12 @@
+@import url("../../../GlobalVariables.css");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+.closeButtonContainer {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
 .addPatientContainer {
   width: 100%;
   height: 100%;
@@ -7,113 +16,149 @@
   box-shadow: var(--basic-shadow);
   background-color: var(--light-grey);
   padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
-.addPatientContainer h3 {
-  font-size: 3rem;
-  font-weight: 400;
+.AddNewPatientContainer {
+  font-size: 2rem;
+  font-weight: 300;
 }
 
-.closeButtonContainer {
+.dataContainer {
+  flex: 5;
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: end;
+  background-color: azure;
+  border-radius: 10px;
+  box-shadow: var(--basic-shadow);
+  overflow: hidden;
 }
 
-.closeIcon {
-  font-size: 1.5rem;
-  color: var(--light-purple);
+.AddPatientFormContainer {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(12, 0.8fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 5px;
 }
 
-.closeIcon:hover {
-  color: var(--main-purple);
+.AddNewPatient {
+  grid-area: 1 / 1 / 2 / 2;
 }
 
-.formContainer {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 3rem;
+.ButtonAddPatientContainer {
+  grid-area: 1 / 5 / 2 / 6;
 }
 
-form {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-}
-
-label {
-  display: flex;
-  flex-direction: column;
-  width: 80%;
-  gap: 0.5rem;
-}
-
-input,
-.multipleChoicesMenu {
-  height: 2.5rem;
-  border: none;
-  border-radius: 5px;
-  font-weight: 500;
-}
-
-input {
-  padding-left: 5px;
-}
-
-/* ENLEVER LES FLECHES PLUS ET MOINS */
-/* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-/* Firefox */
-input:focus,
-.multipleChoicesMenu:focus {
-  outline: solid 2px var(--light-purple);
-}
-
-input:disabled {
-  background-color: var(--medium-grey);
-}
-
-.leftContainer,
-.middleContainer,
-.rightContainer {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.divFake {
-  height: 58px;
-  border: none;
-  border-radius: 5px;
-}
-
-.sendButton {
-  width: 100%;
-  height: 3rem;
+.ButtonAddPatientContainer {
+  display: grid;
+  place-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 4rem;
   background-color: var(--main-purple);
   border: none;
   color: var(--white);
-  font-weight: 500;
   border-radius: 0.8rem;
   box-shadow: var(--basic-shadow);
   cursor: pointer;
-  margin-top: 18px;
+  text-decoration: none;
+  color: var(--white);
+  font-weight: 400;
+  font-size: 1.2rem;
 }
 
-.sendButton:hover {
+.ButtonAddPatientContainer:hover {
   background-color: var(--light-purple);
+}
+
+.ButtonAddPatientContainer form {
+  margin: 0;
+}
+
+.MaritalStatusContainer {
+  grid-area: 3 / 1 / 4 / 2;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.SexContainer {
+  display: flex;
+  align-items: center;
+  grid-area: 4 / 1 / 5 / 2;
+}
+
+.SexContainer > div {
+  display: flex;
+  align-items: center;
+}
+
+.RadioButtonContainer {
+  margin-right: 10px;
+}
+
+.RadioButtonLabelContainer {
+  margin-left: 5px;
+}
+
+.LastNamePatientContainer {
+  grid-area: 4 / 3 / 5 / 4;
+}
+
+.FirstNamePatientContainer {
+  grid-area: 4 / 5 / 5 / 6;
+}
+
+.SocialSecuNumberContainer {
+  grid-area: 5 / 1 / 6 / 2;
+}
+
+.NationalityContainer {
+  grid-area: 5 / 3 / 6 / 4;
+}
+
+.AgeContainer {
+  grid-area: 5 / 5 / 6 / 6;
+}
+
+.AdressAndContactContainer {
+  grid-area: 7 / 1 / 8 / 2;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.AdressContainer {
+  grid-area: 8 / 1 / 9 / 2;
+}
+
+.ZipCodeContainer {
+  grid-area: 8 / 3 / 9 / 4;
+}
+
+.CityContainer {
+  grid-area: 8 / 5 / 9 / 6;
+}
+
+.PhoneNumberContainer {
+  grid-area: 9 / 1 / 10 / 2;
+}
+
+.emailContainer {
+  grid-area: 9 / 5 / 10 / 6;
+}
+
+.ImportantContainer {
+  grid-area: 11 / 1 / 12 / 2;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.AllergyContainer {
+  grid-area: 12 / 1 / 13 / 2;
+}
+
+.BloodGroupContainer {
+  grid-area: 12 / 3 / 13 / 4;
+}
+
+.RemarkContainer {
+  grid-area: 12 / 5 / 13 / 6;
 }

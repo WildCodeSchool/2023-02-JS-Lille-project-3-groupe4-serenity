@@ -1,11 +1,13 @@
 .headerMobile {
-  flex: 2;
+  height: 21vh;
   width: 100%;
   display: flex;
   flex-direction: column;
   width: 100%;
   box-shadow: var(--basic-shadow);
   padding: 1rem;
+  position: relative;
+  z-index: 5;
 }
 
 .infosPatientContainer {
@@ -41,8 +43,8 @@
 }
 
 .patientName {
-  font-size: 2rem;
-  font-weight: 300;
+  font-size: 5vw;
+  font-weight: 400;
   margin-bottom: 0.5rem;
   color: var(--dark-blue);
 }
@@ -50,7 +52,7 @@
 .textProgressBar {
   font-weight: 500;
   font-family: var(--font);
-  font-size: 1rem;
+  font-size: 3vw;
   color: var(--white);
   padding-right: 0.5rem;
 }
@@ -74,11 +76,12 @@
 .dateContainer p,
 .hourContainer p {
   color: var(--main-purple);
+  font-size: 4vw;
 }
 
 .dateContainer h4,
 .hourContainer h4 {
-  font-size: 1.5rem;
+  font-size: 5vw;
   color: var(--dark-blue);
   font-weight: 500;
 }

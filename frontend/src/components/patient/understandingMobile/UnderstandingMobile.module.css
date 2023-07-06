@@ -1,0 +1,106 @@
+.understandingMobileContainer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+
+.progressBarContainer {
+  width: 100%;
+}
+
+.textProgressBar {
+  font-size: 5vw;
+  color: var(--white);
+}
+
+.blocTitle {
+  color: var(--dark-blue);
+  font-size: 5vw;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+.documentsAndTitleContainer {
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.documentsContainer {
+  height: 20vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.topContainer {
+  flex: 1;
+  width: 100%;
+  border-radius: 20px;
+  border: solid 2px var(--yellow);
+}
+
+.bottomContainer {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.leftContainer {
+  flex: 1;
+  height: 100%;
+  border: solid 2px var(--yellow);
+  border-radius: 20px;
+}
+
+.rightContainer {
+  flex: 1;
+  height: 100%;
+  border: solid 2px var(--yellow);
+  border-radius: 20px;
+}
+
+.videosAndTitleContainer {
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.videoBloc {
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+}
+
+.videoContainer {
+  width: 10vh;
+  height: 100%;
+  border: solid 2px var(--yellow);
+  border-radius: 20px;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+  width: 60%;
+  height: 100%;
+  padding: 0.5rem;
+}
+
+.videoTitle {
+  font-size: 4vw;
+  color: var(--dark-blue);
+  font-weight: 400;
+}
+
+.videoTime {
+  color: var(--grey);
+  font-size: 3vw;
+}
