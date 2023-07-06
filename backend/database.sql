@@ -5,12 +5,9 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- Schema serenity
 -- -----------------------------------------------------
 -- -----------------------------------------------------
--- Schema serenity
+-- Table `serenity`.`user`
 -- -----------------------------------------------------
--- -----------------------------------------------------
--- Table `serenity`.`User`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `serenity`.`User` (
+CREATE TABLE IF NOT EXISTS `serenity`.`user` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `last_name` VARCHAR(100) NOT NULL,
   `first_name` VARCHAR(100) NOT NULL,
@@ -25,20 +22,20 @@ CREATE TABLE IF NOT EXISTS `serenity`.`User` (
   `email` VARCHAR(145) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
-ALTER TABLE `serenity`.`User`
+ALTER TABLE `serenity`.`user`
 CHANGE COLUMN `access_tables` `roles` VARCHAR(45) NOT NULL DEFAULT 'Patient' ;
 -- -----------------------------------------------------
--- Table `serenity`.`Batiment`
+-- Table `serenity`.`batiment`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `serenity`.`Batiment` (
+CREATE TABLE IF NOT EXISTS `serenity`.`batiment` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nom_batiment` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 -- -----------------------------------------------------
--- Table `serenity`.`Staff`
+-- Table `serenity`.`staff`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `serenity`.`Staff` (
+CREATE TABLE IF NOT EXISTS `serenity`.`staff` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `roles` VARCHAR(200) NOT NULL,
   `user_id` INT NOT NULL,
@@ -46,14 +43,14 @@ CREATE TABLE IF NOT EXISTS `serenity`.`Staff` (
   INDEX `user_id_idx` (`user_id` ASC) VISIBLE,
   CONSTRAINT `fk_staff_user_id`
     FOREIGN KEY (`user_id`)
-    REFERENCES `serenity`.`User` (`id`)
+    REFERENCES `serenity`.`user` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 -- -----------------------------------------------------
--- Table `serenity`.`Service`
+-- Table `serenity`.`service`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `serenity`.`Service` (
+CREATE TABLE IF NOT EXISTS `serenity`.`service` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nom_service` VARCHAR(45) NOT NULL,
   `etage` VARCHAR(45) NOT NULL,
@@ -64,19 +61,19 @@ CREATE TABLE IF NOT EXISTS `serenity`.`Service` (
   INDEX `staff_id_idx` (`staff_id` ASC) VISIBLE,
   CONSTRAINT `fk_service_batiment_id`
     FOREIGN KEY (`batiment_id`)
-    REFERENCES `serenity`.`Batiment` (`id`)
+    REFERENCES `serenity`.`batiment` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_service_staff_id`
     FOREIGN KEY (`staff_id`)
-    REFERENCES `serenity`.`Staff` (`id`)
+    REFERENCES `serenity`.`staff` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 -- -----------------------------------------------------
--- Table `serenity`.`Practitioner`
+-- Table `serenity`.`practitioner`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `serenity`.`Practitioner` (
+CREATE TABLE IF NOT EXISTS `serenity`.`practitioner` (
   `identifier_rpps` VARCHAR(50) NOT NULL,
   `speciality` VARCHAR(100),
   `longitude` VARCHAR(100) NULL,
@@ -89,19 +86,19 @@ CREATE TABLE IF NOT EXISTS `serenity`.`Practitioner` (
   INDEX `service_id_idx` (`service_id` ASC) VISIBLE,
   CONSTRAINT `fk_pract_user_id`
     FOREIGN KEY (`user_id`)
-    REFERENCES `serenity`.`User` (`id`)
+    REFERENCES `serenity`.`user` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_pract_service_id`
     FOREIGN KEY (`service_id`)
-    REFERENCES `serenity`.`Service` (`id`)
+    REFERENCES `serenity`.`service` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 -- -----------------------------------------------------
--- Table `serenity`.`Patient`
+-- Table `serenity`.`patient`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `serenity`.`Patient` (
+CREATE TABLE IF NOT EXISTS `serenity`.`patient` (
   `social_secu_number` VARCHAR(50) NOT NULL,
   `blood_group` VARCHAR(100) NOT NULL,
   `allergy` VARCHAR(100) NOT NULL,
@@ -111,14 +108,14 @@ CREATE TABLE IF NOT EXISTS `serenity`.`Patient` (
   INDEX `user_id_idx` (`user_id` ASC) VISIBLE,
   CONSTRAINT `fk_patient_user_id`
     FOREIGN KEY (`user_id`)
-    REFERENCES `serenity`.`User` (`id`)
+    REFERENCES `serenity`.`user` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 -- -----------------------------------------------------
--- Table `serenity`.`Identification`
+-- Table `serenity`.`identification`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `serenity`.`Identification` (
+CREATE TABLE IF NOT EXISTS `serenity`.`identification` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `pwd` VARCHAR(145) NOT NULL,
   `roles` VARCHAR(100) NOT NULL,
@@ -133,24 +130,24 @@ CREATE TABLE IF NOT EXISTS `serenity`.`Identification` (
   INDEX `staff_id_idx` (`staff_id` ASC) VISIBLE,
   CONSTRAINT `fk_ident_prac_indentifier_rpps`
     FOREIGN KEY (`identifier_rpps`)
-    REFERENCES `serenity`.`Practitioner` (`identifier_rpps`)
+    REFERENCES `serenity`.`practitioner` (`identifier_rpps`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_ident_patient_social_secu_number`
     FOREIGN KEY (`social_secu_number`)
-    REFERENCES `serenity`.`Patient` (`social_secu_number`)
+    REFERENCES `serenity`.`patient` (`social_secu_number`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_ident_staff_staff_id`
     FOREIGN KEY (`staff_id`)
-    REFERENCES `serenity`.`Staff` (`id`)
+    REFERENCES `serenity`.`staff` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 -- -----------------------------------------------------
--- Table `serenity`.`Intervention`
+-- Table `serenity`.`intervention`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `serenity`.`Intervention` (
+CREATE TABLE IF NOT EXISTS `serenity`.`intervention` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nom_Intervention` VARCHAR(255),
   `type_intervention` VARCHAR(100) NOT NULL,
@@ -165,24 +162,24 @@ CREATE TABLE IF NOT EXISTS `serenity`.`Intervention` (
   INDEX `social_secu_number_idx` (`social_secu_number` ASC) VISIBLE,
   CONSTRAINT `fk_inter_prac_identifier_rpps`
     FOREIGN KEY (`identifier_rpps`)
-    REFERENCES `serenity`.`Practitioner` (`identifier_rpps`)
+    REFERENCES `serenity`.`practitioner` (`identifier_rpps`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_inter_staff_staff_id`
     FOREIGN KEY (`staff_id`)
-    REFERENCES `serenity`.`Staff` (`id`)
+    REFERENCES `serenity`.`staff` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_inter_patient_social_secu_number`
     FOREIGN KEY (`social_secu_number`)
-    REFERENCES `serenity`.`Patient` (`social_secu_number`)
+    REFERENCES `serenity`.`patient` (`social_secu_number`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 -- -----------------------------------------------------
--- Table `serenity`.`DocumentAdministratif`
+-- Table `serenity`.`documentadministratif`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `serenity`.`DocumentAdministratif` (
+CREATE TABLE IF NOT EXISTS `serenity`.`documentadministratif` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `id_card_link` VARCHAR(900) NOT NULL,
   `statu_id_card` TINYINT NOT NULL,
@@ -203,19 +200,19 @@ CREATE TABLE IF NOT EXISTS `serenity`.`DocumentAdministratif` (
   INDEX `intervention_id_idx` (`intervention_id` ASC) VISIBLE,
   CONSTRAINT `fk_doc_staff_staff_id`
     FOREIGN KEY (`staff_id`)
-    REFERENCES `serenity`.`Staff` (`id`)
+    REFERENCES `serenity`.`staff` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_doc_inter_intervention_id`
     FOREIGN KEY (`intervention_id`)
-    REFERENCES `serenity`.`Intervention` (`id`)
+    REFERENCES `serenity`.`intervention` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 -- -----------------------------------------------------
--- Table `serenity`.`Resources`
+-- Table `serenity`.`resources`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `serenity`.`Resources` (
+CREATE TABLE IF NOT EXISTS `serenity`.`resources` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `title_resource` VARCHAR(255) NOT NULL,
   `type_resource` VARCHAR(45) NOT NULL,
@@ -225,14 +222,14 @@ CREATE TABLE IF NOT EXISTS `serenity`.`Resources` (
   INDEX `fk_staff_id_idx` (`staff_id` ASC) VISIBLE,
   CONSTRAINT `fk_id_staff_resource`
     FOREIGN KEY (`staff_id`)
-    REFERENCES `serenity`.`Staff` (`id`)
+    REFERENCES `serenity`.`staff` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 -- -----------------------------------------------------
--- Table `serenity`.`Step`
+-- Table `serenity`.`step`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `serenity`.`Step` (
+CREATE TABLE IF NOT EXISTS `serenity`.`step` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nom_step` VARCHAR(100) NOT NULL,
   `pct_progress` VARCHAR(45) NOT NULL,
@@ -241,14 +238,14 @@ CREATE TABLE IF NOT EXISTS `serenity`.`Step` (
   INDEX `intervention_id_idx` (`intervention_id` ASC) VISIBLE,
   CONSTRAINT `fk_step_intervention_id`
     FOREIGN KEY (`intervention_id`)
-    REFERENCES `serenity`.`Intervention` (`id`)
+    REFERENCES `serenity`.`intervention` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 -- -----------------------------------------------------
--- Table `serenity`.`UnderStep`
+-- Table `serenity`.`understep`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `serenity`.`UnderStep` (
+CREATE TABLE IF NOT EXISTS `serenity`.`understep` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `statut` TINYINT NOT NULL,
   `step_id` INT NOT NULL,
@@ -256,11 +253,11 @@ CREATE TABLE IF NOT EXISTS `serenity`.`UnderStep` (
   INDEX `step_id_idx` (`step_id` ASC) VISIBLE,
   CONSTRAINT `fk_understep_step_id`
     FOREIGN KEY (`step_id`)
-    REFERENCES `serenity`.`Step` (`id`)
+    REFERENCES `serenity`.`step` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-CREATE TABLE serenity.Resource_UnderStep_Intervention (
+CREATE TABLE serenity.resource_understep_intervention (
   `id` INT NOT NULL AUTO_INCREMENT,
   resource_id INT NOT NULL,
   understep_id INT NOT NULL,
@@ -269,46 +266,11 @@ CREATE TABLE serenity.Resource_UnderStep_Intervention (
   INDEX idx_resource_id (resource_id),
   INDEX idx_understep_id (understep_id),
   INDEX idx_intervention_id (intervention_id),
-  FOREIGN KEY (resource_id) REFERENCES serenity.Resources (id),
-  FOREIGN KEY (understep_id) REFERENCES serenity.UnderStep (id),
-  FOREIGN KEY (intervention_id) REFERENCES serenity.Intervention (id)
+  FOREIGN KEY (resource_id) REFERENCES serenity.resources (id),
+  FOREIGN KEY (understep_id) REFERENCES serenity.understep (id),
+  FOREIGN KEY (intervention_id) REFERENCES serenity.intervention (id)
 )
 ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
-
--- Modifier le type de la colonne "type_intervention" dans la table Intervention
-ALTER TABLE serenity.Intervention
-MODIFY COLUMN type_intervention VARCHAR(100) NOT NULL,
-ADD INDEX idx_type_intervention (type_intervention);
--- Modifier le type de la colonne "type_intervention" dans la table Resource
-ALTER TABLE serenity.Resources
-ADD COLUMN type_intervention VARCHAR(100) NOT NULL,
-ADD FOREIGN KEY (type_intervention) REFERENCES serenity.Intervention (type_intervention),
-ADD INDEX idx_type_intervention_resources (type_intervention);
--- Modifier le type de la colonne "type_intervention" dans la table UnderStep
-ALTER TABLE serenity.UnderStep
-ADD COLUMN type_intervention VARCHAR(100) NOT NULL,
-ADD FOREIGN KEY (type_intervention) REFERENCES serenity.Intervention (type_intervention),
-ADD INDEX idx_type_intervention_understep (type_intervention);
--- Ajouter la colonne "type_intervention" dans la table Resource_UnderStep_Intervention
-ALTER TABLE serenity.Resource_UnderStep_Intervention
-ADD COLUMN type_intervention VARCHAR(100) NOT NULL,
-ADD FOREIGN KEY (type_intervention) REFERENCES serenity.Intervention (type_intervention),
-ADD FOREIGN KEY (type_intervention) REFERENCES serenity.Resources (type_intervention),
-ADD FOREIGN KEY (type_intervention) REFERENCES serenity.UnderStep (type_intervention);
--- Ajouter les index
-CREATE INDEX idx_type_intervention_resource_understep_intervention ON serenity.Resource_UnderStep_Intervention (type_intervention);
--- Update serenity.Intervention table
-ALTER TABLE serenity.Intervention
-ALTER COLUMN type_intervention SET DEFAULT 'Default Intervention';
--- Update serenity.Resources table
-ALTER TABLE serenity.Resources
-ALTER COLUMN type_intervention SET DEFAULT 'Default Intervention';
--- Update serenity.UnderStep table
-ALTER TABLE serenity.UnderStep
-ALTER COLUMN type_intervention SET DEFAULT 'Default Intervention';
--- Update serenity.Resource_UnderStep_Intervention table
-ALTER TABLE serenity.Resource_UnderStep_Intervention
-ALTER COLUMN type_intervention SET DEFAULT 'Default Intervention';
