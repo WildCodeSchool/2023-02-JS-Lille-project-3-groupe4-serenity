@@ -15,6 +15,7 @@ import AdminPatientPage from "./pages/admin/AdminPatientPage";
 import AdminPractitionerPage from "./pages/admin/AdminPractitionerPage";
 import AdminStaffPage from "./pages/admin/AdminStaffPage";
 import AdminUnitPage from "./pages/admin/AdminUnitPage";
+import PatientLoginPage from "./pages/patient/PatientLoginPage";
 import PatientBreathePage from "./pages/patient/PatientBreathePage";
 import PatientChecklistPage from "./pages/patient/PatientChecklistPage";
 import PatientMusicPage from "./pages/patient/PatientMusicPage";
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
+  },
+  {
+    path: "/patient/login",
+    element: <PatientLoginPage />,
   },
   {
     path: "/patient",

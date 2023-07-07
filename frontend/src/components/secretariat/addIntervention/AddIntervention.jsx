@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaRegWindowClose } from "react-icons/fa";
 import axios from "axios";
@@ -6,7 +6,37 @@ import styles from "./AddIntervention.module.css";
 
 function AddIntervention() {
   const [inputs, setInputs] = useState({ roles: "patient" });
+  const [practitionerList, setPractitionerList] = useState([]);
+  const [patientsList, setPatientsList] = useState([]);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const fectchAllPractitionner = async () => {
+      try {
+        const response = await axios.get(
+          `${import.meta.env.VITE_BACKEND_URL}/practitioners`
+        );
+        setPractitionerList(response.data);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    fectchAllPractitionner();
+  }, []);
+
+  useEffect(() => {
+    const fectchAllPatient = async () => {
+      try {
+        const response = await axios.get(
+          `${import.meta.env.VITE_BACKEND_URL}/patients`
+        );
+        setPatientsList(response.data);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    fectchAllPatient();
+  }, []);
 
   const handleChange = (event) => {
     const { name } = event.target;
@@ -50,21 +80,48 @@ function AddIntervention() {
             </label>
             <label>
               N° sécurité sociale:
-              <input
-                type="text"
+              <select
+                className={styles.multipleChoicesMenu}
                 name="social_secu_number"
                 value={inputs.social_secu_number || ""}
                 onChange={handleChange}
-              />
+              >
+                <option value="" disabled hidden>
+                  Séléctionnez un patient
+                </option>
+                {patientsList.map((patient) => (
+                  <option
+                    key={patient.social_secu_number}
+                    value={patient.social_secu_number}
+                    className={styles.optionSelectText}
+                  >
+                    {patient.social_secu_number} {patient.first_name}{" "}
+                    {patient.last_name}
+                  </option>
+                ))}
+              </select>
             </label>
             <label>
               Identifiant RPPS:
-              <input
-                type="text"
+              <select
+                className={styles.multipleChoicesMenu}
                 name="identifier_rpps"
                 value={inputs.identifier_rpps || ""}
                 onChange={handleChange}
-              />
+              >
+                <option value="" disabled hidden>
+                  Séléctionnez un practicien
+                </option>
+                {practitionerList.map((practitioner) => (
+                  <option
+                    key={practitioner.identifier_rpps}
+                    value={practitioner.identifier_rpps}
+                  >
+                    {practitioner.identifier_rpps} {practitioner.first_name}{" "}
+                    {practitioner.last_name}
+                  </option>
+                ))}
+              </select>
             </label>
             <label>
               Date de procédure:

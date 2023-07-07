@@ -1,27 +1,26 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
 import { FaRegWindowClose } from "react-icons/fa";
 import axios from "axios";
 import styles from "./InfosPatient.module.css";
 
 function InfosPatient() {
-  const [inputs, setInputs] = useState({});
-  const navigate = useNavigate();
+  const [patient, setPatient] = useState({});
+  const socialSecuNumber = useParams().social_secu_number;
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setInputs((values) => ({ ...values, [name]: value }));
-  };
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      await axios.post(`${import.meta.env.VITE_BACKEND_URL}/patients`, inputs);
-      navigate("/secretariat/patient");
-    } catch (err) {
-      console.error(err);
-    }
-  };
+  useEffect(() => {
+    const fectchPatient = async () => {
+      try {
+        const response = await axios.get(
+          `${import.meta.env.VITE_BACKEND_URL}/patients/${socialSecuNumber}`
+        );
+        setPatient(response.data);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    fectchPatient();
+  }, []);
 
   return (
     <div className={styles.ManagementPatientContainer}>
@@ -34,12 +33,13 @@ function InfosPatient() {
         <div className={styles.ManagementPatientSelectedContainer}>
           Gestion d'un patient
         </div>
-        <div className={styles.ButtonModifyPatientContainer}>
-          <form onSubmit={handleSubmit}>Modifier</form>
-        </div>
-        <div className={styles.ButtonDeletePatientContainer}>
-          <form onSubmit={handleSubmit}>Supprimer</form>
-        </div>
+
+        <button className={styles.ButtonModifyPatientContainer} type="button">
+          Modifier
+        </button>
+        <button className={styles.ButtonDeletePatientContainer} type="button">
+          Supprimer
+        </button>
         <div className={styles.MaritalStatusContainer}>Etat Civil</div>
         <div className={styles.SexContainer}>
           <div>
@@ -48,10 +48,9 @@ function InfosPatient() {
               <label>
                 <input
                   type="radio"
-                  value="feminin"
-                  name="sex"
-                  checked={inputs.sex === "feminin"}
-                  onChange={handleChange}
+                  value="Female"
+                  name="gender"
+                  checked={patient.gender === "Female"}
                   disabled
                 />
                 <span className={styles.RadioButtonLabelContainer}>
@@ -63,10 +62,9 @@ function InfosPatient() {
               <label>
                 <input
                   type="radio"
-                  value="masculin"
-                  name="sex"
-                  checked={inputs.sex === "masculin"}
-                  onChange={handleChange}
+                  value="Male"
+                  name="gender"
+                  checked={patient.gender === "Male"}
                   disabled
                 />
                 <span className={styles.RadioButtonLabelContainer}>
@@ -82,8 +80,7 @@ function InfosPatient() {
             <input
               type="text"
               name="last_name"
-              value={inputs.last_name || ""}
-              onChange={handleChange}
+              value={patient.last_name || ""}
               disabled
             />
           </label>
@@ -94,8 +91,7 @@ function InfosPatient() {
             <input
               type="text"
               name="first_name"
-              value={inputs.first_name || ""}
-              onChange={handleChange}
+              value={patient.first_name || ""}
               disabled
             />
           </label>
@@ -106,8 +102,7 @@ function InfosPatient() {
             <input
               type="text"
               name="social_secu_number"
-              value={inputs.social_secu_number || ""}
-              onChange={handleChange}
+              value={patient.social_secu_number || ""}
               disabled
             />
           </label>
@@ -118,8 +113,7 @@ function InfosPatient() {
             <input
               type="number"
               name="age"
-              value={inputs.age || ""}
-              onChange={handleChange}
+              value={patient.age || ""}
               disabled
             />
           </label>
@@ -130,8 +124,7 @@ function InfosPatient() {
             <input
               type="text"
               name="nationality"
-              value={inputs.nationality || ""}
-              onChange={handleChange}
+              value={patient.nationality || ""}
               disabled
             />
           </label>
@@ -145,8 +138,7 @@ function InfosPatient() {
             <input
               type="text"
               name="address"
-              value={inputs.address || ""}
-              onChange={handleChange}
+              value={patient.address || ""}
               disabled
             />
           </label>
@@ -157,8 +149,7 @@ function InfosPatient() {
             <input
               type="text"
               name="zip_code"
-              value={inputs.zip_code || ""}
-              onChange={handleChange}
+              value={patient.zip_code || ""}
               disabled
             />
           </label>
@@ -169,8 +160,7 @@ function InfosPatient() {
             <input
               type="text"
               name="city"
-              value={inputs.city || ""}
-              onChange={handleChange}
+              value={patient.city || ""}
               disabled
             />
           </label>
@@ -181,8 +171,7 @@ function InfosPatient() {
             <input
               type="text"
               name="phone"
-              value={inputs.phone || ""}
-              onChange={handleChange}
+              value={patient.phone || ""}
               disabled
             />
           </label>
@@ -193,8 +182,7 @@ function InfosPatient() {
             <input
               type="text"
               name="email"
-              value={inputs.email || ""}
-              onChange={handleChange}
+              value={patient.email || ""}
               disabled
             />
           </label>
@@ -206,8 +194,7 @@ function InfosPatient() {
             <input
               type="text"
               name="allergy"
-              value={inputs.allergy || ""}
-              onChange={handleChange}
+              value={patient.allergy || ""}
               disabled
             />
           </label>
@@ -218,8 +205,6 @@ function InfosPatient() {
             <select
               className={styles.multipleChoicesMenu}
               name="blood_group"
-              value={inputs.blood_group || ""}
-              onChange={handleChange}
               disabled
             >
               <option
@@ -245,8 +230,7 @@ function InfosPatient() {
             <input
               type="text"
               name="remark"
-              value={inputs.remark || ""}
-              onChange={handleChange}
+              value={patient.remark || ""}
               disabled
             />
           </label>
