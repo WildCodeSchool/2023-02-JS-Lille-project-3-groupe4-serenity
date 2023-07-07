@@ -2,7 +2,7 @@ import ProgressBar from "@ramonak/react-progress-bar";
 import axios from "axios";
 import "leaflet/dist/leaflet.css";
 import React, { useEffect, useState } from "react";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import styles from "./OutboardingMobile.module.css";
 
 function OutboardingMobile() {
