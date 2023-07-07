@@ -25,7 +25,7 @@ function Home() {
             <p className={styles.logoText}>Professionnel.le de santé</p>
           </div>
           <div className={styles.patientGlobalBloc}>
-            <Link to="/patient/understanding">
+            <Link to="/patient/login">
               <div className={styles.patientContainer}>
                 <img
                   className={styles.patientLogoClass}

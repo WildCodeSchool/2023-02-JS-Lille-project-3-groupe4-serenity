@@ -7,7 +7,7 @@ class PractitionerManager extends AbstractManager {
 
   async insert(practitioner) {
     await this.database.query(
-      `INSERT INTO USER (last_name, first_name, age, gender, phone, nationality, address, city, zip_code, roles, email) VALUES (?,?,?,?,?,?,?,?,?,"Practitioner",?)`,
+      `INSERT INTO user (last_name, first_name, age, gender, phone, nationality, address, city, zip_code, roles, email) VALUES (?,?,?,?,?,?,?,?,?,"Practitioner",?)`,
       [
         practitioner.last_name,
         practitioner.first_name,
@@ -25,8 +25,8 @@ class PractitionerManager extends AbstractManager {
     await this.database.query(`SET @user_id = LAST_INSERT_ID();`);
 
     await this.database.query(
-      `INSERT INTO Practitioner (identifier_rpps, speciality, longitude, latitude, type_intervention, user_id,
-        service_id) VALUES (?, ?, ?, ?, ?, @user_id, (SELECT id FROM serenity.Service AS S WHERE S.nom_service = ?))`,
+      `INSERT INTO practitioner (identifier_rpps, speciality, longitude, latitude, type_intervention, user_id,
+        service_id) VALUES (?, ?, ?, ?, ?, @user_id, (SELECT id FROM serenity.service AS S WHERE S.nom_service = ?))`,
       [
         practitioner.identifier_rpps,
         practitioner.speciality,
@@ -37,11 +37,11 @@ class PractitionerManager extends AbstractManager {
       ]
     );
     await this.database.query(
-      `INSERT INTO Identification (pwd, roles, email, user_id, identifier_rpps, staff_id)
+      `INSERT INTO identification (pwd, roles, email, user_id, identifier_rpps, staff_id)
        SELECT 'Smith123', 'Practitioner', 
-       (SELECT email FROM serenity.User AS U WHERE U.id = @user_id), 
+       (SELECT email FROM serenity.user AS U WHERE U.id = @user_id), 
        @user_id, 
-       (SELECT identifier_rpps FROM serenity.Practitioner P WHERE P.user_id = @user_id),
+       (SELECT identifier_rpps FROM serenity.practitioner P WHERE P.user_id = @user_id),
        2`
     );
   }

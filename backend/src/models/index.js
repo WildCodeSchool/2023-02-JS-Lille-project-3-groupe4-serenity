@@ -44,13 +44,15 @@ const PractitionerManager = require("./PractitionerManager");
 models.practitioner = new PractitionerManager();
 models.practitioner.setDatabase(pool);
 
-const InterventionManager = require("./InterventionManager");
+const InterventionManager = require("./IdentificationManager");
 
 models.intervention = new InterventionManager();
 models.intervention.setDatabase(pool);
 
-// bonus: use a proxy to personalize error message,
-// when asking for a non existing model
+const IdentificationManager = require("./IdentificationManager");
+
+models.identification = new IdentificationManager();
+models.identification.setDatabase(pool);
 
 const handler = {
   get(obj, prop) {

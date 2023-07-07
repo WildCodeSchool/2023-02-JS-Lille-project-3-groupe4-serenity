@@ -18,6 +18,10 @@ router.put("/patients/:id", patientControllers.edit);
 router.post("/patients", patientControllers.add);
 router.delete("/patients/:id", patientControllers.destroy);
 
+const identificationControllers = require("./controllers/identificationControllers");
+
+router.post("/login", identificationControllers.login);
+
 const practitionerControllers = require("./controllers/practitionerControllers");
 
 router.get("/practitioners", practitionerControllers.browse);

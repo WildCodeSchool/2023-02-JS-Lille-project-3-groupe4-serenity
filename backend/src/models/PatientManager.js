@@ -5,9 +5,9 @@ class PatientManager extends AbstractManager {
     super({ table: "Patient" });
   }
 
-  async insert(patient) {
+  async insert(patient, hashedPassword) {
     await this.database.query(
-      `INSERT INTO USER (last_name, first_name, age, gender, phone, nationality, address, city, zip_code, roles, email) VALUES (?,?,?,?,?,?,?,?,?,"Patient",?)`,
+      `INSERT INTO user (last_name, first_name, age, gender, phone, nationality, address, city, zip_code, roles, email) VALUES (?,?,?,?,?,?,?,?,?,"Patient",?)`,
       [
         patient.last_name,
         patient.first_name,
@@ -25,7 +25,7 @@ class PatientManager extends AbstractManager {
     await this.database.query(`SET @user_id = LAST_INSERT_ID();`);
 
     await this.database.query(
-      `INSERT INTO Patient (social_secu_number, blood_group, allergy, remark, user_id) VALUES (?, ?, ?, ?, @user_id)`,
+      `INSERT INTO patient (social_secu_number, blood_group, allergy, remark, user_id) VALUES (?, ?, ?, ?, @user_id)`,
       [
         patient.social_secu_number,
         patient.blood_group,
@@ -34,12 +34,13 @@ class PatientManager extends AbstractManager {
       ]
     );
     await this.database.query(
-      `INSERT INTO Identification (pwd, roles, email, user_id, social_secu_number, staff_id) 
-       VALUES ('password123', 'Patient',
-        (SELECT email FROM serenity.User AS U WHERE U.id = @user_id),
+      `INSERT INTO identification (pwd, roles, email, user_id, social_secu_number, staff_id) 
+       VALUES (?, 'Patient',
+        (SELECT email FROM serenity.user AS U WHERE U.id = @user_id),
         @user_id,
-        (SELECT social_secu_number FROM serenity.Patient P WHERE P.user_id = @user_id),
-        2)`
+        (SELECT social_secu_number FROM serenity.patient P WHERE P.user_id = @user_id),
+        2)`,
+      [hashedPassword]
     );
   }
 
