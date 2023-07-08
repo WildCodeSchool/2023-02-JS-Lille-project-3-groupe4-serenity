@@ -5,7 +5,7 @@ class PatientManager extends AbstractManager {
     super({ table: "patient" });
   }
 
-  async insert(patient) {
+  async insert(patient, hashedPassword) {
     await this.database.query(
       `INSERT INTO user (last_name, first_name, age, gender, phone, nationality, address, city, zip_code, roles, email) VALUES (?,?,?,?,?,?,?,?,?,"Patient",?)`,
       [
@@ -35,11 +35,12 @@ class PatientManager extends AbstractManager {
     );
     await this.database.query(
       `INSERT INTO identification (pwd, roles, email, user_id, social_secu_number, staff_id) 
-       VALUES ('password123', 'Patient',
+       VALUES (?, 'Patient',
         (SELECT email FROM serenity.user AS U WHERE U.id = @user_id),
         @user_id,
         (SELECT social_secu_number FROM serenity.patient P WHERE P.user_id = @user_id),
-        2)`
+        2)`,
+      [hashedPassword]
     );
   }
 

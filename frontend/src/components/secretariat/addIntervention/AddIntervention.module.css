@@ -63,6 +63,7 @@ input,
   border: none;
   border-radius: 5px;
   font-weight: 500;
+  color: var(--dark-blue);
 }
 
 input {

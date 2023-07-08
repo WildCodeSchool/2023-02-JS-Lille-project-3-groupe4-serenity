@@ -1,0 +1,113 @@
+@import "../../GlobalVariables.css";
+
+.homeContainer {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--dark-blue);
+  font-family: var(--font);
+  justify-content: space-between;
+  padding-bottom: 2rem;
+}
+
+.headerContainer {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  border-bottom: solid 1px var(--medium-grey);
+}
+
+.logoContainer {
+  height: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
+
+.rightContainer {
+  height: 100%;
+  flex: 4.5;
+}
+
+.pageContainer {
+  width: 100%;
+  flex: 6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pageTitle {
+  font-size: 3rem;
+  font-weight: 400;
+  margin-top: 3rem;
+}
+
+.text {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-top: 3rem;
+}
+
+.formContainer {
+  margin-top: 3rem;
+  width: 33%;
+  background: #f6f4f4;
+  border-radius: 20px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.emailLabel,
+.passwordLabel {
+  font-size: 1.25rem;
+  color: #555;
+  margin-right: 1rem; /* Ajuster l'espace entre le libellé et l'input */
+  align-self: flex-start; /* Aligner les libellés à gauche */
+}
+
+.emailField,
+.passwordField {
+  width: 100%;
+  padding: 1.5rem;
+  border: none;
+  border-radius: 5px;
+}
+
+.submitButton {
+  margin-top: 1rem;
+  background: var(--dark-blue);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem;
+  font-size: 1.25rem;
+  cursor: pointer;
+  margin: 0 auto; /* Centrer les inputs horizontalement */
+  justify-self: center; /* Centrer les inputs dans le formulaire */
+  width: 30%;
+}
+
+.passwordInputContainer {
+  position: relative;
+}
+
+.passwordField {
+  padding-right: 2.5rem;
+}
+
+.passwordVisibilityIcon {
+  position: absolute;
+  top: 50%;
+  right: 0.5rem;
+  transform: translateY(-50%);
+  cursor: pointer;
+}

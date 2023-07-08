@@ -1,0 +1,106 @@
+@import url("../../../GlobalVariables.css");
+
+.BreatheApp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  color: var(--dark-blue);
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 4vh;
+  margin-top: 2vh;
+}
+
+.input label {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 1vh;
+}
+
+.input select {
+  border: none;
+  border-radius: 8px;
+  min-width: 250px;
+  font-size: 4vw;
+  padding: 8px 4px;
+  background-color: var(--main-purple);
+  color: #fff;
+}
+
+.input select:focus {
+  outline: none;
+}
+
+.circle-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-bottom: 6vh;
+}
+
+.circle-outline {
+  width: 30vh;
+  height: 30vh;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 2vh solid #f1f1f1;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.circle-progress {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-color: var(--main-purple);
+  border-radius: 50%;
+  transition: 4s ease all;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.circle-grow {
+  transform: scale(5.3);
+}
+
+.breaths,
+.breaths-text {
+  text-align: center;
+  margin-bottom: 2vh;
+  font-size: 5vw;
+}
+
+.instructions {
+  text-align: center;
+  color: var(--turquoise);
+  margin-bottom: 3vh;
+  font-size: 4vw;
+}
+
+button {
+  padding: 8px 20px;
+  border-radius: 8px;
+  background-color: var(--main-purple);
+  color: var(--white);
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease all;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+button:hover {
+  background-color: var(--light-grey);
+  color: var(--main-purple);
+}
+
+.button-inactive {
+  pointer-events: none;
+  background-color: #969696;
+}

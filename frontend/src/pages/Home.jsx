@@ -16,7 +16,7 @@ function Home() {
         <p className={styles.text}>Vous êtes:</p>
         <div className={styles.connexionLinksContainer}>
           <div className={styles.proGlobalBloc}>
-            <Link to="/admin">
+            <Link to="/secretariat">
               <div className={styles.professionalContainer}>
                 <img src={proLogo} alt="professional logo connexion" />
               </div>
@@ -25,7 +25,7 @@ function Home() {
             <p className={styles.logoText}>Professionnel.le de santé</p>
           </div>
           <div className={styles.patientGlobalBloc}>
-            <Link to="/patient/understanding">
+            <Link to="/patient/login">
               <div className={styles.patientContainer}>
                 <img
                   className={styles.patientLogoClass}

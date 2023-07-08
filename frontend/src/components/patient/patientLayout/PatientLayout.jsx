@@ -97,7 +97,17 @@ function PatientLayout() {
                   </NavLink>
                 </h2>
                 <div className={styles.separator} />
-                <h2 className={styles.linkText}>Test</h2>
+                <h2 className={styles.linkText}>
+                  <NavLink
+                    to="/patient/breathe"
+                    className={({ isActive }) =>
+                      isActive ? styles.activeLinkText : styles.linkText
+                    }
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    Meditation
+                  </NavLink>
+                </h2>
               </div>
             </div>
           )}

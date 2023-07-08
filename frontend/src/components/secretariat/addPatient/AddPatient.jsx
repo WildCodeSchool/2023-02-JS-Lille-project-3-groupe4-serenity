@@ -36,7 +36,9 @@ function AddPatient() {
           Ajout d'un nouveau patient
         </div>
         <div className={styles.ButtonAddPatientContainer}>
-          <form onSubmit={handleSubmit}>Ajouter</form>
+          <form onSubmit={handleSubmit}>
+            <button type="submit">Ajouter</button>
+          </form>
         </div>
         <div className={styles.MaritalStatusContainer}>Etat Civil</div>
         <div className={styles.SexContainer}>
@@ -47,8 +49,8 @@ function AddPatient() {
                 <input
                   type="radio"
                   value="feminin"
-                  name="sex"
-                  checked={inputs.sex === "feminin"}
+                  name="gender"
+                  checked={inputs.gender === "feminin"}
                   onChange={handleChange}
                 />
                 <span className={styles.RadioButtonLabelContainer}>
@@ -61,8 +63,8 @@ function AddPatient() {
                 <input
                   type="radio"
                   value="masculin"
-                  name="sex"
-                  checked={inputs.sex === "masculin"}
+                  name="gender"
+                  checked={inputs.gender === "masculin"}
                   onChange={handleChange}
                 />
                 <span className={styles.RadioButtonLabelContainer}>
