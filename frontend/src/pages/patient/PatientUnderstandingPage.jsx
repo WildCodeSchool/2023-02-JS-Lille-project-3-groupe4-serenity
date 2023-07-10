@@ -11,8 +11,43 @@ function PatientUnderstandingPage() {
   return (
     <div className={styles.understandingPageContainer}>
       {isTabletOrMobile && <UnderstandingMobile />}
-      {isDesktop && <PatientPreparationMenu />}
-      <div className={styles.prepContainer} />
+      {isDesktop && (
+        <div className={styles.understandingDesktopContainer}>
+          <PatientPreparationMenu />
+          <div className={styles.prepContainer}>
+            <div className={styles.leftContainer}>
+              <p className={styles.docsTitle}>Schémas et documentations</p>
+              <div className={styles.docsContainer}>
+                <div className={styles.documentCard} />
+                <div className={styles.documentCard} />
+                <div className={styles.documentCard} />
+                <div className={styles.documentCard} />
+                <div className={styles.documentCard} />
+              </div>
+            </div>
+
+            <div className={styles.rightContainer}>
+              <p className={styles.docsTitle}>Vidéos</p>
+              <div className={styles.videosContainer}>
+                <div className={styles.videoCardAndName}>
+                  <div className={styles.videoCard} />
+                  <div className={styles.videoTextBloc}>
+                    <p className={styles.videoName}>Vidéo du Dr Noailles</p>
+                    <p className={styles.videoTime}>5 min</p>
+                  </div>
+                </div>
+                <div className={styles.videoCardAndName}>
+                  <div className={styles.videoCard} />
+                  <div className={styles.videoTextBloc}>
+                    <p className={styles.videoName}></p>
+                    <p className={styles.videoTime}></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

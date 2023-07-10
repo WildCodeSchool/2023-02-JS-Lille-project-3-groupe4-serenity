@@ -20,6 +20,7 @@
   text-decoration: none;
   color: inherit;
   gap: 2rem;
+  color: var(--dark-blue);
 }
 
 .prepMenu:hover {
@@ -30,12 +31,11 @@
   width: 5rem;
 }
 
-.prepMenuActivePaperwork {
+.prepMenuActive {
   flex: 1;
   height: 100%;
   border-radius: 1rem;
   background-color: var(--light-grey);
-  border: solid 3px var(--turquoise);
   padding-top: 1rem;
   display: flex;
   flex-direction: column;
@@ -43,67 +43,25 @@
   text-align: center;
   text-decoration: none;
   gap: 2rem;
+  color: var(--dark-blue);
+}
+
+.prepMenuActivePaperwork {
+  border: solid 3px var(--turquoise);
 }
 
 .prepMenuActiveUnderstanding {
-  flex: 1;
-  height: 100%;
-  border-radius: 1rem;
-  background-color: var(--light-grey);
   border: solid 3px var(--yellow);
-  padding-top: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  text-decoration: none;
-  color: inherit;
-  gap: 2rem;
 }
 
 .prepMenuActiveSerenity {
-  flex: 1;
-  height: 100%;
-  border-radius: 1rem;
-  background-color: var(--light-grey);
   border: solid 3px var(--pink);
-  padding-top: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  text-decoration: none;
-  gap: 2rem;
 }
 
 .prepMenuActiveOutboarding {
-  flex: 1;
-  height: 100%;
-  border-radius: 1rem;
-  background-color: var(--light-grey);
   border: solid 3px var(--green);
-  padding-top: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  text-decoration: none;
-  color: inherit;
-  gap: 2rem;
 }
 
 .prepMenuActiveChecklist {
-  flex: 1;
-  height: 100%;
-  border-radius: 1rem;
-  background-color: var(--light-grey);
   border: solid 3px var(--main-purple);
-  padding-top: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  text-decoration: none;
-  color: inherit;
-  gap: 2rem;
 }

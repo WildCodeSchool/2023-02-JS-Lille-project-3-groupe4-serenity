@@ -1,4 +1,5 @@
-.understandingPageContainer {
+.understandingPageContainer,
+.understandingDesktopContainer {
   width: 100%;
   height: 100%;
   border-radius: 1.5rem;
@@ -9,9 +10,88 @@
 }
 
 .prepContainer {
-  background-color: azure;
   flex: 3;
   width: 100%;
   border-radius: 1rem;
   background-color: var(--light-grey);
+  border: solid 3px var(--yellow);
+  color: var(--dark-blue);
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 2vw;
+}
+
+.leftContainer {
+  height: 100%;
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+}
+
+.docsTitle {
+  font-size: 1.2rem;
+  margin-bottom: 2vh;
+}
+
+.docsContainer,
+.videosContainer {
+  height: 100%;
+}
+
+.docsContainer {
+  display: flex;
+  gap: 3vw;
+  flex-wrap: wrap;
+}
+
+.rightContainer {
+  height: 100%;
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.documentCard {
+  width: 15vh;
+  height: 15vh;
+  background-color: var(--light-yellow);
+  border-radius: 20px;
+}
+
+.videosContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 3vh;
+}
+
+.videoCardAndName {
+  width: 100%;
+  height: 10vh;
+  display: flex;
+}
+
+.videoCard {
+  width: 10vh;
+  height: 10vh;
+  background-color: var(--light-yellow);
+  border-radius: 20px;
+}
+
+.videoTextBloc {
+  height: 100%;
+  padding: 1vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.videoName {
+  font-weight: 600;
+}
+
+.videoTime {
+  color: var(--grey);
 }

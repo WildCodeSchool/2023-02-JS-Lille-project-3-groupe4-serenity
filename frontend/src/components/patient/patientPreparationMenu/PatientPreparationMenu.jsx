@@ -12,7 +12,9 @@ function PatientPreparationMenu() {
       <NavLink
         to="/patient/understanding"
         className={({ isActive }) =>
-          isActive ? styles.prepMenuActiveUnderstanding : styles.prepMenu
+          isActive
+            ? `${styles.prepMenuActiveUnderstanding} ${styles.prepMenuActive}`
+            : styles.prepMenu
         }
         end
       >
@@ -33,7 +35,9 @@ function PatientPreparationMenu() {
       <NavLink
         to="/patient/understanding/paperwork"
         className={({ isActive }) =>
-          isActive ? styles.prepMenuActivePaperwork : styles.prepMenu
+          isActive
+            ? `${styles.prepMenuActivePaperwork} ${styles.prepMenuActive}`
+            : styles.prepMenu
         }
         end
       >
@@ -53,7 +57,9 @@ function PatientPreparationMenu() {
       <NavLink
         to="/patient/understanding/serenity"
         className={({ isActive }) =>
-          isActive ? styles.prepMenuActiveSerenity : styles.prepMenu
+          isActive
+            ? `${styles.prepMenuActiveSerenity} ${styles.prepMenuActive}`
+            : styles.prepMenu
         }
         end
       >
@@ -73,7 +79,9 @@ function PatientPreparationMenu() {
       <NavLink
         to="/patient/understanding/outboarding"
         className={({ isActive }) =>
-          isActive ? styles.prepMenuActiveOutboarding : styles.prepMenu
+          isActive
+            ? `${styles.prepMenuActiveOutboarding} ${styles.prepMenuActive}`
+            : styles.prepMenu
         }
         end
       >
@@ -93,7 +101,9 @@ function PatientPreparationMenu() {
       <NavLink
         to="/patient/understanding/checklist"
         className={({ isActive }) =>
-          isActive ? styles.prepMenuActiveChecklist : styles.prepMenu
+          isActive
+            ? `${styles.prepMenuActiveChecklist} ${styles.prepMenuActive}`
+            : styles.prepMenu
         }
         end
       >
