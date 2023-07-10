@@ -39,8 +39,8 @@ function PatientUnderstandingPage() {
                 <div className={styles.videoCardAndName}>
                   <div className={styles.videoCard} />
                   <div className={styles.videoTextBloc}>
-                    <p className={styles.videoName}></p>
-                    <p className={styles.videoTime}></p>
+                    <p className={styles.videoName}>Vidéo du Dr Noailles</p>
+                    <p className={styles.videoTime}>5 min</p>
                   </div>
                 </div>
               </div>
