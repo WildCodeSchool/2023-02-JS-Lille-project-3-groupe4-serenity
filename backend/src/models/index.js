@@ -49,6 +49,11 @@ const InterventionManager = require("./IdentificationManager");
 models.intervention = new InterventionManager();
 models.intervention.setDatabase(pool);
 
+const StepManager = require("./StepManager");
+
+models.step = new StepManager();
+models.step.setDatabase(pool);
+
 const IdentificationManager = require("./IdentificationManager");
 
 models.identification = new IdentificationManager();

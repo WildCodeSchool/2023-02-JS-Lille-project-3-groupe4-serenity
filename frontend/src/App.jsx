@@ -31,6 +31,7 @@ import SecretariatInterventionPage from "./pages/secretariat/SecretariatInterven
 import SecretariatPatientPage from "./pages/secretariat/SecretariatPatientPage";
 import SecretariatPractitionerPage from "./pages/secretariat/SecretariatPractitionerPage";
 import SecretariatUnitPage from "./pages/secretariat/SecretariatUnitPage";
+import PatientInterventionPage from "./pages/patient/PatientInterventionPage";
 
 const router = createBrowserRouter([
   {
@@ -42,35 +43,40 @@ const router = createBrowserRouter([
     element: <PatientLoginPage />,
   },
   {
+    path: "/patient/intervention",
+    element: <PatientInterventionPage />,
+  },
+
+  {
     path: "/patient",
     element: <PatientLayout />,
     children: [
       {
-        path: "/patient/understanding",
+        path: "understanding/initiation/:idInter",
         element: <PatientUnderstandingPage />,
       },
       {
-        path: "/patient/understanding/paperwork",
+        path: "understanding/paperwork/:idInter",
         element: <PatientPaperworkPage />,
       },
       {
-        path: "/patient/understanding/serenity",
+        path: "understanding/serenity/:idInter",
         element: <PatientSerenityPage />,
       },
       {
-        path: "/patient/understanding/outboarding",
+        path: "understanding/outboarding/:idInter",
         element: <PatientOutboardingPage />,
       },
       {
-        path: "/patient/understanding/checklist",
+        path: "understanding/checklist/:idInter",
         element: <PatientChecklistPage />,
       },
       {
-        path: "/patient/music",
+        path: "music",
         element: <PatientMusicPage />,
       },
       {
-        path: "/patient/breathe",
+        path: "breathe",
         element: <PatientBreathePage />,
       },
     ],
@@ -80,27 +86,27 @@ const router = createBrowserRouter([
     element: <AdminLayout />,
     children: [
       {
-        path: "/admin",
+        path: "",
         element: <AdminDashboardPage />,
       },
       {
-        path: "/admin/unit",
+        path: "unit",
         element: <AdminUnitPage />,
       },
       {
-        path: "/admin/practitioner",
+        path: "practitioner",
         element: <AdminPractitionerPage />,
       },
       {
-        path: "/admin/patient",
+        path: "patient",
         element: <AdminPatientPage />,
       },
       {
-        path: "/admin/intervention",
+        path: "intervention",
         element: <AdminInterventionPage />,
       },
       {
-        path: "/admin/staff",
+        path: "staff",
         element: <AdminStaffPage />,
       },
     ],
@@ -110,39 +116,39 @@ const router = createBrowserRouter([
     element: <SecretariatLayout />,
     children: [
       {
-        path: "/secretariat",
+        path: "",
         element: <SecretariatDashboardPage />,
       },
       {
-        path: "/secretariat/unit",
+        path: "unit",
         element: <SecretariatUnitPage />,
       },
       {
-        path: "/secretariat/practitioner",
+        path: "practitioner",
         element: <SecretariatPractitionerPage />,
       },
       {
-        path: "/secretariat/practitioner/add",
+        path: "practitioner/add",
         element: <AddPractitioner />,
       },
       {
-        path: "/secretariat/patient",
+        path: "patient",
         element: <SecretariatPatientPage />,
       },
       {
-        path: "/secretariat/patient/add",
+        path: "patient/add",
         element: <AddPatient />,
       },
       {
-        path: "/secretariat/patient/infos/:social_secu_number",
+        path: "patient/infos/:social_secu_number",
         element: <InfosPatient />,
       },
       {
-        path: "/secretariat/intervention",
+        path: "intervention",
         element: <SecretariatInterventionPage />,
       },
       {
-        path: "/secretariat/intervention/add",
+        path: "intervention/add",
         element: <AddIntervention />,
       },
     ],
@@ -152,15 +158,15 @@ const router = createBrowserRouter([
     element: <PractitionerLayout />,
     children: [
       {
-        path: "/practitioner",
+        path: "",
         element: <PractitionerDashboardPage />,
       },
       {
-        path: "/practitioner/patient",
+        path: "patient",
         element: <PractitionerPatientPage />,
       },
       {
-        path: "/practitioner/intervention",
+        path: "intervention",
         element: <PractitionerInterventionPage />,
       },
     ],

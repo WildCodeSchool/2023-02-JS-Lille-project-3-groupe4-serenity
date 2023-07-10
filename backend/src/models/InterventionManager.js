@@ -54,18 +54,20 @@ class InterventionManager extends AbstractManager {
   }
 
   findAllIntervention() {
-    return this.database.query(
-      `SELECT intervention.social_secu_number AS "social_number",
-      intervention.identifier_rpps AS "identifier_rpps",
-      intervention.type_intervention AS "Nomintervention" ,
-      intervention.procedure_date AS "Dateintervention",
-      intervention.id AS "id_intervention"
-      FROM serenity.intervention AS intervention
-      JOIN serenity.practitioner AS practitioner ON intervention.identifier_rpps = practitioner.identifier_rpps
-      JOIN serenity.user AS practitioner_user ON practitioner.user_id = practitioner_user.id
-      JOIN serenity.patient AS patient ON intervention.social_secu_number = patient.social_secu_number
-      JOIN serenity.user AS patient_user ON patient.user_id = patient_user.id;`
-    );
+    return this.database.query(`
+      SELECT
+        intervention.id AS "ID_Intervention",
+        intervention.type_intervention AS "Type_Intervention",
+        intervention.nom_Intervention AS "Nom_Intervention",
+        step.id AS "ID_Step",
+        step.nom_step AS "Nom_Step",
+        understep.id AS "ID_Understep",
+        understep.statut AS "Statut_Understep"
+      FROM
+        serenity.Intervention AS intervention
+        JOIN serenity.Step AS step ON intervention.id = step.intervention_id
+        JOIN serenity.Understep AS understep ON step.id = understep.step_id;
+    `);
   }
 }
 
