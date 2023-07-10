@@ -2,30 +2,22 @@ import axios from "axios";
 import React, { useState } from "react";
 import { FaRegWindowClose } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
-import styles from "./AddPractitioner.module.css";
+import styles from "./InfosPractitioner.module.css";
 
-function AddPractitioner() {
+function InfosPractitioner() {
   const [inputs, setInputs] = useState({});
   const navigate = useNavigate();
 
   const handleChange = (event) => {
-    const { name, value } = event.target;
+    const { name } = event.target;
+    const { value } = event.target;
     setInputs((values) => ({ ...values, [name]: value }));
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (event) => {
+    event.preventDefault();
     try {
-      if (!inputs.gender) {
-        return;
-      }
-
-      const practitionerData = {
-        ...inputs,
-        age: inputs.age || 0,
-        gender: inputs.gender,
-      };
-
-      await axios.post("http://localhost:5050/practitioners", practitionerData);
+      await axios.post("http://localhost:5050/practitioners", inputs);
       navigate("/secretariat/practitioner");
     } catch (err) {
       console.error(err);
@@ -33,27 +25,24 @@ function AddPractitioner() {
   };
 
   return (
-    <div className={styles.addPractitionerContainer}>
+    <div className={styles.managementPractitionerContainer}>
       <div className={styles.closeButtonContainer}>
         <Link to="/secretariat/practitioner">
           <FaRegWindowClose className={styles.closeIcon} />
         </Link>
       </div>
-      <div className={styles.AddPractitionerFormContainer}>
-        <div className={styles.AddNewPractitionerContainer}>
-          Ajout d'un nouveau praticien
+      <div className={styles.ManagePractitionerContainer}>
+        <div className={styles.ManagementPractitionerSelectedContainer}>
+          Gestion d'un praticien
         </div>
-        <div className={styles.ButtonAddPractitionerContainer}>
-          <button
-            type="submit"
-            onClick={handleSubmit}
-            className={styles.ButtonAddPractitioner}
-          >
-            Ajouter
-          </button>
+        <div className={styles.ButtonModifyPractitionerContainer}>
+          <form onSubmit={handleSubmit}>Modifier</form>
+        </div>
+        <div className={styles.ButtonDeletePractitionerContainer}>
+          <form onSubmit={handleSubmit}>Supprimer</form>
         </div>
         <div className={styles.MaritalStatusContainer}>Etat Civil</div>
-        <div className={styles.GenderContainer}>
+        <div className={styles.SexContainer}>
           <div>
             Sexe
             <div className={styles.RadioButtonContainer}>
@@ -61,9 +50,10 @@ function AddPractitioner() {
                 <input
                   type="radio"
                   value="feminin"
-                  name="gender"
-                  checked={inputs.gender === "feminin"}
+                  name="sex"
+                  checked={inputs.sex === "feminin"}
                   onChange={handleChange}
+                  disabled
                 />
                 <span className={styles.RadioButtonLabelContainer}>
                   Féminin
@@ -75,9 +65,10 @@ function AddPractitioner() {
                 <input
                   type="radio"
                   value="masculin"
-                  name="gender"
-                  checked={inputs.gender === "masculin"}
+                  name="sex"
+                  checked={inputs.sex === "masculin"}
                   onChange={handleChange}
+                  disabled
                 />
                 <span className={styles.RadioButtonLabelContainer}>
                   Masculin
@@ -94,6 +85,7 @@ function AddPractitioner() {
               name="last_name"
               value={inputs.last_name || ""}
               onChange={handleChange}
+              disabled
             />
           </label>
         </div>
@@ -105,6 +97,7 @@ function AddPractitioner() {
               name="first_name"
               value={inputs.first_name || ""}
               onChange={handleChange}
+              disabled
             />
           </label>
         </div>
@@ -116,6 +109,7 @@ function AddPractitioner() {
               name="identifier_rpps"
               value={inputs.identifier_rpps || ""}
               onChange={handleChange}
+              disabled
             />
           </label>
         </div>
@@ -127,6 +121,7 @@ function AddPractitioner() {
               name="age"
               value={inputs.age || ""}
               onChange={handleChange}
+              disabled
             />
           </label>
         </div>
@@ -138,6 +133,7 @@ function AddPractitioner() {
               name="nationality"
               value={inputs.nationality || ""}
               onChange={handleChange}
+              disabled
             />
           </label>
         </div>
@@ -152,6 +148,7 @@ function AddPractitioner() {
               name="address"
               value={inputs.address || ""}
               onChange={handleChange}
+              disabled
             />
           </label>
         </div>
@@ -163,6 +160,7 @@ function AddPractitioner() {
               name="zip_code"
               value={inputs.zip_code || ""}
               onChange={handleChange}
+              disabled
             />
           </label>
         </div>
@@ -174,6 +172,7 @@ function AddPractitioner() {
               name="city"
               value={inputs.city || ""}
               onChange={handleChange}
+              disabled
             />
           </label>
         </div>
@@ -185,6 +184,7 @@ function AddPractitioner() {
               name="phone"
               value={inputs.phone || ""}
               onChange={handleChange}
+              disabled
             />
           </label>
         </div>
@@ -196,6 +196,7 @@ function AddPractitioner() {
               name="email"
               value={inputs.email || ""}
               onChange={handleChange}
+              disabled
             />
           </label>
         </div>
@@ -208,6 +209,7 @@ function AddPractitioner() {
               name="speciality"
               value={inputs.speciality || ""}
               onChange={handleChange}
+              disabled
             >
               <option
                 value=""
@@ -248,32 +250,6 @@ function AddPractitioner() {
             </select>
           </label>
         </div>
-        <div className={styles.TypeInterventionContainer}>
-          <label>
-            Type d'intervention:
-            <select
-              className={styles.multipleChoicesMenu}
-              name="type_intervention"
-              value={inputs.type_intervention || ""}
-              onChange={handleChange}
-            >
-              <option
-                value=""
-                aria-label="Select list for intervention"
-                disabled
-                hidden
-              />
-              <option value="Cardiologie">Cardiologie</option>
-              <option value="Chirurgie orthopédique">
-                Chirurgie orthopédique
-              </option>
-              <option value="Chirurgie dentaire">Chirurgie dentaire</option>
-              <option value="Neurologie">Neurologie</option>
-              <option value="Pédiatrie">Pédiatrie</option>
-              <option value="Reanimation">Réanimation</option>
-            </select>
-          </label>
-        </div>
         <div className={styles.RemarkContainer}>
           <label>
             Remarques:
@@ -282,6 +258,7 @@ function AddPractitioner() {
               name="remark"
               value={inputs.remark || ""}
               onChange={handleChange}
+              disabled
             />
           </label>
         </div>
@@ -290,4 +267,4 @@ function AddPractitioner() {
   );
 }
 
-export default AddPractitioner;
+export default InfosPractitioner;

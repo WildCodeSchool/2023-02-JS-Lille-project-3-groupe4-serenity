@@ -65,7 +65,9 @@ function PractitionerListTable() {
             <td className={styles.rows}>{practitioner.speciality}</td>
             <td className={styles.rows}>{practitioner.identifiantrpps}</td>
             <td className={styles.rows}>
-              <Link to="https://reactrouter.com/en/main/components/link">
+              <Link
+                to={`/secretariat/practitioner/infos/${practitioner.identifiantrpps}`}
+              >
                 <FaEye className={styles.eyeIcon} />
               </Link>
             </td>

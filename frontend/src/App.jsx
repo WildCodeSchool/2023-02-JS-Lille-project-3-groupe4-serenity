@@ -7,6 +7,8 @@ import AddIntervention from "./components/secretariat/addIntervention/AddInterve
 import AddPatient from "./components/secretariat/addPatient/AddPatient";
 import AddPractitioner from "./components/secretariat/addPractitioner/AddPractitioner";
 import InfosPatient from "./components/secretariat/infosPatient/InfosPatient";
+import InfosPractitioner from "./components/secretariat/infosPractitioner/InfosPractitioner";
+import InfosIntervention from "./components/secretariat/infosIntervention/InfoIntervention";
 import SecretariatLayout from "./components/secretariat/secretariatLayout/SecretariatLayout";
 import Home from "./pages/Home";
 import AdminDashboardPage from "./pages/admin/AdminDashboardPage";
@@ -121,6 +123,10 @@ const router = createBrowserRouter([
         element: <AddPractitioner />,
       },
       {
+        path: "/secretariat/practitioner/infos/:identifier_rpps",
+        element: <InfosPractitioner />,
+      },
+      {
         path: "/secretariat/patient",
         element: <SecretariatPatientPage />,
       },
@@ -139,6 +145,10 @@ const router = createBrowserRouter([
       {
         path: "/secretariat/intervention/add",
         element: <AddIntervention />,
+      },
+      {
+        path: "/secretariat/intervention/infos/:procedure_date",
+        element: <InfosIntervention />,
       },
     ],
   },

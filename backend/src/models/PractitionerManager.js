@@ -7,7 +7,7 @@ class PractitionerManager extends AbstractManager {
 
   async insert(practitioner) {
     await this.database.query(
-      `INSERT INTO USER (last_name, first_name, age, gender, phone, nationality, address, city, zip_code, roles, email) VALUES (?,?,?,?,?,?,?,?,?,"Practitioner",?)`,
+      `INSERT INTO USER (last_name, first_name, age, gender, phone, nationality, address, city, zip_code, roles, email) VALUES (?,?,?,?,?,?,?,?,?,'Practitioner',?)`,
       [
         practitioner.last_name,
         practitioner.first_name,
