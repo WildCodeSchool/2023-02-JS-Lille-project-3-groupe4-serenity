@@ -37,7 +37,7 @@ router.delete("/interventions/:id", interventionControllers.destroy);
 const stepControllers = require("./controllers/stepControllers");
 
 router.get("/steps", stepControllers.browse);
-router.get("/steps/:id", stepControllers.read);
+router.get("/steps/:idInter/:idStep", stepControllers.read);
 router.put("/steps/:id", stepControllers.edit);
 router.post("/steps", stepControllers.add);
 router.delete("/steps/:id", stepControllers.destroy);

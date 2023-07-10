@@ -13,9 +13,11 @@ const browse = (req, res) => {
 };
 
 const read = (req, res) => {
+  const { idInter, idStep } = req.params;
+
   models.step
-    .find(req.params.id)
-    .then(([rows]) => {
+    .findStepById(idInter, idStep)
+    .then((rows) => {
       if (rows[0] == null) {
         res.sendStatus(404);
       } else {
@@ -29,16 +31,22 @@ const read = (req, res) => {
 };
 
 const edit = (req, res) => {
-  const step = req.body;
+  const { statutUnderstep } = req.body;
+  const { id } = req.params;
 
-  // TODO validations (length, format...)
+  const understep = {
+    id: parseInt(id, 10),
+    statutUnderstep,
+  };
 
-  step.id = parseInt(req.params.id, 10);
+  if (understep.statutUnderstep === undefined) {
+    return res.status(400).send("Missing statutUnderstep");
+  }
 
-  models.step
-    .update(step)
-    .then(([result]) => {
-      if (result.affectedRows === 0) {
+  return models.step
+    .updateUnderStepStatut(understep.id, understep.statutUnderstep)
+    .then((result) => {
+      if (result[0] === 0) {
         res.sendStatus(404);
       } else {
         res.sendStatus(204);

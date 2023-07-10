@@ -16,7 +16,7 @@ function PatientNavbarDesktop() {
       <div className={styles.logoContainer}>Serenity</div>
       <div className={styles.pageLinksContainer}>
         <NavLink
-          to="/patient/understanding"
+          to="/patient/understanding/initiation/6/26"
           className={({ isActive }) =>
             isActive ? styles.activeLink : styles.pendingLink
           }

@@ -1,16 +1,17 @@
-import React from "react";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import styles from "./PatientPreparationMenu.module.css";
 
 function PatientPreparationMenu() {
   const percentage = 33;
 
+  const { idInter } = useParams();
+
   return (
     <div className={styles.prepMenuContainer}>
       <NavLink
-        to="/patient/understanding"
+        to={`/patient/understanding/initiation/${idInter}`}
         className={({ isActive }) =>
           isActive ? styles.prepMenuActiveUnderstanding : styles.prepMenu
         }
@@ -26,12 +27,14 @@ function PatientPreparationMenu() {
               trailColor: "var(--yellow)",
             })}
           />
+          <h1>AAAAAAAA</h1>
         </div>
 
         <div>Comprendre mon opération</div>
       </NavLink>
+
       <NavLink
-        to="/patient/understanding/paperwork"
+        to={`/patient/understanding/paperwork/${idInter}`}
         className={({ isActive }) =>
           isActive ? styles.prepMenuActivePaperwork : styles.prepMenu
         }
@@ -48,10 +51,11 @@ function PatientPreparationMenu() {
             })}
           />
         </div>
-        <div>Se débarasser des formalitées administrative</div>
+        <div>Se débarrasser des formalités administratives</div>
       </NavLink>
+
       <NavLink
-        to="/patient/understanding/serenity"
+        to={`/patient/understanding/serenity/${idInter}`}
         className={({ isActive }) =>
           isActive ? styles.prepMenuActiveSerenity : styles.prepMenu
         }
@@ -70,8 +74,9 @@ function PatientPreparationMenu() {
         </div>
         <div>Préparer mon arrivée en toute sérénité</div>
       </NavLink>
+
       <NavLink
-        to="/patient/understanding/outboarding"
+        to={`/patient/understanding/outboarding/${idInter}`}
         className={({ isActive }) =>
           isActive ? styles.prepMenuActiveOutboarding : styles.prepMenu
         }
@@ -90,8 +95,9 @@ function PatientPreparationMenu() {
         </div>
         <div>Anticiper ma sortie</div>
       </NavLink>
+
       <NavLink
-        to="/patient/understanding/checklist"
+        to={`/patient/understanding/checklist/${idInter}`}
         className={({ isActive }) =>
           isActive ? styles.prepMenuActiveChecklist : styles.prepMenu
         }
