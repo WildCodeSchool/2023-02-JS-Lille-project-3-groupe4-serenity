@@ -1,9 +1,9 @@
 const models = require("../models");
 
 const browse = (req, res) => {
-  models.intervention
-    .findAllIntervention()
-    .then(([rows]) => {
+  models.step
+    .findAllStep()
+    .then((rows) => {
       res.send(rows);
     })
     .catch((err) => {
@@ -13,13 +13,15 @@ const browse = (req, res) => {
 };
 
 const read = (req, res) => {
-  models.intervention
-    .find(req.params.id)
-    .then(([rows]) => {
-      if (rows.length === 0) {
+  const { idInter, idStep } = req.params;
+
+  models.step
+    .findStepById(idInter, idStep)
+    .then((rows) => {
+      if (rows[0] == null) {
         res.sendStatus(404);
       } else {
-        res.send(rows);
+        res.send(rows[0]);
       }
     })
     .catch((err) => {
@@ -29,16 +31,22 @@ const read = (req, res) => {
 };
 
 const edit = (req, res) => {
-  const intervention = req.body;
+  const { statutUnderstep } = req.body;
+  const { id } = req.params;
 
-  // TODO validations (length, format...)
+  const understep = {
+    id: parseInt(id, 10),
+    statutUnderstep,
+  };
 
-  intervention.id = parseInt(req.params.id, 10);
+  if (understep.statutUnderstep === undefined) {
+    return res.status(400).send("Missing statutUnderstep");
+  }
 
-  models.intervention
-    .update(intervention)
-    .then(([result]) => {
-      if (result.affectedRows === 0) {
+  return models.step
+    .updateUnderStepStatut(understep.id, understep.statutUnderstep)
+    .then((result) => {
+      if (result[0] === 0) {
         res.sendStatus(404);
       } else {
         res.sendStatus(204);
@@ -51,14 +59,14 @@ const edit = (req, res) => {
 };
 
 const add = (req, res) => {
-  const intervention = req.body;
+  const step = req.body;
 
   // TODO validations (length, format...)
 
-  models.intervention
-    .insert(intervention)
-    .then((result) => {
-      res.location(`/interventions/${result}`).sendStatus(201);
+  models.step
+    .insert(step)
+    .then(([result]) => {
+      res.location(`/steps/${result.insertId}`).sendStatus(201);
     })
     .catch((err) => {
       console.error(err);
@@ -67,7 +75,7 @@ const add = (req, res) => {
 };
 
 const destroy = (req, res) => {
-  models.intervention
+  models.step
     .delete(req.params.id)
     .then(([result]) => {
       if (result.affectedRows === 0) {

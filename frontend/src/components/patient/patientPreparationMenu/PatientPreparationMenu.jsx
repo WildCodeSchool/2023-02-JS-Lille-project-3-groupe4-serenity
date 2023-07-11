@@ -1,25 +1,36 @@
-import React from "react";
+import { useContext } from "react";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
+import UnderstepsContext from "../../../contexts/UnderstepsContext";
 import styles from "./PatientPreparationMenu.module.css";
 
 function PatientPreparationMenu() {
-  const percentage = 33;
+  const { idInter } = useParams();
+
+  const {
+    countOfOnesUstepOne,
+    countOfOnesUstepTwo,
+    countOfOnesUstepThree,
+    countOfOnesUstepFour,
+    countOfOnesUstepFive,
+  } = useContext(UnderstepsContext);
 
   return (
     <div className={styles.prepMenuContainer}>
       <NavLink
-        to="/patient/understanding"
+        to={`/patient/${idInter}/understanding/initiation`}
         className={({ isActive }) =>
-          isActive ? styles.prepMenuActiveUnderstanding : styles.prepMenu
+          isActive
+            ? `${styles.prepMenuActiveUnderstanding} ${styles.prepMenuActive}`
+            : styles.prepMenu
         }
         end
       >
         <div className={styles.progressbarContainer}>
           <CircularProgressbar
-            value={percentage}
-            text={`${percentage}%`}
+            value={(countOfOnesUstepOne / 4) * 100}
+            text={`${(countOfOnesUstepOne / 4) * 100}%`}
             styles={buildStyles({
               textColor: "black",
               pathColor: "var(--light-yellow)",
@@ -30,17 +41,20 @@ function PatientPreparationMenu() {
 
         <div>Comprendre mon opération</div>
       </NavLink>
+
       <NavLink
-        to="/patient/understanding/paperwork"
+        to={`/patient/${idInter}/understanding/paperwork`}
         className={({ isActive }) =>
-          isActive ? styles.prepMenuActivePaperwork : styles.prepMenu
+          isActive
+            ? `${styles.prepMenuActivePaperwork} ${styles.prepMenuActive}`
+            : styles.prepMenu
         }
         end
       >
         <div className={styles.progressbarContainer}>
           <CircularProgressbar
-            value={percentage}
-            text={`${percentage}%`}
+            value={(countOfOnesUstepTwo / 5) * 100}
+            text={`${(countOfOnesUstepTwo / 5) * 100}%`}
             styles={buildStyles({
               textColor: "black",
               pathColor: "var(--light-turquoise)",
@@ -48,19 +62,22 @@ function PatientPreparationMenu() {
             })}
           />
         </div>
-        <div>Se débarasser des formalitées administrative</div>
+        <div>Se débarrasser des formalités administratives</div>
       </NavLink>
+
       <NavLink
-        to="/patient/understanding/serenity"
+        to={`/patient/${idInter}/understanding/serenity`}
         className={({ isActive }) =>
-          isActive ? styles.prepMenuActiveSerenity : styles.prepMenu
+          isActive
+            ? `${styles.prepMenuActiveSerenity} ${styles.prepMenuActive}`
+            : styles.prepMenu
         }
         end
       >
         <div className={styles.progressbarContainer}>
           <CircularProgressbar
-            value={percentage}
-            text={`${percentage}%`}
+            value={Math.floor((countOfOnesUstepThree / 3) * 100)}
+            text={`${Math.floor((countOfOnesUstepThree / 3) * 100)}%`}
             styles={buildStyles({
               textColor: "black",
               pathColor: "var(--light-pink)",
@@ -70,17 +87,20 @@ function PatientPreparationMenu() {
         </div>
         <div>Préparer mon arrivée en toute sérénité</div>
       </NavLink>
+
       <NavLink
-        to="/patient/understanding/outboarding"
+        to={`/patient/${idInter}/understanding/outboarding`}
         className={({ isActive }) =>
-          isActive ? styles.prepMenuActiveOutboarding : styles.prepMenu
+          isActive
+            ? `${styles.prepMenuActiveOutboarding} ${styles.prepMenuActive}`
+            : styles.prepMenu
         }
         end
       >
         <div className={styles.progressbarContainer}>
           <CircularProgressbar
-            value={percentage}
-            text={`${percentage}%`}
+            value={(countOfOnesUstepFour / 1) * 100}
+            text={`${(countOfOnesUstepFour / 1) * 100}%`}
             styles={buildStyles({
               textColor: "black",
               pathColor: "var(--light-green)",
@@ -90,17 +110,20 @@ function PatientPreparationMenu() {
         </div>
         <div>Anticiper ma sortie</div>
       </NavLink>
+
       <NavLink
-        to="/patient/understanding/checklist"
+        to={`/patient/${idInter}/understanding/checklist`}
         className={({ isActive }) =>
-          isActive ? styles.prepMenuActiveChecklist : styles.prepMenu
+          isActive
+            ? `${styles.prepMenuActiveChecklist} ${styles.prepMenuActive}`
+            : styles.prepMenu
         }
         end
       >
         <div className={styles.progressbarContainer}>
           <CircularProgressbar
-            value={percentage}
-            text={`${percentage}%`}
+            value={(countOfOnesUstepFive / 5) * 100}
+            text={`${(countOfOnesUstepFive / 5) * 100}%`}
             styles={buildStyles({
               textColor: "black",
               pathColor: "var(--light-purple)",

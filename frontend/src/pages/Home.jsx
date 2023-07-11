@@ -37,6 +37,19 @@ function Home() {
 
             <p className={styles.logoText}>Patient.e</p>
           </div>
+          <div className={styles.patientGlobalBloc}>
+            <Link to="/patient/intervention">
+              <div className={styles.patientContainer}>
+                <img
+                  className={styles.patientLogoClass}
+                  src={patientLogo}
+                  alt="patient logo connexion"
+                />
+              </div>
+            </Link>
+
+            <p className={styles.logoText}>Liste inter</p>
+          </div>
         </div>
       </div>
     </div>

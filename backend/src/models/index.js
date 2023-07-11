@@ -44,10 +44,15 @@ const PractitionerManager = require("./PractitionerManager");
 models.practitioner = new PractitionerManager();
 models.practitioner.setDatabase(pool);
 
-const InterventionManager = require("./IdentificationManager");
+const InterventionManager = require("./InterventionManager");
 
 models.intervention = new InterventionManager();
 models.intervention.setDatabase(pool);
+
+const StepManager = require("./StepManager");
+
+models.step = new StepManager();
+models.step.setDatabase(pool);
 
 const IdentificationManager = require("./IdentificationManager");
 
