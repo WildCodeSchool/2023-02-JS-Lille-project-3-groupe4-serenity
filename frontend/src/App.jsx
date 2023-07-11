@@ -15,9 +15,10 @@ import AdminPatientPage from "./pages/admin/AdminPatientPage";
 import AdminPractitionerPage from "./pages/admin/AdminPractitionerPage";
 import AdminStaffPage from "./pages/admin/AdminStaffPage";
 import AdminUnitPage from "./pages/admin/AdminUnitPage";
-import PatientLoginPage from "./pages/patient/PatientLoginPage";
 import PatientBreathePage from "./pages/patient/PatientBreathePage";
 import PatientChecklistPage from "./pages/patient/PatientChecklistPage";
+import PatientInterventionPage from "./pages/patient/PatientInterventionPage";
+import PatientLoginPage from "./pages/patient/PatientLoginPage";
 import PatientMusicPage from "./pages/patient/PatientMusicPage";
 import PatientOutboardingPage from "./pages/patient/PatientOutboardingPage";
 import PatientPaperworkPage from "./pages/patient/PatientPaperworkPage";
@@ -31,7 +32,6 @@ import SecretariatInterventionPage from "./pages/secretariat/SecretariatInterven
 import SecretariatPatientPage from "./pages/secretariat/SecretariatPatientPage";
 import SecretariatPractitionerPage from "./pages/secretariat/SecretariatPractitionerPage";
 import SecretariatUnitPage from "./pages/secretariat/SecretariatUnitPage";
-import PatientInterventionPage from "./pages/patient/PatientInterventionPage";
 
 const router = createBrowserRouter([
   {
@@ -48,27 +48,27 @@ const router = createBrowserRouter([
   },
 
   {
-    path: "/patient",
+    path: "/patient/:idInter",
     element: <PatientLayout />,
     children: [
       {
-        path: "understanding/initiation/:idInter",
+        path: "understanding/initiation",
         element: <PatientUnderstandingPage />,
       },
       {
-        path: "understanding/paperwork/:idInter",
+        path: "understanding/paperwork/",
         element: <PatientPaperworkPage />,
       },
       {
-        path: "understanding/serenity/:idInter",
+        path: "understanding/serenity/",
         element: <PatientSerenityPage />,
       },
       {
-        path: "understanding/outboarding/:idInter",
+        path: "understanding/outboarding/",
         element: <PatientOutboardingPage />,
       },
       {
-        path: "understanding/checklist/:idInter",
+        path: "understanding/checklist/",
         element: <PatientChecklistPage />,
       },
       {

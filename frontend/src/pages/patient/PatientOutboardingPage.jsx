@@ -1,9 +1,9 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import { useParams } from "react-router-dom";
-import PatientPreparationMenu from "../../components/patient/patientPreparationMenu/PatientPreparationMenu";
 import OutboardingMobile from "../../components/patient/outboardingMobile/OutboardingMobile";
+import UnderstepsContext from "../../contexts/UnderstepsContext";
 import styles from "./PatientUnderstandingPage.module.css";
 
 function PatientOutboardingPage() {
@@ -11,6 +11,9 @@ function PatientOutboardingPage() {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 990px)" });
   const [underStepIds, setUnderStepIds] = useState([]);
   const { idInter } = useParams();
+
+  const { countOfOnesUstepFour, setCountOfOnesUstepFour } =
+    useContext(UnderstepsContext);
 
   // Effectue une requête HTTP GET pour récupérer les données des étapes
   useEffect(() => {
@@ -42,24 +45,27 @@ function PatientOutboardingPage() {
         statutUnderstep: 1,
       })
       .then(() => {
-        console.error("Statut mis à jour avec succès");
+        if (countOfOnesUstepFour < 1) {
+          setCountOfOnesUstepFour((prevCount) => prevCount + 1); // Increment onesCountUstepOne by 1 if checkbox is checked
+        }
       })
       .catch((err) => {
-        console.error("Erreur lors de la mise à jour du statut :", err);
+        console.error("Erreur lors de la mise à jour du statut :", err); // Display the error in the console if the request fails
       });
   };
 
   return (
     <div className={styles.outboardingPageContainer}>
       {isTabletOrMobile && <OutboardingMobile />}
-      {isDesktop && <PatientPreparationMenu />}
-      <div className={styles.prepContainer}>
-        <div>
-          <button type="button" onClick={handleUpdateClick}>
-            Valider
-          </button>
+      {isDesktop && (
+        <div className={styles.prepContainer}>
+          <div>
+            <button type="button" onClick={handleUpdateClick}>
+              Valider
+            </button>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

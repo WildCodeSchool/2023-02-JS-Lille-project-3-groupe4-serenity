@@ -1,10 +1,10 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useMediaQuery } from "react-responsive";
 import { useParams } from "react-router-dom";
-import PatientPreparationMenu from "../../components/patient/patientPreparationMenu/PatientPreparationMenu";
 import SerenityMobile from "../../components/patient/serenityMobile/SerenityMobile";
 import styles from "./PatientSerenityPage.module.css";
+import UnderstepsContext from "../../contexts/UnderstepsContext";
 
 function PatientSerenityPage() {
   const isDesktop = useMediaQuery({ query: "(min-width: 991px)" });
@@ -12,6 +12,9 @@ function PatientSerenityPage() {
 
   const [underStepIds, setUnderStepIds] = useState([]);
   const { idInter } = useParams();
+
+  const { countOfOnesUstepThree, setCountOfOnesUstepThree } =
+    useContext(UnderstepsContext);
 
   useEffect(() => {
     const fetchStep = async () => {
@@ -41,28 +44,32 @@ function PatientSerenityPage() {
         statutUnderstep: 1,
       })
       .then(() => {
-        console.error("Statut mis à jour avec succès");
+        console.error("Statut mis à jour avec succès"); // Display a success message in the console
+        if (countOfOnesUstepThree < 4) {
+          setCountOfOnesUstepThree((prevCount) => prevCount + 1); // Increment onesCountUstepOne by 1 if checkbox is checked
+        }
       })
       .catch((err) => {
-        console.error("Erreur lors de la mise à jour du statut :", err);
+        console.error("Erreur lors de la mise à jour du statut :", err); // Display the error in the console if the request fails
       });
   };
 
   return (
     <div className={styles.serenityPageContainer}>
       {isTabletOrMobile && <SerenityMobile />}
-      {isDesktop && <PatientPreparationMenu />}
-      <div className={styles.prepContainer}>
-        {underStepIds.slice(9, 12).map((stepId) => (
-          <button
-            key={stepId}
-            type="button"
-            onClick={() => handleUpdateClick(stepId)}
-          >
-            Valider
-          </button>
-        ))}
-      </div>
+      {isDesktop && (
+        <div className={styles.prepContainer}>
+          {underStepIds.slice(9, 12).map((stepId) => (
+            <button
+              key={stepId}
+              type="button"
+              onClick={() => handleUpdateClick(stepId)}
+            >
+              Valider
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

@@ -1,17 +1,25 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useMediaQuery } from "react-responsive";
 import { useParams } from "react-router-dom";
-import PatientPreparationMenu from "../../components/patient/patientPreparationMenu/PatientPreparationMenu";
 import UnderstandingMobile from "../../components/patient/understandingMobile/UnderstandingMobile";
 import styles from "./PatientUnderstandingPage.module.css";
+import UnderstepsContext from "../../contexts/UnderstepsContext";
 
 // Définition du composant PatientUnderstandingPage comme une fonction
 function PatientUnderstandingPage() {
   const isDesktop = useMediaQuery({ query: "(min-width: 991px)" });
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 990px)" });
 
-  const [checkedValues, setCheckedValues] = useState([]); // Utilisation du hook useState pour définir l'état des valeurs cochées des cases à cocher avec une valeur initiale vide
+  const { setCountOfOnesUstepOne } = useContext(UnderstepsContext);
+
+  const [checkedValues, setCheckedValues] = useState([
+    false,
+    false,
+    false,
+    false,
+  ]);
+  // Utilisation du hook useState pour définir l'état des valeurs cochées des cases à cocher avec une valeur initiale vide
   const [underStepIds, setUnderStepIds] = useState([]); // Utilisation du hook useState pour définir l'état des ID des "underStep" avec une valeur initiale vide
   const { idInter } = useParams(); // Utilisation du hook useParams pour récupérer l'ID de l'intervention depuis les paramètres de l'URL
 
@@ -57,10 +65,14 @@ function PatientUnderstandingPage() {
         statutUnderstep: checked ? 1 : 0, // Si la case est cochée, le statut est mis à 1, sinon à 0
       })
       .then(() => {
-        console.error("Statut mis à jour avec succès"); // Affichage d'un message de succès dans la console
+        if (checked) {
+          setCountOfOnesUstepOne((prevCount) => prevCount + 1); // Increment onesCountUstepOne by 1 if checkbox is checked
+        } else {
+          setCountOfOnesUstepOne((prevCount) => prevCount - 1); // Decrement onesCountUstepOne by 1 if checkbox is unchecked
+        }
       })
       .catch((err) => {
-        console.error("Erreur lors de la mise à jour du statut :", err); // Affichage de l'erreur dans la console en cas d'échec de la requête
+        console.error("Erreur lors de la mise à jour du statut :", err); // Display the error in the console if the request fails
       });
   };
 
@@ -69,16 +81,40 @@ function PatientUnderstandingPage() {
       {isTabletOrMobile && <UnderstandingMobile />}
       {isDesktop && (
         <div className={styles.understandingDesktopContainer}>
-          <PatientPreparationMenu />
           <div className={styles.prepContainer}>
             <div className={styles.leftContainer}>
               <p className={styles.docsTitle}>Schémas et documentations</p>
               <div className={styles.docsContainer}>
-                <div className={styles.documentCard} />
-                <div className={styles.documentCard} />
-                <div className={styles.documentCard} />
-                <div className={styles.documentCard} />
-                <div className={styles.documentCard} />
+                <div className={styles.documentCard}>
+                  <div className={styles.topCard}>
+                    <input
+                      type="checkbox"
+                      checked={checkedValues[0]}
+                      onChange={handleChange(0)}
+                    />
+                  </div>
+                  <div className={styles.bottomCard} />
+                </div>
+                <div className={styles.documentCard}>
+                  <div className={styles.topCard}>
+                    <input
+                      type="checkbox"
+                      checked={checkedValues[1]}
+                      onChange={handleChange(1)}
+                    />
+                  </div>
+                  <div className={styles.bottomCard} />
+                </div>
+                <div className={styles.documentCard}>
+                  <div className={styles.topCard}>
+                    <input
+                      type="checkbox"
+                      checked={checkedValues[2]}
+                      onChange={handleChange(2)}
+                    />
+                  </div>
+                  <div className={styles.bottomCard} />
+                </div>
               </div>
             </div>
 
@@ -86,33 +122,22 @@ function PatientUnderstandingPage() {
               <p className={styles.docsTitle}>Vidéos</p>
               <div className={styles.videosContainer}>
                 <div className={styles.videoCardAndName}>
-                  <div className={styles.videoCard} />
-                  <div className={styles.videoTextBloc}>
-                    <p className={styles.videoName}>Vidéo du Dr Noailles</p>
-                    <p className={styles.videoTime}>5 min</p>
+                  <div className={styles.videoCard}>
+                    <div className={styles.topCard}>
+                      <input
+                        type="checkbox"
+                        checked={checkedValues[3]}
+                        onChange={handleChange(3)}
+                      />
+                    </div>
+                    <div className={styles.bottomCard} />
                   </div>
-                </div>
-                <div className={styles.videoCardAndName}>
-                  <div className={styles.videoCard} />
                   <div className={styles.videoTextBloc}>
                     <p className={styles.videoName}>Vidéo du Dr Noailles</p>
                     <p className={styles.videoTime}>5 min</p>
                   </div>
                 </div>
               </div>
-            </div>
-            <div>
-              {underStepIds.map((id, index) => (
-                <div key={id}>
-                  <input
-                    id={id}
-                    type="checkbox"
-                    checked={checkedValues[index]}
-                    onChange={handleChange(index)}
-                  />
-                  <label>Value {index + 1}</label>
-                </div>
-              ))}
             </div>
           </div>
         </div>

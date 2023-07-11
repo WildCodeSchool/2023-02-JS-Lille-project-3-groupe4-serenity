@@ -1,17 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useMediaQuery } from "react-responsive";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import styles from "./PatientPaperworkPage.module.css";
-import PatientPreparationMenu from "../../components/patient/patientPreparationMenu/PatientPreparationMenu";
 import PaperworksMobile from "../../components/patient/paperworksMobile/PaperworksMobile";
+import UnderstepsContext from "../../contexts/UnderstepsContext";
 
 function PatientPaperworkPage() {
   const isDesktop = useMediaQuery({ query: "(min-width: 991px)" });
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 990px)" });
-  const [checkedValues, setCheckedValues] = useState([]);
+  const [checkedValues, setCheckedValues] = useState([
+    false,
+    false,
+    false,
+    false,
+    false,
+  ]);
   const [underStepIds, setUnderStepIds] = useState([]);
   const { idInter } = useParams();
+
+  const { setCountOfOnesUstepTwo } = useContext(UnderstepsContext);
 
   useEffect(() => {
     const fetchStep = async () => {
@@ -53,19 +61,37 @@ function PatientPaperworkPage() {
         statutUnderstep: checked ? 1 : 0,
       })
       .then(() => {
-        console.error("Statut mis à jour avec succès");
+        if (checked) {
+          setCountOfOnesUstepTwo((prevCount) => prevCount + 1); // Increment onesCountUstepOne by 1 if checkbox is checked
+        } else {
+          setCountOfOnesUstepTwo((prevCount) => prevCount - 1); // Decrement onesCountUstepOne by 1 if checkbox is unchecked
+        }
       })
       .catch((err) => {
-        console.error("Erreur lors de la mise à jour du statut :", err);
+        console.error("Erreur lors de la mise à jour du statut :", err); // Display the error in the console if the request fails
       });
   };
 
   return (
     <div className={styles.paperworkPageContainer}>
       {isTabletOrMobile && <PaperworksMobile />}
-      {isDesktop && <PatientPreparationMenu />}
-      <div className={styles.prepContainer}>
-        <div>
+      {isDesktop && (
+        <div className={styles.paperworksDesktopPage}>
+          <div className={styles.prepContainer}>
+            <p>Documents</p>
+
+            <div className={styles.documentCard}>
+              <div className={styles.topCard}>
+                <input
+                  type="checkbox"
+                  checked={checkedValues[0]}
+                  onChange={handleChange(0)}
+                />
+              </div>
+              <div className={styles.bottomCard} />
+            </div>
+
+            {/* <div>
           {underStepIds.map((id, index) => (
             <div key={id}>
               <input
@@ -77,8 +103,10 @@ function PatientPaperworkPage() {
               <label>Value {index + 1}</label>
             </div>
           ))}
+        </div> */}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

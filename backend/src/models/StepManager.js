@@ -16,8 +16,8 @@ class StepManager extends AbstractManager {
         understep.statut AS "statutUnderstep"
       FROM
         serenity.Intervention AS intervention
-        JOIN serenity.Step AS step ON intervention.id = step.intervention_id
-        JOIN serenity.Understep AS understep ON step.id = understep.step_id;
+        JOIN serenity.step AS step ON intervention.id = step.intervention_id
+        JOIN serenity.understep AS understep ON step.id = understep.step_id;
     `;
 
     const [rows] = await this.database.query(query);
@@ -34,9 +34,9 @@ class StepManager extends AbstractManager {
     understep.id AS ID_Understep,
     understep.statut AS statutUnderstep
   FROM
-    serenity.Intervention AS intervention
-    JOIN serenity.Step AS step ON intervention.id = step.intervention_id
-    JOIN serenity.UnderStep AS understep ON step.id = understep.step_id
+    serenity.intervention AS intervention
+    JOIN serenity.step AS step ON intervention.id = step.intervention_id
+    JOIN serenity.underStep AS understep ON step.id = understep.step_id
   WHERE
     intervention.id = ?
     AND step.id = ?;

@@ -44,7 +44,7 @@ const PractitionerManager = require("./PractitionerManager");
 models.practitioner = new PractitionerManager();
 models.practitioner.setDatabase(pool);
 
-const InterventionManager = require("./IdentificationManager");
+const InterventionManager = require("./InterventionManager");
 
 models.intervention = new InterventionManager();
 models.intervention.setDatabase(pool);

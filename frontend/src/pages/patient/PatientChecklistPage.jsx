@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
-import styles from "./PatientChecklistPage.module.css";
-import PatientPreparationMenu from "../../components/patient/patientPreparationMenu/PatientPreparationMenu";
+import { useParams } from "react-router-dom";
 import ChecklistMobile from "../../components/patient/checklistMobile/ChecklistMobile";
+import UnderstepsContext from "../../contexts/UnderstepsContext";
+import styles from "./PatientChecklistPage.module.css";
 
 function PatientChecklistPage() {
   const isDesktop = useMediaQuery({ query: "(min-width: 991px)" });
@@ -13,6 +13,8 @@ function PatientChecklistPage() {
   const [checkedValues, setCheckedValues] = useState([]);
   const [underStepIds, setUnderStepIds] = useState([]);
   const { idInter } = useParams();
+
+  const { setCountOfOnesUstepFive } = useContext(UnderstepsContext);
 
   useEffect(() => {
     const fetchStep = async () => {
@@ -54,32 +56,37 @@ function PatientChecklistPage() {
         statutUnderstep: checked ? 1 : 0,
       })
       .then(() => {
-        console.error("Statut mis à jour avec succès");
+        if (checked) {
+          setCountOfOnesUstepFive((prevCount) => prevCount + 1); // Increment onesCountUstepOne by 1 if checkbox is checked
+        } else {
+          setCountOfOnesUstepFive((prevCount) => prevCount - 1); // Decrement onesCountUstepOne by 1 if checkbox is unchecked
+        }
       })
       .catch((err) => {
-        console.error("Erreur lors de la mise à jour du statut :", err);
+        console.error("Erreur lors de la mise à jour du statut :", err); // Display the error in the console if the request fails
       });
   };
 
   return (
     <div className={styles.checklistPageContainer}>
       {isTabletOrMobile && <ChecklistMobile />}
-      {isDesktop && <PatientPreparationMenu />}
-      <div className={styles.prepContainer}>
-        <div>
-          {underStepIds.map((id, index) => (
-            <div key={id}>
-              <input
-                id={id}
-                type="checkbox"
-                checked={checkedValues[index]}
-                onChange={handleChange(index)}
-              />
-              <label>Value {index + 1}</label>
-            </div>
-          ))}
+      {isDesktop && (
+        <div className={styles.prepContainer}>
+          <div>
+            {underStepIds.map((id, index) => (
+              <div key={id}>
+                <input
+                  id={id}
+                  type="checkbox"
+                  checked={checkedValues[index]}
+                  onChange={handleChange(index)}
+                />
+                <label>Value {index + 1}</label>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

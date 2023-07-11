@@ -57,6 +57,22 @@
   height: 15vh;
   background-color: var(--light-yellow);
   border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.topCard {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
+
+.topCard input {
+  margin-right: 10px;
+}
+
+.topCard input:focus {
+  outline: none;
 }
 
 .videosContainer {

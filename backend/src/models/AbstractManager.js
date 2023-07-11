@@ -15,6 +15,7 @@ class AbstractManager {
       practitioner_user.last_name AS "Nom_du_Practicien",
       practitioner_user.first_name AS "Prénom_du_praticien",
       intervention.procedure_date AS "Date_de_l'intervention",
+      understep.step_id,
       step.nom_step AS "Nom_de_l'étape",
       understep.statut AS "understepStatut",
       understep.type_intervention AS "Type_d'intervention_de_la_sous-étape",
