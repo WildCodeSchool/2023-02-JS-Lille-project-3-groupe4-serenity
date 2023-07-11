@@ -147,7 +147,7 @@ const router = createBrowserRouter([
         element: <AddIntervention />,
       },
       {
-        path: "/secretariat/intervention/infos/:procedure_date",
+        path: "/secretariat/intervention/infos/:id",
         element: <InfosIntervention />,
       },
     ],

@@ -60,7 +60,7 @@ function InterventionListTable() {
             <td className={styles.rows}>{intervention.Dateintervention}</td>
             <td className={styles.rows}>
               <Link
-                to={`/secretariat/intervention/infos/${intervention.Dateintervention}`}
+                to={`/secretariat/intervention/infos/${intervention.id_intervention}`}
               >
                 <FaEye className={styles.eyeIcon} />
               </Link>

@@ -61,11 +61,11 @@ class PractitionerManager extends AbstractManager {
 
   async findPatientByIdentifiantRpps(identifiantRpps) {
     const query = `
-    SELECT u.gender AS "Sexe", u.last_name AS "Nom", u.first_name AS "Prénom", u.age,
-    u.phone AS "Téléphone", u.nationality AS "Nationalité", u.address AS "Adresse", u.city AS "Ville",
-    u.zip_code AS "Code_Postal", u.email AS "Email",
-    p.speciality AS "Spécialité", p.service_id AS "Service",
-    p.identifier_rpps AS "Identifiant_RPPS",
+    SELECT u.gender, u.last_name, u.first_name, u.age,
+    u.phone, u.nationality, u.address, u.city,
+    u.zip_code, u.email,
+    p.speciality, p.service_id,
+    p.identifier_rpps,
     i.pwd AS "Mot_de_Passe"
   FROM serenity.User u
   JOIN serenity.Practitioner p ON u.id = p.user_id

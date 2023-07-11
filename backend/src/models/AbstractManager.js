@@ -6,13 +6,13 @@ class AbstractManager {
   find(id) {
     return this.database.query(
       ` SELECT
-    intervention.type_intervention AS "Type_d'intervention",
-    intervention.nom_Intervention AS "Nom_de_l'intervention",
+    intervention.type_intervention AS "Type_d_intervention",
+    intervention.nom_Intervention AS "Nom_de_l_intervention",
     patient.social_secu_number AS "Numéro_de_sécurité_sociale_du_patient",
     patient_user.last_name AS "Nom_du_patient", patient_user.first_name AS "Prenom_du_patient",
     practitioner.identifier_rpps AS "Identifiant_RPPS_du_praticien",
     practitioner_user.last_name AS "Nom_du_Practicien", practitioner_user.first_name AS "Prénom_du_praticien",
-    intervention.procedure_date AS "Date_de_l'intervention"
+    intervention.procedure_date AS "Date_de_l_intervention"
   FROM
    ${this.table} AS intervention
     JOIN serenity.Patient AS patient ON intervention.social_secu_number = patient.social_secu_number
