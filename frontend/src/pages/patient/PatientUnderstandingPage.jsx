@@ -22,7 +22,7 @@ function PatientUnderstandingPage() {
   // Utilisation du hook useState pour définir l'état des valeurs cochées des cases à cocher avec une valeur initiale vide
   const [underStepIds, setUnderStepIds] = useState([]); // Utilisation du hook useState pour définir l'état des ID des "underStep" avec une valeur initiale vide
   const { idInter } = useParams(); // Utilisation du hook useParams pour récupérer l'ID de l'intervention depuis les paramètres de l'URL
-
+  console.log(idInter);
   useEffect(() => {
     const fetchStep = async () => {
       try {

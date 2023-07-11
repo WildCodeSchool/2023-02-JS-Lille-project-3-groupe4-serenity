@@ -64,9 +64,9 @@ class InterventionManager extends AbstractManager {
         understep.id AS "ID_Understep",
         understep.statut AS "Statut_Understep"
       FROM
-        serenity.Intervention AS intervention
-        JOIN serenity.Step AS step ON intervention.id = step.intervention_id
-        JOIN serenity.Understep AS understep ON step.id = understep.step_id;
+        serenity.intervention AS intervention
+        JOIN serenity.step AS step ON intervention.id = step.intervention_id
+        JOIN serenity.understep AS understep ON step.id = understep.step_id;
     `);
   }
 }
