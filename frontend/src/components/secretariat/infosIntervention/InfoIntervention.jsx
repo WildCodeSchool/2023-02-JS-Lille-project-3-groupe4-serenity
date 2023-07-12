@@ -28,17 +28,25 @@ function InfoIntervention() {
   };
 
   return (
-    <div className={styles.addInterventionContainer}>
+    <div className={styles.infosInterventionContainer}>
       <div className={styles.closeButtonContainer}>
         <Link to="/secretariat/intervention">
           <FaRegWindowClose className={styles.closeIcon} />
         </Link>
       </div>
-      <h3>Gestion d'une intervention</h3>
-      {Object.keys(intervention).length > 0 && (
-        <div className={styles.formContainer}>
-          <form onSubmit={handleSubmit}>
-            <div className={styles.leftContainer}>
+      <div className={styles.gridContainer}>
+        <div className={styles.ButtonModifyInterventionContainer}>
+          <form onSubmit={handleSubmit}>Modifier</form>
+        </div>
+        <div className={styles.ButtonDeleteInterventionContainer}>
+          <form onSubmit={handleSubmit}>Supprimer</form>
+        </div>
+        <div className={styles.titleFormContainer}>
+          Gestion d'une intervention
+        </div>
+        {Object.keys(intervention).length > 0 && (
+          <>
+            <div className={styles.NameInterventionContainer}>
               <label>
                 Nom de l'intervention:
                 <input
@@ -48,6 +56,8 @@ function InfoIntervention() {
                   disabled
                 />
               </label>
+            </div>
+            <div className={styles.socialSecuNumberInterventionContainer}>
               <label>
                 N° sécurité sociale:
                 <input
@@ -57,6 +67,8 @@ function InfoIntervention() {
                   disabled
                 />
               </label>
+            </div>
+            <div className={styles.identifierRppsContainer}>
               <label>
                 Identifiant RPPS:
                 <input
@@ -66,17 +78,19 @@ function InfoIntervention() {
                   disabled
                 />
               </label>
+            </div>
+            <div className={styles.procedureDateContainer}>
               <label>
                 Date de procédure:
                 <input
-                  type="date"
+                  type="text"
                   name="Date_de_l_intervention"
                   value={intervention.Date_de_l_intervention}
                   disabled
                 />
               </label>
             </div>
-            <div className={styles.middleContainer}>
+            <div className={styles.typeInterventionContainer}>
               <label className={styles.multipleChoicesMenu}>
                 Type d'intervention:
                 <input
@@ -86,6 +100,8 @@ function InfoIntervention() {
                   disabled
                 />
               </label>
+            </div>
+            <div className={styles.namePatientContainer}>
               <label>
                 Nom du patient:
                 <input
@@ -95,6 +111,8 @@ function InfoIntervention() {
                   disabled
                 />
               </label>
+            </div>
+            <div className={styles.namePracticienContainer}>
               <label>
                 Nom du praticien:
                 <input
@@ -104,11 +122,10 @@ function InfoIntervention() {
                   disabled
                 />
               </label>
-              <input type="submit" className={styles.sendButton} />
             </div>
-          </form>
-        </div>
-      )}
+          </>
+        )}
+      </div>
     </div>
   );
 }
