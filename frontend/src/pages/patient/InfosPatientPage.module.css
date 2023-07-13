@@ -1,0 +1,68 @@
+.infosPatientPageContainer {
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  background-color: var(--white);
+  border: solid 3px var(--light-turquoise);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--dark-blue);
+}
+
+.titleAndCloseContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.infosPatientContainer {
+  width: 60vw;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin-top: 3vh;
+  border: solid 1px black;
+  background-color: var(--light-grey);
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.title {
+  margin-left: 29vw;
+  font-size: 1.5vw;
+}
+
+.linkStyle {
+  color: inherit;
+}
+
+.closeIcon {
+  font-size: 1.5vw;
+}
+
+.leftContainer,
+.rightContainer {
+  flex: 1;
+  height: 100%;
+  color: var(--dark-blue);
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+}
+
+.leftContainer {
+  flex: 0.75;
+}
+
+.LeftLine {
+  font-size: 1.8vw;
+  font-weight: 600;
+}
+
+.RightLine {
+  font-weight: 400;
+  font-size: 1.8vw;
+}

@@ -59,6 +59,11 @@ const IdentificationManager = require("./IdentificationManager");
 models.identification = new IdentificationManager();
 models.identification.setDatabase(pool);
 
+const ResourceManager = require("./ResourceManager");
+
+models.resource = new ResourceManager();
+models.resource.setDatabase(pool);
+
 const handler = {
   get(obj, prop) {
     if (prop in obj) {

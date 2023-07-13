@@ -48,21 +48,21 @@
 }
 
 .prepMenuActivePaperwork {
-  border: solid 3px var(--turquoise);
+  border: solid 3px var(--light-turquoise);
 }
 
 .prepMenuActiveUnderstanding {
-  border: solid 3px var(--yellow);
+  border: solid 3px var(--light-yellow);
 }
 
 .prepMenuActiveSerenity {
-  border: solid 3px var(--pink);
+  border: solid 3px var(--light-pink);
 }
 
 .prepMenuActiveOutboarding {
-  border: solid 3px var(--green);
+  border: solid 3px var(--light-green);
 }
 
 .prepMenuActiveChecklist {
-  border: solid 3px var(--main-purple);
+  border: solid 3px var(--light-purple);
 }

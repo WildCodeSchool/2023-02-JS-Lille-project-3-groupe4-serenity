@@ -46,4 +46,9 @@ router.put("/steps/:id", stepControllers.edit);
 router.post("/steps", stepControllers.add);
 router.delete("/steps/:id", stepControllers.destroy);
 
+const resourceControllers = require("./controllers/resourceController");
+
+router.get("/resources", resourceControllers.browse);
+router.get("/resources/:id", resourceControllers.read);
+
 module.exports = router;
