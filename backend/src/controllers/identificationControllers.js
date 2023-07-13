@@ -1,4 +1,5 @@
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 const models = require("../models");
 
 const read = (req, res) => {
@@ -87,11 +88,25 @@ const login = async (req, res) => {
       return res.status(400).send({ message: "Invalid password" });
     }
 
+    const token = jwt.sign({ id: identification.id }, process.env.JWT_SECRET, {
+      expiresIn: "1h", // Expires in 1 hour
+    });
+
+    res.cookie("token", token, {
+      httpOnly: true,
+      expires: new Date(Date.now() + 60 * 60 * 1000), // Expires in 1 hour
+    });
+
     return res.status(200).send({ message: "Logged in successfully" });
   } catch (error) {
     console.error(error);
     return res.status(500).send({ message: "Internal server error" });
   }
+};
+
+const logout = (req, res) => {
+  res.clearCookie("token");
+  res.sendStatus(200);
 };
 
 module.exports = {
@@ -100,4 +115,5 @@ module.exports = {
   add,
   destroy,
   login,
+  logout,
 };
