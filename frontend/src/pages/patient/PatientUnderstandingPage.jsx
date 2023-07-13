@@ -3,7 +3,6 @@ import React, { useContext, useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import { useParams } from "react-router-dom";
 import UnderstandingMobile from "../../components/patient/understandingMobile/UnderstandingMobile";
-import VideoModal from "../../components/videoModal/VideoModal";
 import UnderstepsContext from "../../contexts/UnderstepsContext";
 import styles from "./PatientUnderstandingPage.module.css";
 
@@ -21,7 +20,7 @@ function PatientUnderstandingPage() {
   ]);
 
   const [videoLink, setVideoLink] = useState("");
-  const [setPdf1Link] = useState("");
+  const [pdf1Link, setPdf1Link] = useState("");
   const [setPdf2Link] = useState("");
   const [setPdf3Link] = useState("");
 
@@ -112,110 +111,57 @@ function PatientUnderstandingPage() {
             <div className={styles.leftContainer}>
               <p className={styles.docsTitle}>Schémas et documentations</p>
               <div className={styles.docsContainer}>
-                <div className={styles.documentCard}>
-                  <div className={styles.topCard}>
-                    <input
-                      type="checkbox"
-                      checked={checkedValues[0]}
-                      onChange={handleChange(0)}
-                    />
-                  </div>
-                  <div className={styles.bottomCard} />
+                <div className={styles.checkboxContainer}>
+                  <h2 className={styles.checkboxText}>
+                    J'ai pris connaissance du document
+                  </h2>
+                  <input
+                    type="checkbox"
+                    checked={checkedValues[0]}
+                    onChange={handleChange(0)}
+                  />
                 </div>
-                <div className={styles.documentCard}>
-                  <div className={styles.topCard}>
-                    <input
-                      type="checkbox"
-                      checked={checkedValues[1]}
-                      onChange={handleChange(1)}
-                    />
-                  </div>
-                  <div className={styles.bottomCard} />
-                </div>
-                <div className={styles.documentCard}>
-                  <div className={styles.topCard}>
-                    <input
-                      type="checkbox"
-                      checked={checkedValues[2]}
-                      onChange={handleChange(2)}
-                    />
-                  </div>
-                  <div className={styles.bottomCard} />
-                </div>
+
+                <iframe
+                  src={`http://localhost:5050/${pdf1Link}`}
+                  title="PDF Document 1"
+                  width="100%"
+                  height="100%"
+                  className={styles.videoStyle}
+                />
               </div>
             </div>
 
             <div className={styles.rightContainer}>
               <p className={styles.docsTitle}>Vidéos</p>
               <div className={styles.videosContainer}>
-                <div className={styles.videoCardAndName}>
-                  <div className={styles.videoCard}>
-                    <div className={styles.topCard}>
-                      <input
-                        type="checkbox"
-                        checked={checkedValues[3]}
-                        onChange={handleChange(3)}
-                      />
-                    </div>
-                    <div className={styles.bottomCard}>
-                      <VideoModal
-                        videoTitle="Video du Dr Noailles"
-                        videoLink={`http://localhost:5050/${videoLink}`}
-                      />
-                    </div>
-                  </div>
-                  <div className={styles.videoTextBloc}>
-                    <p className={styles.videoName}>Vidéo du Dr Noailles</p>
-                    <p className={styles.videoTime}>5 min</p>
-
-                    {/* {videoLink && (
-                      <video width="560" height="315" controls>
-                        <track
-                          src="captions.vtt"
-                          kind="captions"
-                          label="English"
-                        />
-                        <source
-                          src={`http://localhost:5050/${videoLink}`}
-                          type="video/mp4"
-                        />
-                        Your browser does not support the video tag.
-                      </video>
-                    )} */}
-                  </div>
+                <div className={styles.checkboxContainer}>
+                  <h2 className={styles.checkboxText}>
+                    J'ai visionné la vidéo
+                  </h2>
+                  <input
+                    type="checkbox"
+                    checked={checkedValues[1]}
+                    onChange={handleChange(1)}
+                  />
                 </div>
+                {videoLink && (
+                  <video
+                    width="560"
+                    height="100%"
+                    controls
+                    className={styles.videoStyle}
+                  >
+                    <track src="captions.vtt" kind="captions" label="English" />
+                    <source
+                      src={`http://localhost:5050/${videoLink}`}
+                      type="video/mp4"
+                    />
+                    Your browser does not support the video tag.
+                  </video>
+                )}
               </div>
             </div>
-
-            {/* <div className={styles.rightContainer}>
-              <p className={styles.docsTitle}>Documents PDF</p>
-              <div className={styles.pdfsContainer}>
-                <div>
-                  <iframe
-                    src={`http://localhost:5050/${pdf1Link}`}
-                    title="PDF Document 1"
-                    width="100%"
-                    height="500px"
-                  />
-                </div>
-                <div>
-                  <iframe
-                    src={`http://localhost:5050/${pdf2Link}`}
-                    title="PDF Document 2"
-                    width="100%"
-                    height="500px"
-                  />
-                </div>
-                <div>
-                  <iframe
-                    src={`http://localhost:5050/${pdf3Link}`}
-                    title="PDF Document 3"
-                    width="100%"
-                    height="500px"
-                  />
-                </div>
-              </div>
-            </div> */}
           </div>
         </div>
       )}

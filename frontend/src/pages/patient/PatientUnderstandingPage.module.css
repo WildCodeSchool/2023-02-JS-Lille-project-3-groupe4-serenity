@@ -24,14 +24,13 @@
 
 .leftContainer {
   height: 100%;
-  flex: 3;
+  flex: 1;
   display: flex;
   flex-direction: column;
 }
 
 .docsTitle {
   font-size: 1.2rem;
-  margin-bottom: 2vh;
 }
 
 .docsContainer,
@@ -41,13 +40,28 @@
 
 .docsContainer {
   display: flex;
-  gap: 3vw;
-  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.checkboxContainer {
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+}
+
+.checkboxText {
+  font-weight: 200;
+}
+
+.videoStyle {
+  border: solid 1px var(--dark-blue);
+  border-radius: 15px;
+  box-shadow: var(--basic-shadow);
 }
 
 .rightContainer {
   height: 100%;
-  flex: 2;
+  flex: 1;
   display: flex;
   flex-direction: column;
 }
@@ -67,11 +81,11 @@
   justify-content: end;
 }
 
-.topCard input {
+.checkboxContainer input {
   margin-right: 10px;
 }
 
-.topCard input:focus {
+.checkboxContainer input:focus {
   outline: none;
 }
 
@@ -87,7 +101,6 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 3vh;
 }
 
 .videoCardAndName {

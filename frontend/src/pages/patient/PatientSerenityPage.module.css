@@ -66,12 +66,14 @@
 .stepText {
   color: var(--turquoise);
   margin-bottom: 2vh;
+  font-size: 1.5vw;
 }
 
 .stepTitle {
   color: var(--dark-blue);
   font-size: 1.5vw;
-  margin-bottom: 2vh;
+  margin-bottom: 3vh;
+  font-size: 1.5vw;
 }
 
 .buttonsContainer {
