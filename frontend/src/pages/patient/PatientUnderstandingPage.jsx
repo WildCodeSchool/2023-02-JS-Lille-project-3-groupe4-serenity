@@ -1,12 +1,12 @@
 import axios from "axios";
-import React, { useEffect, useState, useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import { useParams } from "react-router-dom";
 import UnderstandingMobile from "../../components/patient/understandingMobile/UnderstandingMobile";
-import styles from "./PatientUnderstandingPage.module.css";
+import VideoModal from "../../components/videoModal/VideoModal";
 import UnderstepsContext from "../../contexts/UnderstepsContext";
+import styles from "./PatientUnderstandingPage.module.css";
 
-// Définition du composant PatientUnderstandingPage comme une fonction
 function PatientUnderstandingPage() {
   const isDesktop = useMediaQuery({ query: "(min-width: 991px)" });
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 990px)" });
@@ -19,47 +19,50 @@ function PatientUnderstandingPage() {
     false,
     false,
   ]);
-  // Utilisation du hook useState pour définir l'état des valeurs cochées des cases à cocher avec une valeur initiale vide
-  const [underStepIds, setUnderStepIds] = useState([]); // Utilisation du hook useState pour définir l'état des ID des "underStep" avec une valeur initiale vide
-  const { idInter } = useParams(); // Utilisation du hook useParams pour récupérer l'ID de l'intervention depuis les paramètres de l'URL
+
+  const [videoLink, setVideoLink] = useState("");
+  const [setPdf1Link] = useState("");
+  const [setPdf2Link] = useState("");
+  const [setPdf3Link] = useState("");
+
+  const [underStepIds, setUnderStepIds] = useState([]);
+  const { idInter } = useParams();
 
   useEffect(() => {
     const fetchStep = async () => {
       try {
-        // Requête HTTP GET pour récupérer les données des étapes de l'intervention spécifiée
         const response = await axios.get(
           `${import.meta.env.VITE_BACKEND_URL}/interventions/${idInter}`
         );
         const { data } = response;
 
-        const ids = data.map((item) => item.id); // Extraction des ID des étapes à partir des données
-        const statuts = data.map((item) => item.understepStatut); // Extraction des statuts des "underStep" à partir des données
+        const ids = data.map((item) => item.id);
+        const statuts = data.map((item) => item.understepStatut);
 
-        const underStepsSubset = ids.slice(0, 4); // Création d'un sous-ensemble des ID des "underStep" (premiers 4)
-        const statutsSubset = statuts.slice(0, 4); // Création d'un sous-ensemble des statuts des "underStep" (premiers 4)
+        const underStepsSubset = ids.slice(0, 4);
+        const statutsSubset = statuts.slice(0, 4);
 
-        setCheckedValues(statutsSubset); // Mise à jour de l'état des valeurs cochées avec le sous-ensemble des statuts
-        setUnderStepIds(underStepsSubset); // Mise à jour de l'état des ID des "underStep" avec le sous-ensemble des ID
+        setCheckedValues(statutsSubset);
+        setUnderStepIds(underStepsSubset);
       } catch (err) {
-        console.error(err); // Affichage de l'erreur dans la console en cas d'échec de la requête
+        console.error(err);
       }
     };
 
-    fetchStep(); // Appel de la fonction fetchStep lors du montage du composant ou lorsque l'ID de l'intervention change
+    fetchStep();
   }, [idInter]);
 
   const handleChange = (index) => (event) => {
-    const { checked } = event.target; // Récupération de la valeur cochée ou décochée de la case à cocher
+    const { checked } = event.target;
 
     setCheckedValues((prevValues) => {
       const newValues = [...prevValues];
-      newValues[index] = checked; // Mise à jour de la valeur cochée dans le tableau des valeurs cochées
+      newValues[index] = checked;
       return newValues;
     });
 
-    const firstFiveUnderStepIds = underStepIds; // Copie des ID des "underStep"
+    const firstFiveUnderStepIds = underStepIds;
 
-    // Requête HTTP PUT pour mettre à jour le statut de l'étape correspondante
     axios
       .put(
         `${import.meta.env.VITE_BACKEND_URL}/steps/${
@@ -71,15 +74,34 @@ function PatientUnderstandingPage() {
       )
       .then(() => {
         if (checked) {
-          setCountOfOnesUstepOne((prevCount) => prevCount + 1); // Increment onesCountUstepOne by 1 if checkbox is checked
+          setCountOfOnesUstepOne((prevCount) => prevCount + 1);
         } else {
-          setCountOfOnesUstepOne((prevCount) => prevCount - 1); // Decrement onesCountUstepOne by 1 if checkbox is unchecked
+          setCountOfOnesUstepOne((prevCount) => prevCount - 1);
         }
       })
       .catch((err) => {
-        console.error("Erreur lors de la mise à jour du statut :", err); // Display the error in the console if the request fails
+        console.error("Erreur lors de la mise à jour du statut :", err);
       });
   };
+
+  useEffect(() => {
+    const fetchVideoLink = async () => {
+      try {
+        const response = await axios.get("http://localhost:5050/resources");
+        const { data } = response;
+        if (data.length > 0) {
+          setVideoLink(data[5].link);
+          setPdf1Link(data[6].link);
+          setPdf2Link(data[7].link);
+          setPdf3Link(data[8].link);
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    fetchVideoLink();
+  }, []);
 
   return (
     <div className={styles.understandingPageContainer}>
@@ -135,15 +157,65 @@ function PatientUnderstandingPage() {
                         onChange={handleChange(3)}
                       />
                     </div>
-                    <div className={styles.bottomCard} />
+                    <div className={styles.bottomCard}>
+                      <VideoModal
+                        videoTitle="Video du Dr Noailles"
+                        videoLink={`http://localhost:5050/${videoLink}`}
+                      />
+                    </div>
                   </div>
                   <div className={styles.videoTextBloc}>
                     <p className={styles.videoName}>Vidéo du Dr Noailles</p>
                     <p className={styles.videoTime}>5 min</p>
+
+                    {/* {videoLink && (
+                      <video width="560" height="315" controls>
+                        <track
+                          src="captions.vtt"
+                          kind="captions"
+                          label="English"
+                        />
+                        <source
+                          src={`http://localhost:5050/${videoLink}`}
+                          type="video/mp4"
+                        />
+                        Your browser does not support the video tag.
+                      </video>
+                    )} */}
                   </div>
                 </div>
               </div>
             </div>
+
+            {/* <div className={styles.rightContainer}>
+              <p className={styles.docsTitle}>Documents PDF</p>
+              <div className={styles.pdfsContainer}>
+                <div>
+                  <iframe
+                    src={`http://localhost:5050/${pdf1Link}`}
+                    title="PDF Document 1"
+                    width="100%"
+                    height="500px"
+                  />
+                </div>
+                <div>
+                  <iframe
+                    src={`http://localhost:5050/${pdf2Link}`}
+                    title="PDF Document 2"
+                    width="100%"
+                    height="500px"
+                  />
+                </div>
+                <div>
+                  <iframe
+                    src={`http://localhost:5050/${pdf3Link}`}
+                    title="PDF Document 3"
+                    width="100%"
+                    height="500px"
+                  />
+                </div>
+              </div>
+            </div> */}
           </div>
         </div>
       )}
@@ -151,5 +223,4 @@ function PatientUnderstandingPage() {
   );
 }
 
-// Exporte le composant PatientUnderstandingPage par défaut
 export default PatientUnderstandingPage;

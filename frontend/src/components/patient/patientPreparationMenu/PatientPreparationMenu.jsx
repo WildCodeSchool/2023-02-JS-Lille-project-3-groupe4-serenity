@@ -111,7 +111,7 @@ function PatientPreparationMenu() {
       </NavLink>
 
       <NavLink
-        to={`/${idPatient}/${idInter}/understanding/checklist`}
+        to={`/patient/${idPatient}/${idInter}/understanding/checklist`}
         className={({ isActive }) =>
           isActive
             ? `${styles.prepMenuActiveChecklist} ${styles.prepMenuActive}`

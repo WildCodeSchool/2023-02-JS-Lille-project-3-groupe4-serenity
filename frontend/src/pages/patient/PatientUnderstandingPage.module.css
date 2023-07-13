@@ -75,6 +75,13 @@
   outline: none;
 }
 
+.bottomCard {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
 .videosContainer {
   width: 100%;
   height: 100%;
@@ -94,6 +101,9 @@
   height: 10vh;
   background-color: var(--light-yellow);
   border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .videoTextBloc {

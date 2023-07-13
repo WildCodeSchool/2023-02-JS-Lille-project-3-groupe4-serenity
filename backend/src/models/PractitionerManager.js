@@ -71,9 +71,9 @@ class PractitionerManager extends AbstractManager {
     p.speciality AS "Spécialité", p.service_id AS "Service",
     p.identifier_rpps AS "Identifiant_RPPS",
     i.pwd AS "Mot_de_Passe"
-  FROM serenity.User u
-  JOIN serenity.Practitioner p ON u.id = p.user_id
-  JOIN serenity.Identification i ON u.id = i.user_id
+  FROM serenity.user u
+  JOIN serenity.practitioner p ON u.id = p.user_id
+  JOIN serenity.identification i ON u.id = i.user_id
   WHERE p.identifier_rpps = ?;
     `;
 

@@ -684,4 +684,7 @@ VALUES ('valeur1', 0, 'valeur2', 0, 'valeur3', 0, 'valeur4', 0, 'valeur5', 0,'va
 -- Insertion des ressources
 INSERT INTO serenity.resources (title_resource, type_resource, link, staff_id, type_intervention)
 VALUES
-    ("Chirurgie cardiologique", 'Video', 'http://example.com/resource1', 2, 'chirurgie')
+    ("Chirurgie du genou", 'Video', 'assets/prothese_totale_genou.mp4', 2, 'chirurgie'),
+    ("Chirurgie du genou", 'Pdf', 'assets/prothese_genou.pdf', 2, 'chirurgie'),
+    ("Chirurgie du genou", 'Pdf', 'assets/prothese-totale-du-genou.pdf', 2, 'chirurgie'),
+    ("Chirurgie du genou", 'Pdf', 'assets/prothese-totale-genou2.pdf', 2, 'chirurgie');

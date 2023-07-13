@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaRegBell } from "react-icons/fa";
 import styles from "./PatientHeaderDesktop.module.css";
 
 function PatientHeaderDesktop() {
+  const [isNotificationVisible, setIsNotificationVisible] = useState(false);
+
+  const handleNotificationClick = () => {
+    setIsNotificationVisible(true);
+  };
+
+  const closeNotification = () => {
+    setIsNotificationVisible(false);
+  };
+
   return (
     <div className={styles.headerContainer}>
       <div className={styles.nameContainer}>
@@ -23,9 +33,24 @@ function PatientHeaderDesktop() {
         </div>
 
         <div className={styles.notificationsContainer}>
-          <FaRegBell className={styles.bellIcon} />
+          <FaRegBell
+            className={styles.bellIcon}
+            onClick={handleNotificationClick}
+          />
         </div>
       </div>
+
+      {isNotificationVisible && (
+        <div className={styles.notificationPopup}>
+          <div className={styles.notificationContent}>
+            <h3>Mes Notifications</h3>
+            <p>Contenu de la notification</p>
+            <button type="button" onClick={closeNotification}>
+              Fermer
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

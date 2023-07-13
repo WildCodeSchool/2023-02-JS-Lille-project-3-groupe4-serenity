@@ -9,10 +9,7 @@ function PatientInterventionPage() {
   useEffect(() => {
     const fetchInter = async () => {
       try {
-        // Appel à l'API pour récupérer les données des interventions
-        const response = await axios.get(
-          `${import.meta.env.VITE_BACKEND_URL}/interventions`
-        );
+        const response = await axios.get("http://localhost:5050/interventions");
         const { data } = response;
 
         const uniqueInter = data.reduce((acc, current) => {
@@ -48,12 +45,12 @@ function PatientInterventionPage() {
         <div className={styles.container}>
           <div className={styles.card}>
             {inter.map((item, index) => (
-              <div key={item.ID_Intervention}>
+              <div key={item.id_intervention}>
                 <Link
-                  to={`/patient/1/${item.ID_Intervention}/understanding`}
+                  to={`/patient/1/${item.id_intervention}/understanding`}
                   className={styles.link}
                 >
-                  {item.Nom_Intervention}
+                  {item.nomIntervention}
                 </Link>
                 {index !== inter.length - 1 && (
                   <div className={styles.separator} />
