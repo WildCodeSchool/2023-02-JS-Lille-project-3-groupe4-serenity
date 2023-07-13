@@ -22,12 +22,12 @@ class AbstractManager {
       understep.id 
     FROM
       ${this.table} AS intervention
-    JOIN serenity.Patient AS patient ON intervention.social_secu_number = patient.social_secu_number
-    JOIN serenity.Practitioner AS practitioner ON intervention.identifier_rpps = practitioner.identifier_rpps
-    JOIN serenity.User AS practitioner_user ON practitioner.user_id = practitioner_user.id
-    JOIN serenity.User AS patient_user ON patient.user_id = patient_user.id
-    JOIN serenity.Step AS step ON intervention.id = step.intervention_id
-    JOIN serenity.Understep AS understep ON step.id = understep.step_id
+    JOIN serenity.patient AS patient ON intervention.social_secu_number = patient.social_secu_number
+    JOIN serenity.practitioner AS practitioner ON intervention.identifier_rpps = practitioner.identifier_rpps
+    JOIN serenity.user AS practitioner_user ON practitioner.user_id = practitioner_user.id
+    JOIN serenity.user AS patient_user ON patient.user_id = patient_user.id
+    JOIN serenity.step AS step ON intervention.id = step.intervention_id
+    JOIN serenity.understep AS understep ON step.id = understep.step_id
     WHERE
       intervention.id = ?;
     

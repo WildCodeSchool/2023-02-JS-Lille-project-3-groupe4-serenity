@@ -68,9 +68,9 @@ class PatientManager extends AbstractManager {
       pt.allergy,
       pt.remark,
       pt.social_secu_number
-      FROM serenity.User u
-      JOIN serenity.Identification i ON u.id = i.user_id
-      JOIN serenity.Patient pt ON u.id = pt.user_id
+      FROM serenity.user u
+      JOIN serenity.identification i ON u.id = i.user_id
+      JOIN serenity.patient pt ON u.id = pt.user_id
       WHERE pt.social_secu_number = ?
     `;
 

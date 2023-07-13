@@ -53,11 +53,11 @@ const router = createBrowserRouter([
     element: <PatientLayout />,
     children: [
       {
-        path: "understanding/",
+        path: "understanding",
         element: <PatientUnderstandingPage />,
       },
       {
-        path: "understanding/paperwork/",
+        path: "understanding/paperwork",
         element: <PatientPaperworkPage />,
       },
       {
@@ -65,15 +65,15 @@ const router = createBrowserRouter([
         element: <InfosPatientPage />,
       },
       {
-        path: "understanding/serenity/",
+        path: "understanding/serenity",
         element: <PatientSerenityPage />,
       },
       {
-        path: "understanding/outboarding/",
+        path: "understanding/outboarding",
         element: <PatientOutboardingPage />,
       },
       {
-        path: "understanding/checklist/",
+        path: "understanding/checklist",
         element: <PatientChecklistPage />,
       },
       {

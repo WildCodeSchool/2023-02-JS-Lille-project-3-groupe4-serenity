@@ -18,6 +18,8 @@ function PatientSerenityPage() {
   const { countOfOnesUstepThree, setCountOfOnesUstepThree } =
     useContext(UnderstepsContext);
 
+  console.log(countOfOnesUstepThree);
+
   useEffect(() => {
     const fetchStep = async () => {
       try {
@@ -47,17 +49,16 @@ function PatientSerenityPage() {
       })
       .then(() => {
         console.error("Statut mis à jour avec succès"); // Display a success message in the console
-        if (countOfOnesUstepThree < 4) {
+        if (countOfOnesUstepThree < 3) {
           setCountOfOnesUstepThree((prevCount) => prevCount + 1); // Increment onesCountUstepOne by 1 if checkbox is checked
         }
       })
       .catch((err) => {
         console.error("Erreur lors de la mise à jour du statut :", err); // Display the error in the console if the request fails
       });
-  };
-
-  const handleNext = () => {
-    setPage((prev) => prev + 1);
+    if (page < 3) {
+      setPage((prev) => prev + 1);
+    }
   };
 
   const handlePrevious = () => {
@@ -99,7 +100,7 @@ function PatientSerenityPage() {
                 <button
                   className={`${styles.firstNextButton} ${styles.quizButton}`}
                   type="button"
-                  onClick={handleNext}
+                  onClick={() => handleUpdateClick(underStepIds[9])}
                 >
                   Suivant
                 </button>
@@ -137,7 +138,7 @@ function PatientSerenityPage() {
                 <button
                   className={styles.quizButton}
                   type="button"
-                  onClick={handleNext}
+                  onClick={() => handleUpdateClick(underStepIds[10])}
                 >
                   Suivant
                 </button>
@@ -172,20 +173,25 @@ function PatientSerenityPage() {
                 >
                   Précédent
                 </button>
+                {countOfOnesUstepThree < 3 ? (
+                  <button
+                    className={styles.quizButton}
+                    type="button"
+                    onClick={() => handleUpdateClick(underStepIds[11])}
+                  >
+                    J'ai compris!
+                  </button>
+                ) : (
+                  <button
+                    className={`${styles.quizButton} ${styles.endButton}`}
+                    type="button"
+                  >
+                    Terminé
+                  </button>
+                )}
               </div>
             </div>
           )}
-          <div className={styles.prepContainer}>
-            {underStepIds.slice(9, 12).map((stepId) => (
-              <button
-                key={stepId}
-                type="button"
-                onClick={() => handleUpdateClick(stepId)}
-              >
-                Valider
-              </button>
-            ))}
-          </div>
         </div>
       )}
     </div>
