@@ -21,8 +21,6 @@ function InterventionListTable() {
     fectchAllPatient();
   }, []);
 
-  console.log(interventions);
-
   return (
     <table className={styles.tableContainer}>
       <thead>

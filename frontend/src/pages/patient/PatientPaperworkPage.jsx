@@ -1,11 +1,11 @@
+import { StyledEngineProvider } from "@mui/material/styles";
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import { Link, useParams } from "react-router-dom";
+import InfosModal from "../../components/infosModal/InfosModal";
 import PaperworksMobile from "../../components/patient/paperworksMobile/PaperworksMobile";
 import UnderstepsContext from "../../contexts/UnderstepsContext";
-import InfosModal from "../../components/infosModal/InfosModal";
-import { StyledEngineProvider } from "@mui/material/styles";
 import styles from "./PatientPaperworkPage.module.css";
 
 function PatientPaperworkPage() {
@@ -118,10 +118,8 @@ function PatientPaperworkPage() {
                 <div className={styles.bottomCard}>
                   <StyledEngineProvider>
                     <InfosModal
-                      titleText={"Votre mutuelle"}
-                      infosText={
-                        "Avez-vous penser à nous envoyer votre carte de mutuelle ou à leur demander un accord de prise en charge pour votre hospitalisation ?"
-                      }
+                      titleText="Votre mutuelle"
+                      infosText="Avez-vous penser à nous envoyer votre carte de mutuelle ou à leur demander un accord de prise en charge pour votre hospitalisation ?"
                     />
                   </StyledEngineProvider>
                 </div>
@@ -140,10 +138,8 @@ function PatientPaperworkPage() {
                 <div className={styles.bottomCard}>
                   <StyledEngineProvider>
                     <InfosModal
-                      titleText={"Consentement éclairé"}
-                      infosText={
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                      }
+                      titleText="Consentement éclairé"
+                      infosText="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
                     />
                   </StyledEngineProvider>
                 </div>
@@ -163,10 +159,8 @@ function PatientPaperworkPage() {
                   {" "}
                   <StyledEngineProvider>
                     <InfosModal
-                      titleText={"Votre anesthésiste"}
-                      infosText={
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                      }
+                      titleText="Votre anesthésiste"
+                      infosText="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
                     />
                   </StyledEngineProvider>
                 </div>
@@ -185,10 +179,8 @@ function PatientPaperworkPage() {
                 <div className={styles.bottomCard}>
                   <StyledEngineProvider>
                     <InfosModal
-                      titleText={"Votre anesthésiste"}
-                      infosText={
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                      }
+                      titleText="Votre anesthésiste"
+                      infosText="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
                     />
                   </StyledEngineProvider>
                 </div>

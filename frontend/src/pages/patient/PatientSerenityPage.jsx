@@ -39,8 +39,6 @@ function PatientSerenityPage() {
     fetchStep();
   }, [idInter]);
 
-  console.log(underStepIds);
-
   // Fonction appelée lors du clic sur le bouton de mise à jour
   const handleUpdateClick = (stepId) => {
     axios
@@ -77,7 +75,7 @@ function PatientSerenityPage() {
               <h4 className={styles.stepTitle}>La douche bétadinée</h4>
               <div className={styles.quizContainer}>
                 <div className={styles.leftContainer}>
-                  <div className={styles.imageContainer}></div>
+                  <div className={styles.imageContainer} />
                 </div>
                 <div className={styles.rightContainer}>
                   <div className={styles.textContainer}>
@@ -114,7 +112,7 @@ function PatientSerenityPage() {
               <h4 className={styles.stepTitle}>??</h4>
               <div className={styles.quizContainer}>
                 <div className={styles.leftContainer}>
-                  <div className={styles.imageContainer}></div>
+                  <div className={styles.imageContainer} />
                 </div>
                 <div className={styles.rightContainer}>
                   <div className={styles.textContainer}>
@@ -152,7 +150,7 @@ function PatientSerenityPage() {
               <h4 className={styles.stepTitle}>??</h4>
               <div className={styles.quizContainer}>
                 <div className={styles.leftContainer}>
-                  <div className={styles.imageContainer}></div>
+                  <div className={styles.imageContainer} />
                 </div>
                 <div className={styles.rightContainer}>
                   <div className={styles.textContainer}>

@@ -2,6 +2,7 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import PropTypes from "prop-types";
 import Modal from "@mui/material/Modal";
 import "./InfosModal.css";
 
@@ -24,7 +25,7 @@ export default function BasicModal({ titleText, infosText }) {
 
   return (
     <div style={{ width: "100%", height: "100%" }}>
-      <Button onClick={handleOpen} className="modalButton"></Button>
+      <Button onClick={handleOpen} className="modalButton" />
       <Modal
         open={open}
         onClose={handleClose}
@@ -51,3 +52,8 @@ export default function BasicModal({ titleText, infosText }) {
     </div>
   );
 }
+
+BasicModal.propTypes = {
+  titleText: PropTypes.string.isRequired,
+  infosText: PropTypes.string.isRequired,
+};
