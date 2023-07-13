@@ -11,8 +11,102 @@
 
 .prepContainer {
   background-color: azure;
-  flex: 3;
+  height: 100%;
   width: 100%;
   border-radius: 1rem;
   background-color: var(--light-grey);
+  border: solid 3px var(--light-green);
+  padding: 1rem;
+}
+
+.appointmentBloc {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3vh;
+}
+
+.startText {
+  text-align: center;
+  color: var(--dark-blue);
+  font-size: 2vw;
+  font-weight: 400;
+  margin-bottom: 4vh;
+}
+
+.mapAndListContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.listContainer {
+  flex: 1;
+  height: 100%;
+}
+
+.selectMenu {
+  border: none;
+}
+
+.menuList {
+  margin-bottom: 2vh;
+  border-radius: 10px;
+  color: var(--dark-blue);
+  border: solid 1px var(--dark-blue);
+  padding: 0.5rem 1rem;
+}
+
+.menuList:focus {
+  outline-color: var(--green);
+}
+
+.confirmationText {
+  color: var(--dark-blue);
+  margin: 3vh 0;
+}
+
+.confirmButton {
+  border: none;
+  background-color: var(--light-green);
+  color: var(--white);
+  width: 10vw;
+  padding: 1.3vh;
+  border-radius: 15px;
+  font-size: 1.1rem;
+}
+
+.confirmButton:hover {
+  background-color: var(--white);
+  color: var(--light-green);
+}
+
+.mapContainer {
+  flex: 2;
+  height: 100%;
+  display: flex;
+}
+
+.practitionerName {
+  color: var(--dark-blue);
+  font-weight: 600;
+  font-size: 1.3vw;
+}
+
+.practitionerInfos {
+  color: var(--dark-blue);
+  font-size: 1.1vw;
+}
+
+.confirmedButton {
+  border: none;
+  background-color: var(--medium-grey);
+  color: var(--dark-blue);
+  width: 10vw;
+  padding: 1.3vh;
+  border-radius: 15px;
+  font-size: 1.1rem;
+  pointer-events: none;
 }

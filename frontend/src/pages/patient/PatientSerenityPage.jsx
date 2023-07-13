@@ -18,8 +18,6 @@ function PatientSerenityPage() {
   const { countOfOnesUstepThree, setCountOfOnesUstepThree } =
     useContext(UnderstepsContext);
 
-  console.log(countOfOnesUstepThree);
-
   useEffect(() => {
     const fetchStep = async () => {
       try {
