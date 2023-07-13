@@ -7,16 +7,18 @@ import {
   FaMusic,
   FaOm,
 } from "react-icons/fa";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useParams } from "react-router-dom";
 import styles from "./PatientNavbarDesktop.module.css";
 
 function PatientNavbarDesktop() {
+  const { idInter, idPatient } = useParams();
+
   return (
     <div className={styles.navbarContainer}>
       <div className={styles.logoContainer}>Serenity</div>
       <div className={styles.pageLinksContainer}>
         <NavLink
-          to="/patient/understanding/initiation/6/26"
+          to={`/patient/${idPatient}/${idInter}/understanding`}
           className={({ isActive }) =>
             isActive ? styles.activeLink : styles.pendingLink
           }
@@ -27,7 +29,7 @@ function PatientNavbarDesktop() {
           </div>
         </NavLink>
         <NavLink
-          to="/patient/breathe"
+          to={`/patient/${idPatient}/${idInter}/breathe`}
           className={({ isActive }) =>
             isActive ? styles.activeLink : styles.pendingLink
           }
@@ -38,10 +40,11 @@ function PatientNavbarDesktop() {
           </div>
         </NavLink>
         <NavLink
-          to="/patient/music"
+          to={`/patient/${idPatient}/${idInter}/music`}
           className={({ isActive }) =>
             isActive ? styles.activeLink : styles.pendingLink
           }
+          end
         >
           <div className={styles.iconAndTextContainer}>
             <FaMusic className={styles.linkIcons} />

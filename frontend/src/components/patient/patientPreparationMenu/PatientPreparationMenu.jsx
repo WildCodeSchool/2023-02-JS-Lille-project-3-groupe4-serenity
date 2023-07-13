@@ -6,7 +6,7 @@ import UnderstepsContext from "../../../contexts/UnderstepsContext";
 import styles from "./PatientPreparationMenu.module.css";
 
 function PatientPreparationMenu() {
-  const { idInter } = useParams();
+  const { idInter, idPatient } = useParams();
 
   const {
     countOfOnesUstepOne,
@@ -19,7 +19,7 @@ function PatientPreparationMenu() {
   return (
     <div className={styles.prepMenuContainer}>
       <NavLink
-        to={`/patient/${idInter}/understanding/initiation`}
+        to={`/patient/${idPatient}/${idInter}/understanding`}
         className={({ isActive }) =>
           isActive
             ? `${styles.prepMenuActiveUnderstanding} ${styles.prepMenuActive}`
@@ -43,13 +43,12 @@ function PatientPreparationMenu() {
       </NavLink>
 
       <NavLink
-        to={`/patient/${idInter}/understanding/paperwork`}
+        to={`/patient/${idPatient}/${idInter}/understanding/paperwork`}
         className={({ isActive }) =>
           isActive
             ? `${styles.prepMenuActivePaperwork} ${styles.prepMenuActive}`
             : styles.prepMenu
         }
-        end
       >
         <div className={styles.progressbarContainer}>
           <CircularProgressbar
@@ -66,7 +65,7 @@ function PatientPreparationMenu() {
       </NavLink>
 
       <NavLink
-        to={`/patient/${idInter}/understanding/serenity`}
+        to={`/patient/${idPatient}/${idInter}/understanding/serenity`}
         className={({ isActive }) =>
           isActive
             ? `${styles.prepMenuActiveSerenity} ${styles.prepMenuActive}`
@@ -89,7 +88,7 @@ function PatientPreparationMenu() {
       </NavLink>
 
       <NavLink
-        to={`/patient/${idInter}/understanding/outboarding`}
+        to={`/patient/${idPatient}/${idInter}/understanding/outboarding`}
         className={({ isActive }) =>
           isActive
             ? `${styles.prepMenuActiveOutboarding} ${styles.prepMenuActive}`
@@ -112,7 +111,7 @@ function PatientPreparationMenu() {
       </NavLink>
 
       <NavLink
-        to={`/patient/${idInter}/understanding/checklist`}
+        to={`/${idPatient}/${idInter}/understanding/checklist`}
         className={({ isActive }) =>
           isActive
             ? `${styles.prepMenuActiveChecklist} ${styles.prepMenuActive}`

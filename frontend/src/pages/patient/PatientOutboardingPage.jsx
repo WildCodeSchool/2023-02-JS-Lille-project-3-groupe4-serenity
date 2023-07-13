@@ -20,7 +20,7 @@ function PatientOutboardingPage() {
     const fetchStep = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5050/interventions/${idInter}`
+          `${import.meta.env.VITE_BACKEND_URL}/interventions/${idInter}`
         );
         const { data } = response;
 

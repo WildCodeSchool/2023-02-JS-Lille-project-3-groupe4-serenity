@@ -14,7 +14,7 @@
   width: 100%;
   border-radius: 1rem;
   background-color: var(--light-grey);
-  border: solid 3px var(--yellow);
+  border: solid 3px var(--light-yellow);
   color: var(--dark-blue);
   padding: 1rem;
   display: flex;

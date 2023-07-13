@@ -28,7 +28,7 @@ function PatientUnderstandingPage() {
       try {
         // Requête HTTP GET pour récupérer les données des étapes de l'intervention spécifiée
         const response = await axios.get(
-          `http://localhost:5050/interventions/${idInter}`
+          `${import.meta.env.VITE_BACKEND_URL}/interventions/${idInter}`
         );
         const { data } = response;
 
@@ -61,9 +61,14 @@ function PatientUnderstandingPage() {
 
     // Requête HTTP PUT pour mettre à jour le statut de l'étape correspondante
     axios
-      .put(`http://localhost:5050/steps/${firstFiveUnderStepIds[index]}`, {
-        statutUnderstep: checked ? 1 : 0, // Si la case est cochée, le statut est mis à 1, sinon à 0
-      })
+      .put(
+        `${import.meta.env.VITE_BACKEND_URL}/steps/${
+          firstFiveUnderStepIds[index]
+        }`,
+        {
+          statutUnderstep: checked ? 1 : 0, // Si la case est cochée, le statut est mis à 1, sinon à 0
+        }
+      )
       .then(() => {
         if (checked) {
           setCountOfOnesUstepOne((prevCount) => prevCount + 1); // Increment onesCountUstepOne by 1 if checkbox is checked

@@ -14,7 +14,9 @@ function PatientInterventionPage() {
     const fetchInter = async () => {
       try {
         // Appel à l'API pour récupérer les données des interventions
-        const response = await axios.get("http://localhost:5050/interventions");
+        const response = await axios.get(
+          `${import.meta.env.VITE_BACKEND_URL}/interventions`
+        );
         const { data } = response;
 
         // Supprime les doublons d'interventions en utilisant la méthode reduce
@@ -50,7 +52,7 @@ function PatientInterventionPage() {
         <div key={item.ID_Intervention}>
           {/* Crée un élément Link de React Router avec le lien vers la page PatientUnderstandingPage et l'ID de l'intervention dans l'URL */}
           <Link
-            to={`/patient/understanding/initiation/${item.ID_Intervention}`}
+            to={`/patient/${item.ID_Intervention}/understanding/initiation`}
           >
             {item.Nom_Intervention}
           </Link>

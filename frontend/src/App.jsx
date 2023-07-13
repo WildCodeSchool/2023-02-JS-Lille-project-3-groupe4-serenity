@@ -15,6 +15,7 @@ import AdminPatientPage from "./pages/admin/AdminPatientPage";
 import AdminPractitionerPage from "./pages/admin/AdminPractitionerPage";
 import AdminStaffPage from "./pages/admin/AdminStaffPage";
 import AdminUnitPage from "./pages/admin/AdminUnitPage";
+import InfosPatientPage from "./pages/patient/InfosPatientPage";
 import PatientBreathePage from "./pages/patient/PatientBreathePage";
 import PatientChecklistPage from "./pages/patient/PatientChecklistPage";
 import PatientInterventionPage from "./pages/patient/PatientInterventionPage";
@@ -48,16 +49,20 @@ const router = createBrowserRouter([
   },
 
   {
-    path: "/patient/:idInter",
+    path: "/patient/:idPatient/:idInter",
     element: <PatientLayout />,
     children: [
       {
-        path: "understanding/initiation",
+        path: "understanding/",
         element: <PatientUnderstandingPage />,
       },
       {
         path: "understanding/paperwork/",
         element: <PatientPaperworkPage />,
+      },
+      {
+        path: "understanding/paperwork/infospatient",
+        element: <InfosPatientPage />,
       },
       {
         path: "understanding/serenity/",
