@@ -4,27 +4,6 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import styles from "./InterventionListTable.module.css";
 
-/* const interventions = [
-  {
-    social_number: "2820259000001",
-    identifier_rpps: "348398084834",
-    Nomintervention: "Chirurgie",
-    Dateintervention: "2023-07-14",
-  },
-  {
-    social_number: "2820259000002",
-    identifier_rpps: "348398084834",
-    Nomintervention: "Chirurgie",
-    Dateintervention: "2023-07-14",
-  },
-  {
-    social_number: "2820259000003",
-    identifier_rpps: "348398084834",
-    Nomintervention: "Chirurgie",
-    Dateintervention: "2023-07-14",
-  },
-]; */
-
 function InterventionListTable() {
   const [interventions, setInterventions] = useState([]);
 
@@ -56,7 +35,7 @@ function InterventionListTable() {
           <tr className={styles.bodyRows} key={intervention.id_intervention}>
             <td className={styles.rows}>{intervention.social_number}</td>
             <td className={styles.rows}>{intervention.identifier_rpps}</td>
-            <td className={styles.rows}>{intervention.Nomintervention}</td>
+            <td className={styles.rows}>{intervention.nomIntervention}</td>
             <td className={styles.rows}>{intervention.Dateintervention}</td>
             <td className={styles.rows}>
               <Link to="https://reactrouter.com/en/main/components/link">
