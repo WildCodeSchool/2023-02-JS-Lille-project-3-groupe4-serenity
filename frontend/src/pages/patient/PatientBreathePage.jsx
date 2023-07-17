@@ -1,11 +1,24 @@
 import React from "react";
 import BreatheApp from "../../components/patient/breatheApp/BreatheApp";
+import { useMediaQuery } from "react-responsive";
 import styles from "./PatientBreathePage.module.css";
 
 function PatientBreathePage() {
+  const isDesktop = useMediaQuery({ query: "(min-width: 991px)" });
+  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 990px)" });
+
   return (
     <div className={styles.patientBreathePageContainer}>
-      <BreatheApp />
+      {isTabletOrMobile && <BreatheApp />}
+      {isDesktop && (
+        <div className={styles.prepContainer}>
+          <div className={styles.imageContainer}></div>
+          <div className={styles.breatheContainer}>
+            {" "}
+            <BreatheApp />
+          </div>
+        </div>
+      )}
     </div>
   );
 }

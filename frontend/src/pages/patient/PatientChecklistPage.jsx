@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
-import { BsChevronRight } from "react-icons/bs";
 import { useMediaQuery } from "react-responsive";
 import { useParams } from "react-router-dom";
 import ChecklistMobile from "../../components/patient/checklistMobile/ChecklistMobile";
@@ -80,7 +79,7 @@ function PatientChecklistPage() {
       {isTabletOrMobile && <ChecklistMobile />}
       {isDesktop && (
         <div className={styles.prepContainer}>
-          <div className={styles.leftContainer}></div>
+          <div className={styles.leftContainer} />
           <div className={styles.rightContainer}>
             <div className={styles.document}>
               <input
