@@ -1,6 +1,6 @@
 import React from "react";
-import BreatheApp from "../../components/patient/breatheApp/BreatheApp";
 import { useMediaQuery } from "react-responsive";
+import BreatheApp from "../../components/patient/breatheApp/BreatheApp";
 import styles from "./PatientBreathePage.module.css";
 
 function PatientBreathePage() {
@@ -12,7 +12,7 @@ function PatientBreathePage() {
       {isTabletOrMobile && <BreatheApp />}
       {isDesktop && (
         <div className={styles.prepContainer}>
-          <div className={styles.imageContainer}></div>
+          <div className={styles.imageContainer} />
           <div className={styles.breatheContainer}>
             {" "}
             <BreatheApp />
