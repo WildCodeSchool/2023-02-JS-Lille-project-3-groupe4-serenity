@@ -397,8 +397,6 @@ SET @step_id = LAST_INSERT_ID();
 INSERT INTO understep (statut, step_id, type_intervention)
 VALUES (0, @step_id, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
        (0, @step_id, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
-       (0, @step_id, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
-       (0, @step_id, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
        (0, @step_id+1, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
        (0, @step_id+1, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
        (0, @step_id+1, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
@@ -433,8 +431,6 @@ SET @step_id = LAST_INSERT_ID();
 -- Insérer les sous-étapes de l'intervention 
 INSERT INTO understep (statut, step_id, type_intervention)
 VALUES (0, @step_id, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
-       (0, @step_id, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
-       (0, @step_id, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
        (0, @step_id, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
        (0, @step_id+1, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
        (0, @step_id+1, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
@@ -471,8 +467,6 @@ SET @step_id = LAST_INSERT_ID();
 INSERT INTO understep (statut, step_id, type_intervention)
 VALUES (0, @step_id, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
        (0, @step_id, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
-       (0, @step_id, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
-       (0, @step_id, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
        (0, @step_id+1, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
        (0, @step_id+1, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
        (0, @step_id+1, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
@@ -508,8 +502,6 @@ SET @step_id = LAST_INSERT_ID();
 INSERT INTO understep (statut, step_id, type_intervention)
 VALUES (0, @step_id, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
        (0, @step_id, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
-       (0, @step_id, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
-       (0, @step_id, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
        (0, @step_id+1, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
        (0, @step_id+1, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
        (0, @step_id+1, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
@@ -544,8 +536,6 @@ SET @step_id = LAST_INSERT_ID();
 -- Insérer les sous-étapes de l'intervention 
 INSERT INTO understep (statut, step_id, type_intervention)
 VALUES (0, @step_id, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
-       (0, @step_id, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
-       (0, @step_id, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
        (0, @step_id, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
        (0, @step_id+1, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
        (0, @step_id+1, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
@@ -685,6 +675,6 @@ VALUES ('valeur1', 0, 'valeur2', 0, 'valeur3', 0, 'valeur4', 0, 'valeur5', 0,'va
 INSERT INTO serenity.resources (title_resource, type_resource, link, staff_id, type_intervention)
 VALUES
     ("Chirurgie du genou", 'Video', 'assets/prothese_totale_genou.mp4', 2, 'chirurgie'),
-    ("Chirurgie du genou", 'Pdf', 'assets/prothese_genou.pdf', 2, 'chirurgie'),
-    ("Chirurgie du genou", 'Pdf', 'assets/prothese-totale-du-genou.pdf', 2, 'chirurgie'),
-    ("Chirurgie du genou", 'Pdf', 'assets/prothese-totale-genou2.pdf', 2, 'chirurgie');
+    ("Prothèse du genou", 'Pdf', 'assets/prothese_genou.pdf', 2, 'chirurgie'),
+    ("Prothèse totale du genou", 'Pdf', 'assets/prothese-totale-du-genou.pdf', 2, 'chirurgie'),
+    ("Prothèse totale du genou", 'Pdf', 'assets/prothese-totale-genou.pdf', 2, 'chirurgie');

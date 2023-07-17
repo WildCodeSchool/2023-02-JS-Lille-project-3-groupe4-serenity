@@ -21,8 +21,6 @@ function PatientUnderstandingPage() {
 
   const [videoLink, setVideoLink] = useState("");
   const [pdf1Link, setPdf1Link] = useState("");
-  const [setPdf2Link] = useState("");
-  const [setPdf3Link] = useState("");
 
   const [underStepIds, setUnderStepIds] = useState([]);
   const { idInter } = useParams();
@@ -91,8 +89,6 @@ function PatientUnderstandingPage() {
         if (data.length > 0) {
           setVideoLink(data[5].link);
           setPdf1Link(data[6].link);
-          setPdf2Link(data[7].link);
-          setPdf3Link(data[8].link);
         }
       } catch (err) {
         console.error(err);
