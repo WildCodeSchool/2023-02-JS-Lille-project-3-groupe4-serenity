@@ -88,7 +88,7 @@ function PatientOutboardingPage() {
         <div className={styles.prepContainer}>
           <div className={styles.appointmentBloc}>
             <h1 className={styles.startText}>
-              Afin de sécuriser votre retour à la maison votre chirurigien vous
+              Afin de sécuriser votre retour à la maison votre chirurgien vous
               invite à prendre rendez-vous avec les professionnels de santé
               suivant :
             </h1>
@@ -123,7 +123,7 @@ function PatientOutboardingPage() {
             </div>
             <div className={styles.mapContainer}>
               <MapContainer
-                style={{ width: "100%", height: "35vh" }}
+                style={{ width: "100%", height: "100%" }}
                 center={[50.62933770693853, 3.0571972430917853]}
                 zoom={10}
               >

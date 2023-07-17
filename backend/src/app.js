@@ -1,6 +1,7 @@
 // import some node modules for later
 
 const fs = require("node:fs");
+const cookieParser = require("cookie-parser");
 const path = require("node:path");
 
 // create express app
@@ -15,7 +16,14 @@ app.use(express.json());
 
 const cors = require("cors");
 
-app.use(cors());
+app.use(cookieParser());
+
+app.use(
+  cors({
+    origin: process.env.FRONTEND_URL ?? "http://localhost:3000",
+    optionsSuccessStatus: 200,
+  })
+);
 
 // import and mount the API routes
 

@@ -36,13 +36,26 @@ const read = (req, res) => {
 
 const edit = (req, res) => {
   const patient = req.body;
-
-  // TODO validations (length, format...)
-
   patient.id = parseInt(req.params.id, 10);
 
   models.patient
     .update(patient)
+    .then(([result]) => {
+      if (result.affectedRows === 0) {
+        res.sendStatus(404);
+      } else {
+        res.sendStatus(204);
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
+const destroy = (req, res) => {
+  models.patient
+    .delete(req.params.id)
     .then(([result]) => {
       if (result.affectedRows === 0) {
         res.sendStatus(404);
@@ -73,8 +86,6 @@ const add = (req, res) => {
     // Add the hashed password to the patient object
     patient.password = hashedPassword;
 
-    // TODO validations (length, format...)
-
     try {
       const result = await models.patient.insert(patient, hashedPassword);
 
@@ -104,22 +115,6 @@ const add = (req, res) => {
       res.sendStatus(500);
     }
   });
-};
-
-const destroy = (req, res) => {
-  models.patient
-    .delete(req.params.id)
-    .then(([result]) => {
-      if (result.affectedRows === 0) {
-        res.sendStatus(404);
-      } else {
-        res.sendStatus(204);
-      }
-    })
-    .catch((err) => {
-      console.error(err);
-      res.sendStatus(500);
-    });
 };
 
 module.exports = {
