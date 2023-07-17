@@ -12,7 +12,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 4vh;
+  margin-bottom: 2vh;
   margin-top: 2vh;
 }
 
@@ -42,22 +42,22 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  margin-bottom: 6vh;
+  margin-bottom: 3vh;
 }
 
 .circle-outline {
-  width: 30vh;
-  height: 30vh;
+  width: 30vw;
+  height: 30vw;
   border-radius: 50%;
   background-color: transparent;
-  border: 2vh solid #f1f1f1;
+  border: 2vw solid #f1f1f1;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 .circle-progress {
-  width: 50px;
-  height: 50px;
+  width: 5vw;
+  height: 5vw;
   position: absolute;
   background-color: var(--main-purple);
   border-radius: 50%;
@@ -80,7 +80,7 @@
 .instructions {
   text-align: center;
   color: var(--turquoise);
-  margin-bottom: 3vh;
+  margin-bottom: 2vh;
   font-size: 4vw;
 }
 
@@ -103,4 +103,36 @@ button:hover {
 .button-inactive {
   pointer-events: none;
   background-color: #969696;
+}
+
+@media screen and (min-width: 991px) {
+  .circle-outline {
+    width: 20vh;
+    height: 20vh;
+    border: 1vw solid #f1f1f1;
+  }
+
+  .breaths,
+  .breaths-text {
+    text-align: center;
+    margin-bottom: 2vh;
+    font-size: 1.3vw;
+  }
+
+  .input select {
+    font-size: 1.3vw;
+  }
+
+  .instructions {
+    font-size: 1.3vw;
+  }
+
+  .circle-progress {
+    width: 2vw;
+    height: 2vw;
+  }
+
+  button {
+    font-size: 1.3vw;
+  }
 }

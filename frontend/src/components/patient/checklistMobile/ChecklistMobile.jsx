@@ -1,7 +1,7 @@
 import ProgressBar from "@ramonak/react-progress-bar";
 import React from "react";
 import { BsChevronRight } from "react-icons/bs";
-import styles from "./Checklist.module.css";
+import styles from "./ChecklistMobile.module.css";
 
 function ChecklistMobile() {
   return (

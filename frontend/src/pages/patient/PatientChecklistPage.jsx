@@ -10,7 +10,13 @@ function PatientChecklistPage() {
   const isDesktop = useMediaQuery({ query: "(min-width: 991px)" });
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 990px)" });
 
-  const [checkedValues, setCheckedValues] = useState([]);
+  const [checkedValues, setCheckedValues] = useState([
+    false,
+    false,
+    false,
+    false,
+    false,
+  ]);
   const [underStepIds, setUnderStepIds] = useState([]);
   const { idInter } = useParams();
 
@@ -55,6 +61,7 @@ function PatientChecklistPage() {
       .put(`http://localhost:5050/steps/${firstFiveUnderStepIds[index]}`, {
         statutUnderstep: checked ? 1 : 0,
       })
+
       .then(() => {
         if (checked) {
           setCountOfOnesUstepFive((prevCount) => prevCount + 1); // Increment onesCountUstepOne by 1 if checkbox is checked
@@ -72,18 +79,87 @@ function PatientChecklistPage() {
       {isTabletOrMobile && <ChecklistMobile />}
       {isDesktop && (
         <div className={styles.prepContainer}>
-          <div>
-            {underStepIds.map((id, index) => (
-              <div key={id}>
-                <input
-                  id={id}
-                  type="checkbox"
-                  checked={checkedValues[index]}
-                  onChange={handleChange(index)}
-                />
-                <label>Value {index + 1}</label>
+          <div className={styles.leftContainer} />
+          <div className={styles.rightContainer}>
+            <div className={styles.document}>
+              <input
+                type="checkbox"
+                checked={checkedValues[0]}
+                onChange={handleChange(0)}
+              />
+              <div
+                className={`${styles.documentInfosBloc} ${
+                  checkedValues[0] ? styles.checked : ""
+                }`}
+              >
+                <div className={styles.documentName}>Pièce d'identité</div>
+                <div className={styles.documentDetails}>Obligatoire</div>
               </div>
-            ))}
+            </div>
+            <div className={styles.document}>
+              <input
+                type="checkbox"
+                checked={checkedValues[1]}
+                onChange={handleChange(1)}
+              />
+              <div
+                className={`${styles.documentInfosBloc} ${
+                  checkedValues[1] ? styles.checked : ""
+                }`}
+              >
+                <div className={styles.documentName}>
+                  Consultation anesthésique
+                </div>
+                <div className={styles.documentDetails}>Obligatoire</div>
+              </div>
+            </div>
+            <div className={styles.document}>
+              <input
+                type="checkbox"
+                checked={checkedValues[2]}
+                onChange={handleChange(2)}
+              />
+              <div
+                className={`${styles.documentInfosBloc} ${
+                  checkedValues[2] ? styles.checked : ""
+                }`}
+              >
+                <div className={styles.documentName}>
+                  Test COVID (de moins de 3 jours)
+                </div>
+                <div className={styles.documentDetails}>Obligatoire</div>
+              </div>
+            </div>
+            <div className={styles.document}>
+              <input
+                type="checkbox"
+                checked={checkedValues[3]}
+                onChange={handleChange(3)}
+              />
+              <div
+                className={`${styles.documentInfosBloc} ${
+                  checkedValues[3] ? styles.checked : ""
+                }`}
+              >
+                <div className={styles.documentName}>Mutuelle</div>
+                <div className={styles.documentDetails}>Facultatif</div>
+              </div>
+            </div>
+            <div className={styles.document}>
+              <input
+                type="checkbox"
+                checked={checkedValues[4]}
+                onChange={handleChange(4)}
+              />
+              <div
+                className={`${styles.documentInfosBloc} ${
+                  checkedValues[4] ? styles.checked : ""
+                }`}
+              >
+                <div className={styles.documentName}>Carte Vitale</div>
+                <div className={styles.documentDetails}>Obligatoire</div>
+              </div>
+            </div>
           </div>
         </div>
       )}

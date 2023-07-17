@@ -15,7 +15,7 @@ function PatientLayout() {
   const isDesktop = useMediaQuery({ query: "(min-width: 991px)" });
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 990px)" });
   const [isMenuOpen, setMenuOpen] = useState(false);
-  const { idInter } = useParams();
+  const { idInter, idPatient } = useParams();
 
   const [ustepOne, setUstepOne] = useState([]);
   const [ustepTwo, setUstepTwo] = useState([]);
@@ -132,7 +132,7 @@ function PatientLayout() {
                 <div className={styles.linkContainer}>
                   <h2 className={styles.linkText}>
                     <NavLink
-                      to="/patient/understanding"
+                      to={`/patient/${idPatient}/${idInter}/understanding`}
                       className={({ isActive }) =>
                         isActive ? styles.activeLinkText : styles.linkText
                       }
@@ -145,7 +145,7 @@ function PatientLayout() {
 
                   <h2 className={styles.linkText}>
                     <NavLink
-                      to="/patient/understanding/paperwork"
+                      to={`/patient/${idPatient}/${idInter}/understanding/paperwork`}
                       className={({ isActive }) =>
                         isActive ? styles.activeLinkText : styles.linkText
                       }
@@ -156,7 +156,7 @@ function PatientLayout() {
                   </h2>
                   <h2 className={styles.linkText}>
                     <NavLink
-                      to="/patient/understanding/serenity"
+                      to={`/patient/${idPatient}/${idInter}/understanding/serenity`}
                       className={({ isActive }) =>
                         isActive ? styles.activeLinkText : styles.linkText
                       }
@@ -167,7 +167,7 @@ function PatientLayout() {
                   </h2>
                   <h2 className={styles.linkText}>
                     <NavLink
-                      to="/patient/understanding/outboarding"
+                      to={`/patient/${idPatient}/${idInter}/understanding/outboarding`}
                       className={({ isActive }) =>
                         isActive ? styles.activeLinkText : styles.linkText
                       }
@@ -178,7 +178,7 @@ function PatientLayout() {
                   </h2>
                   <h2 className={styles.linkText}>
                     <NavLink
-                      to="/patient/understanding/checklist"
+                      to={`/patient/${idPatient}/${idInter}/understanding/checklist`}
                       className={({ isActive }) =>
                         isActive ? styles.activeLinkText : styles.linkText
                       }
@@ -190,7 +190,7 @@ function PatientLayout() {
                   <div className={styles.separator} />
                   <h2 className={styles.linkText}>
                     <NavLink
-                      to="/patient/breathe"
+                      to={`/patient/${idPatient}/${idInter}/breathe`}
                       className={({ isActive }) =>
                         isActive ? styles.activeLinkText : styles.linkText
                       }
