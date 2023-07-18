@@ -1,3 +1,4 @@
+
 .infosInterventionContainer {
   width: 100%;
   border: solid 3px var(--main-purple);
@@ -5,8 +6,8 @@
   background-color: var(--white);
   box-shadow: var(--basic-shadow);
   background-color: var(--light-grey);
+ 
 }
-
 .gridContainer {
   display: grid;
   grid-template-columns: repeat(2, 1fr) 0.25fr 1fr;
@@ -102,23 +103,20 @@
   grid-area: 4 / 2 / 5 / 3;
 }
 
-.namePatientContainer {
+.identifierRppsContainer {
   width: 70%;
   height: 6%;
   grid-area: 4 / 4 / 5 / 5;
 }
 
-.identifierRppsContainer {
-  width: 70%;
-  height: 6%;
-  grid-area: 5 / 2 / 6 / 3;
-}
-
-.namePracticienContainer {
-  width: 70%;
-  height: 6%;
-  grid-area: 5 / 4 / 6 / 5;
-}
+input,
+.multipleChoicesMenu {
+  height: 2.5rem;
+  border: none;
+  border-radius: 5px;
+  font-weight: 500;
+padding-left: 5px;
+} 
 
 
 

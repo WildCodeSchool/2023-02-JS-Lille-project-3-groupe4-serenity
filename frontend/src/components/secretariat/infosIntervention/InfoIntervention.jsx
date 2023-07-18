@@ -6,15 +6,15 @@ import styles from "./InfoIntervention.module.css";
 
 function InfoIntervention() {
   const idIntervention = useParams().id;
-  const [intervention, setIntervention] = useState({});
+  const [intervention, setIntervention] = useState([]);
 
   useEffect(() => {
     const fetchInterventionByProcedureDate = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5050/interventions/${idIntervention}`
+          `${import.meta.env.VITE_BACKEND_URL}/interventions/${idIntervention}`
         );
-        setIntervention(response.data);
+        setIntervention(response.data[0]);
       } catch (err) {
         console.error(err);
       }
@@ -63,7 +63,7 @@ function InfoIntervention() {
                 <input
                   type="text"
                   name="Numéro_de_sécurité_sociale_du_patient"
-                  value={intervention.Numéro_de_sécurité_sociale_du_patient}
+                  value={`${intervention.Numéro_de_sécurité_sociale_du_patient} ${intervention.Nom_du_patient} ${intervention.Prenom_du_patient}`}
                   disabled
                 />
               </label>
@@ -74,7 +74,7 @@ function InfoIntervention() {
                 <input
                   type="text"
                   name="Identifiant_RPPS_du_praticien"
-                  value={intervention.Identifiant_RPPS_du_praticien}
+                  value={`${intervention.Identifiant_RPPS_du_praticien} ${intervention.Nom_du_Practicien} ${intervention.Prenom_du_practicien}`}
                   disabled
                 />
               </label>
@@ -95,30 +95,8 @@ function InfoIntervention() {
                 Type d'intervention:
                 <input
                   type="text"
-                  name="Type_d_intervention"
+                  name="type_intervention"
                   value={intervention.Type_d_intervention}
-                  disabled
-                />
-              </label>
-            </div>
-            <div className={styles.namePatientContainer}>
-              <label>
-                Nom du patient:
-                <input
-                  type="text"
-                  name="Nom_du_patient"
-                  value={intervention.Nom_du_patient}
-                  disabled
-                />
-              </label>
-            </div>
-            <div className={styles.namePracticienContainer}>
-              <label>
-                Nom du praticien:
-                <input
-                  type="text"
-                  name="Nom_du_Practicien"
-                  value={intervention.Nom_du_Practicien}
                   disabled
                 />
               </label>

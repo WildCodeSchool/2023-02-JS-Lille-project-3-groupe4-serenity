@@ -56,8 +56,8 @@ function InterventionListTable() {
           <tr className={styles.bodyRows} key={intervention.id_intervention}>
             <td className={styles.rows}>{intervention.social_number}</td>
             <td className={styles.rows}>{intervention.identifier_rpps}</td>
-            <td className={styles.rows}>{intervention.Nomintervention}</td>
-            <td className={styles.rows}>{intervention.Dateintervention}</td>
+            <td className={styles.rows}>{intervention.typeIntervention}</td>
+            <td className={styles.rows}>{intervention.dateIntervention}</td>
             <td className={styles.rows}>
               <Link
                 to={`/secretariat/intervention/infos/${intervention.id_intervention}`}

@@ -25,7 +25,10 @@ function AddPractitioner() {
         gender: inputs.gender,
       };
 
-      await axios.post("http://localhost:5050/practitioners", practitionerData);
+      await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}/practitioners`,
+        practitionerData
+      );
       navigate("/secretariat/practitioner");
     } catch (err) {
       console.error(err);
@@ -44,13 +47,11 @@ function AddPractitioner() {
           Ajout d'un nouveau praticien
         </div>
         <div className={styles.ButtonAddPractitionerContainer}>
-          <button
-            type="submit"
-            onClick={handleSubmit}
-            className={styles.ButtonAddPractitioner}
-          >
-            Ajouter
-          </button>
+          <form onSubmit={handleSubmit}>
+            <button type="submit" className={styles.buttonStylesContainer}>
+              Ajouter
+            </button>
+          </form>
         </div>
         <div className={styles.MaritalStatusContainer}>Etat Civil</div>
         <div className={styles.GenderContainer}>

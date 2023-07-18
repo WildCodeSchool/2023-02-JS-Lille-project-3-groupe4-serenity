@@ -12,7 +12,7 @@ function InfosPractitioner() {
     const fetchPracticienByIdentifierRpps = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5050/practitioners/${identifierRpps}`
+          `${import.meta.env.VITE_BACKEND_URL}/practitioners/${identifierRpps}`
         );
         setPracticien(response.data);
       } catch (err) {

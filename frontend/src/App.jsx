@@ -114,6 +114,7 @@ const router = createBrowserRouter([
         path: "/secretariat/unit",
         element: <SecretariatUnitPage />,
       },
+
       {
         path: "/secretariat/practitioner",
         element: <SecretariatPractitionerPage />,

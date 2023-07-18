@@ -49,6 +49,9 @@ const InterventionManager = require("./InterventionManager");
 models.intervention = new InterventionManager();
 models.intervention.setDatabase(pool);
 
+const ServiceManager = require("./ServiceManager");
+models.service = new ServiceManager();
+models.service.setDatabase(pool);
 // bonus: use a proxy to personalize error message,
 // when asking for a non existing model
 

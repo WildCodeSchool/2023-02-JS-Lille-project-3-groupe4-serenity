@@ -59,6 +59,14 @@ class PractitionerManager extends AbstractManager {
     return rows;
   }
 
+  async findCountPractitioner() {
+    const query = `
+    select count(*) from practitioner;
+    `;
+    const [rows] = await this.database.query(query);
+    return rows;
+  }
+
   async findPatientByIdentifiantRpps(identifiantRpps) {
     const query = `
     SELECT u.gender, u.last_name, u.first_name, u.age,

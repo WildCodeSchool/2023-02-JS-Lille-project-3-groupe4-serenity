@@ -30,6 +30,18 @@ const read = (req, res) => {
     });
 };
 
+const count = (req, res) => {
+  models.practitioner
+    .findCountPractitioner()
+    .then((rows) => {
+      res.send(rows);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
 const edit = (req, res) => {
   const practitioner = req.body;
 
@@ -90,4 +102,5 @@ module.exports = {
   edit,
   add,
   destroy,
+  count,
 };

@@ -1,5 +1,3 @@
-@import url("../../../GlobalVariables.css");
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 .closeButtonContainer {
   position: absolute;
@@ -15,11 +13,12 @@
   box-shadow: var(--basic-shadow);
   background-color: var(--light-grey);
   padding: 1.25rem;
+  font-size:1.2rem; 
 }
 
 .AddNewPractitionerContainer {
   font-size: 2rem;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .dataContainer {
@@ -63,6 +62,7 @@
   color: var(--white);
   font-weight: 400;
   font-size: 1.2rem;
+  
 }
 
 .ButtonAddPractitionerContainer:hover {
@@ -83,6 +83,7 @@
   font-weight: 300;
   padding-top: 1.2rem;
   padding-bottom: 1.3rem;
+
 }
 
 .GenderContainer {
@@ -180,4 +181,27 @@
 .BloodGroupContainer,
 .RemarkContainer {
   margin-bottom: 0%;
+}
+
+input,
+.multipleChoicesMenu {
+  height: 2.5rem;
+  border: none;
+  border-radius: 5px;
+  font-weight: 500;
+padding-left: 5px;
+} 
+
+.ButtonAddPractitionerContainer form button[type="submit"] {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-size: inherit;
+  font-family: inherit;
+  color: inherit;
+  cursor: pointer;
+  outline: none;
+  font-weight: 400;
+  font-size: 1.2rem;
 }

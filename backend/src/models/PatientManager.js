@@ -2,7 +2,7 @@ const AbstractManager = require("./AbstractManager");
 
 class PatientManager extends AbstractManager {
   constructor() {
-    super({ table: "Patient" });
+    super({ table: "patient" });
   }
 
   async insert(patient) {
@@ -53,6 +53,14 @@ class PatientManager extends AbstractManager {
       JOIN patient ON user.id = patient.user_id
     `;
 
+    const [rows] = await this.database.query(query);
+    return rows;
+  }
+
+  async findCountPatient() {
+    const query = `
+   SELECT COUNT(*) FROM patient;
+    `;
     const [rows] = await this.database.query(query);
     return rows;
   }
