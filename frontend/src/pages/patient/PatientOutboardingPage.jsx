@@ -63,7 +63,7 @@ function PatientOutboardingPage() {
 
     fetchStep();
   }, [idInter]);
-  const firstFiveUnderStepIds = underStepIds.slice(12, 13);
+  const firstFiveUnderStepIds = underStepIds.slice(10, 11);
 
   // Fonction appelée lors du clic sur le bouton de mise à jour
   const handleUpdateClick = () => {

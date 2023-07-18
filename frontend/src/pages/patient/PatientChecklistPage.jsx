@@ -17,6 +17,7 @@ function PatientChecklistPage() {
     false,
     false,
   ]);
+
   const [underStepIds, setUnderStepIds] = useState([]);
   const { idInter } = useParams();
 
@@ -33,8 +34,8 @@ function PatientChecklistPage() {
         const ids = data.map((item) => item.id);
         const statuts = data.map((item) => item.understepStatut);
 
-        const underStepsSubset = ids.slice(13, 18);
-        const statutsSubset = statuts.slice(13, 18);
+        const underStepsSubset = ids.slice(11, 16);
+        const statutsSubset = statuts.slice(11, 16);
 
         setCheckedValues(statutsSubset);
         setUnderStepIds(underStepsSubset);

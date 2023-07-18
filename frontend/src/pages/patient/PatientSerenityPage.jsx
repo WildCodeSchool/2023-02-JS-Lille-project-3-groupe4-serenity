@@ -98,7 +98,7 @@ function PatientSerenityPage() {
                 <button
                   className={`${styles.firstNextButton} ${styles.quizButton}`}
                   type="button"
-                  onClick={() => handleUpdateClick(underStepIds[9])}
+                  onClick={() => handleUpdateClick(underStepIds[7])}
                 >
                   Suivant
                 </button>
@@ -136,7 +136,7 @@ function PatientSerenityPage() {
                 <button
                   className={styles.quizButton}
                   type="button"
-                  onClick={() => handleUpdateClick(underStepIds[10])}
+                  onClick={() => handleUpdateClick(underStepIds[8])}
                 >
                   Suivant
                 </button>
@@ -175,7 +175,7 @@ function PatientSerenityPage() {
                   <button
                     className={styles.quizButton}
                     type="button"
-                    onClick={() => handleUpdateClick(underStepIds[11])}
+                    onClick={() => handleUpdateClick(underStepIds[9])}
                   >
                     J'ai compris!
                   </button>

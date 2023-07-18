@@ -35,8 +35,8 @@ function PatientPaperworkPage() {
         const ids = data.map((item) => item.id);
         const statuts = data.map((item) => item.understepStatut);
 
-        const underStepsSubset = ids.slice(4, 9);
-        const statutsSubset = statuts.slice(4, 9);
+        const underStepsSubset = ids.slice(2, 7);
+        const statutsSubset = statuts.slice(2, 7);
 
         setCheckedValues(statutsSubset);
         setUnderStepIds(underStepsSubset);
