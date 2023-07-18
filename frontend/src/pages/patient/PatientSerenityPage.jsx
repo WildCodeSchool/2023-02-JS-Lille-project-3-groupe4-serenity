@@ -74,17 +74,19 @@ function PatientSerenityPage() {
               <h4 className={styles.stepTitle}>La douche bétadinée</h4>
               <div className={styles.quizContainer}>
                 <div className={styles.leftContainer}>
-                  <div className={styles.imageContainer} />
+                  <div
+                    className={`${styles.imageContainer} ${styles.imageDouche}`}
+                  />
                 </div>
                 <div className={styles.rightContainer}>
                   <div className={styles.textContainer}>
-                    "Curabitur tempor eu erat at vestibulum. Proin a arcu
-                    dignissim massa rhoncus sodales at vitae ipsum. Ut tincidunt
-                    sit amet felis at finibus. Donec aliquet dolor id ligula
-                    hendrerit, eget malesuada nisi tempus. Morbi at elit urna.
-                    Morbi blandit erat quis tellus aliquam, eu sollicitudin diam
-                    eleifend. Donec tortor nisl, dapibus in suscipit rutrum,
-                    tempus sed neque."
+                    La douche préopératoire est essentielle avant une
+                    intervention chirurgicale pour prévenir les infections. Elle
+                    réduit le risque infectieux en nettoyant la peau qui abrite
+                    naturellement des micro-organismes. La douche doit être
+                    effectuée la veille et le matin de l'opération, au plus près
+                    de l'intervention. L'hôpital fait tout son possible pour
+                    éviter les infections lors des interventions invasives.
                   </div>
                 </div>
               </div>
@@ -98,7 +100,7 @@ function PatientSerenityPage() {
                 <button
                   className={`${styles.firstNextButton} ${styles.quizButton}`}
                   type="button"
-                  onClick={() => handleUpdateClick(underStepIds[9])}
+                  onClick={() => handleUpdateClick(underStepIds[7])}
                 >
                   Suivant
                 </button>
@@ -108,20 +110,22 @@ function PatientSerenityPage() {
           {page === 2 && (
             <div className={styles.titleAndQuizContainer}>
               <h3 className={styles.stepText}>ETAPE 2 / 3</h3>
-              <h4 className={styles.stepTitle}>??</h4>
+              <h4 className={styles.stepTitle}>Votre séjour</h4>
               <div className={styles.quizContainer}>
                 <div className={styles.leftContainer}>
-                  <div className={styles.imageContainer} />
+                  <div
+                    className={`${styles.imageContainer} ${styles.imageSejour}`}
+                  />
                 </div>
                 <div className={styles.rightContainer}>
                   <div className={styles.textContainer}>
-                    "Curabitur tempor eu erat at vestibulum. Proin a arcu
-                    dignissim massa rhoncus sodales at vitae ipsum. Ut tincidunt
-                    sit amet felis at finibus. Donec aliquet dolor id ligula
-                    hendrerit, eget malesuada nisi tempus. Morbi at elit urna.
-                    Morbi blandit erat quis tellus aliquam, eu sollicitudin diam
-                    eleifend. Donec tortor nisl, dapibus in suscipit rutrum,
-                    tempus sed neque."
+                    Préparez votre séjour à l'hôpital comme si vous organisiez
+                    un voyage. Assurez-vous d'apporter tous les médicaments
+                    prescrits par votre chirurgien ou anesthésiste. Veuillez
+                    noter que certains médicaments pourraient nécessiter d'être
+                    arrêtés, sous conseils d'un professionnel avant
+                    l'intervention. Si nécessaire, n'oubliez pas d'apporter les
+                    béquilles prescrites.
                   </div>
                 </div>
               </div>
@@ -136,7 +140,7 @@ function PatientSerenityPage() {
                 <button
                   className={styles.quizButton}
                   type="button"
-                  onClick={() => handleUpdateClick(underStepIds[10])}
+                  onClick={() => handleUpdateClick(underStepIds[8])}
                 >
                   Suivant
                 </button>
@@ -146,20 +150,22 @@ function PatientSerenityPage() {
           {page === 3 && (
             <div className={styles.titleAndQuizContainer}>
               <h3 className={styles.stepText}>ETAPE 3 / 3</h3>
-              <h4 className={styles.stepTitle}>??</h4>
+              <h4 className={styles.stepTitle}>Le jour J</h4>
               <div className={styles.quizContainer}>
                 <div className={styles.leftContainer}>
-                  <div className={styles.imageContainer} />
+                  <div
+                    className={`${styles.imageContainer} ${styles.imageJourJ}`}
+                  />
                 </div>
                 <div className={styles.rightContainer}>
                   <div className={styles.textContainer}>
-                    "Curabitur tempor eu erat at vestibulum. Proin a arcu
-                    dignissim massa rhoncus sodales at vitae ipsum. Ut tincidunt
-                    sit amet felis at finibus. Donec aliquet dolor id ligula
-                    hendrerit, eget malesuada nisi tempus. Morbi at elit urna.
-                    Morbi blandit erat quis tellus aliquam, eu sollicitudin diam
-                    eleifend. Donec tortor nisl, dapibus in suscipit rutrum,
-                    tempus sed neque."
+                    Le jour de l'intervention, quelques rappels importants :
+                    épilez la zone opérée, respectez le jeûne de 6 heures,
+                    évitez de manger, boire et fumer. Suivez les instructions
+                    pour les médicaments. Vous pouvez recevoir un anticoagulant
+                    pour réduire les risques de complications. Après la
+                    prémédication, évitez de vous lever sans accompagnement pour
+                    prévenir les chutes.
                   </div>
                 </div>
               </div>
@@ -175,7 +181,7 @@ function PatientSerenityPage() {
                   <button
                     className={styles.quizButton}
                     type="button"
-                    onClick={() => handleUpdateClick(underStepIds[11])}
+                    onClick={() => handleUpdateClick(underStepIds[9])}
                   >
                     J'ai compris!
                   </button>

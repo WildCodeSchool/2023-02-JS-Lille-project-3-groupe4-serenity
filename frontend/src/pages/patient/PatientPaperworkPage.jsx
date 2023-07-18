@@ -35,8 +35,8 @@ function PatientPaperworkPage() {
         const ids = data.map((item) => item.id);
         const statuts = data.map((item) => item.understepStatut);
 
-        const underStepsSubset = ids.slice(4, 9);
-        const statutsSubset = statuts.slice(4, 9);
+        const underStepsSubset = ids.slice(2, 7);
+        const statutsSubset = statuts.slice(2, 7);
 
         setCheckedValues(statutsSubset);
         setUnderStepIds(underStepsSubset);
@@ -139,7 +139,7 @@ function PatientPaperworkPage() {
                   <StyledEngineProvider>
                     <InfosModal
                       titleText="Consentement éclairé"
-                      infosText="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                      infosText="Le consentement préalable et libre du citoyen est indispensable pour tout acte médical, sauf nécessité thérapeutique et incapacité à consentir. Il doit être éclairé, basé sur une information préalable des actes, des risques prévisibles et des conséquences. Le citoyen a le droit de refuser ou d'interrompre un acte médical, et peut demander un délai de réflexion ou un autre avis. Pour les mineurs, le consentement est donné par les détenteurs de l'autorité parentale, sauf risque pour la santé du mineur. Le médecin peut saisir le Procureur de la République pour prendre des mesures d'assistance éducative. L'avis du mineur doit être pris en compte. Pour les incapables majeurs, l'avis de la personne est important, sauf décision judiciaire spécifique. Le consentement des représentants légaux peut être requis. Le médecin peut saisir le Procureur de la République si le refus du représentant met en danger la santé du majeur protégé."
                     />
                   </StyledEngineProvider>
                 </div>
@@ -160,7 +160,7 @@ function PatientPaperworkPage() {
                   <StyledEngineProvider>
                     <InfosModal
                       titleText="Votre anesthésiste"
-                      infosText="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                      infosText="Avant une opération, il est obligatoire de consulter un médecin anesthésiste-réanimateur selon le décret n° 94-1 050 du 5 décembre 1994. Cette consultation a lieu plusieurs jours avant l'intervention pour permettre une préparation adéquate. L'objectif de cette consultation est triple. Tout d'abord, elle vise à vous préparer en prescrivant ou en arrêtant les traitements nécessaires pour aborder l'opération dans les meilleures conditions et en effectuant un bilan de santé. Ensuite, elle a pour but de vous informer sur les différentes techniques d'anesthésie, les possibilités de prise en charge de la douleur et la nécessité éventuelle d'une transfusion sanguine, afin que vous puissiez donner un consentement éclairé à l'intervention. Enfin, elle vous permet d'évaluer avec le médecin anesthésiste, à la fin de la consultation, les bénéfices de l'intervention en fonction des risques liés à votre état de santé et des contraintes spécifiques de l'acte opératoire."
                     />
                   </StyledEngineProvider>
                 </div>
@@ -179,8 +179,8 @@ function PatientPaperworkPage() {
                 <div className={styles.bottomCard}>
                   <StyledEngineProvider>
                     <InfosModal
-                      titleText="Votre anesthésiste"
-                      infosText="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                      titleText="Signature du devis"
+                      infosText="Le devis médical est un document essentiel présentant les soins et les coûts associés. Il clarifie les obligations du patient et du professionnel de santé pour prévenir les litiges. Les éléments obligatoires d'un devis sont : la date de création, la durée de validité, le nom et l'adresse du client, le début et la durée estimée de la prestation, la TVA, ainsi qu'un décompte détaillé des prestations et produits avec leurs quantités et prix unitaires. Il est important de noter que le patient n'est pas obligé de signer le devis avant une opération chirurgicale. Cependant, si le patient refuse de signer le devis, le chirurgien sera dans l'obligation de refuser d'effectuer l'opération. Le devis médical permet aux patients de comprendre clairement les services et les coûts associés, favorisant la transparence. Il établit les termes dès le départ, créant une relation de confiance et offrant une protection en cas de désaccord ou de litige."
                     />
                   </StyledEngineProvider>
                 </div>

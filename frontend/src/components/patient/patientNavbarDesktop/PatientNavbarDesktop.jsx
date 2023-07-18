@@ -2,7 +2,6 @@ import React from "react";
 import {
   FaRocketchat,
   FaPowerOff,
-  FaRegBell,
   FaAddressBook,
   FaMusic,
   FaOm,
@@ -54,17 +53,6 @@ function PatientNavbarDesktop() {
       </div>
       <div className={styles.separator} />
       <div className={styles.newsContainer}>
-        <NavLink
-          to="/secretariat/messagerie"
-          className={({ isActive }) =>
-            isActive ? styles.activeLink : styles.pendingLink
-          }
-        >
-          <div className={styles.iconAndTextContainer}>
-            <FaRegBell className={styles.linkIcons} />
-            Notifications
-          </div>
-        </NavLink>
         <NavLink
           to="/secretariat/messagerie"
           className={({ isActive }) =>

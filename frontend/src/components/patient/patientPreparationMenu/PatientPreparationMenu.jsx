@@ -29,8 +29,8 @@ function PatientPreparationMenu() {
       >
         <div className={styles.progressbarContainer}>
           <CircularProgressbar
-            value={(countOfOnesUstepOne / 4) * 100}
-            text={`${(countOfOnesUstepOne / 4) * 100}%`}
+            value={(countOfOnesUstepOne / 2) * 100}
+            text={`${(countOfOnesUstepOne / 2) * 100}%`}
             styles={buildStyles({
               textColor: "black",
               pathColor: "var(--light-yellow)",

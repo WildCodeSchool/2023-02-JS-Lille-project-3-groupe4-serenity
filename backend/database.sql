@@ -397,8 +397,6 @@ SET @step_id = LAST_INSERT_ID();
 INSERT INTO understep (statut, step_id, type_intervention)
 VALUES (0, @step_id, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
        (0, @step_id, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
-       (0, @step_id, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
-       (0, @step_id, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
        (0, @step_id+1, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
        (0, @step_id+1, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
        (0, @step_id+1, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
@@ -433,8 +431,6 @@ SET @step_id = LAST_INSERT_ID();
 -- Insérer les sous-étapes de l'intervention 
 INSERT INTO understep (statut, step_id, type_intervention)
 VALUES (0, @step_id, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
-       (0, @step_id, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
-       (0, @step_id, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
        (0, @step_id, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
        (0, @step_id+1, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
        (0, @step_id+1, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
@@ -471,8 +467,6 @@ SET @step_id = LAST_INSERT_ID();
 INSERT INTO understep (statut, step_id, type_intervention)
 VALUES (0, @step_id, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
        (0, @step_id, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
-       (0, @step_id, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
-       (0, @step_id, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
        (0, @step_id+1, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
        (0, @step_id+1, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
        (0, @step_id+1, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
@@ -508,8 +502,6 @@ SET @step_id = LAST_INSERT_ID();
 INSERT INTO understep (statut, step_id, type_intervention)
 VALUES (0, @step_id, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
        (0, @step_id, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
-       (0, @step_id, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
-       (0, @step_id, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
        (0, @step_id+1, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
        (0, @step_id+1, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
        (0, @step_id+1, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
@@ -544,8 +536,6 @@ SET @step_id = LAST_INSERT_ID();
 -- Insérer les sous-étapes de l'intervention 
 INSERT INTO understep (statut, step_id, type_intervention)
 VALUES (0, @step_id, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
-       (0, @step_id, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
-       (0, @step_id, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
        (0, @step_id, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
        (0, @step_id+1, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
        (0, @step_id+1, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
@@ -685,6 +675,22 @@ VALUES ('valeur1', 0, 'valeur2', 0, 'valeur3', 0, 'valeur4', 0, 'valeur5', 0,'va
 INSERT INTO serenity.resources (title_resource, type_resource, link, staff_id, type_intervention)
 VALUES
     ("Chirurgie du genou", 'Video', 'assets/prothese_totale_genou.mp4', 2, 'chirurgie'),
-    ("Chirurgie du genou", 'Pdf', 'assets/prothese_genou.pdf', 2, 'chirurgie'),
-    ("Chirurgie du genou", 'Pdf', 'assets/prothese-totale-du-genou.pdf', 2, 'chirurgie'),
-    ("Chirurgie du genou", 'Pdf', 'assets/prothese-totale-genou2.pdf', 2, 'chirurgie');
+    ("Prothèse du genou", 'Pdf', 'assets/prothese_genou.pdf', 2, 'chirurgie'),
+    ("Prothèse totale du genou", 'Pdf', 'assets/prothese-totale-du-genou.pdf', 2, 'chirurgie'),
+    ("Prothèse totale du genou", 'Pdf', 'assets/prothese-totale-genou2.pdf', 2, 'chirurgie'),
+    ("Appendicectomie", 'Video', 'assets/signes_appendicite.mp4', 2, 'chirurgie'),
+    ("Appendicectomie", 'Pdf', 'assets/appendicectomie_questions.pdf', 2, 'chirurgie'),
+    ("Appendicectomie", 'Pdf', 'assets/fiche_info_appendicectomie.pdf', 2, 'chirurgie'),
+    ("Appendicectomie", 'Pdf', 'assets/guide_appendicectomie.pdf', 2, 'chirurgie'),
+    ("Transplantation renale", 'Video', 'transplantation_renale.mp4', 2, 'chirurgie'),
+    ("Transplantation renale", 'Pdf', 'assets/transplantation_renale_acces_liste_attente.pdf', 2, 'chirurgie'),
+    ("Transplantation renale", 'Pdf', 'assets/transplantation_renale_guide.pdf', 2, 'chirurgie'),
+    ("Transplantation renale", 'Pdf', 'assets/transplantation_renale_preparation_vie.pdf', 2, 'chirurgie'),
+    ("Pose implant mammaire", 'Video', 'implant_mammaire.mp4', 2, 'Pose implant'),
+    ("Pose implant mammaire", 'Pdf', 'assets/implant_mammaire_explications.pdf', 2, 'Pose implant'),
+    ("Pose implant mammaire", 'Pdf', 'assets/implant_mammaire_rapport.pdf', 2, 'Pose implant'),
+    ("Pose implant mammaire", 'Pdf', 'assets/implant_mammaire_infos.pdf', 2, 'Pose implant'),
+    ("Pose implant dentaire", 'Video', 'assets/implant_dentaire.mp4', 2, 'Pose implant'),
+    ("Pose implant dentaire", 'Pdf', 'implantologie_dentaire.pdf', 2, 'Pose implant'),
+    ("Pose implant dentaire", 'Pdf', 'assets/implantologie_dentaire_explications.pdf', 2, 'Pose implant'),
+    ("Pose implant dentaire", 'Pdf', 'assets/implantologie_dentaire_guide.pdf', 2, 'Pose implant');

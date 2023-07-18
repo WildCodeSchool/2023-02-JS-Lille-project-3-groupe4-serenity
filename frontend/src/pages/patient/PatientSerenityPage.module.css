@@ -54,6 +54,30 @@
   border-radius: 1.5rem;
 }
 
+.imageDouche {
+  background-image: url("../../assets/douche.png");
+  background-size: contain;
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.imageSejour {
+  background-image: url("../../assets/preparation_hopital.jpg");
+  background-size: contain;
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.imageJourJ {
+  background-image: url("../../assets/jour_j.jpg");
+  background-size: contain;
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .textContainer {
   width: 100%;
   height: 100%;

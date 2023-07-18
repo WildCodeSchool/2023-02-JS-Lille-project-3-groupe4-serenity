@@ -84,18 +84,34 @@ p.hoursText {
   gap: 0.2rem;
 }
 
-.notificationsContainer {
+button.notificationsContainer {
   width: 3rem;
   height: 3rem;
   border-radius: 50px;
   box-shadow: var(--basic-shadow);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: relative;
+  background-color: transparent;
 }
 
 .bellIcon {
   color: var(--grey);
   font-size: 1.5rem;
   font-weight: 100;
+  top: 25%;
+  left: 26%;
+  position: absolute;
+}
+
+.notificationNumber {
+  width: 50%;
+  height: 50%;
+  background-color: var(--orange);
+  border-radius: 50%;
+  position: absolute;
+  top: -10%;
+  left: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
 }
