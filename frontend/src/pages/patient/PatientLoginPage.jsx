@@ -24,7 +24,10 @@ function PatientLoginPage() {
         }
       );
       if (response.status === 200) {
-        navigate("/patient/understanding");
+        // Store the token in a cookie
+        document.cookie = `token=${response.data.token}; path=/;`;
+
+        navigate("/patient/intervention");
       } else {
         console.error("Connexion non autorisée");
       }

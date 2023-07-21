@@ -88,16 +88,21 @@ const login = async (req, res) => {
       return res.status(400).send({ message: "Invalid password" });
     }
 
-    const token = jwt.sign({ id: identification.id }, process.env.JWT_SECRET, {
-      expiresIn: "1h", // Expires in 1 hour
-    });
+    const token = jwt.sign(
+      { id: identification.user_id },
+      process.env.JWT_SECRET,
+      {
+        expiresIn: "1h", // Expires in 1 hour
+      }
+    );
 
     res.cookie("token", token, {
+      secure: true,
       httpOnly: true,
       expires: new Date(Date.now() + 60 * 60 * 1000), // Expires in 1 hour
     });
 
-    return res.status(200).send({ message: "Logged in successfully" });
+    return res.status(200).send({ message: "Logged in successfully", token });
   } catch (error) {
     console.error(error);
     return res.status(500).send({ message: "Internal server error" });

@@ -1,15 +1,21 @@
+const jwt = require("jsonwebtoken");
 const models = require("../models");
 
-const browse = (req, res) => {
-  models.intervention
-    .findAllIntervention()
-    .then(([rows]) => {
-      res.send(rows);
-    })
-    .catch((err) => {
-      console.error(err);
-      res.sendStatus(500);
-    });
+const browse = async (req, res) => {
+  try {
+    const { token } = req.cookies;
+    if (!token) {
+      res.status(401).send({ message: "Unauthorized" });
+    }
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const [rows] = await models.intervention.findAllUserInterventions(
+      decoded.id
+    );
+    res.send(rows);
+  } catch (err) {
+    console.error(err);
+    res.sendStatus(500);
+  }
 };
 
 const read = (req, res) => {

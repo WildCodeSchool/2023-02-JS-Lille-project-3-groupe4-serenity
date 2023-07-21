@@ -7,28 +7,17 @@ function PatientInterventionPage() {
   const [inter, setInter] = useState([]);
 
   useEffect(() => {
-    const fetchInter = async () => {
-      try {
-        const response = await axios.get("http://localhost:5050/interventions");
-        const { data } = response;
-
-        const uniqueInter = data.reduce((acc, current) => {
-          const x = acc.find(
-            (item) => item.Nom_Intervention === current.Nom_Intervention
-          );
-          if (!x) {
-            return acc.concat([current]);
-          }
-          return acc;
-        }, []);
-
-        setInter(uniqueInter);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchInter();
+    try {
+      axios
+        .get("http://localhost:5050/interventions", {
+          withCredentials: true, // this tells Axios to send the cookies along with the request
+        })
+        .then(({ data }) => {
+          setInter(data);
+        });
+    } catch (error) {
+      console.error(error);
+    }
   }, []);
 
   return (
