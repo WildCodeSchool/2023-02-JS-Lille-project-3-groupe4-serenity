@@ -76,6 +76,14 @@ class InterventionManager extends AbstractManager {
       JOIN serenity.user AS patient_user ON patient.user_id = patient_user.id;`
     );
   }
+
+  async findCountIntervention() {
+    const query = `
+  select count(*) from intervention;
+  `;
+    const [rows] = await this.database.query(query);
+    return rows;
+  }
 }
 
 module.exports = InterventionManager;

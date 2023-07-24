@@ -646,7 +646,7 @@ VALUES ('password123', 'Patient',
 ######################################### CREATION Practitionner ################################################
 -- Creation d'un User
 INSERT INTO user (last_name, first_name, age, gender, phone, nationality, address, city, zip_code, roles, email)
-VALUES ('Coquet', 'Bruno', 30, 'Masculin', '0123456789', 'French', '71 avenue marx dormoy', 'Lille', '59000', 'Practitioner', 'coquet.bruno@example.com');
+VALUES ('Coquet', 'Bruno', 30, 'Male', '0123456789', 'French', '71 avenue marx dormoy', 'Lille', '59000', 'Practitioner', 'coquet.bruno@example.com');
 SET @user_id = LAST_INSERT_ID(); 
 -- Créer un nouveau praticien
 INSERT INTO practitioner (identifier_rpps, speciality, longitude, latitude, type_intervention, user_id, service_id)

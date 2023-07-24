@@ -38,7 +38,7 @@ function InfosPatientPage() {
         <div className={styles.leftContainer}>
           <div className={styles.LeftLine}>Nom:</div>
           <div className={styles.LeftLine}>Prénom:</div>
-          <div className={styles.LeftLine}>Date de naissance:</div>
+          <div className={styles.LeftLine}>Âge</div>
           <div className={styles.LeftLine}>N° de sécurité sociale:</div>
           <div className={styles.LeftLine}>Adresse:</div>
           <div className={styles.LeftLine}>Téléphone:</div>
@@ -48,7 +48,7 @@ function InfosPatientPage() {
         <div className={styles.rightContainer}>
           <div className={styles.RightLine}>{patient.first_name}</div>
           <div className={styles.RightLine}>{patient.last_name}</div>
-          <div className={styles.RightLine}>?</div>
+          <div className={styles.RightLine}>{patient.age} ans</div>
           <div className={styles.RightLine}>{patient.social_secu_number}</div>
           <div className={styles.RightLine}>
             {patient.address}, {patient.zip_code} {patient.city}

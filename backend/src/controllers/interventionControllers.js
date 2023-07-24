@@ -28,6 +28,18 @@ const read = (req, res) => {
     });
 };
 
+const count = (req, res) => {
+  models.intervention
+    .findCountIntervention()
+    .then((rows) => {
+      res.send(rows);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
 const edit = (req, res) => {
   const intervention = req.body;
 
@@ -88,4 +100,5 @@ module.exports = {
   edit,
   add,
   destroy,
+  count,
 };

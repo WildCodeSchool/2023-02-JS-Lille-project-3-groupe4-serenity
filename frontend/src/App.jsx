@@ -15,7 +15,9 @@ import AdminPatientPage from "./pages/admin/AdminPatientPage";
 import AdminPractitionerPage from "./pages/admin/AdminPractitionerPage";
 import AdminStaffPage from "./pages/admin/AdminStaffPage";
 import AdminUnitPage from "./pages/admin/AdminUnitPage";
+import InfosPractitioner from "./components/secretariat/infosPractitioner/InfosPractitioner";
 import InfosPatientPage from "./pages/patient/InfosPatientPage";
+import InfoIntervention from "./components/secretariat/infosIntervention/InfosIntervention";
 import PatientBreathePage from "./pages/patient/PatientBreathePage";
 import PatientChecklistPage from "./pages/patient/PatientChecklistPage";
 import PatientInterventionPage from "./pages/patient/PatientInterventionPage";
@@ -137,6 +139,10 @@ const router = createBrowserRouter([
         element: <AddPractitioner />,
       },
       {
+        path: "practitioner/infos/:identifier_rpps",
+        element: <InfosPractitioner />,
+      },
+      {
         path: "patient",
         element: <SecretariatPatientPage />,
       },
@@ -155,6 +161,10 @@ const router = createBrowserRouter([
       {
         path: "intervention/add",
         element: <AddIntervention />,
+      },
+      {
+        path: "intervention/infos/:id",
+        element: <InfoIntervention />,
       },
     ],
   },

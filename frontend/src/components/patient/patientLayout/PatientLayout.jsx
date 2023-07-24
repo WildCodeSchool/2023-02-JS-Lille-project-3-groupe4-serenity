@@ -57,11 +57,11 @@ function PatientLayout() {
         const response = await axios.get(
           `${import.meta.env.VITE_BACKEND_URL}/interventions/${idInter}`
         );
-        setUstepOne(response.data.slice(0, 4));
-        setUstepTwo(response.data.slice(4, 9));
-        setUstepThree(response.data.slice(9, 12));
-        setUstepFour(response.data.slice(12, 13));
-        setUstepFive(response.data.slice(13, 18));
+        setUstepOne(response.data.slice(0, 2));
+        setUstepTwo(response.data.slice(2, 7));
+        setUstepThree(response.data.slice(7, 10));
+        setUstepFour(response.data.slice(10, 11));
+        setUstepFive(response.data.slice(11, 16));
       } catch (err) {
         console.error(err);
       }

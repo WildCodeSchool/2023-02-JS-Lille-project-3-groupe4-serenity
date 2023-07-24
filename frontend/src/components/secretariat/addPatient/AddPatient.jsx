@@ -17,7 +17,6 @@ function AddPatient() {
     event.preventDefault();
     try {
       await axios.post(`${import.meta.env.VITE_BACKEND_URL}/patients`, inputs);
-
       navigate("/secretariat/patient");
     } catch (err) {
       console.error(err);
@@ -41,7 +40,7 @@ function AddPatient() {
           </form>
         </div>
         <div className={styles.MaritalStatusContainer}>Etat Civil</div>
-        <div className={styles.SexContainer}>
+        <div className={styles.genderContainer}>
           <div>
             Sexe
             <div className={styles.RadioButtonContainer}>
@@ -80,6 +79,7 @@ function AddPatient() {
             <input
               type="text"
               name="last_name"
+              autoComplete="off"
               value={inputs.last_name || ""}
               onChange={handleChange}
             />
@@ -91,6 +91,7 @@ function AddPatient() {
             <input
               type="text"
               name="first_name"
+              autoComplete="off"
               value={inputs.first_name || ""}
               onChange={handleChange}
             />
@@ -102,6 +103,7 @@ function AddPatient() {
             <input
               type="text"
               name="social_secu_number"
+              autoComplete="off"
               value={inputs.social_secu_number || ""}
               onChange={handleChange}
             />
@@ -113,6 +115,7 @@ function AddPatient() {
             <input
               type="number"
               name="age"
+              autoComplete="off"
               value={inputs.age || ""}
               onChange={handleChange}
             />
@@ -124,6 +127,7 @@ function AddPatient() {
             <input
               type="text"
               name="nationality"
+              autoComplete="off"
               value={inputs.nationality || ""}
               onChange={handleChange}
             />
@@ -138,6 +142,7 @@ function AddPatient() {
             <input
               type="text"
               name="address"
+              autoComplete="off"
               value={inputs.address || ""}
               onChange={handleChange}
             />
@@ -149,6 +154,7 @@ function AddPatient() {
             <input
               type="text"
               name="zip_code"
+              autoComplete="off"
               value={inputs.zip_code || ""}
               onChange={handleChange}
             />
@@ -160,6 +166,7 @@ function AddPatient() {
             <input
               type="text"
               name="city"
+              autoComplete="off"
               value={inputs.city || ""}
               onChange={handleChange}
             />
@@ -171,6 +178,7 @@ function AddPatient() {
             <input
               type="text"
               name="phone"
+              autoComplete="off"
               value={inputs.phone || ""}
               onChange={handleChange}
             />
@@ -182,6 +190,7 @@ function AddPatient() {
             <input
               type="text"
               name="email"
+              autoComplete="off"
               value={inputs.email || ""}
               onChange={handleChange}
             />
@@ -194,6 +203,7 @@ function AddPatient() {
             <input
               type="text"
               name="allergy"
+              autoComplete="off"
               value={inputs.allergy || ""}
               onChange={handleChange}
             />
@@ -231,6 +241,7 @@ function AddPatient() {
             <input
               type="text"
               name="remark"
+              autoComplete="off"
               value={inputs.remark || ""}
               onChange={handleChange}
             />

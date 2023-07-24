@@ -2,24 +2,24 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { FaRegWindowClose } from "react-icons/fa";
 import { Link, useParams } from "react-router-dom";
-import styles from "./InfosPatient.module.css";
+import styles from "./InfosPractitioner.module.css";
 
-function InfosPatient() {
-  const socialSecuNumber = useParams().social_secu_number;
-  const [patient, setPatient] = useState({});
+function InfosPractitioner() {
+  const identifierRpps = useParams().identifier_rpps;
+  const [practicien, setPracticien] = useState({});
 
   useEffect(() => {
-    const fetchPatientBySocialSecuNumber = async () => {
+    const fetchPracticienByIdentifierRpps = async () => {
       try {
         const response = await axios.get(
-          `${import.meta.env.VITE_BACKEND_URL}/patients/${socialSecuNumber}`
+          `${import.meta.env.VITE_BACKEND_URL}/practitioners/${identifierRpps}`
         );
-        setPatient(response.data);
+        setPracticien(response.data);
       } catch (err) {
         console.error(err);
       }
     };
-    fetchPatientBySocialSecuNumber();
+    fetchPracticienByIdentifierRpps();
   }, []);
 
   const handleSubmit = (e) => {
@@ -28,23 +28,24 @@ function InfosPatient() {
   };
 
   return (
-    <div className={styles.ManagementPatientContainer}>
+    <div className={styles.managementPractitionerContainer}>
       <div className={styles.closeButtonContainer}>
-        <Link to="/secretariat/patient">
+        <Link to="/secretariat/practitioner">
           <FaRegWindowClose className={styles.closeIcon} />
         </Link>
       </div>
-      {Object.keys(patient).length > 0 && (
-        <div className={styles.ManagePatientContainer}>
-          <div className={styles.ManagementPatientSelectedContainer}>
-            Gestion d'un patient
+      {Object.keys(practicien).length > 0 && (
+        <div className={styles.ManagePractitionerContainer}>
+          <div className={styles.ManagementPractitionerSelectedContainer}>
+            Gestion d'un praticien
           </div>
-          <div className={styles.ButtonModifyPatientContainer}>
+          <div className={styles.ButtonModifyPractitionerContainer}>
             <form onSubmit={handleSubmit}>Modifier</form>
           </div>
-          <div className={styles.ButtonDeletePatientContainer}>
+          <div className={styles.ButtonDeletePractitionerContainer}>
             <form onSubmit={handleSubmit}>Supprimer</form>
           </div>
+          <div className={styles.MaritalStatusContainer}>Etat Civil</div>
           <div className={styles.GenderContainer}>
             <div>
               Sexe
@@ -54,7 +55,7 @@ function InfosPatient() {
                     type="radio"
                     value="female"
                     name="gender"
-                    checked={patient.gender === "Female"}
+                    checked={practicien.gender === "Female"}
                     disabled
                   />
                   <span className={styles.RadioButtonLabelContainer}>
@@ -68,7 +69,7 @@ function InfosPatient() {
                     type="radio"
                     value="male"
                     name="gender"
-                    checked={patient.gender === "Male"}
+                    checked={practicien.gender === "Male"}
                     disabled
                   />
                   <span className={styles.RadioButtonLabelContainer}>
@@ -78,35 +79,35 @@ function InfosPatient() {
               </div>
             </div>
           </div>
-          <div className={styles.LastNamePatientContainer}>
+          <div className={styles.LastNamePractitionerContainer}>
             <label>
               Nom:
               <input
                 type="text"
                 name="last_name"
-                value={patient.last_name}
+                value={practicien.last_name}
                 disabled
               />
             </label>
           </div>
-          <div className={styles.FirstNamePatientContainer}>
+          <div className={styles.FirstNamePractitionerContainer}>
             <label>
               Prénom:
               <input
                 type="text"
                 name="first_name"
-                value={patient.first_name}
+                value={practicien.first_name}
                 disabled
               />
             </label>
           </div>
-          <div className={styles.SocialSecuNumberContainer}>
+          <div className={styles.IdentifierRppsContainer}>
             <label>
-              Numéro de Sécurité Sociale:
+              N. d'identifiant RPPS:
               <input
                 type="text"
-                name="social_secu_number"
-                value={patient.social_secu_number}
+                name="identifier_rpps"
+                value={practicien.identifier_rpps}
                 disabled
               />
             </label>
@@ -114,7 +115,7 @@ function InfosPatient() {
           <div className={styles.AgeContainer}>
             <label>
               Age:
-              <input type="number" name="age" value={patient.age} disabled />
+              <input type="number" name="age" value={practicien.age} disabled />
             </label>
           </div>
           <div className={styles.NationalityContainer}>
@@ -123,7 +124,7 @@ function InfosPatient() {
               <input
                 type="text"
                 name="nationality"
-                value={patient.nationality}
+                value={practicien.nationality}
                 disabled
               />
             </label>
@@ -137,7 +138,7 @@ function InfosPatient() {
               <input
                 type="text"
                 name="address"
-                value={patient.address}
+                value={practicien.address}
                 disabled
               />
             </label>
@@ -148,7 +149,7 @@ function InfosPatient() {
               <input
                 type="text"
                 name="zip_code"
-                value={patient.zip_code}
+                value={practicien.zip_code}
                 disabled
               />
             </label>
@@ -156,66 +157,50 @@ function InfosPatient() {
           <div className={styles.CityContainer}>
             <label>
               Ville:
-              <input type="text" name="city" value={patient.city} disabled />
+              <input type="text" name="city" value={practicien.city} disabled />
             </label>
           </div>
           <div className={styles.PhoneNumberContainer}>
             <label>
               Numéro de téléphone:
-              <input type="text" name="phone" value={patient.phone} disabled />
+              <input
+                type="text"
+                name="phone"
+                value={practicien.phone}
+                disabled
+              />
             </label>
           </div>
           <div className={styles.emailContainer}>
             <label>
               E-mail
-              <input type="text" name="email" value={patient.email} disabled />
-            </label>
-          </div>
-          <div className={styles.ImportantContainer}>Important</div>
-          <div className={styles.AllergyContainer}>
-            <label>
-              Allergies:
               <input
                 type="text"
-                name="allergy"
-                value={patient.allergy}
+                name="email"
+                value={practicien.email}
                 disabled
               />
             </label>
           </div>
-          <div className={styles.BloodGroupContainer}>
+          <div className={styles.ImportantContainer}>Important</div>
+          <div className={styles.SpecialityContainer}>
             <label>
-              Groupe sanguin:
-              <select
+              Spécialité:
+              <input
                 className={styles.multipleChoicesMenu}
-                name="blood_group"
-                value={patient.blood_group}
+                name="speciality"
+                value={practicien.speciality}
                 disabled
-              >
-                <option
-                  value=""
-                  aria-label="Select list for blood group"
-                  disabled
-                  hidden
-                />
-                <option value="a+">A+</option>
-                <option value="a-">A-</option>
-                <option value="b+">B+</option>
-                <option value="b-">B-</option>
-                <option value="ab+">AB+</option>
-                <option value="ab-">AB-</option>
-                <option value="o+">O+</option>
-                <option value="o-">O-</option>
-              </select>
+              />
             </label>
           </div>
-          <div className={styles.RemarkContainer}>
+          <div className={styles.ServiceContainer}>
             <label>
-              Remarques:
+              Nom service:
               <input
-                type="text"
-                name="remark"
-                value={patient.remark}
+                className={styles.multipleChoicesMenu}
+                name="nom_service"
+                value={practicien.nom_service}
                 disabled
               />
             </label>
@@ -226,4 +211,4 @@ function InfosPatient() {
   );
 }
 
-export default InfosPatient;
+export default InfosPractitioner;
