@@ -7,6 +7,7 @@ import AddIntervention from "./components/secretariat/addIntervention/AddInterve
 import AddPatient from "./components/secretariat/addPatient/AddPatient";
 import AddPractitioner from "./components/secretariat/addPractitioner/AddPractitioner";
 import InfosPatient from "./components/secretariat/infosPatient/InfosPatient";
+import InfosService from "./components/secretariat/infosService/InfosService";
 import SecretariatLayout from "./components/secretariat/secretariatLayout/SecretariatLayout";
 import Home from "./pages/Home";
 import AdminDashboardPage from "./pages/admin/AdminDashboardPage";
@@ -130,6 +131,11 @@ const router = createBrowserRouter([
         path: "unit",
         element: <SecretariatUnitPage />,
       },
+      {
+        path: "/secretariat/service/infos/:nom_service",
+        element: <InfosService />,
+      },
+
       {
         path: "practitioner",
         element: <SecretariatPractitionerPage />,

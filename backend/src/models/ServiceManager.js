@@ -7,9 +7,9 @@ class ServiceManager extends AbstractManager {
 
   async findAllService() {
     const query = `
-    SELECT service.nom_service AS "nom_du_service", 
+    SELECT service.nom_service, 
     service.etage, 
-    batiment.nom_batiment AS "batiment", COUNT(*) AS "nombre_de_practiciens"
+    batiment.nom_batiment, COUNT(*) AS "nombre_de_practiciens"
     FROM service
     JOIN batiment ON service.batiment_id = batiment.id
     JOIN practitioner ON service.id = practitioner.service_id
@@ -18,6 +18,27 @@ class ServiceManager extends AbstractManager {
 
     const [rows] = await this.database.query(query);
     return rows;
+  }
+
+  find(nameOfService) {
+    return this.database.query(
+      `SELECT 
+          service.nom_service, 
+          service.etage, 
+          batiment.nom_batiment, 
+          COUNT(*) AS "nombre_de_practiciens"
+      FROM 
+          service
+      JOIN 
+          batiment ON service.batiment_id = batiment.id
+      JOIN 
+          practitioner ON service.id = practitioner.service_id
+      WHERE 
+          service.nom_service = ? 
+      GROUP BY 
+          service.nom_service, service.etage, batiment.nom_batiment;`,
+      [nameOfService]
+    );
   }
 }
 module.exports = ServiceManager;

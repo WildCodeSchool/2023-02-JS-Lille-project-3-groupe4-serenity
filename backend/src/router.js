@@ -57,5 +57,6 @@ router.get("/resources/:id", resourceControllers.read);
 const serviceControllers = require("./controllers/serviceControllers");
 
 router.get("/service", serviceControllers.browse);
+router.get("/service/infos/:nom_service", serviceControllers.read);
 
 module.exports = router;

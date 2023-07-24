@@ -32,15 +32,13 @@ function ServiceListTable() {
       </thead>
       <tbody>
         {service.map((services) => (
-          <tr className={styles.bodyRows} key={services.nom_du_service}>
-            <td className={styles.rows}>{services.nom_du_service}</td>
+          <tr className={styles.bodyRows} key={services.nom_service}>
+            <td className={styles.rows}>{services.nom_service}</td>
             <td className={styles.rows}>{services.batiment}</td>
             <td className={styles.rows}>{services.etage}</td>
             <td className={styles.rows}>{services.nombre_de_practiciens}</td>
             <td className={styles.rows}>
-              <Link
-                to={`/secretariat/services/infos/${services.nom_du_service}`}
-              >
+              <Link to={`/secretariat/service/infos/${services.nom_service}`}>
                 <FaEye className={styles.eyeIcon} />
               </Link>
             </td>
