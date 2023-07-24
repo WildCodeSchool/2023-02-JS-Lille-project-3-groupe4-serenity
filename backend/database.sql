@@ -328,28 +328,28 @@ VALUES
 -- Insertion des utilisateurs
 INSERT INTO serenity.user (id, last_name, first_name, age, gender, phone, nationality, address, city, zip_code, roles, email)
 VALUES
-    (1, 'Clin', 'Jean', 35, 'Male', '0612345678', 'French', '50 boulevard de la liberté', 'Lille', 59000, 'Admin', 'jean.clin@hopital.com'),
-    (2, 'Martin', 'Sophie', 40, 'Female', '0676543210', 'French', '2 rue des entrepreneurs', 'Marcq-en-Baroeul', 59700, 'Secretaire', 'sophie.martin@hopital.com'),
-    (3, 'Dubois', 'Pierre', 42, 'Male', '0611223344', 'French', '32 rue des hautes voies', 'Marcq-en-Baroeul', 59700, 'Secretaire', 'pierre.dubois@hopital.com'),
-    (4, 'Lefebvre', 'Marie', 38, 'Female', '0698765432', 'French', '32 rue de lille', 'Lambersart', 59130, 'Manager', 'marie.lefebvre@hopital.com'),
-    (5, 'Moreau', 'Thomas', 45, 'Male', '0678901234', 'French', '27 rue jean jaures', 'Lille', 59000, 'Agent', 'thomas.moreau@hopital.com'),
-    (6, 'Briez', 'Nicolas', 28, 'Male', '0320537870', 'French', '117 Avenue de Dunkerque', 'Lille', 59000, 'Practicien', 'f.manno@ramsaygds.fr'),
-    (7, 'Jaillard', 'Sophie', 32, 'female', '0320932093', 'French', '91 Avenue Marx Dormoy', 'Lille', 59000, 'Practicien', 'sophie.jaillard@chirurgie.com'),
-    (8, 'Hourtoulle', 'Maud', 41, 'Female', '0320548767', 'French', '36 bis rue nicolas leblanc', 'Lille', 59000, 'Practicien', 'maud.hourtoulle@chirurgiedentaire.com'),
-    (9, 'Wolber', 'Alexis', 39, 'Male', '0320515750', 'French', '56 boulevard Carnot', 'Lille', 59000, 'Practicien', 'alexis.wolber@chirurgieesthetique.com'),
-    (10, 'Bourguet', 'Arnaud', 36, 'Male', '0320924950', 'French', '117 Avenue de Dunkerque', 'Lille', 59000, 'Practicien', 'arnaud.bourguet@gastro-enterologue.com'),
-    (11, 'Dupont', 'John', 50, 'Male', '0689421577', 'French', '34 rue Jean Lebas', 'Lille', 59000, 'Patient', 'john.dupont@gmail.com'),
-    (12, 'Gaudemer', 'Emma', 27, 'Female', '0645679567', 'French', '123 rue de la Bassée', 'Lille', 59000, 'Patient', 'emma.gaudemer@gmail.com'),
-    (13, 'Foubert', 'Edouard', 33, 'Male', '0667987809', 'French', '45 rue nationale', 'Lille', 59000, 'Patient', 'edouard.foubert@gmail.com'),
-    (14, 'Rondo', 'Olivia', 29, 'Female', '0698678984', 'French', '34 rue des bouchers', 'Lille', 59000, 'Patient', 'olivia.rondo@gmail.com'),
-    (15, 'Miller', 'Sophia', 31, 'Female', '0645678909', 'French', '1 rue des penitentes', 'Lille', 59000, 'Patient', 'sophia.miller@gmail.com');
+    (1, 'Clin', 'Jean', 35, 'Homme', '0612345678', 'Française', '50 boulevard de la liberté', 'Lille', 59000, 'Admin', 'jean.clin@hopital.com'),
+    (2, 'Martin', 'Sophie', 40, 'Femme', '0676543210', 'Française', '2 rue des entrepreneurs', 'Marcq-en-Baroeul', 59700, 'Secrétaire', 'sophie.martin@hopital.com'),
+    (3, 'Dubois', 'Pierre', 42, 'Homme', '0611223344', 'Française', '32 rue des hautes voies', 'Marcq-en-Baroeul', 59700, 'Secrétaire', 'pierre.dubois@hopital.com'),
+    (4, 'Lefebvre', 'Marie', 38, 'Femme', '0698765432', 'Française', '32 rue de lille', 'Lambersart', 59130, 'Manager', 'marie.lefebvre@hopital.com'),
+    (5, 'Moreau', 'Thomas', 45, 'Homme', '0678901234', 'Française', '27 rue jean jaures', 'Lille', 59000, 'Agent', 'thomas.moreau@hopital.com'),
+    (6, 'Briez', 'Nicolas', 28, 'Homme', '0320537870', 'Française', '117 Avenue de Dunkerque', 'Lille', 59000, 'Praticien', 'f.manno@ramsaygds.fr'),
+    (7, 'Jaillard', 'Sophie', 32, 'Femme', '0320932093', 'Française', '91 Avenue Marx Dormoy', 'Lille', 59000, 'Praticien', 'sophie.jaillard@chirurgie.com'),
+    (8, 'Hourtoulle', 'Maud', 41, 'Femme', '0320548767', 'Française', '36 bis rue nicolas leblanc', 'Lille', 59000, 'Praticien', 'maud.hourtoulle@chirurgiedentaire.com'),
+    (9, 'Wolber', 'Alexis', 39, 'Homme', '0320515750', 'Française', '56 boulevard Carnot', 'Lille', 59000, 'Praticien', 'alexis.wolber@chirurgieesthetique.com'),
+    (10, 'Bourguet', 'Arnaud', 36, 'Homme', '0320924950', 'Française', '117 Avenue de Dunkerque', 'Lille', 59000, 'Praticien', 'arnaud.bourguet@gastro-enterologue.com'),
+    (11, 'Dupont', 'John', 50, 'Homme', '0689421577', 'Française', '34 rue Jean Lebas', 'Lille', 59000, 'Patient', 'john.dupont@gmail.com'),
+    (12, 'Gaudemer', 'Emma', 27, 'Femme', '0645679567', 'Française', '123 rue de la Bassée', 'Lille', 59000, 'Patient', 'emma.gaudemer@gmail.com'),
+    (13, 'Foubert', 'Edouard', 33, 'Homme', '0667987809', 'Française', '45 rue nationale', 'Lille', 59000, 'Patient', 'edouard.foubert@gmail.com'),
+    (14, 'Rondo', 'Olivia', 29, 'Femme', '0698678984', 'Française', '34 rue des bouchers', 'Lille', 59000, 'Patient', 'olivia.rondo@gmail.com'),
+    (15, 'Miller', 'Sophia', 31, 'Femme', '0645678909', 'Française', '1 rue des penitentes', 'Lille', 59000, 'Patient', 'sophia.miller@gmail.com');
 
 -- Insertion des membres du personnel
 INSERT INTO serenity.staff (id, roles, user_id)
 VALUES
     (1, 'Admin', 1),
-    (2, 'Secretaire', 2),
-    (3, 'Secretaire', 3),
+    (2, 'Secrétaire', 2),
+    (3, 'Secrétaire', 3),
     (4, 'Manager', 4),
     (5, 'Agent', 5);
 -- Insertion des services
@@ -363,11 +363,11 @@ VALUES
 -- Insertion des praticiens
 INSERT INTO serenity.practitioner (identifier_rpps, speciality, longitude, latitude, type_intervention, user_id, service_id)
 VALUES
-    (1001, 'Cardiologie', '2.974381923675537', '50.6445198059082','Chirurgie', 6, 1),
-    (1002, 'Orthopédie', '3.031752109527588', '50.63371658325195','Chirurgie', 7, 2),
-    (1003, 'Chirurgie dentaire', '3.0612124', '50.6288448','Pose implant', 8, 3),
-    (1004, 'Chirurgie esthétique', '3.0685616', '50.6395922','Pose implant', 9, 4),
-    (1005, 'Gastro-Pediatre', '3.030643', '50.6338748','Chirurgie', 10, 5);
+    (1001, 'Cardiologie', '2.974381923675537', '50.6445198059082','Transplantation rénale', 6, 1),
+    (1002, 'Orthopédie', '3.031752109527588', '50.63371658325195','Prothèse du genou', 7, 2),
+    (1003, 'Chirurgie dentaire', '3.0612124', '50.6288448','Pose implant dentaire', 8, 3),
+    (1004, 'Chirurgie esthétique', '3.0685616', '50.6395922','Pose implant mammaire', 9, 4),
+    (1005, 'Gastro-Pediatre', '3.030643', '50.6338748','Appendicectomie', 10, 5);
 -- Insertion des patients
 INSERT INTO serenity.patient (social_secu_number, blood_group, allergy, remark, user_id)
 VALUES
@@ -380,8 +380,8 @@ VALUES
 ######################################### CREATION INTERVENTION 1 ################################################
 -- Insérer une nouvelle intervention
 INSERT INTO intervention (social_secu_number, identifier_rpps, procedure_date, pct_progress_total, type_intervention, nom_intervention, staff_id)
-VALUES (100004, 1002, '2023-07-28', 0, 'chirurgie',
- 'Amputation genou droit', 2);
+VALUES (100004, 1002, '2023-07-28', 0, 'Prothèse du genou',
+ 'Prothèse totale du genou droit', 2);
 -- Récupérer l'ID de l'intervention nouvellement créée
 SET @intervention_id = LAST_INSERT_ID();
 -- Insérer les étapes de l'intervention
@@ -415,7 +415,7 @@ VALUES (0, @step_id, (SELECT type_intervention FROM intervention WHERE intervent
 ######################################### CREATION INTERVENTION 2 ################################################
 -- Insérer une nouvelle intervention
 INSERT INTO intervention (social_secu_number, identifier_rpps, procedure_date, pct_progress_total, type_intervention, nom_intervention, staff_id)
-VALUES (100001, 1004, '2023-07-29', 0, 'Pose implant',
+VALUES (100001, 1004, '2023-07-29', 0, 'Pose implant mammaire',
  'Pose implant mammaire', 3);
 -- Récupérer l'ID de l'intervention nouvellement créée
 SET @intervention_id = LAST_INSERT_ID();
@@ -450,7 +450,7 @@ VALUES (0, @step_id, (SELECT type_intervention FROM intervention WHERE intervent
 ######################################### CREATION INTERVENTION 3 ################################################
 -- Insérer une nouvelle intervention
 INSERT INTO intervention (social_secu_number, identifier_rpps, procedure_date, pct_progress_total, type_intervention, nom_intervention, staff_id)
-VALUES (100002, 1005, '2023-08-02', 0, 'chirurgie',
+VALUES (100002, 1005, '2023-08-02', 0, 'Appendicectomie',
  'Appendicectomie', 2);
 -- Récupérer l'ID de l'intervention nouvellement créée
 SET @intervention_id = LAST_INSERT_ID();
@@ -485,8 +485,8 @@ VALUES (0, @step_id, (SELECT type_intervention FROM intervention WHERE intervent
 ######################################### CREATION INTERVENTION 4 ################################################
 -- Insérer une nouvelle intervention
 INSERT INTO intervention (social_secu_number, identifier_rpps, procedure_date, pct_progress_total, type_intervention, nom_intervention, staff_id)
-VALUES (100002, 1003, '2023-08-10', 0, 'Pose implant',
- 'Pose implant molaire', 3);
+VALUES (100002, 1003, '2023-08-10', 0, 'Pose implant dentaire',
+ 'Pose implant dentaire', 3);
 -- Récupérer l'ID de l'intervention nouvellement créée
 SET @intervention_id = LAST_INSERT_ID();
 -- Insérer les étapes de l'intervention
@@ -520,7 +520,7 @@ VALUES (0, @step_id, (SELECT type_intervention FROM intervention WHERE intervent
 ######################################### CREATION INTERVENTION 5 ################################################
 -- Insérer une nouvelle intervention
 INSERT INTO intervention (social_secu_number, identifier_rpps, procedure_date, pct_progress_total, type_intervention, nom_intervention, staff_id)
-VALUES (100003, 1005, '2023-10-11', 0, 'chirurgie',
+VALUES (100003, 1005, '2023-10-11', 0, 'Transplantation rénale',
  'Transplantation rénale', 2);
 -- Récupérer l'ID de l'intervention nouvellement créée
 SET @intervention_id = LAST_INSERT_ID();
@@ -552,44 +552,7 @@ VALUES (0, @step_id, (SELECT type_intervention FROM intervention WHERE intervent
        (0, @step_id+4, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id)),
        (0, @step_id+4, (SELECT type_intervention FROM intervention WHERE intervention.id= @intervention_id));
 
--- Insertion des ressources
-INSERT INTO serenity.resources (id, title_resource, type_resource, link, staff_id, type_intervention)
-VALUES
-    (1, "Chirurgie cardiologique", 'Video', 'http://example.com/resource1', 2, 'Chirurgie'),
-    (2, "Implant molaire", 'Image', 'http://example.com/resource2', 3, 'Pose implant'),
-    (3, "Chirurgie cardiologique", 'Image', 'http://example.com/resource3', 2, 'Chirurgie'),
-    (4, "Implant molaire", 'Video', 'http://example.com/resource4', 3, 'Pose implant'),
-    (5, "Chirurgie cardiologique", 'Video', 'http://example.com/resource5', 2, 'Chirurgie');
--- Insertion des liens entre ressources, sous-étapes et interventions
-/*
-INSERT INTO serenity.resource_understep_intervention (id, resource_id, understep_id, intervention_id, type_intervention)
-VALUES
-    (1, 1, 1, 1, 'Chirurgie'),
-    (2, 2, 2, 1, 'Chirurgie'),
-    (3, 3, 3, 1, 'Chirurgie'),
-    (4, 4, 4, 1, 'Chirurgie'),
-    (5, 5, 5, 1, 'Chirurgie'),
-    (6, 1, 6, 2, 'Chirurgie'),
-    (7, 2, 7, 2, 'Chirurgie'),
-    (8, 3, 8, 2, 'Chirurgie'),
-    (9, 4, 9, 2, 'Chirurgie'),
-    (10, 5, 10, 2, 'Chirurgie'),
-    (11, 1, 11, 3, 'Chirurgie'),
-    (12, 2, 12, 3, 'Chirurgie'),
-    (13, 3, 13, 3, 'Chirurgie'),
-    (14, 4, 14, 3, 'Chirurgie'),
-    (15, 5, 15, 3, 'Chirurgie'),
-    (16, 1, 16, 4, 'Chirurgie'),
-    (17, 2, 17, 4, 'Chirurgie'),
-    (18, 3, 18, 4, 'Chirurgie'),
-    (19, 4, 19, 4, 'Chirurgie'),
-    (20, 5, 20, 4, 'Chirurgie'),
-    (21, 1, 21, 5, 'Chirurgie'),
-    (22, 2, 22, 5, 'Chirurgie'),
-    (23, 3, 23, 5, 'Chirurgie'),
-    (24, 4, 24, 5, 'Chirurgie'),
-    (25, 5, 25, 5, 'Chirurgie');
-*/
+
 INSERT INTO serenity.documentadministratif (id_card_link, statu_id_card, mutual_card_link, statut_card_link, informed_consent, statut_informed_consent, anesthetic_consultation, statut_anestheic_consultation, covid_test, staut_covid_test, credit_card, statut_credit_card, staff_id, intervention_id)
 VALUES
     ('http://example.com/id_card_link1', 0, 'http://example.com/mutual_card_link1', 0, 'http://example.com/informed_consent1', 0, 'http://example.com/anesthetic_consultation1', 0, 'http://example.com/covid_test1', 0, 'http://example.com/credit_card1', 0, 2, 1),
@@ -609,7 +572,7 @@ FROM serenity.user U
 JOIN serenity.staff S ON U.id = S.user_id;
 -- Insert user accounts for practitioners
 INSERT INTO serenity.identification (pwd, roles, email, user_id, identifier_rpps)
-SELECT 'practitioner123', 'Practitioner', CONCAT('practitioner', P.user_id, '@example.com'), U.id, P.identifier_rpps
+SELECT 'praticien123', 'Praticien', CONCAT('praticien', P.user_id, '@example.com'), U.id, P.identifier_rpps
 FROM serenity.user U
 JOIN serenity.practitioner P ON U.id = P.user_id;
 
@@ -626,7 +589,7 @@ VALUES ('Reanimation','Etage 1', 2, @batiment_id); # ? : nom_service,etage / ! :
 ######################################### CREATION Patient ################################################
 -- Creation d'un User
 INSERT INTO user (last_name, first_name, age, gender, phone, nationality, address, city, zip_code, roles, email)
-VALUES ('Beatrice', 'Simon', 30, 'Female', '0670898075', 'French', '75 Rue esquermoise', 'Lille', '59000', 'Patient', 'beatrice.simon@example.com');
+VALUES ('Simon', 'Beatrice', 30, 'Femme', '0670898075', 'Française', '75 Rue esquermoise', 'Lille', '59000', 'Patient', 'beatrice.simon@example.com');
 SET @user_id = LAST_INSERT_ID(); 
 -- Créer un nouveau patient
 INSERT INTO patient (social_secu_number, blood_group, allergy, remark, user_id)
@@ -637,7 +600,7 @@ INSERT INTO identification (pwd, roles,
  user_id, 
  social_secu_number,
  staff_id) 
-VALUES ('password123', 'Patient', 
+VALUES ('motdepasse123', 'Patient', 
  (SELECT email FROM serenity.user AS U WHERE U.id = @user_id), 
  @user_id, 
  (SELECT social_secu_number FROM serenity.patient P WHERE P.user_id = @user_id),
@@ -646,11 +609,11 @@ VALUES ('password123', 'Patient',
 ######################################### CREATION Practitionner ################################################
 -- Creation d'un User
 INSERT INTO user (last_name, first_name, age, gender, phone, nationality, address, city, zip_code, roles, email)
-VALUES ('Coquet', 'Bruno', 30, 'Male', '0123456789', 'French', '71 avenue marx dormoy', 'Lille', '59000', 'Practitioner', 'coquet.bruno@example.com');
+VALUES ('Coquet', 'Bruno', 30, 'Homme', '0123456789', 'Française', '71 avenue marx dormoy', 'Lille', '59000', 'Praticien', 'coquet.bruno@example.com');
 SET @user_id = LAST_INSERT_ID(); 
 -- Créer un nouveau praticien
 INSERT INTO practitioner (identifier_rpps, speciality, longitude, latitude, type_intervention, user_id, service_id)
-VALUES ('1006', 'Cardiologie', '3.0351529' , '50.6348635', 'Chirurgie', @user_id,
+VALUES ('1006', 'Cardiologie', '3.0351529' , '50.6348635', 'Transplantation rénale', @user_id,
  (SELECT id FROM serenity.service S WHERE S.nom_service = 'Reanimation')); # ATTENTION : Remplace nom_intervention dans le back par ? (JS) (SELECT service_id FROM serenity.service S WHERE S.nom_intervention = "Reanimation")); # ATTENTION : Remplace nom_intervention dans le back par ? (JS)
 -- Créer une nouvelle identification pour l'utilisateur du praticien
 INSERT INTO identification (pwd, roles, 
@@ -658,7 +621,7 @@ email,
 user_id, 
 identifier_rpps,
 staff_id)
-SELECT 'Smith123', 'Practitioner',
+SELECT 'Smith123', 'Praticien',
 (SELECT email FROM serenity.user AS U WHERE U.id = @user_id), #
 @user_id , 
 (SELECT identifier_rpps FROM serenity.practitioner P WHERE P.user_id = @user_id
@@ -674,23 +637,13 @@ VALUES ('valeur1', 0, 'valeur2', 0, 'valeur3', 0, 'valeur4', 0, 'valeur5', 0,'va
 -- Insertion des ressources
 INSERT INTO serenity.resources (title_resource, type_resource, link, staff_id, type_intervention)
 VALUES
-    ("Chirurgie du genou", 'Video', 'assets/prothese_totale_genou.mp4', 2, 'chirurgie'),
-    ("Prothèse du genou", 'Pdf', 'assets/prothese_genou.pdf', 2, 'chirurgie'),
-    ("Prothèse totale du genou", 'Pdf', 'assets/prothese-totale-du-genou.pdf', 2, 'chirurgie'),
-    ("Prothèse totale du genou", 'Pdf', 'assets/prothese-totale-genou2.pdf', 2, 'chirurgie'),
-    ("Appendicectomie", 'Video', 'assets/signes_appendicite.mp4', 2, 'chirurgie'),
-    ("Appendicectomie", 'Pdf', 'assets/appendicectomie_questions.pdf', 2, 'chirurgie'),
-    ("Appendicectomie", 'Pdf', 'assets/fiche_info_appendicectomie.pdf', 2, 'chirurgie'),
-    ("Appendicectomie", 'Pdf', 'assets/guide_appendicectomie.pdf', 2, 'chirurgie'),
-    ("Transplantation renale", 'Video', 'transplantation_renale.mp4', 2, 'chirurgie'),
-    ("Transplantation renale", 'Pdf', 'assets/transplantation_renale_acces_liste_attente.pdf', 2, 'chirurgie'),
-    ("Transplantation renale", 'Pdf', 'assets/transplantation_renale_guide.pdf', 2, 'chirurgie'),
-    ("Transplantation renale", 'Pdf', 'assets/transplantation_renale_preparation_vie.pdf', 2, 'chirurgie'),
-    ("Pose implant mammaire", 'Video', 'implant_mammaire.mp4', 2, 'Pose implant'),
-    ("Pose implant mammaire", 'Pdf', 'assets/implant_mammaire_explications.pdf', 2, 'Pose implant'),
-    ("Pose implant mammaire", 'Pdf', 'assets/implant_mammaire_rapport.pdf', 2, 'Pose implant'),
-    ("Pose implant mammaire", 'Pdf', 'assets/implant_mammaire_infos.pdf', 2, 'Pose implant'),
-    ("Pose implant dentaire", 'Video', 'assets/implant_dentaire.mp4', 2, 'Pose implant'),
-    ("Pose implant dentaire", 'Pdf', 'implantologie_dentaire.pdf', 2, 'Pose implant'),
-    ("Pose implant dentaire", 'Pdf', 'assets/implantologie_dentaire_explications.pdf', 2, 'Pose implant'),
-    ("Pose implant dentaire", 'Pdf', 'assets/implantologie_dentaire_guide.pdf', 2, 'Pose implant');
+    ("Prothèse totale du genou", 'Video', 'assets/prothese_totale_genou.mp4', 2, 'Prothèse du genou'),
+    ("Prothèse totale du genou", 'Pdf', 'assets/prothese_genou.pdf', 2, 'Prothèse du genou'),
+    ("Appendicectomie", 'Video', 'assets/signes_appendicite.mp4', 2, 'Appendicectomie'),
+    ("Appendicectomie", 'Pdf', 'assets/appendicectomie_questions.pdf', 2, 'Appendicectomie'),
+    ("Transplantation rénale", 'Video', 'assets/transplantation_renale.mp4', 2, 'Transplantation rénale'),
+    ("Transplantation rénale", 'Pdf', 'assets/transplantation_renale_acces_liste_attente.pdf', 2, 'Transplantation rénale'),
+    ("Pose implant mammaire", 'Video', 'assets/implant_mammaire.mp4', 2, 'Pose implant mammaire'),
+    ("Pose implant mammaire", 'Pdf', 'assets/implant_mammaire_explications.pdf', 2, 'Pose implant mammaire'),
+    ("Pose implant dentaire", 'Video', 'assets/implant_dentaire.mp4', 2, 'Pose implant dentaire'),
+    ("Pose implant dentaire", 'Pdf', 'assets/implantologie_dentaire.pdf', 2, 'Pose implant dentaire');
