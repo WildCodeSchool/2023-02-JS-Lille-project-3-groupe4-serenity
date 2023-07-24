@@ -53,6 +53,18 @@ const edit = (req, res) => {
     });
 };
 
+const count = (req, res) => {
+  models.patient
+    .findCountPatient()
+    .then((rows) => {
+      res.send(rows);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
 const destroy = (req, res) => {
   models.patient
     .delete(req.params.id)
@@ -123,4 +135,5 @@ module.exports = {
   edit,
   add,
   destroy,
+  count,
 };

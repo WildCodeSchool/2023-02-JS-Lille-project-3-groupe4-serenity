@@ -58,6 +58,14 @@ class PatientManager extends AbstractManager {
     return rows;
   }
 
+  async findCountPatient() {
+    const query = `
+   SELECT COUNT(*) FROM patient;
+    `;
+    const [rows] = await this.database.query(query);
+    return rows;
+  }
+
   async findPatientBySocialSecuNumber(socialSecuNumber) {
     const query = `
       SELECT u.gender, u.last_name, u.first_name ,u.age,

@@ -74,6 +74,7 @@ function AddIntervention() {
               <input
                 type="text"
                 name="nom_Intervention"
+                autoComplete="off"
                 value={inputs.nom_Intervention || ""}
                 onChange={handleChange}
               />

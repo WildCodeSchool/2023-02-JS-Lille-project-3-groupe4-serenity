@@ -63,17 +63,27 @@ class PractitionerManager extends AbstractManager {
     return rows;
   }
 
+  async findCountPractitioner() {
+    const query = `
+    select count(*) from practitioner;
+    `;
+    const [rows] = await this.database.query(query);
+    return rows;
+  }
+
   async findPatientByIdentifiantRpps(identifiantRpps) {
     const query = `
-    SELECT u.gender AS "Sexe", u.last_name AS "Nom", u.first_name AS "Prénom", u.age,
-    u.phone AS "Téléphone", u.nationality AS "Nationalité", u.address AS "Adresse", u.city AS "Ville",
-    u.zip_code AS "Code_Postal", u.email AS "Email",
-    p.speciality AS "Spécialité", p.service_id AS "Service",
-    p.identifier_rpps AS "Identifiant_RPPS",
-    i.pwd AS "Mot_de_Passe"
-  FROM serenity.user u
-  JOIN serenity.practitioner p ON u.id = p.user_id
-  JOIN serenity.identification i ON u.id = i.user_id
+    SELECT u.gender, u.last_name, u.first_name, u.age,
+    u.phone, u.nationality, u.address, u.city,
+    u.zip_code, u.email,
+    p.speciality, p.service_id,
+    p.identifier_rpps,
+    i.pwd,
+    s.nom_service
+  FROM serenity.User u
+  JOIN serenity.Practitioner p ON u.id = p.user_id
+  JOIN serenity.Identification i ON u.id = i.user_id
+  JOIN serenity.Service s ON u.id = p.user_id
   WHERE p.identifier_rpps = ?;
     `;
 

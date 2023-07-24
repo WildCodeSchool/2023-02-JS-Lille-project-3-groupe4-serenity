@@ -39,7 +39,7 @@ function PatientHeaderDesktop() {
   ]);
 
   useEffect(() => {
-    if (progressTotal !== 16) {
+    if (progressTotal < 100) {
       setIsNotificationVisible(true);
     }
   }, []);
@@ -72,9 +72,15 @@ function PatientHeaderDesktop() {
             <div className={styles.notificationNumber} />
           )}
           <FaRegBell className={styles.bellIcon} />
-          <NotificationsModal
-            infosText={`Vous êtes à ${progressTotal}% de taux de complétion de vos démarches, pensez à à toutes les compléter avant votre intervention !`}
-          />
+          {progressTotal === 100 ? (
+            <NotificationsModal
+              infosText={`Félicitations, Vous êtes à ${progressTotal}% de taux de complétion de vos démarches et êtes maintenant prêt(e) pour votre intervention !`}
+            />
+          ) : (
+            <NotificationsModal
+              infosText={`Vous êtes à ${progressTotal}% de taux de complétion de vos démarches, pensez à à toutes les compléter avant votre intervention !`}
+            />
+          )}
         </button>
       </div>
     </div>

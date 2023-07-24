@@ -64,6 +64,11 @@ const ResourceManager = require("./ResourceManager");
 models.resource = new ResourceManager();
 models.resource.setDatabase(pool);
 
+const ServiceManager = require("./ServiceManager");
+
+models.service = new ServiceManager();
+models.service.setDatabase(pool);
+
 const handler = {
   get(obj, prop) {
     if (prop in obj) {
