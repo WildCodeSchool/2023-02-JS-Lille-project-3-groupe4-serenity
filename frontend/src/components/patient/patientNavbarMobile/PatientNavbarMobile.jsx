@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { FaHome, FaRegBell, FaMusic } from "react-icons/fa";
-import { HiOutlineChatBubbleOvalLeftEllipsis } from "react-icons/hi2";
+import { Link, useParams } from "react-router-dom";
 import { MdOutlineMenu } from "react-icons/md";
 import PropTypes from "prop-types";
 import NotificationsModalMobile from "../notificationsModal/NotificationsModalMobile";
@@ -10,6 +10,7 @@ import UnderstepsContext from "../../../contexts/UnderstepsContext";
 function PatientNavbarMobile({ isMenuOpen, setMenuOpen }) {
   const [isNotificationVisible, setIsNotificationVisible] = useState(false);
   const [progressTotal, setProgressTotal] = useState(0);
+  const { idInter, idPatient } = useParams();
 
   const handleNotificationClick = () => {
     setIsNotificationVisible(false);
@@ -50,7 +51,9 @@ function PatientNavbarMobile({ isMenuOpen, setMenuOpen }) {
   return (
     <div className={styles.navbarContainer}>
       <div className={styles.navbarIconContainer}>
-        <FaHome className={styles.menuIcon} />
+        <Link to={`/patient/${idPatient}/${idInter}/understanding`}>
+          <FaHome className={styles.menuIcon} />
+        </Link>
       </div>
       <div
         className={styles.navbarIconContainer}
@@ -76,9 +79,9 @@ function PatientNavbarMobile({ isMenuOpen, setMenuOpen }) {
           />
         )}
       </div>
-      <div className={styles.navbarChatContainer}>
+      {/* <div className={styles.navbarChatContainer}>
         <HiOutlineChatBubbleOvalLeftEllipsis className={styles.menuChatIcon} />
-      </div>
+      </div> */}
       <div className={styles.navbarIconContainer}>
         <FaMusic className={styles.menuIcon} />
       </div>
