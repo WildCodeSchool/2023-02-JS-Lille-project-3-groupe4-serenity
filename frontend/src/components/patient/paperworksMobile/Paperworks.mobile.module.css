@@ -66,6 +66,54 @@
   height: 100%;
   border: solid 2px var(--turquoise);
   border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.checkContainer {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  padding-right: 10px;
+}
+
+.checkContainer input:focus {
+  outline: none;
+}
+
+.infosPatient {
+  background-image: url("../../../assets/paperworks-infospatient.png");
+}
+
+.consentement {
+  background-image: url("../../../assets/contract.png");
+}
+
+.healthInsurance {
+  background-image: url("../../../assets/health-insurance.png");
+}
+
+.doctor {
+  background-image: url("../../../assets/doctor.png");
+}
+
+.invoice {
+  background-image: url("../../../assets/invoice.png");
+  background-size: 40%;
+}
+
+.imageContainer {
+  width: 100%;
+  height: 100%;
+}
+
+.linkContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
 }
 
 .textContainer {
