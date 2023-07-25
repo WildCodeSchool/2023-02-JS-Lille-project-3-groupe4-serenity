@@ -53,8 +53,14 @@
   border: none;
 }
 
-.menuList {
+.selectAndCheckContainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
   margin-bottom: 2vh;
+}
+
+.menuList {
   border-radius: 10px;
   color: var(--dark-blue);
   border: solid 1px var(--dark-blue);
@@ -63,6 +69,16 @@
 
 .menuList:focus {
   outline-color: var(--green);
+}
+
+.confirmButton {
+  background-color: var(--green);
+}
+
+.confirmedButton {
+  border: none;
+  background-color: var(--medium-grey);
+  color: var(--dark-blue);
 }
 
 .mapContainer {

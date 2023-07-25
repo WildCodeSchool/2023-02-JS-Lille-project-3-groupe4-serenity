@@ -1,13 +1,21 @@
 import ProgressBar from "@ramonak/react-progress-bar";
 import axios from "axios";
 import "leaflet/dist/leaflet.css";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import { useParams } from "react-router-dom";
+import UnderstepsContext from "../../../contexts/UnderstepsContext";
 import styles from "./OutboardingMobile.module.css";
 
 function OutboardingMobile() {
   const [selectedOption, setSelectedOption] = useState("");
   const [practitioners, setPractitioners] = useState([]);
+
+  const { countOfOnesUstepFour, setCountOfOnesUstepFour } =
+    useContext(UnderstepsContext);
+
+  const [underStepIds, setUnderStepIds] = useState([]);
+  const { idInter } = useParams();
 
   useEffect(() => {
     const fectchAllPractitionner = async () => {
@@ -32,12 +40,51 @@ function OutboardingMobile() {
     setSelectedOption(event.target.value);
   };
 
+  // Effectue une requête HTTP GET pour récupérer les données des étapes
+  useEffect(() => {
+    const fetchStep = async () => {
+      try {
+        const response = await axios.get(
+          `${import.meta.env.VITE_BACKEND_URL}/interventions/${idInter}`
+        );
+        const { data } = response;
+
+        // Extrait les ID des étapes dans un tableau
+        const ids = data.map((item) => item.id);
+
+        // Met à jour l'état des ID des étapes
+        setUnderStepIds(ids);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    fetchStep();
+  }, [idInter]);
+  const firstFiveUnderStepIds = underStepIds.slice(10, 11);
+
+  // Fonction appelée lors du clic sur le bouton de mise à jour
+  const handleUpdateClick = () => {
+    axios
+      .put(`http://localhost:5050/steps/${firstFiveUnderStepIds}`, {
+        statutUnderstep: 1,
+      })
+      .then(() => {
+        if (countOfOnesUstepFour < 1) {
+          setCountOfOnesUstepFour((prevCount) => prevCount + 1); // Increment onesCountUstepOne by 1 if checkbox is checked
+        }
+      })
+      .catch((err) => {
+        console.error("Erreur lors de la mise à jour du statut :", err); // Display the error in the console if the request fails
+      });
+  };
+
   return (
     <div className={styles.outboardingMobileContainer}>
       <div className={styles.progressBarContainer}>
         <p className={styles.blocTitle}>Anticiper ma sortie</p>
         <ProgressBar
-          completed={60}
+          completed={countOfOnesUstepFour * 100}
           maxCompleted={100}
           height="8vh"
           borderRadius="20px"
@@ -53,7 +100,7 @@ function OutboardingMobile() {
           :
         </h1>
       </div>
-      <div>
+      <div className={styles.selectAndCheckContainer}>
         <select
           value={selectedOption}
           onChange={handleChange}
@@ -63,6 +110,19 @@ function OutboardingMobile() {
           <option value="Cardiologie">Cardiologie</option>
           <option value="Orthopédie">Orthopédie</option>
         </select>
+        {countOfOnesUstepFour === 0 ? (
+          <button
+            type="button"
+            onClick={handleUpdateClick}
+            className={styles.confirmButton}
+          >
+            Confirmer
+          </button>
+        ) : (
+          <button type="button" className={`${styles.confirmedButton} $`}>
+            Terminé
+          </button>
+        )}
       </div>
       <div className={styles.mapContainer}>
         <MapContainer
