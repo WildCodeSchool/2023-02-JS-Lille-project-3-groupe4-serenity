@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaRegWindowClose } from "react-icons/fa";
 import styles from "./AddStaff.module.css";
 
+axios.defaults.withCredentials = true;
+
 function AddStaff() {
   const [inputs, setInputs] = useState({});
   const navigate = useNavigate();
@@ -78,7 +80,7 @@ function AddStaff() {
             Nom:
             <input
               type="text"
-              name="last_name"
+              name="lastName"
               autoComplete="off"
               value={inputs.lastName || ""}
               onChange={handleChange}
@@ -90,7 +92,7 @@ function AddStaff() {
             Prénom:
             <input
               type="text"
-              name="first_name"
+              name="firstName"
               autoComplete="off"
               value={inputs.firstName || ""}
               onChange={handleChange}
@@ -157,7 +159,7 @@ function AddStaff() {
             Code Postal:
             <input
               type="text"
-              name="zip_code"
+              name="zipCode"
               autoComplete="off"
               value={inputs.zipCode || ""}
               onChange={handleChange}

@@ -20,7 +20,6 @@ const add = (req, res) => {
 
     // Add the hashed password to the patient object
     staff.password = hashedPassword;
-
     try {
       const result = await models.staff.insert(staff, hashedPassword);
 

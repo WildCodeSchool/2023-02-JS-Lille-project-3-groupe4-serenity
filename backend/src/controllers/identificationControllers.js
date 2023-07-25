@@ -95,6 +95,7 @@ const login = async (req, res) => {
             expiresIn: 300,
           }
         );
+
         res.cookie("token", token, {
           httpOnly: true,
           expires: new Date(Date.now() + 60 * 60 * 1000), // Expires in 1 hour

@@ -2,7 +2,7 @@ const express = require("express");
 
 const router = express.Router();
 
-const verifyJWT = require("./services/verifyJWT");
+// const verifyJWT = require("./services/verifyJWT");
 
 const itemControllers = require("./controllers/itemControllers");
 
@@ -45,8 +45,7 @@ router.get("/interventions", interventionControllers.browse);
 router.get("/interventions/count", interventionControllers.count);
 router.get("/interventions/:id", interventionControllers.read);
 router.get(
-  "/interventions/social_secu_number/:social_secu_number",
-  verifyJWT,
+  "/interventions/social_secu_number/:socialSecuNumber",
   interventionControllers.readBySocialSecuNumber
 );
 router.put("/interventions/:id", interventionControllers.edit);

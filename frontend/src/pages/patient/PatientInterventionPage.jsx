@@ -30,7 +30,7 @@ function PatientInterventionPage() {
     };
 
     fetchInter();
-  });
+  }, []);
 
   return (
     <div className={styles.homeContainer}>
@@ -49,9 +49,7 @@ function PatientInterventionPage() {
         ) : (
           <>
             <h1 className={styles.pageTitle}>Liste d'interventions</h1>
-            <p className={styles.text}>
-              Je choisis le type d'intervention qui me concerne.
-            </p>
+            <p className={styles.text}>Je choisis mon intervention.</p>
             <div className={styles.container}>
               <div className={styles.card}>
                 {inter.map((item, index) => (

@@ -18,8 +18,13 @@ const cors = require("cors");
 
 app.use(cookieParser());
 
-app.use(cors());
-
+app.use(
+  cors({
+    origin: process.env.FRONTEND_URL ?? "http://localhost:5173",
+    optionsSuccessStatus: 200,
+    credentials: true,
+  })
+);
 // import and mount the API routes
 
 const router = require("./router");
