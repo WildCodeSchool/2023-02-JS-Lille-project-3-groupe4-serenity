@@ -90,7 +90,7 @@ function App() {
       </Route>
 
       {/* Secretariat Routes */}
-      <Route element={<RequireAuth allowedRoles="Secretaire" />}>
+      <Route element={<RequireAuth allowedRoles="Secrétaire" />}>
         <Route path="/secretariat" element={<SecretariatLayout />}>
           <Route path="" element={<SecretariatDashboardPage />} />
           <Route path="unit" element={<SecretariatUnitPage />} />
@@ -119,7 +119,7 @@ function App() {
       </Route>
 
       {/* Practitioner Routes */}
-      <Route element={<RequireAuth allowedRoles="Practicien" />}>
+      <Route element={<RequireAuth allowedRoles="Praticien" />}>
         <Route path="/practitioner" element={<PractitionerLayout />}>
           <Route path="" element={<PractitionerDashboardPage />} />
           <Route path="patient" element={<PractitionerPatientPage />} />

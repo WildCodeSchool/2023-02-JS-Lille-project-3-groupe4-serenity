@@ -52,9 +52,9 @@ function InfosPatient() {
                 <label>
                   <input
                     type="radio"
-                    value="female"
+                    value="Femme"
                     name="gender"
-                    checked={patient.gender === "Female"}
+                    checked={patient.gender === "Femme"}
                     disabled
                   />
                   <span className={styles.RadioButtonLabelContainer}>
@@ -66,9 +66,9 @@ function InfosPatient() {
                 <label>
                   <input
                     type="radio"
-                    value="male"
+                    value="Homme"
                     name="gender"
-                    checked={patient.gender === "Male"}
+                    checked={patient.gender === "Homme"}
                     disabled
                   />
                   <span className={styles.RadioButtonLabelContainer}>

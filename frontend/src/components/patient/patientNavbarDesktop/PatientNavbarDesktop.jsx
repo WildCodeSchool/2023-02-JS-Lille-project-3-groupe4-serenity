@@ -79,15 +79,11 @@ function PatientNavbarDesktop() {
         </NavLink> */}
       </div>
       <div className={styles.logoutContainer}>
-        <Link to="/" className={styles.logoutLink}>
-          <button
-            type="button"
-            className={styles.iconAndTextContainer}
-            onClick={handleLogout}
-          >
+        <Link to="/" className={styles.logoutLink} onClick={handleLogout}>
+          <div className={styles.iconAndTextContainer}>
             <FaPowerOff className={styles.linkIcons} />
             Log out
-          </button>
+          </div>
         </Link>
       </div>
     </div>

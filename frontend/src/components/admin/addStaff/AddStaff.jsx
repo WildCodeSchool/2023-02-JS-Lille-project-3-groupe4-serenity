@@ -47,9 +47,9 @@ function AddStaff() {
               <label>
                 <input
                   type="radio"
-                  value="feminin"
+                  value="Femme"
                   name="gender"
-                  checked={inputs.gender === "feminin"}
+                  checked={inputs.gender === "Femme"}
                   onChange={handleChange}
                 />
                 <span className={styles.RadioButtonLabelContainer}>
@@ -61,9 +61,9 @@ function AddStaff() {
               <label>
                 <input
                   type="radio"
-                  value="masculin"
+                  value="Homme"
                   name="gender"
-                  checked={inputs.gender === "masculin"}
+                  checked={inputs.gender === "Homme"}
                   onChange={handleChange}
                 />
                 <span className={styles.RadioButtonLabelContainer}>
@@ -107,7 +107,7 @@ function AddStaff() {
             >
               <option value="">Sélectionnez un rôle</option>
               <option value="Admin">Admin</option>
-              <option value="Secretaire">Secrétaire</option>
+              <option value="Secrétaire">Secrétaire</option>
               <option value="Manager">Manager</option>
               <option value="Agent">Agent</option>
             </select>

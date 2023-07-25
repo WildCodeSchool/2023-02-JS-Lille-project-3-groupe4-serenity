@@ -47,9 +47,9 @@ function AddPatient() {
               <label>
                 <input
                   type="radio"
-                  value="feminin"
+                  value="Femme"
                   name="gender"
-                  checked={inputs.gender === "feminin"}
+                  checked={inputs.gender === "Femme"}
                   onChange={handleChange}
                 />
                 <span className={styles.RadioButtonLabelContainer}>
@@ -61,9 +61,9 @@ function AddPatient() {
               <label>
                 <input
                   type="radio"
-                  value="masculin"
+                  value="Homme"
                   name="gender"
-                  checked={inputs.gender === "masculin"}
+                  checked={inputs.gender === "Homme"}
                   onChange={handleChange}
                 />
                 <span className={styles.RadioButtonLabelContainer}>
