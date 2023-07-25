@@ -16,7 +16,7 @@ function Home() {
         <p className={styles.text}>Vous êtes:</p>
         <div className={styles.connexionLinksContainer}>
           <div className={styles.proGlobalBloc}>
-            <Link to="/secretariat">
+            <Link to="/secretariat/login">
               <div className={styles.professionalContainer}>
                 <img src={proLogo} alt="professional logo connexion" />
               </div>

@@ -20,7 +20,8 @@ router.delete("/patients/:id", patientControllers.destroy);
 
 const identificationControllers = require("./controllers/identificationControllers");
 
-router.post("/login", identificationControllers.login);
+router.post("/patientLogin", identificationControllers.patientLogin);
+router.post("/secretariatLogin", identificationControllers.secretariatLogin);
 
 const practitionerControllers = require("./controllers/practitionerControllers");
 

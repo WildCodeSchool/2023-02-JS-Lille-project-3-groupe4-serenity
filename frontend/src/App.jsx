@@ -33,6 +33,7 @@ import SecretariatInterventionPage from "./pages/secretariat/SecretariatInterven
 import SecretariatPatientPage from "./pages/secretariat/SecretariatPatientPage";
 import SecretariatPractitionerPage from "./pages/secretariat/SecretariatPractitionerPage";
 import SecretariatUnitPage from "./pages/secretariat/SecretariatUnitPage";
+import SecretariatLoginPage from "./pages/secretariat/SecretariatLoginPage";
 
 const router = createBrowserRouter([
   {
@@ -118,43 +119,52 @@ const router = createBrowserRouter([
   },
   {
     path: "/secretariat",
-    element: <SecretariatLayout />,
     children: [
       {
+        path: "login",
+        element: <SecretariatLoginPage />,
+      },
+      {
         path: "",
-        element: <SecretariatDashboardPage />,
-      },
-      {
-        path: "unit",
-        element: <SecretariatUnitPage />,
-      },
-      {
-        path: "practitioner",
-        element: <SecretariatPractitionerPage />,
-      },
-      {
-        path: "practitioner/add",
-        element: <AddPractitioner />,
-      },
-      {
-        path: "patient",
-        element: <SecretariatPatientPage />,
-      },
-      {
-        path: "patient/add",
-        element: <AddPatient />,
-      },
-      {
-        path: "patient/infos/:social_secu_number",
-        element: <InfosPatient />,
-      },
-      {
-        path: "intervention",
-        element: <SecretariatInterventionPage />,
-      },
-      {
-        path: "intervention/add",
-        element: <AddIntervention />,
+        element: <SecretariatLayout />,
+        children: [
+          {
+            path: "",
+            element: <SecretariatDashboardPage />,
+          },
+          {
+            path: "unit",
+            element: <SecretariatUnitPage />,
+          },
+          {
+            path: "practitioner",
+            element: <SecretariatPractitionerPage />,
+          },
+          {
+            path: "practitioner/add",
+            element: <AddPractitioner />,
+          },
+          {
+            path: "patient",
+            element: <SecretariatPatientPage />,
+          },
+          {
+            path: "patient/add",
+            element: <AddPatient />,
+          },
+          {
+            path: "patient/infos/:social_secu_number",
+            element: <InfosPatient />,
+          },
+          {
+            path: "intervention",
+            element: <SecretariatInterventionPage />,
+          },
+          {
+            path: "intervention/add",
+            element: <AddIntervention />,
+          },
+        ],
       },
     ],
   },

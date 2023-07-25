@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import styles from "./PatientLoginPage.module.css";
+import styles from "./SecretariatLoginPage.module.css";
 
-function PatientLoginPage() {
+function SecretariatLoginPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -17,7 +17,7 @@ function PatientLoginPage() {
   const handleLogin = async () => {
     try {
       const response = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}/patientLogin`,
+        `${import.meta.env.VITE_BACKEND_URL}/secretariatLogin`,
         {
           email,
           password,
@@ -27,7 +27,7 @@ function PatientLoginPage() {
         // Store the token in a cookie
         document.cookie = `token=${response.data.token}; path=/;`;
 
-        navigate("/patient/intervention");
+        navigate("/secretariat");
       } else {
         console.error("Connexion non autorisée");
       }
@@ -51,8 +51,8 @@ function PatientLoginPage() {
       <div className={styles.pageContainer}>
         <h1 className={styles.pageTitle}>Connexion</h1>
         <p className={styles.text}>
-          Je suis un.e patient.e, je me connecte à mon espace personnel à l'aide
-          de mes identifiants Serenity reçus par mail.
+          Je suis secrétaire, je me connecte à mon espace personnel à l'aide de
+          mes identifiants Serenity reçus par mail.
         </p>
         <div className={styles.formContainer}>
           <label className={styles.emailLabel}>
@@ -101,4 +101,4 @@ function PatientLoginPage() {
   );
 }
 
-export default PatientLoginPage;
+export default SecretariatLoginPage;
