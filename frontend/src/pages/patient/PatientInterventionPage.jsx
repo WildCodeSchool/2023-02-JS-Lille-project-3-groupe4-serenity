@@ -30,7 +30,7 @@ function PatientInterventionPage() {
     };
 
     fetchInter();
-  });
+  }, []);
 
   return (
     <div className={styles.homeContainer}>

@@ -45,7 +45,7 @@ router.get("/interventions", interventionControllers.browse);
 router.get("/interventions/count", interventionControllers.count);
 router.get("/interventions/:id", interventionControllers.read);
 router.get(
-  "/interventions/social_secu_number/:social_secu_number",
+  "/interventions/social_secu_number/:socialSecuNumber",
   verifyJWT,
   interventionControllers.readBySocialSecuNumber
 );
