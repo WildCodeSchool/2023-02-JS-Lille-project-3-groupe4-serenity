@@ -75,10 +75,22 @@
 
 .link {
   display: block;
-  color: #000000;
   text-decoration: none;
+  color: var(--dark-blue);
+  font-size: 1.2rem;
 }
 
 .link:hover {
   text-decoration: underline;
+}
+
+@media screen and (max-width: 990px) {
+  .pageTitle {
+    font-size: 2rem;
+  }
+
+  .text {
+    text-align: center;
+    font-size: 1.5rem;
+  }
 }

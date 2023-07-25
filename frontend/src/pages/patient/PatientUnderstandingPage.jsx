@@ -79,7 +79,9 @@ function PatientUnderstandingPage() {
   useEffect(() => {
     const fetchVideoLink = async () => {
       try {
-        const response = await axios.get("http://localhost:5050/resources");
+        const response = await axios.get(
+          `${import.meta.env.VITE_BACKEND_URL}/resources`
+        );
         const { data } = response;
         if (data.length > 0) {
           setVideoLink(data[5].link);
@@ -114,7 +116,7 @@ function PatientUnderstandingPage() {
                 </div>
 
                 <iframe
-                  src={`http://localhost:5050/${pdf1Link}`}
+                  src={`${import.meta.env.VITE_BACKEND_URL}/${pdf1Link}`}
                   title="PDF Document 1"
                   width="100%"
                   height="100%"
@@ -145,7 +147,7 @@ function PatientUnderstandingPage() {
                   >
                     <track src="captions.vtt" kind="captions" label="English" />
                     <source
-                      src={`http://localhost:5050/${videoLink}`}
+                      src={`${import.meta.env.VITE_BACKEND_URL}/${videoLink}`}
                       type="video/mp4"
                     />
                     Your browser does not support the video tag.

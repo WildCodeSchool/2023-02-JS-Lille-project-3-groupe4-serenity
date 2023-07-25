@@ -78,7 +78,7 @@ function AddStaff() {
             Nom:
             <input
               type="text"
-              name="last_name"
+              name="lastName"
               autoComplete="off"
               value={inputs.lastName || ""}
               onChange={handleChange}
@@ -90,7 +90,7 @@ function AddStaff() {
             Prénom:
             <input
               type="text"
-              name="first_name"
+              name="firstName"
               autoComplete="off"
               value={inputs.firstName || ""}
               onChange={handleChange}
@@ -157,7 +157,7 @@ function AddStaff() {
             Code Postal:
             <input
               type="text"
-              name="zip_code"
+              name="zipCode"
               autoComplete="off"
               value={inputs.zipCode || ""}
               onChange={handleChange}
