@@ -9,7 +9,7 @@ function InterventionListTable() {
   const [interventions, setInterventions] = useState([]);
 
   useEffect(() => {
-    const fectchAllPatient = async () => {
+    const fectchAllInterventions = async () => {
       try {
         const response = await axios.get(
           `${import.meta.env.VITE_BACKEND_URL}/interventions`
@@ -19,7 +19,7 @@ function InterventionListTable() {
         console.error(err);
       }
     };
-    fectchAllPatient();
+    fectchAllInterventions();
   }, []);
 
   return (

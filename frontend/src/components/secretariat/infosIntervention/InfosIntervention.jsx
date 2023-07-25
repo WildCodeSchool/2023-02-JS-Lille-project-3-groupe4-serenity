@@ -9,12 +9,15 @@ function InfoIntervention() {
   const idIntervention = useParams().id;
   const [intervention, setIntervention] = useState([]);
 
+  axios.defaults.withCredentials = true;
+
   useEffect(() => {
     const fetchInterventionByProcedureDate = async () => {
       try {
         const response = await axios.get(
           `${import.meta.env.VITE_BACKEND_URL}/interventions/${idIntervention}`
         );
+
         setIntervention(response.data[0]);
       } catch (err) {
         console.error(err);
