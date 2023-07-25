@@ -1,5 +1,4 @@
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
 import Typography from "@mui/material/Typography";
 import { StyledEngineProvider } from "@mui/material/styles";
@@ -35,7 +34,12 @@ export default function BasicModal({ infosText }) {
           bottom: "20%",
         }}
       >
-        <Button onClick={handleOpen} className="modalButton" />
+        <button
+          type="button"
+          onClick={handleOpen}
+          className="modalButton"
+          aria-label="Open Notifications Modal"
+        />
         <Modal
           open={open}
           onClose={handleClose}

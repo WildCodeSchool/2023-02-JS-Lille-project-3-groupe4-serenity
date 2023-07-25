@@ -1,200 +1,135 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import "./App.css";
-import AdminLayout from "./components/admin/adminLayout/AdminLayout";
-import PatientLayout from "./components/patient/patientLayout/PatientLayout";
-import PractitionerLayout from "./components/practitionner/practitionerLayout/PractitionerLayout";
-import AddIntervention from "./components/secretariat/addIntervention/AddIntervention";
-import AddPatient from "./components/secretariat/addPatient/AddPatient";
-import AddPractitioner from "./components/secretariat/addPractitioner/AddPractitioner";
-import InfosPatient from "./components/secretariat/infosPatient/InfosPatient";
-import SecretariatLayout from "./components/secretariat/secretariatLayout/SecretariatLayout";
+import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import AdminDashboardPage from "./pages/admin/AdminDashboardPage";
-import AdminInterventionPage from "./pages/admin/AdminInterventionPage";
-import AdminPatientPage from "./pages/admin/AdminPatientPage";
-import AdminPractitionerPage from "./pages/admin/AdminPractitionerPage";
-import AdminStaffPage from "./pages/admin/AdminStaffPage";
-import AdminUnitPage from "./pages/admin/AdminUnitPage";
-import InfosPractitioner from "./components/secretariat/infosPractitioner/InfosPractitioner";
-import InfosPatientPage from "./pages/patient/InfosPatientPage";
-import InfoIntervention from "./components/secretariat/infosIntervention/InfosIntervention";
-import PatientBreathePage from "./pages/patient/PatientBreathePage";
-import PatientChecklistPage from "./pages/patient/PatientChecklistPage";
-import PatientInterventionPage from "./pages/patient/PatientInterventionPage";
 import PatientLoginPage from "./pages/patient/PatientLoginPage";
-import PatientMusicPage from "./pages/patient/PatientMusicPage";
-import PatientOutboardingPage from "./pages/patient/PatientOutboardingPage";
-import PatientPaperworkPage from "./pages/patient/PatientPaperworkPage";
-import PatientSerenityPage from "./pages/patient/PatientSerenityPage";
+import PatientInterventionPage from "./pages/patient/PatientInterventionPage";
+import PatientLayout from "./components/patient/patientLayout/PatientLayout";
 import PatientUnderstandingPage from "./pages/patient/PatientUnderstandingPage";
-import PractitionerDashboardPage from "./pages/practitioner/PractitionerDashboardPage";
-import PractitionerInterventionPage from "./pages/practitioner/PractitionerInterventionPage";
-import PractitionerPatientPage from "./pages/practitioner/PractitionerPatientPage";
+import PatientPaperworkPage from "./pages/patient/PatientPaperworkPage";
+import InfosPatientPage from "./pages/patient/InfosPatientPage";
+import PatientSerenityPage from "./pages/patient/PatientSerenityPage";
+import PatientOutboardingPage from "./pages/patient/PatientOutboardingPage";
+import PatientChecklistPage from "./pages/patient/PatientChecklistPage";
+import PatientMusicPage from "./pages/patient/PatientMusicPage";
+import PatientBreathePage from "./pages/patient/PatientBreathePage";
+import AdminLayout from "./components/admin/adminLayout/AdminLayout";
+import AdminDashboardPage from "./pages/admin/AdminDashboardPage";
+import AdminUnitPage from "./pages/admin/AdminUnitPage";
+import AdminPractitionerPage from "./pages/admin/AdminPractitionerPage";
+import AdminPatientPage from "./pages/admin/AdminPatientPage";
+import AdminInterventionPage from "./pages/admin/AdminInterventionPage";
+import AdminStaffPage from "./pages/admin/AdminStaffPage";
+import AddStaff from "./components/admin/addStaff/AddStaff";
+import SecretariatLayout from "./components/secretariat/secretariatLayout/SecretariatLayout";
 import SecretariatDashboardPage from "./pages/secretariat/SecretariatDashboardPage";
-import SecretariatInterventionPage from "./pages/secretariat/SecretariatInterventionPage";
-import SecretariatPatientPage from "./pages/secretariat/SecretariatPatientPage";
-import SecretariatPractitionerPage from "./pages/secretariat/SecretariatPractitionerPage";
 import SecretariatUnitPage from "./pages/secretariat/SecretariatUnitPage";
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Home />,
-  },
-  {
-    path: "/patient/login",
-    element: <PatientLoginPage />,
-  },
-  {
-    path: "/patient/intervention",
-    element: <PatientInterventionPage />,
-  },
-
-  {
-    path: "/patient/:idPatient/:idInter",
-    element: <PatientLayout />,
-    children: [
-      {
-        path: "understanding",
-        element: <PatientUnderstandingPage />,
-      },
-      {
-        path: "understanding/paperwork",
-        element: <PatientPaperworkPage />,
-      },
-      {
-        path: "understanding/paperwork/infospatient",
-        element: <InfosPatientPage />,
-      },
-      {
-        path: "understanding/serenity",
-        element: <PatientSerenityPage />,
-      },
-      {
-        path: "understanding/outboarding",
-        element: <PatientOutboardingPage />,
-      },
-      {
-        path: "understanding/checklist",
-        element: <PatientChecklistPage />,
-      },
-      {
-        path: "music",
-        element: <PatientMusicPage />,
-      },
-      {
-        path: "breathe",
-        element: <PatientBreathePage />,
-      },
-    ],
-  },
-  {
-    path: "/admin",
-    element: <AdminLayout />,
-    children: [
-      {
-        path: "",
-        element: <AdminDashboardPage />,
-      },
-      {
-        path: "unit",
-        element: <AdminUnitPage />,
-      },
-      {
-        path: "practitioner",
-        element: <AdminPractitionerPage />,
-      },
-      {
-        path: "patient",
-        element: <AdminPatientPage />,
-      },
-      {
-        path: "intervention",
-        element: <AdminInterventionPage />,
-      },
-      {
-        path: "staff",
-        element: <AdminStaffPage />,
-      },
-    ],
-  },
-  {
-    path: "/secretariat",
-    element: <SecretariatLayout />,
-    children: [
-      {
-        path: "",
-        element: <SecretariatDashboardPage />,
-      },
-      {
-        path: "unit",
-        element: <SecretariatUnitPage />,
-      },
-      {
-        path: "practitioner",
-        element: <SecretariatPractitionerPage />,
-      },
-      {
-        path: "practitioner/add",
-        element: <AddPractitioner />,
-      },
-      {
-        path: "practitioner/infos/:identifier_rpps",
-        element: <InfosPractitioner />,
-      },
-      {
-        path: "patient",
-        element: <SecretariatPatientPage />,
-      },
-      {
-        path: "patient/add",
-        element: <AddPatient />,
-      },
-      {
-        path: "patient/infos/:social_secu_number",
-        element: <InfosPatient />,
-      },
-      {
-        path: "intervention",
-        element: <SecretariatInterventionPage />,
-      },
-      {
-        path: "intervention/add",
-        element: <AddIntervention />,
-      },
-      {
-        path: "intervention/infos/:id",
-        element: <InfoIntervention />,
-      },
-    ],
-  },
-  {
-    path: "/practitioner",
-    element: <PractitionerLayout />,
-    children: [
-      {
-        path: "",
-        element: <PractitionerDashboardPage />,
-      },
-      {
-        path: "patient",
-        element: <PractitionerPatientPage />,
-      },
-      {
-        path: "intervention",
-        element: <PractitionerInterventionPage />,
-      },
-    ],
-  },
-]);
+import SecretariatPractitionerPage from "./pages/secretariat/SecretariatPractitionerPage";
+import AddPractitioner from "./components/secretariat/addPractitioner/AddPractitioner";
+import InfosPractitioner from "./components/secretariat/infosPractitioner/InfosPractitioner";
+import SecretariatPatientPage from "./pages/secretariat/SecretariatPatientPage";
+import AddPatient from "./components/secretariat/addPatient/AddPatient";
+import InfosPatient from "./components/secretariat/infosPatient/InfosPatient";
+import SecretariatInterventionPage from "./pages/secretariat/SecretariatInterventionPage";
+import AddIntervention from "./components/secretariat/addIntervention/AddIntervention";
+import InfoIntervention from "./components/secretariat/infosIntervention/InfosIntervention";
+import PractitionerLayout from "./components/practitionner/practitionerLayout/PractitionerLayout";
+import PractitionerDashboardPage from "./pages/practitioner/PractitionerDashboardPage";
+import PractitionerPatientPage from "./pages/practitioner/PractitionerPatientPage";
+import PractitionerInterventionPage from "./pages/practitioner/PractitionerInterventionPage";
+import RequireAuth from "./components/auth/RequireAuth";
+import Unauthorized from "./components/unauthorized/Unauthorized";
 
 function App() {
   return (
-    <div className="App">
-      <div className="container">
-        <RouterProvider router={router} />
-      </div>
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/login" element={<PatientLoginPage />} />
+      <Route path="unauthorized" element={<Unauthorized />} />
+
+      {/* Patient Routes */}
+      <Route element={<RequireAuth allowedRoles="Patient" />}>
+        <Route
+          path="/patient/:idPatient/intervention"
+          element={<PatientInterventionPage />}
+        />
+        <Route path="/patient/:idPatient/:idInter" element={<PatientLayout />}>
+          <Route path="understanding" element={<PatientUnderstandingPage />} />
+          <Route
+            path="understanding/paperwork"
+            element={<PatientPaperworkPage />}
+          />
+          <Route
+            path="understanding/paperwork/infospatient"
+            element={<InfosPatientPage />}
+          />
+          <Route
+            path="understanding/serenity"
+            element={<PatientSerenityPage />}
+          />
+          <Route
+            path="understanding/outboarding"
+            element={<PatientOutboardingPage />}
+          />
+          <Route
+            path="understanding/checklist"
+            element={<PatientChecklistPage />}
+          />
+          <Route path="music" element={<PatientMusicPage />} />
+          <Route path="breathe" element={<PatientBreathePage />} />
+        </Route>
+      </Route>
+
+      {/* Admin Routes */}
+      <Route path="/admin" element={<AdminLayout />}>
+        <Route path="" element={<AdminDashboardPage />} />
+        <Route path="unit" element={<AdminUnitPage />} />
+        <Route path="practitioner" element={<AdminPractitionerPage />} />
+        <Route path="patient" element={<AdminPatientPage />} />
+        <Route path="intervention" element={<AdminInterventionPage />} />
+        <Route path="staff" element={<AdminStaffPage />} />
+        <Route path="staff/add" element={<AddStaff />} />
+      </Route>
+
+      {/* Secretariat Routes */}
+      <Route element={<RequireAuth allowedRoles="Secretaire" />}>
+        <Route path="/secretariat" element={<SecretariatLayout />}>
+          <Route path="" element={<SecretariatDashboardPage />} />
+          <Route path="unit" element={<SecretariatUnitPage />} />
+          <Route
+            path="practitioner"
+            element={<SecretariatPractitionerPage />}
+          />
+          <Route path="practitioner/add" element={<AddPractitioner />} />
+          <Route
+            path="practitioner/infos/:identifier_rpps"
+            element={<InfosPractitioner />}
+          />
+          <Route path="patient" element={<SecretariatPatientPage />} />
+          <Route path="patient/add" element={<AddPatient />} />
+          <Route
+            path="patient/infos/:social_secu_number"
+            element={<InfosPatient />}
+          />
+          <Route
+            path="intervention"
+            element={<SecretariatInterventionPage />}
+          />
+          <Route path="intervention/add" element={<AddIntervention />} />
+          <Route path="intervention/infos/:id" element={<InfoIntervention />} />
+        </Route>
+      </Route>
+
+      {/* Practitioner Routes */}
+      <Route element={<RequireAuth allowedRoles="Practicien" />}>
+        <Route path="/practitioner" element={<PractitionerLayout />}>
+          <Route path="" element={<PractitionerDashboardPage />} />
+          <Route path="patient" element={<PractitionerPatientPage />} />
+          <Route
+            path="intervention"
+            element={<PractitionerInterventionPage />}
+          />
+        </Route>
+      </Route>
+    </Routes>
   );
 }
 

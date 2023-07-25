@@ -76,37 +76,59 @@ const login = async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    const [[identification]] = await models.identification.selectByEmail(email);
+    const [rows] = await models.identification.selectByEmail(email);
 
-    if (!identification) {
-      return res.status(400).send({ message: "Invalid email" });
+    if (rows.length > 0) {
+      const match = await bcrypt.compare(password, rows[0].pwd);
+      if (match) {
+        const {
+          social_secu_number: socialSecuNumber,
+          identifier_rpps: identifierRpps,
+          first_name: firstName,
+          last_name: lastName,
+          roles: role,
+        } = rows[0];
+        const token = jwt.sign(
+          { socialSecuNumber, identifierRpps, role },
+          process.env.JWT_PASSWORD,
+          {
+            expiresIn: 300,
+          }
+        );
+        res.cookie("token", token, {
+          httpOnly: true,
+          expires: new Date(Date.now() + 60 * 60 * 1000), // Expires in 1 hour
+        });
+        res.status(200).json({
+          user: {
+            socialSecuNumber,
+            identifierRpps,
+            firstName,
+            lastName,
+            email: rows[0].email,
+            role,
+          },
+        });
+      } else {
+        res
+          .status(401)
+          .json({ error: "Authentication failed. Incorrect password." });
+      }
+    } else {
+      res.status(401).json({ error: "Authentication failed. User not found." });
     }
-
-    const match = await bcrypt.compare(password, identification.pwd);
-
-    if (!match) {
-      return res.status(400).send({ message: "Invalid password" });
-    }
-
-    const token = jwt.sign({ id: identification.id }, process.env.JWT_SECRET, {
-      expiresIn: "1h", // Expires in 1 hour
-    });
-
-    res.cookie("token", token, {
-      httpOnly: true,
-      expires: new Date(Date.now() + 60 * 60 * 1000), // Expires in 1 hour
-    });
-
-    return res.status(200).send({ message: "Logged in successfully" });
-  } catch (error) {
-    console.error(error);
-    return res.status(500).send({ message: "Internal server error" });
+  } catch (err) {
+    res.status(500).json({ error: "Internal server error." });
   }
 };
 
-const logout = (req, res) => {
-  res.clearCookie("token");
-  res.sendStatus(200);
+const logout = async (req, res) => {
+  const { cookies } = req;
+
+  if (!cookies?.token) return res.sendStatus(204); // No content
+
+  res.clearCookie("token", { httpOnly: true });
+  return res.sendStatus(204);
 };
 
 module.exports = {
