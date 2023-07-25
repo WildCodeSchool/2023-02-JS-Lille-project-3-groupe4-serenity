@@ -33,8 +33,7 @@ class InterventionManager extends AbstractManager {
 
     await this.database.query(
       `INSERT INTO understep (statut, step_id, type_intervention)
-      VALUES (0, @step_id, (SELECT type_intervention FROM intervention WHERE intervention.id = @intervention_id)),
-             (0, @step_id, (SELECT type_intervention FROM intervention WHERE intervention.id = @intervention_id)),
+      VALUES 
              (0, @step_id, (SELECT type_intervention FROM intervention WHERE intervention.id = @intervention_id)),
              (0, @step_id, (SELECT type_intervention FROM intervention WHERE intervention.id = @intervention_id)),
              (0, @step_id + 1, (SELECT type_intervention FROM intervention WHERE intervention.id = @intervention_id)),

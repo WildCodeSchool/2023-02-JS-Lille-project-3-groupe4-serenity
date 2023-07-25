@@ -8,10 +8,12 @@ function AddIntervention() {
   const [inputs, setInputs] = useState({ roles: "patient" });
   const [practitionerList, setPractitionerList] = useState([]);
   const [patientsList, setPatientsList] = useState([]);
+  const [uniqueInterventions, setUniqueInterventions] = useState([]);
+
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fectchAllPractitionner = async () => {
+    const fectchAllPractitioner = async () => {
       try {
         const response = await axios.get(
           `${import.meta.env.VITE_BACKEND_URL}/practitioners`
@@ -21,7 +23,7 @@ function AddIntervention() {
         console.error(err);
       }
     };
-    fectchAllPractitionner();
+    fectchAllPractitioner();
   }, []);
 
   useEffect(() => {
@@ -36,6 +38,29 @@ function AddIntervention() {
       }
     };
     fectchAllPatient();
+  }, []);
+
+  useEffect(() => {
+    const fetchAllInterventions = async () => {
+      try {
+        const response = await axios.get(
+          `${import.meta.env.VITE_BACKEND_URL}/interventions`
+        );
+        const allInterventions = response.data;
+        // Use Set to get unique types of interventions
+        const uniqueTypes = [
+          ...new Set(
+            allInterventions.map(
+              (intervention) => intervention.typeIntervention
+            )
+          ),
+        ];
+        setUniqueInterventions(uniqueTypes);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    fetchAllInterventions();
   }, []);
 
   const handleChange = (event) => {
@@ -102,6 +127,7 @@ function AddIntervention() {
                 ))}
               </select>
             </label>
+
             <label>
               Identifiant RPPS:
               <select
@@ -111,7 +137,7 @@ function AddIntervention() {
                 onChange={handleChange}
               >
                 <option value="" disabled hidden>
-                  Séléctionnez un practicien
+                  Séléctionnez un praticien
                 </option>
                 {practitionerList.map((practitioner) => (
                   <option
@@ -124,6 +150,7 @@ function AddIntervention() {
                 ))}
               </select>
             </label>
+
             <label>
               Date de procédure:
               <input
@@ -134,25 +161,27 @@ function AddIntervention() {
               />
             </label>
           </div>
+
           <div className={styles.middleContainer}>
             <label>
-              Type d'intervention:
+              Type interventions:
               <select
                 className={styles.multipleChoicesMenu}
                 name="type_intervention"
                 value={inputs.type_intervention || ""}
                 onChange={handleChange}
               >
-                <option
-                  value=""
-                  aria-label="Select list for intervention type"
-                  disabled
-                  hidden
-                />
-                <option value="Pose implant">Pose implant</option>
-                <option value="Chirurgie">Chirurgie</option>
+                <option value="" disabled hidden>
+                  Séléctionnez un type d'interventions
+                </option>
+                {uniqueInterventions.map((type) => (
+                  <option key={type} value={type}>
+                    {type}
+                  </option>
+                ))}
               </select>
             </label>
+
             <label>
               Nom du patient:
               <input
@@ -163,7 +192,7 @@ function AddIntervention() {
               />
             </label>
             <label>
-              Nom du practicien:
+              Nom du praticien:
               <input
                 type="text"
                 value={inputs.last_name || ""}

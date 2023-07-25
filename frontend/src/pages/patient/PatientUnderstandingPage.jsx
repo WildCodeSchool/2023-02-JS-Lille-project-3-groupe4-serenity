@@ -14,11 +14,12 @@ function PatientUnderstandingPage() {
 
   const [checkedValues, setCheckedValues] = useState([false, false]);
 
-  const [videoLink, setVideoLink] = useState("");
-  const [pdf1Link, setPdf1Link] = useState("");
-
   const [underStepIds, setUnderStepIds] = useState([]);
   const { idInter } = useParams();
+
+  const [videoLink, setVideoLink] = useState("");
+  const [pdf1Link, setPdf1Link] = useState("");
+  const [typeInter, setTypeInter] = useState("");
 
   useEffect(() => {
     const fetchStep = async () => {
@@ -31,11 +32,14 @@ function PatientUnderstandingPage() {
         const ids = data.map((item) => item.id);
         const statuts = data.map((item) => item.understepStatut);
 
+        const type = data.map((item) => item.type_intervention);
+
         const underStepsSubset = ids.slice(0, 2);
         const statutsSubset = statuts.slice(0, 2);
 
         setCheckedValues(statutsSubset);
         setUnderStepIds(underStepsSubset);
+        setTypeInter(type[0]);
       } catch (err) {
         console.error(err);
       }
@@ -43,6 +47,38 @@ function PatientUnderstandingPage() {
 
     fetchStep();
   }, [idInter]);
+
+  useEffect(() => {
+    const fetchResourcesForIntervention = async () => {
+      try {
+        if (typeInter !== "") {
+          const response = await axios.get(
+            `${import.meta.env.VITE_BACKEND_URL}/resources/type/${typeInter}`
+          );
+          const { data } = response;
+
+          const videoData = data.find((item) => item.type_resource === "Video");
+          const pdfData = data.find((item) => item.type_resource === "Pdf");
+
+          if (videoData) {
+            setVideoLink(videoData.link);
+          } else {
+            setVideoLink("");
+          }
+
+          if (pdfData) {
+            setPdf1Link(pdfData.link);
+          } else {
+            setPdf1Link("");
+          }
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    fetchResourcesForIntervention();
+  }, [typeInter]);
 
   const handleChange = (index) => (event) => {
     const { checked } = event.target;
@@ -76,23 +112,6 @@ function PatientUnderstandingPage() {
       });
   };
 
-  useEffect(() => {
-    const fetchVideoLink = async () => {
-      try {
-        const response = await axios.get("http://localhost:5050/resources");
-        const { data } = response;
-        if (data.length > 0) {
-          setVideoLink(data[5].link);
-          setPdf1Link(data[6].link);
-        }
-      } catch (err) {
-        console.error(err);
-      }
-    };
-
-    fetchVideoLink();
-  }, []);
-
   return (
     <div className={styles.understandingPageContainer}>
       {isTabletOrMobile && <UnderstandingMobile />}
@@ -112,14 +131,15 @@ function PatientUnderstandingPage() {
                     onChange={handleChange(0)}
                   />
                 </div>
-
-                <iframe
-                  src={`http://localhost:5050/${pdf1Link}`}
-                  title="PDF Document 1"
-                  width="100%"
-                  height="100%"
-                  className={styles.videoStyle}
-                />
+                {pdf1Link && (
+                  <iframe
+                    src={`http://localhost:5050/${pdf1Link}`}
+                    title="PDF Document 1"
+                    width="100%"
+                    height="100%"
+                    className={styles.videoStyle}
+                  />
+                )}
               </div>
             </div>
 

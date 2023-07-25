@@ -12,17 +12,13 @@ const browse = (req, res) => {
     });
 };
 
-const read = (req, res) => {
-  const { id } = req.params;
+const findByTypeIntervention = (req, res) => {
+  const { typeIntervention } = req.params;
 
   models.resource
-    .findResourceById(id)
+    .findResourcesByTypeIntervention(typeIntervention)
     .then((rows) => {
-      if (rows.length === 0) {
-        res.sendStatus(404);
-      } else {
-        res.send(rows[0]);
-      }
+      res.send(rows);
     })
     .catch((err) => {
       console.error(err);
@@ -82,7 +78,7 @@ const destroy = (req, res) => {
 
 module.exports = {
   browse,
-  read,
+  findByTypeIntervention,
   edit,
   add,
   destroy,

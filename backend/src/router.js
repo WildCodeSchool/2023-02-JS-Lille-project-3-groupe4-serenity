@@ -52,7 +52,10 @@ router.delete("/steps/:id", stepControllers.destroy);
 const resourceControllers = require("./controllers/resourceController");
 
 router.get("/resources", resourceControllers.browse);
-router.get("/resources/:id", resourceControllers.read);
+router.get(
+  "/resources/type/:typeIntervention",
+  resourceControllers.findByTypeIntervention
+);
 
 const serviceControllers = require("./controllers/serviceControllers");
 
