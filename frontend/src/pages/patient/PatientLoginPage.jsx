@@ -42,7 +42,7 @@ function PatientLoginPage() {
           case "Patient":
             navigate(`/patient/${user.socialSecuNumber}/intervention`);
             break;
-          case "Secretaire":
+          case "Secrétaire":
             navigate("/secretariat");
             break;
           default:

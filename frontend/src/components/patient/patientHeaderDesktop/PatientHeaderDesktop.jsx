@@ -86,7 +86,9 @@ function PatientHeaderDesktop() {
             </p>
           </div>
           <div className={styles.dateContainer}>
-            <p className={styles.normalText}>Ma Chirurgie</p>
+            <p className={styles.normalText}>
+              {currentIntervention?.type_intervention}
+            </p>
             <p className={styles.littleText}>
               {formatDate(currentIntervention?.procedure_date)}
             </p>

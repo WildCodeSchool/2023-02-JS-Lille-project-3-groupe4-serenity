@@ -84,8 +84,8 @@ function PatientUnderstandingPage() {
         );
         const { data } = response;
         if (data.length > 0) {
-          setVideoLink(data[5].link);
-          setPdf1Link(data[6].link);
+          setVideoLink(data[0].link);
+          setPdf1Link(data[1].link);
         }
       } catch (err) {
         console.error(err);

@@ -84,24 +84,33 @@ function SecretariatDashboard() {
         <h1 className={styles.titleContainer}>Prochaine intervention:</h1>
 
         <div className={styles.NumberPatientContainer}>
-          <h2>Date: {formatDate(oldestIntervention.dateIntervention)}</h2>
+          <h2>
+            {" "}
+            <span className={styles.nextInterTitle}>Date: </span>
+            {formatDate(oldestIntervention.dateIntervention)}
+          </h2>
         </div>
 
         <div className={styles.NumberInterventionContainer}>
           <h2>
-            Patient: {oldestIntervention.patientFirstName}{" "}
+            <span className={styles.nextInterTitle}>Patient: </span>
+            {oldestIntervention.patientFirstName}{" "}
             {oldestIntervention.patientLastName}
           </h2>
         </div>
 
         <div className={styles.NumberInterventionContainer}>
           <h2>
-            Practicien: {oldestIntervention.practitionerFirstName}{" "}
+            <span className={styles.nextInterTitle}>Practicien: </span>
+            {oldestIntervention.practitionerFirstName}{" "}
             {oldestIntervention.practitionerLastName}
           </h2>
         </div>
         <div className={styles.NumberInterventionContainer}>
-          <h2>Intervention: {oldestIntervention.typeIntervention}</h2>
+          <h2>
+            <span className={styles.nextInterTitle}>Intervention: </span>
+            {oldestIntervention.typeIntervention}
+          </h2>
         </div>
       </div>
     </div>
