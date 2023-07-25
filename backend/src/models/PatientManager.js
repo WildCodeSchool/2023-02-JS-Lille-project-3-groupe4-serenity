@@ -39,7 +39,7 @@ class PatientManager extends AbstractManager {
         (SELECT email FROM serenity.user AS U WHERE U.id = @user_id),
         @user_id,
         (SELECT social_secu_number FROM serenity.patient P WHERE P.user_id = @user_id),
-        2)`,
+        ?)`,
       [hashedPassword]
     );
   }

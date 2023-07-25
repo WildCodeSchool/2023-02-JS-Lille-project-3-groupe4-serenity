@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import {
   FaRocketchat,
   FaPowerOff,
@@ -6,11 +7,29 @@ import {
   FaMusic,
   FaOm,
 } from "react-icons/fa";
-import { NavLink, Link, useParams } from "react-router-dom";
+import { NavLink, Link, useParams, useNavigate } from "react-router-dom";
 import styles from "./PatientNavbarDesktop.module.css";
+
+axios.defaults.withCredentials = true;
 
 function PatientNavbarDesktop() {
   const { idInter, idPatient } = useParams();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    try {
+      // Envoyer une requête POST à la route /logout pour se déconnecter
+      await axios.post(`${import.meta.env.VITE_BACKEND_URL}/logout`);
+
+      localStorage.removeItem("auth");
+
+      navigate("/login");
+    } catch (error) {
+      console.error("Error logging out:", error);
+      // Gérer les erreurs éventuelles
+    }
+  };
 
   return (
     <div className={styles.navbarContainer}>
@@ -67,10 +86,14 @@ function PatientNavbarDesktop() {
       </div>
       <div className={styles.logoutContainer}>
         <Link to="/" className={styles.logoutLink}>
-          <div className={styles.iconAndTextContainer}>
+          <button
+            type="button"
+            className={styles.iconAndTextContainer}
+            onClick={handleLogout}
+          >
             <FaPowerOff className={styles.linkIcons} />
             Log out
-          </div>
+          </button>
         </Link>
       </div>
     </div>

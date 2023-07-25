@@ -69,6 +69,11 @@ const ServiceManager = require("./ServiceManager");
 models.service = new ServiceManager();
 models.service.setDatabase(pool);
 
+const StaffManager = require("./StaffManager");
+
+models.staff = new StaffManager();
+models.staff.setDatabase(pool);
+
 const handler = {
   get(obj, prop) {
     if (prop in obj) {

@@ -28,6 +28,35 @@ const read = (req, res) => {
     });
 };
 
+const readBySocialSecuNumber = async (req, res) => {
+  const { socialSecuNumber } = req.params;
+
+  try {
+    const interventions = await models.intervention.findInterventionByUserId(
+      socialSecuNumber
+    );
+
+    if (interventions.length === 0) {
+      return res.status(404).json({
+        status: "error",
+        message: "No interventions found for this social security number.",
+      });
+    }
+
+    return res.status(200).json({
+      status: "success",
+      interventions: interventions[0],
+    });
+  } catch (error) {
+    console.error("Error retrieving interventions:", error);
+
+    return res.status(500).json({
+      status: "error",
+      message: "An error occurred while retrieving interventions.",
+    });
+  }
+};
+
 const count = (req, res) => {
   models.intervention
     .findCountIntervention()
@@ -97,6 +126,7 @@ const destroy = (req, res) => {
 module.exports = {
   browse,
   read,
+  readBySocialSecuNumber,
   edit,
   add,
   destroy,

@@ -2,6 +2,8 @@ const express = require("express");
 
 const router = express.Router();
 
+const verifyJWT = require("./services/verifyJWT");
+
 const itemControllers = require("./controllers/itemControllers");
 
 router.get("/items", itemControllers.browse);
@@ -19,9 +21,14 @@ router.put("/patients/:id", patientControllers.edit);
 router.post("/patients", patientControllers.add);
 router.delete("/patients/:id", patientControllers.destroy);
 
+const staffControllers = require("./controllers/staffControllers");
+
+router.post("/staff", staffControllers.add);
+
 const identificationControllers = require("./controllers/identificationControllers");
 
 router.post("/login", identificationControllers.login);
+router.post("/logout", identificationControllers.logout);
 
 const practitionerControllers = require("./controllers/practitionerControllers");
 
@@ -37,6 +44,11 @@ const interventionControllers = require("./controllers/interventionControllers")
 router.get("/interventions", interventionControllers.browse);
 router.get("/interventions/count", interventionControllers.count);
 router.get("/interventions/:id", interventionControllers.read);
+router.get(
+  "/interventions/social_secu_number/:social_secu_number",
+  verifyJWT,
+  interventionControllers.readBySocialSecuNumber
+);
 router.put("/interventions/:id", interventionControllers.edit);
 router.post("/interventions", interventionControllers.add);
 router.delete("/interventions/:id", interventionControllers.destroy);

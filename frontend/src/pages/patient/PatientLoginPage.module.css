@@ -70,8 +70,8 @@
 .passwordLabel {
   font-size: 1.25rem;
   color: #555;
-  margin-right: 1rem; /* Ajuster l'espace entre le libellé et l'input */
-  align-self: flex-start; /* Aligner les libellés à gauche */
+  margin-right: 1rem;
+  align-self: flex-start;
 }
 
 .emailField,
@@ -88,12 +88,11 @@
   color: white;
   border: none;
   border-radius: 5px;
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
   font-size: 1.25rem;
   cursor: pointer;
-  margin: 0 auto; /* Centrer les inputs horizontalement */
-  justify-self: center; /* Centrer les inputs dans le formulaire */
-  width: 30%;
+  margin: 0 auto;
+  justify-self: center;
 }
 
 .passwordInputContainer {

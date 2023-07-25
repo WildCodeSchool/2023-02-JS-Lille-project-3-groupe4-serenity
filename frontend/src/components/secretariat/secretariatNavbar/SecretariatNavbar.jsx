@@ -1,17 +1,36 @@
 import React from "react";
+import axios from "axios";
 import {
   FaChartBar,
   FaPlusSquare,
   FaRegHospital,
-  FaRocketchat,
   FaUserInjured,
   FaUserMd,
   FaPowerOff,
 } from "react-icons/fa";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 import styles from "./SecretariatNavbar.module.css";
 
+axios.defaults.withCredentials = true;
+
 function SecretariatNavbar() {
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    try {
+      // Envoyer une requête POST à la route /logout pour se déconnecter
+      await axios.post(`${import.meta.env.VITE_BACKEND_URL}/logout`);
+
+      localStorage.removeItem("auth");
+
+      navigate("/login");
+    } catch (error) {
+      console.error("Error logging out:", error);
+      // Gérer les erreurs éventuelles
+    }
+  };
+
   return (
     <div className={styles.navbarContainer}>
       <div className={styles.logoContainer}>Serenity</div>
@@ -75,7 +94,7 @@ function SecretariatNavbar() {
       </div>
       <div className={styles.separator} />
       <div className={styles.newsContainer}>
-        <NavLink
+        {/* <NavLink
           to="/secretariat/messagerie"
           className={({ isActive }) =>
             isActive ? styles.activeLink : styles.pendingLink
@@ -85,14 +104,18 @@ function SecretariatNavbar() {
             <FaRocketchat className={styles.linkIcons} />
             Messagerie
           </div>
-        </NavLink>
+        </NavLink> */}
       </div>
       <div className={styles.logoutContainer}>
         <Link to="/" className={styles.logoutLink}>
-          <div className={styles.iconAndTextContainer}>
+          <button
+            type="button"
+            className={styles.iconAndTextContainer}
+            onClick={handleLogout}
+          >
             <FaPowerOff className={styles.linkIcons} />
             Log out
-          </div>
+          </button>
         </Link>
       </div>
     </div>

@@ -64,6 +64,27 @@ class InterventionManager extends AbstractManager {
     return this.database.query(
       `SELECT intervention.social_secu_number AS "social_number",
       intervention.identifier_rpps AS "identifier_rpps",
+      intervention.type_intervention AS "typeIntervention",
+      intervention.nom_intervention AS "nomIntervention",
+      intervention.procedure_date AS "dateIntervention",
+      intervention.id AS "id_intervention",
+      practitioner_user.last_name AS "practitionerLastName",
+      practitioner_user.first_name AS "practitionerFirstName",
+      patient_user.last_name AS "patientLastName",
+      patient_user.first_name AS "patientFirstName"
+      FROM serenity.intervention AS intervention
+      JOIN serenity.practitioner AS practitioner ON intervention.identifier_rpps = practitioner.identifier_rpps
+      JOIN serenity.user AS practitioner_user ON practitioner.user_id = practitioner_user.id
+      JOIN serenity.patient AS patient ON intervention.social_secu_number = patient.social_secu_number
+      JOIN serenity.user AS patient_user ON patient.user_id = patient_user.id
+      ORDER BY intervention.procedure_date ASC;`
+    );
+  }
+
+  findInterventionByUserId(socialSecuNumber) {
+    return this.database.query(
+      `SELECT intervention.social_secu_number AS "social_number",
+      intervention.identifier_rpps AS "identifier_rpps",
       intervention.type_intervention AS "typeIntervention" ,
       intervention.nom_intervention AS "nomIntervention",
       intervention.procedure_date AS "dateIntervention",
@@ -72,7 +93,9 @@ class InterventionManager extends AbstractManager {
       JOIN serenity.practitioner AS practitioner ON intervention.identifier_rpps = practitioner.identifier_rpps
       JOIN serenity.user AS practitioner_user ON practitioner.user_id = practitioner_user.id
       JOIN serenity.patient AS patient ON intervention.social_secu_number = patient.social_secu_number
-      JOIN serenity.user AS patient_user ON patient.user_id = patient_user.id;`
+      JOIN serenity.user AS patient_user ON patient.user_id = patient_user.id
+      WHERE intervention.social_secu_number = ?;`,
+      [socialSecuNumber]
     );
   }
 

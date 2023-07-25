@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 import styles from "./PatientLoginPage.module.css";
 
 function PatientLoginPage() {
@@ -9,9 +10,10 @@ function PatientLoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const { setAuth } = useAuth();
 
   const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
+    setShowPassword((prevState) => !prevState);
   };
 
   const handleLogin = async () => {
@@ -23,10 +25,37 @@ function PatientLoginPage() {
           password,
         }
       );
+
       if (response.status === 200) {
-        navigate("/patient/understanding");
+        const { user } = response.data;
+        setAuth({
+          email: user.email,
+          firstName: user.firstName,
+          lastName: user.lastName,
+          role: user.role,
+          identifierRpps: user.identifierRpps,
+          socialSecuNumber: user.socialSecuNumber,
+        });
+
+        // Redirect based on the user's role
+        switch (user.role) {
+          case "Patient":
+            navigate(`/patient/${user.socialSecuNumber}/intervention`);
+            break;
+          case "Secretaire":
+            navigate("/secretariat");
+            break;
+          default:
+            console.error("Unknown role. Cannot redirect.");
+            break;
+        }
       } else {
-        console.error("Connexion non autorisée");
+        // eslint-disable-next-line no-lonely-if
+        if (response.status === 401) {
+          console.error("Authentication failed. User not found.");
+        } else {
+          console.error("Unauthorized");
+        }
       }
     } catch (error) {
       console.error(error);
@@ -48,8 +77,8 @@ function PatientLoginPage() {
       <div className={styles.pageContainer}>
         <h1 className={styles.pageTitle}>Connexion</h1>
         <p className={styles.text}>
-          Je suis un.e patient.e, je me connecte à mon espace personnel à l'aide
-          de mes identifiants Serenity reçus par mail.
+          Je me connecte à mon espace personnel à l'aide de mes identifiants
+          Serenity reçus par mail.
         </p>
         <div className={styles.formContainer}>
           <label className={styles.emailLabel}>
