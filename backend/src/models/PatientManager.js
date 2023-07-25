@@ -34,12 +34,11 @@ class PatientManager extends AbstractManager {
       ]
     );
     await this.database.query(
-      `INSERT INTO identification (pwd, roles, email, user_id, social_secu_number, staff_id) 
+      `INSERT INTO identification (pwd, roles, email, user_id, social_secu_number ) 
        VALUES (?, 'Patient',
         (SELECT email FROM serenity.user AS U WHERE U.id = @user_id),
         @user_id,
-        (SELECT social_secu_number FROM serenity.patient P WHERE P.user_id = @user_id),
-        ?)`,
+        (SELECT social_secu_number FROM serenity.patient P WHERE P.user_id = @user_id))`,
       [hashedPassword]
     );
   }
