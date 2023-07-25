@@ -1,12 +1,6 @@
 import React from "react";
 import axios from "axios";
-import {
-  FaRocketchat,
-  FaPowerOff,
-  FaAddressBook,
-  FaMusic,
-  FaOm,
-} from "react-icons/fa";
+import { FaPowerOff, FaAddressBook, FaMusic, FaOm } from "react-icons/fa";
 import { NavLink, Link, useParams, useNavigate } from "react-router-dom";
 import styles from "./PatientNavbarDesktop.module.css";
 
@@ -72,7 +66,7 @@ function PatientNavbarDesktop() {
       </div>
       <div className={styles.separator} />
       <div className={styles.newsContainer}>
-        <NavLink
+        {/* <NavLink
           to="/secretariat/messagerie"
           className={({ isActive }) =>
             isActive ? styles.activeLink : styles.pendingLink
@@ -82,7 +76,7 @@ function PatientNavbarDesktop() {
             <FaRocketchat className={styles.linkIcons} />
             Messagerie
           </div>
-        </NavLink>
+        </NavLink> */}
       </div>
       <div className={styles.logoutContainer}>
         <Link to="/" className={styles.logoutLink}>

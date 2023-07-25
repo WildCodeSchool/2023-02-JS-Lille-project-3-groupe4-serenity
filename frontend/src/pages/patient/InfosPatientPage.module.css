@@ -66,3 +66,33 @@
   font-weight: 400;
   font-size: 1.8vw;
 }
+
+@media screen and (max-width: 990px) {
+  .infosPatientPageContainer {
+    border: none;
+  }
+
+  .infosPatientContainer {
+    width: 100%;
+  }
+
+  .LeftLine {
+    font-size: 3.5vw;
+    font-weight: 600;
+  }
+
+  .RightLine {
+    font-weight: 400;
+    font-size: 3.5vw;
+  }
+
+  .title {
+    font-size: 5vw;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .closeIcon {
+    font-size: 4vw;
+  }
+}

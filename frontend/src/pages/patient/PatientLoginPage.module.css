@@ -110,3 +110,28 @@
   transform: translateY(-50%);
   cursor: pointer;
 }
+
+@media screen and (max-width: 990px) {
+  .pageTitle {
+    font-size: 2rem;
+  }
+
+  .text {
+    text-align: center;
+    font-size: 1.5rem;
+  }
+
+  .formContainer {
+    width: 90%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .emailLabel,
+  .passwordLabel {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+}

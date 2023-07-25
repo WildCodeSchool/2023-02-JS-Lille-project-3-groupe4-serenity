@@ -18,7 +18,11 @@ function Home() {
           <div className={styles.proGlobalBloc}>
             <Link to="/login">
               <div className={styles.professionalContainer}>
-                <img src={proLogo} alt="professional logo connexion" />
+                <img
+                  className={styles.logo}
+                  src={proLogo}
+                  alt="professional logo connexion"
+                />
               </div>
             </Link>
 
@@ -28,7 +32,7 @@ function Home() {
             <Link to="/login">
               <div className={styles.patientContainer}>
                 <img
-                  className={styles.patientLogoClass}
+                  className={`${styles.patientLogoClass} ${styles.logo}`}
                   src={patientLogo}
                   alt="patient logo connexion"
                 />

@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { FaRegWindowClose } from "react-icons/fa";
 import { useMediaQuery } from "react-responsive";
-import { NavLink, Outlet, useParams } from "react-router-dom";
+import { NavLink, Outlet, useParams, useNavigate } from "react-router-dom";
 import UnderstepsContext from "../../../contexts/UnderstepsContext";
 import PatientHeaderDesktop from "../patientHeaderDesktop/PatientHeaderDesktop";
 import PatientHeaderMobile from "../patientHeaderMobile/PatientHeaderMobile";
@@ -16,6 +16,7 @@ function PatientLayout() {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 990px)" });
   const [isMenuOpen, setMenuOpen] = useState(false);
   const { idInter, idPatient } = useParams();
+  const navigate = useNavigate();
 
   const [ustepOne, setUstepOne] = useState([]);
   const [ustepTwo, setUstepTwo] = useState([]);
@@ -99,6 +100,21 @@ function PatientLayout() {
     }, 0);
     setCountOfOnesUstepFive(onesCountUstepFive);
   }, [ustepOne, ustepTwo, ustepThree, ustepFour, ustepFive]);
+
+  const handleLogout = async () => {
+    document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    try {
+      // Envoyer une requête POST à la route /logout pour se déconnecter
+      await axios.post(`${import.meta.env.VITE_BACKEND_URL}/logout`);
+
+      localStorage.removeItem("auth");
+
+      navigate("/login");
+    } catch (error) {
+      console.error("Error logging out:", error);
+      // Gérer les erreurs éventuelles
+    }
+  };
 
   return (
     <UnderstepsContext.Provider value={contextValue}>
@@ -198,6 +214,17 @@ function PatientLayout() {
                     >
                       Meditation
                     </NavLink>
+                  </h2>
+                  <h2 className={styles.linkText}>
+                    <button
+                      type="button"
+                      className={({ isActive }) =>
+                        isActive ? styles.activeLinkText : styles.linkText
+                      }
+                      onClick={handleLogout}
+                    >
+                      Log out
+                    </button>
                   </h2>
                 </div>
               </div>

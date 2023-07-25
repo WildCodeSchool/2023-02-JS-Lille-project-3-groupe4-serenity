@@ -94,10 +94,17 @@ function PatientHeaderDesktop() {
           </div>
         </div>
 
-        <button
+        <div
           className={styles.notificationsContainer}
-          type="button"
           onClick={handleNotificationClick}
+          onKeyDown={(e) => {
+            // Handle keyboard accessibility
+            if (e.key === "Enter" || e.key === " ") {
+              handleNotificationClick();
+            }
+          }}
+          tabIndex={0} // Add tabIndex to make it focusable
+          role="button" // Add the ARIA role
         >
           {isNotificationVisible && (
             <div className={styles.notificationNumber} />
@@ -112,7 +119,7 @@ function PatientHeaderDesktop() {
               infosText={`Vous êtes à ${progressTotal}% de taux de complétion de vos démarches, pensez à à toutes les compléter avant votre intervention !`}
             />
           )}
-        </button>
+        </div>
       </div>
     </div>
   );
