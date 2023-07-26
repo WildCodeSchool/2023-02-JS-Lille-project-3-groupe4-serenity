@@ -80,7 +80,7 @@ function PratictionnerNavbarDesktop() {
         <Link to="/" className={styles.logoutLink}>
           <div className={styles.iconAndTextContainer}>
             <FaPowerOff className={styles.linkIcons} />
-            Log out
+            Déconnexion
           </div>
         </Link>
       </div>

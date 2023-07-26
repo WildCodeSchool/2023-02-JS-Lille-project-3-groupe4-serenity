@@ -80,6 +80,7 @@ const login = async (req, res) => {
 
     if (rows.length > 0) {
       const match = await bcrypt.compare(password, rows[0].pwd);
+
       if (match) {
         const {
           social_secu_number: socialSecuNumber,
@@ -110,15 +111,17 @@ const login = async (req, res) => {
           },
         });
       } else {
-        res
-          .status(401)
-          .json({ error: "Authentication failed. Incorrect password." });
+        res.status(401).json({
+          error: "Échec de l'authentification. Mot de passe incorrect.",
+        });
       }
     } else {
-      res.status(401).json({ error: "Authentication failed. User not found." });
+      res.status(401).json({
+        error: "Échec de l'authentification. Utilisateur non trouvé.",
+      });
     }
   } catch (err) {
-    res.status(500).json({ error: "Internal server error." });
+    res.status(500).json({ error: "Erreur interne du serveur." });
   }
 };
 

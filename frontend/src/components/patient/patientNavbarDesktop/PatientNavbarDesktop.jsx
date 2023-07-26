@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 import { FaPowerOff, FaAddressBook, FaMusic, FaOm } from "react-icons/fa";
 import { NavLink, Link, useParams, useNavigate } from "react-router-dom";
 import styles from "./PatientNavbarDesktop.module.css";
@@ -17,6 +18,10 @@ function PatientNavbarDesktop() {
       await axios.post(`${import.meta.env.VITE_BACKEND_URL}/logout`);
 
       localStorage.removeItem("auth");
+      toast.success("Déconnexion réussie !", {
+        progressClassName: styles.toastProgress,
+        autoClose: 1500,
+      });
 
       navigate("/login");
     } catch (error) {
@@ -82,7 +87,7 @@ function PatientNavbarDesktop() {
         <Link to="/" className={styles.logoutLink} onClick={handleLogout}>
           <div className={styles.iconAndTextContainer}>
             <FaPowerOff className={styles.linkIcons} />
-            Log out
+            Déconnexion
           </div>
         </Link>
       </div>

@@ -8,6 +8,7 @@ import {
   FaUserMd,
   FaPowerOff,
 } from "react-icons/fa";
+import { toast } from "react-toastify";
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import styles from "./SecretariatNavbar.module.css";
 
@@ -23,6 +24,10 @@ function SecretariatNavbar() {
       await axios.post(`${import.meta.env.VITE_BACKEND_URL}/logout`);
 
       localStorage.removeItem("auth");
+      toast.success("Déconnexion réussie !", {
+        progressClassName: styles.toastProgress,
+        autoClose: 1500,
+      });
 
       navigate("/login");
     } catch (error) {
@@ -110,7 +115,7 @@ function SecretariatNavbar() {
         <Link to="/" className={styles.logoutLink} onClick={handleLogout}>
           <div className={styles.iconAndTextContainer}>
             <FaPowerOff className={styles.linkIcons} />
-            Log out
+            Déconnexion
           </div>
         </Link>
       </div>

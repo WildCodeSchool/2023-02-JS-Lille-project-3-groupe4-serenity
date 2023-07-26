@@ -116,3 +116,7 @@
 .logoutLink:hover {
   color: var(--dark-blue);
 }
+
+.toastProgress {
+  background-color: var(--main-purple);
+}
