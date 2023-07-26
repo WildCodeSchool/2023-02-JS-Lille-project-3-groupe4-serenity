@@ -84,8 +84,7 @@ function PatientLoginPage() {
   return (
     <div className={styles.homeContainer}>
       <header className={styles.headerContainer}>
-        <div className={styles.logoContainer}>Serenity</div>
-        <div className={styles.rightContainer} />
+        <div className={styles.logoContainer} />
       </header>
       <div className={styles.pageContainer}>
         <h1 className={styles.pageTitle}>Connexion</h1>

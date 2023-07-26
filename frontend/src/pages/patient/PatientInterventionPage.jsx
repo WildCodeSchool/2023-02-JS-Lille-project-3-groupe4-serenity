@@ -35,8 +35,7 @@ function PatientInterventionPage() {
   return (
     <div className={styles.homeContainer}>
       <header className={styles.headerContainer}>
-        <div className={styles.logoContainer}>Serenity</div>
-        <div className={styles.rightContainer} />
+        <div className={styles.logoContainer} />
       </header>
       <div className={styles.pageContainer}>
         {isUnauthorized ? ( // Check if the response is unauthorized
