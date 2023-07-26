@@ -83,7 +83,9 @@ function PatientNavbarMobile({ isMenuOpen, setMenuOpen }) {
         <HiOutlineChatBubbleOvalLeftEllipsis className={styles.menuChatIcon} />
       </div> */}
       <div className={styles.navbarIconContainer}>
-        <FaMusic className={styles.menuIcon} />
+        <Link to={`/patient/${idPatient}/${idInter}/music`}>
+          <FaMusic className={styles.menuIcon} />
+        </Link>
       </div>
       <div className={styles.navbarIconContainer}>
         <MdOutlineMenu

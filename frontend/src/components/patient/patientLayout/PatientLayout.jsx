@@ -218,9 +218,7 @@ function PatientLayout() {
                   <h2 className={styles.linkText}>
                     <button
                       type="button"
-                      className={({ isActive }) =>
-                        isActive ? styles.activeLinkText : styles.linkText
-                      }
+                      className={styles.logoutButton}
                       onClick={handleLogout}
                     >
                       Log out

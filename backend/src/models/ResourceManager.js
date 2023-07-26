@@ -33,6 +33,12 @@ class ResourcesManager extends AbstractManager {
     const [rows] = await this.database.query(query, [id]);
     return rows;
   }
+
+  async findResourcesByTypeIntervention(typeIntervention) {
+    const query = `SELECT * FROM resources WHERE type_intervention = ?`;
+    const [rows] = await this.database.query(query, [typeIntervention]);
+    return rows;
+  }
 }
 
 module.exports = ResourcesManager;
