@@ -205,11 +205,13 @@ function AddIntervention({ currentColor, routeRole }) {
                 disabled
               />
             </label>
-            <input
+            <button
               type="submit"
               className={styles.sendButton}
               style={{ backgroundColor: currentColor }}
-            />
+            >
+              Ajouter
+            </button>
           </div>
         </form>
       </div>

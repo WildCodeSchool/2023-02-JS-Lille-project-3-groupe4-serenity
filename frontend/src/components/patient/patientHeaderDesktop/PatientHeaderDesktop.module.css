@@ -9,6 +9,7 @@
   font-size: 2rem;
   padding: 0 3rem;
   margin-bottom: 4px;
+  color: var(--dark-blue);
 }
 
 .nameContainer {
@@ -65,7 +66,12 @@
 }
 
 .normalText {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.practitionerText {
+  color: var(--dark-blue);
   font-weight: 600;
 }
 

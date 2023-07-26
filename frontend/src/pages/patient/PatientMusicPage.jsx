@@ -8,7 +8,7 @@ function PatientMusicPage() {
     <div className={styles.PatientMusicPageContainer}>
       <div className={styles.audioBloc}>
         <h1 className={styles.musicTitle}>
-          Que diriez vous d'un petit moment de relaxation en music?
+          Que diriez vous d'un petit moment de relaxation en musique?
         </h1>
         <div className={styles.imageContainer} />
         <div className={styles.audioPlayer}>

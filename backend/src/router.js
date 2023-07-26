@@ -49,6 +49,14 @@ router.get(
   verifyJWT,
   interventionControllers.readBySocialSecuNumber
 );
+router.get(
+  "/interventions/patients/:identifierRpps",
+  interventionControllers.select
+);
+router.get(
+  "/interventions/practitioner/:identifierRpps",
+  interventionControllers.select
+);
 router.put("/interventions/:id", interventionControllers.edit);
 router.post("/interventions", interventionControllers.add);
 router.delete("/interventions/:id", interventionControllers.destroy);

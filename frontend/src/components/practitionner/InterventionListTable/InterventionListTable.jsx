@@ -1,7 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
 import { FaEye } from "react-icons/fa";
+import { Link, useParams } from "react-router-dom";
+import formatDate from "../../../services/dateUtils";
 import styles from "./InterventionListTable.module.css";
 
 function InterventionListTable() {
@@ -12,7 +13,9 @@ function InterventionListTable() {
     const fetchAllInterventionByIdentifierRpps = async () => {
       try {
         const response = await axios.get(
-          `${import.meta.env.VITE_BACKEND_URL}/interventions/${identifierRpps}`
+          `${
+            import.meta.env.VITE_BACKEND_URL
+          }/interventions/patients/${identifierRpps}`
         );
         setInterventions(response.data);
       } catch (err) {
@@ -20,7 +23,7 @@ function InterventionListTable() {
       }
     };
     fetchAllInterventionByIdentifierRpps();
-  }, [identifierRpps]);
+  }, []);
 
   return (
     <table className={styles.tablePractitionerPatientContainer}>
@@ -53,11 +56,11 @@ function InterventionListTable() {
               {intervention.patient_first_name}
             </td>
             <td className={styles.rowsContainer}>
-              {intervention.intervention_date}
+              {formatDate(intervention.intervention_date)}
             </td>
             <td className={styles.rowsContainer}>
               <Link
-                to={`/practitioner/intervention/infos/${intervention.social_secu_number}`}
+                to={`/practitioner/interventions/infos/${intervention.social_secu_number}`}
               >
                 <FaEye className={styles.eyeIcon} />
               </Link>

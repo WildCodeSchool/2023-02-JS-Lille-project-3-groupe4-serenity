@@ -1,13 +1,14 @@
 import React from "react";
 import {
+  FaBell,
   FaChartBar,
   FaPlusSquare,
+  FaPowerOff,
   FaRocketchat,
   FaUserInjured,
-  FaBell,
-  FaPowerOff,
 } from "react-icons/fa";
-import { NavLink, Link } from "react-router-dom";
+
+import { Link, NavLink } from "react-router-dom";
 import styles from "./PratictionnerNavbarDesktop.module.css";
 
 function PratictionnerNavbarDesktop() {
@@ -29,7 +30,7 @@ function PratictionnerNavbarDesktop() {
         </NavLink>
 
         <NavLink
-          to="/practitioner/patient"
+          to="patient/:identifierRpps"
           className={({ isActive }) =>
             isActive ? styles.activeLink : styles.pendingLink
           }
@@ -40,7 +41,7 @@ function PratictionnerNavbarDesktop() {
           </div>
         </NavLink>
         <NavLink
-          to="/practitioner/intervention"
+          to="interventions/:identifierRpps"
           className={({ isActive }) =>
             isActive ? styles.activeLink : styles.pendingLink
           }
@@ -80,7 +81,7 @@ function PratictionnerNavbarDesktop() {
         <Link to="/" className={styles.logoutLink}>
           <div className={styles.iconAndTextContainer}>
             <FaPowerOff className={styles.linkIcons} />
-            Déconnexion
+            Log out
           </div>
         </Link>
       </div>

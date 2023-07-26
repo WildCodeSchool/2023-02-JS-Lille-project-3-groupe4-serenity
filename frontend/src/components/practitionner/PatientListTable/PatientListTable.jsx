@@ -1,7 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
 import { FaEye } from "react-icons/fa";
+import { Link, useParams } from "react-router-dom";
+import formatDate from "../../../services/dateUtils";
 import styles from "./PatientListTable.module.css";
 
 function PatientListTable() {
@@ -20,7 +21,7 @@ function PatientListTable() {
       }
     };
     fetchAllPatientByIdentifierRpps();
-  }, [identifierRpps]);
+  }, []);
 
   return (
     <table className={styles.tablePractitionerPatientContainer}>
@@ -35,7 +36,10 @@ function PatientListTable() {
       </thead>
       <tbody>
         {patients.map((patient) => (
-          <tr className={styles.bodyRowsContainer} key={patient.identifierRpps}>
+          <tr
+            className={styles.bodyRowsContainer}
+            key={patient.social_secu_number}
+          >
             <td className={styles.rowsContainer}>
               {patient.patient_first_name}
             </td>
@@ -46,7 +50,7 @@ function PatientListTable() {
               {patient.type_intervention}
             </td>
             <td className={styles.rowsContainer}>
-              {patient.intervention_date}
+              {formatDate(patient.intervention_date)}
             </td>
 
             <td className={styles.rows}>
