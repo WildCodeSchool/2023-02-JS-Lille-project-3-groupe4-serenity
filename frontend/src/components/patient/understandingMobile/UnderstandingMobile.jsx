@@ -6,35 +6,17 @@ import UnderstepsContext from "../../../contexts/UnderstepsContext";
 import styles from "./UnderstandingMobile.module.css";
 
 function UnderstandingMobile() {
+  const { countOfOnesUstepOne, setCountOfOnesUstepOne } =
+    useContext(UnderstepsContext);
+
   const [checkedValues, setCheckedValues] = useState([false, false]);
+
   const [underStepIds, setUnderStepIds] = useState([]);
   const { idInter } = useParams();
 
   const [videoLink, setVideoLink] = useState("");
   const [pdf1Link, setPdf1Link] = useState("");
-
-  const { setCountOfOnesUstepOne } = useContext(UnderstepsContext);
-
-  const { countOfOnesUstepOne } = useContext(UnderstepsContext);
-
-  useEffect(() => {
-    const fetchVideoLink = async () => {
-      try {
-        const response = await axios.get(
-          `${import.meta.env.VITE_BACKEND_URL}/resources`
-        );
-        const { data } = response;
-        if (data.length > 0) {
-          setVideoLink(data[0].link);
-          setPdf1Link(data[1].link);
-        }
-      } catch (err) {
-        console.error(err);
-      }
-    };
-
-    fetchVideoLink();
-  }, []);
+  const [typeInter, setTypeInter] = useState("");
 
   useEffect(() => {
     const fetchStep = async () => {
@@ -47,11 +29,14 @@ function UnderstandingMobile() {
         const ids = data.map((item) => item.id);
         const statuts = data.map((item) => item.understepStatut);
 
+        const type = data.map((item) => item.type_intervention);
+
         const underStepsSubset = ids.slice(0, 2);
         const statutsSubset = statuts.slice(0, 2);
 
         setCheckedValues(statutsSubset);
         setUnderStepIds(underStepsSubset);
+        setTypeInter(type[0]);
       } catch (err) {
         console.error(err);
       }
@@ -91,6 +76,38 @@ function UnderstandingMobile() {
         console.error("Erreur lors de la mise à jour du statut :", err);
       });
   };
+
+  useEffect(() => {
+    const fetchResourcesForIntervention = async () => {
+      try {
+        if (typeInter !== "") {
+          const response = await axios.get(
+            `${import.meta.env.VITE_BACKEND_URL}/resources/type/${typeInter}`
+          );
+          const { data } = response;
+
+          const videoData = data.find((item) => item.type_resource === "Video");
+          const pdfData = data.find((item) => item.type_resource === "Pdf");
+
+          if (videoData) {
+            setVideoLink(videoData.link);
+          } else {
+            setVideoLink("");
+          }
+
+          if (pdfData) {
+            setPdf1Link(pdfData.link);
+          } else {
+            setPdf1Link("");
+          }
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    fetchResourcesForIntervention();
+  }, [typeInter]);
 
   return (
     <div className={styles.understandingMobileContainer}>

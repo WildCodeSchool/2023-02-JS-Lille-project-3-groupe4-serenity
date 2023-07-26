@@ -221,7 +221,7 @@ function PatientLayout() {
                       className={styles.logoutButton}
                       onClick={handleLogout}
                     >
-                      Log out
+                      Déconnexion
                     </button>
                   </h2>
                 </div>

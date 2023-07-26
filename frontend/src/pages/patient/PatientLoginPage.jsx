@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import useAuth from "../../hooks/useAuth";
+import "react-toastify/dist/ReactToastify.css";
 import styles from "./PatientLoginPage.module.css";
 
 function PatientLoginPage() {
@@ -16,6 +18,8 @@ function PatientLoginPage() {
     setShowPassword((prevState) => !prevState);
   };
 
+  const [messageError, setMessageError] = useState("");
+
   const handleLogin = async () => {
     try {
       const response = await axios.post(
@@ -27,6 +31,11 @@ function PatientLoginPage() {
       );
 
       if (response.status === 200) {
+        toast.success("Authentification réussie !", {
+          progressClassName: styles.toastProgress,
+          autoClose: 1500,
+        });
+
         const { user } = response.data;
         setAuth({
           email: user.email,
@@ -52,13 +61,17 @@ function PatientLoginPage() {
       } else {
         // eslint-disable-next-line no-lonely-if
         if (response.status === 401) {
-          console.error("Authentication failed. User not found.");
+          setMessageError(response.data.error); // Accès au message d'erreur renvoyé par le backend
         } else {
-          console.error("Unauthorized");
+          setMessageError("Erreur d'authentification. Veuillez réessayer.");
         }
       }
     } catch (error) {
-      console.error(error);
+      if (error.response && error.response.data && error.response.data.error) {
+        setMessageError(error.response.data.error); // Accès au message d'erreur renvoyé par le backend
+      } else {
+        setMessageError("Erreur de connexion au serveur.");
+      }
     }
   };
 
@@ -122,6 +135,7 @@ function PatientLoginPage() {
             onClick={handleLogin}
           />
         </div>
+        {messageError && <p className={styles.errorText}>{messageError}</p>}
       </div>
     </div>
   );
