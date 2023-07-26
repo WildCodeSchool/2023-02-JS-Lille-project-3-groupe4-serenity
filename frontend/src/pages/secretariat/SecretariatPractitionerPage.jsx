@@ -15,7 +15,10 @@ function SecretariatPractitionerPage() {
         </Link>
       </div>
       <div className={styles.dataContainer}>
-        <PractitionerListTable />
+        <PractitionerListTable
+          currentColor="var(--main-purple)"
+          routeRole="/secretariat"
+        />
       </div>
     </div>
   );

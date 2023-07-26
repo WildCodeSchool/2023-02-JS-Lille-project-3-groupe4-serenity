@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import { FaEye } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import PropTypes from "prop-types";
 import formatDate from "../../services/dateUtils";
 import styles from "./InterventionListTable.module.css";
 
-function InterventionListTable() {
+function InterventionListTable({ currentColor, routeRole }) {
   const [interventions, setInterventions] = useState([]);
 
   useEffect(() => {
@@ -24,8 +25,8 @@ function InterventionListTable() {
 
   return (
     <table className={styles.tableContainer}>
-      <thead>
-        <tr>
+      <thead style={{ backgroundColor: currentColor }}>
+        <tr style={{ borderBottomColor: currentColor }}>
           <th className={styles.theadRow}>N° sécurite sociale</th>
           <th className={styles.theadRow}>N° RPPS</th>
           <th className={styles.theadRow}>Type d'intervention</th>
@@ -44,9 +45,12 @@ function InterventionListTable() {
             </td>
             <td className={styles.rows}>
               <Link
-                to={`/secretariat/intervention/infos/${intervention.id_intervention}`}
+                to={`${routeRole}/intervention/infos/${intervention.id_intervention}`}
               >
-                <FaEye className={styles.eyeIcon} />
+                <FaEye
+                  className={styles.eyeIcon}
+                  style={{ color: currentColor }}
+                />
               </Link>
             </td>
           </tr>
@@ -55,5 +59,10 @@ function InterventionListTable() {
     </table>
   );
 }
+
+InterventionListTable.propTypes = {
+  currentColor: PropTypes.string.isRequired,
+  routeRole: PropTypes.string.isRequired,
+};
 
 export default InterventionListTable;

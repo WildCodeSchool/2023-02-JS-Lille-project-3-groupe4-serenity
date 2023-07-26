@@ -2,9 +2,10 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { FaRegWindowClose } from "react-icons/fa";
 import { Link, useParams } from "react-router-dom";
+import { PropTypes } from "prop-types";
 import styles from "./InfosPractitioner.module.css";
 
-function InfosPractitioner() {
+function InfosPractitioner({ currentColor, routeRole }) {
   const identifierRpps = useParams().identifier_rpps;
   const [practicien, setPracticien] = useState({});
 
@@ -28,10 +29,16 @@ function InfosPractitioner() {
   };
 
   return (
-    <div className={styles.managementPractitionerContainer}>
+    <div
+      className={styles.managementPractitionerContainer}
+      style={{ borderColor: currentColor }}
+    >
       <div className={styles.closeButtonContainer}>
-        <Link to="/secretariat/practitioner">
-          <FaRegWindowClose className={styles.closeIcon} />
+        <Link to={`${routeRole}/practitioner`}>
+          <FaRegWindowClose
+            className={styles.closeIcon}
+            style={{ color: currentColor }}
+          />
         </Link>
       </div>
       {Object.keys(practicien).length > 0 && (
@@ -39,10 +46,16 @@ function InfosPractitioner() {
           <div className={styles.ManagementPractitionerSelectedContainer}>
             Gestion d'un praticien
           </div>
-          <div className={styles.ButtonModifyPractitionerContainer}>
+          <div
+            className={styles.ButtonModifyPractitionerContainer}
+            style={{ backgroundColor: currentColor }}
+          >
             <form onSubmit={handleSubmit}>Modifier</form>
           </div>
-          <div className={styles.ButtonDeletePractitionerContainer}>
+          <div
+            className={styles.ButtonDeletePractitionerContainer}
+            style={{ backgroundColor: currentColor }}
+          >
             <form onSubmit={handleSubmit}>Supprimer</form>
           </div>
           <div className={styles.MaritalStatusContainer}>Etat Civil</div>
@@ -210,5 +223,10 @@ function InfosPractitioner() {
     </div>
   );
 }
+
+InfosPractitioner.propTypes = {
+  currentColor: PropTypes.string.isRequired,
+  routeRole: PropTypes.string.isRequired,
+};
 
 export default InfosPractitioner;
