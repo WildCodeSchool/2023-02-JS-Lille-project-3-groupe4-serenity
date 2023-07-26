@@ -12,7 +12,7 @@ function InfosPatientPage() {
     const fectchPatient = async () => {
       try {
         const response = await axios.get(
-          `${import.meta.env.VITE_BACKEND_URL}/patients/100001`
+          `${import.meta.env.VITE_BACKEND_URL}/patients/${idPatient}`
         );
         setPatient(response.data);
       } catch (err) {

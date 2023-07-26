@@ -14,11 +14,12 @@ function PatientUnderstandingPage() {
 
   const [checkedValues, setCheckedValues] = useState([false, false]);
 
-  const [videoLink, setVideoLink] = useState("");
-  const [pdf1Link, setPdf1Link] = useState("");
-
   const [underStepIds, setUnderStepIds] = useState([]);
   const { idInter } = useParams();
+
+  const [videoLink, setVideoLink] = useState("");
+  const [pdf1Link, setPdf1Link] = useState("");
+  const [typeInter, setTypeInter] = useState("");
 
   useEffect(() => {
     const fetchStep = async () => {
@@ -31,11 +32,14 @@ function PatientUnderstandingPage() {
         const ids = data.map((item) => item.id);
         const statuts = data.map((item) => item.understepStatut);
 
+        const type = data.map((item) => item.type_intervention);
+
         const underStepsSubset = ids.slice(0, 2);
         const statutsSubset = statuts.slice(0, 2);
 
         setCheckedValues(statutsSubset);
         setUnderStepIds(underStepsSubset);
+        setTypeInter(type[0]);
       } catch (err) {
         console.error(err);
       }
@@ -77,23 +81,36 @@ function PatientUnderstandingPage() {
   };
 
   useEffect(() => {
-    const fetchVideoLink = async () => {
+    const fetchResourcesForIntervention = async () => {
       try {
-        const response = await axios.get(
-          `${import.meta.env.VITE_BACKEND_URL}/resources`
-        );
-        const { data } = response;
-        if (data.length > 0) {
-          setVideoLink(data[0].link);
-          setPdf1Link(data[1].link);
+        if (typeInter !== "") {
+          const response = await axios.get(
+            `${import.meta.env.VITE_BACKEND_URL}/resources/type/${typeInter}`
+          );
+          const { data } = response;
+
+          const videoData = data.find((item) => item.type_resource === "Video");
+          const pdfData = data.find((item) => item.type_resource === "Pdf");
+
+          if (videoData) {
+            setVideoLink(videoData.link);
+          } else {
+            setVideoLink("");
+          }
+
+          if (pdfData) {
+            setPdf1Link(pdfData.link);
+          } else {
+            setPdf1Link("");
+          }
         }
       } catch (err) {
         console.error(err);
       }
     };
 
-    fetchVideoLink();
-  }, []);
+    fetchResourcesForIntervention();
+  }, [typeInter]);
 
   return (
     <div className={styles.understandingPageContainer}>

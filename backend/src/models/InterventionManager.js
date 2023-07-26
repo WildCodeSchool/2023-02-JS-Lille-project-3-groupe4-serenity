@@ -14,7 +14,7 @@ class InterventionManager extends AbstractManager {
         intervention.identifier_rpps,
         intervention.procedure_date,
         intervention.type_intervention,
-        intervention.nom_Intervention,
+        intervention.nom_intervention,
       ]
     );
 

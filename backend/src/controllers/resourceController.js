@@ -12,6 +12,20 @@ const browse = (req, res) => {
     });
 };
 
+const findByTypeIntervention = (req, res) => {
+  const { typeIntervention } = req.params;
+
+  models.resource
+    .findResourcesByTypeIntervention(typeIntervention)
+    .then((rows) => {
+      res.send(rows);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
 const read = (req, res) => {
   const { id } = req.params;
 
@@ -82,6 +96,7 @@ const destroy = (req, res) => {
 
 module.exports = {
   browse,
+  findByTypeIntervention,
   read,
   edit,
   add,
