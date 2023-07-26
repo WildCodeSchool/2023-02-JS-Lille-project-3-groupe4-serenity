@@ -66,9 +66,9 @@ function InfosPractitioner({ currentColor, routeRole }) {
                 <label>
                   <input
                     type="radio"
-                    value="female"
+                    value="Femme"
                     name="gender"
-                    checked={practicien.gender === "Female"}
+                    checked={practicien.gender === "Femme"}
                     disabled
                   />
                   <span className={styles.RadioButtonLabelContainer}>
@@ -80,9 +80,9 @@ function InfosPractitioner({ currentColor, routeRole }) {
                 <label>
                   <input
                     type="radio"
-                    value="male"
+                    value="Homme"
                     name="gender"
-                    checked={practicien.gender === "Male"}
+                    checked={practicien.gender === "Homme"}
                     disabled
                   />
                   <span className={styles.RadioButtonLabelContainer}>
