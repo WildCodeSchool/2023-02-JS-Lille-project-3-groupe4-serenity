@@ -38,7 +38,7 @@ function SecretariatNavbar() {
 
   return (
     <div className={styles.navbarContainer}>
-      <div className={styles.logoContainer}>Serenity</div>
+      <div className={styles.logoContainer} />
       <div className={styles.pageLinksContainer}>
         <NavLink
           to="/secretariat"

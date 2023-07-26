@@ -32,7 +32,7 @@ function PatientNavbarDesktop() {
 
   return (
     <div className={styles.navbarContainer}>
-      <div className={styles.logoContainer}>Serenity</div>
+      <div className={styles.logoContainer} />
       <div className={styles.pageLinksContainer}>
         <NavLink
           to={`/patient/${idPatient}/${idInter}/understanding`}

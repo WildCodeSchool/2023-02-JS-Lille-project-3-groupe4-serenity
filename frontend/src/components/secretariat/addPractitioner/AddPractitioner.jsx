@@ -2,9 +2,10 @@ import axios from "axios";
 import React, { useState } from "react";
 import { FaRegWindowClose } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
+import { PropTypes } from "prop-types";
 import styles from "./AddPractitioner.module.css";
 
-function AddPractitioner() {
+function AddPractitioner({ currentColor, routeRole }) {
   const [inputs, setInputs] = useState({});
   const navigate = useNavigate();
 
@@ -29,7 +30,7 @@ function AddPractitioner() {
         `${import.meta.env.VITE_BACKEND_URL}/practitioners`,
         practitionerData
       );
-      navigate("/secretariat/practitioner");
+      navigate(`${routeRole}/practitioner`);
     } catch (err) {
       console.error(err);
     }
@@ -38,17 +39,30 @@ function AddPractitioner() {
   return (
     <div className={styles.addPractitionerContainer}>
       <div className={styles.closeButtonContainer}>
-        <Link to="/secretariat/practitioner">
-          <FaRegWindowClose className={styles.closeIcon} />
+        <Link to={`${routeRole}/practitioner`}>
+          <FaRegWindowClose
+            className={styles.closeIcon}
+            style={{ color: currentColor }}
+          />
         </Link>
       </div>
-      <div className={styles.AddPractitionerFormContainer}>
+      <div
+        className={styles.AddPractitionerFormContainer}
+        style={{ borderColor: currentColor }}
+      >
         <div className={styles.AddNewPractitionerContainer}>
           Ajout d'un nouveau praticien
         </div>
-        <div className={styles.ButtonAddPractitionerContainer}>
+        <div
+          className={styles.ButtonAddPractitionerContainer}
+          style={{ backgroundColor: currentColor }}
+        >
           <form onSubmit={handleSubmit}>
-            <button type="submit" className={styles.buttonStylesContainer}>
+            <button
+              type="submit"
+              className={styles.buttonStylesContainer}
+              style={{ backgroundColor: currentColor }}
+            >
               Ajouter
             </button>
           </form>
@@ -290,5 +304,10 @@ function AddPractitioner() {
     </div>
   );
 }
+
+AddPractitioner.propTypes = {
+  currentColor: PropTypes.string.isRequired,
+  routeRole: PropTypes.string.isRequired,
+};
 
 export default AddPractitioner;

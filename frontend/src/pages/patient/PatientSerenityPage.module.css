@@ -56,26 +56,26 @@
 
 .imageDouche {
   background-image: url("../../assets/douche.png");
-  background-size: contain;
-  background-size: 100%;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  box-shadow: var(--basic-shadow);
 }
 
 .imageSejour {
   background-image: url("../../assets/preparation_hopital.jpg");
-  background-size: contain;
-  background-size: 100%;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  box-shadow: var(--basic-shadow);
 }
 
 .imageJourJ {
   background-image: url("../../assets/jour_j.jpg");
-  background-size: contain;
-  background-size: 100%;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  box-shadow: var(--basic-shadow);
 }
 
 .textContainer {

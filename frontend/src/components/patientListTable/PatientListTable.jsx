@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import { FaEye } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import PropTypes from "prop-types";
 import styles from "./PatientListTable.module.css";
 
-function PatientListTable() {
+function PatientListTable({ currentColor, routeRole }) {
   const [patients, setPatients] = useState([]);
 
   useEffect(() => {
@@ -23,8 +24,8 @@ function PatientListTable() {
 
   return (
     <table className={styles.tableContainer}>
-      <thead>
-        <tr>
+      <thead style={{ backgroundColor: currentColor }}>
+        <tr style={{ borderBottomColor: currentColor }}>
           <th className={styles.theadRow}>Nom</th>
           <th className={styles.theadRow}>Prénom</th>
           <th className={styles.theadRow}>Âge</th>
@@ -41,9 +42,12 @@ function PatientListTable() {
             <td className={styles.rows}>{patient.social_secu_number}</td>
             <td className={styles.rows}>
               <Link
-                to={`/secretariat/patient/infos/${patient.social_secu_number}`}
+                to={`${routeRole}/patient/infos/${patient.social_secu_number}`}
               >
-                <FaEye className={styles.eyeIcon} />
+                <FaEye
+                  className={styles.eyeIcon}
+                  style={{ color: currentColor }}
+                />
               </Link>
             </td>
           </tr>
@@ -52,5 +56,10 @@ function PatientListTable() {
     </table>
   );
 }
+
+PatientListTable.propTypes = {
+  currentColor: PropTypes.string.isRequired,
+  routeRole: PropTypes.string.isRequired,
+};
 
 export default PatientListTable;

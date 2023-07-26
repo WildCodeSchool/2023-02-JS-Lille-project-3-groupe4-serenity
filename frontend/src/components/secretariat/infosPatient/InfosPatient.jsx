@@ -2,9 +2,10 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { FaRegWindowClose } from "react-icons/fa";
 import { Link, useParams } from "react-router-dom";
+import { PropTypes } from "prop-types";
 import styles from "./InfosPatient.module.css";
 
-function InfosPatient() {
+function InfosPatient({ currentColor, routeRole }) {
   const socialSecuNumber = useParams().social_secu_number;
   const [patient, setPatient] = useState({});
 
@@ -28,10 +29,16 @@ function InfosPatient() {
   };
 
   return (
-    <div className={styles.ManagementPatientContainer}>
+    <div
+      className={styles.ManagementPatientContainer}
+      style={{ borderColor: currentColor }}
+    >
       <div className={styles.closeButtonContainer}>
-        <Link to="/secretariat/patient">
-          <FaRegWindowClose className={styles.closeIcon} />
+        <Link to={`${routeRole}/patient`}>
+          <FaRegWindowClose
+            className={styles.closeIcon}
+            style={{ color: currentColor }}
+          />
         </Link>
       </div>
       {Object.keys(patient).length > 0 && (
@@ -39,10 +46,16 @@ function InfosPatient() {
           <div className={styles.ManagementPatientSelectedContainer}>
             Gestion d'un patient
           </div>
-          <div className={styles.ButtonModifyPatientContainer}>
+          <div
+            className={styles.ButtonModifyPatientContainer}
+            style={{ backgroundColor: currentColor }}
+          >
             <form onSubmit={handleSubmit}>Modifier</form>
           </div>
-          <div className={styles.ButtonDeletePatientContainer}>
+          <div
+            className={styles.ButtonDeletePatientContainer}
+            style={{ backgroundColor: currentColor }}
+          >
             <form onSubmit={handleSubmit}>Supprimer</form>
           </div>
           <div className={styles.GenderContainer}>
@@ -225,5 +238,10 @@ function InfosPatient() {
     </div>
   );
 }
+
+InfosPatient.propTypes = {
+  currentColor: PropTypes.string.isRequired,
+  routeRole: PropTypes.string.isRequired,
+};
 
 export default InfosPatient;

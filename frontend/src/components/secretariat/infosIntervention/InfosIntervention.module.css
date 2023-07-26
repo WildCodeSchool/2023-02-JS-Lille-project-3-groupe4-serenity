@@ -1,6 +1,6 @@
 .infosInterventionContainer {
   width: 100%;
-  border: solid 3px var(--main-purple);
+  border: solid 3px;
   border-radius: 1.5rem;
   background-color: var(--white);
   box-shadow: var(--basic-shadow);
@@ -28,7 +28,6 @@
   justify-content: center;
   width: 50%;
   height: 4rem;
-  background-color: var(--main-purple);
   border: none;
   color: var(--white);
   border-radius: 0.8rem;
@@ -47,7 +46,6 @@
   justify-content: center;
   width: 50%;
   height: 4rem;
-  background-color: var(--main-purple);
   border: none;
   color: var(--white);
   border-radius: 0.8rem;

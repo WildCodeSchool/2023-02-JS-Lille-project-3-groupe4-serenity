@@ -2,10 +2,11 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { FaRegWindowClose } from "react-icons/fa";
 import { Link, useParams } from "react-router-dom";
+import { PropTypes } from "prop-types";
 import formatDate from "../../../services/dateUtils";
 import styles from "./InfosIntervention.module.css";
 
-function InfoIntervention() {
+function InfoIntervention({ currentColor, routeRole }) {
   const idIntervention = useParams().id;
   const [intervention, setIntervention] = useState([]);
 
@@ -32,17 +33,29 @@ function InfoIntervention() {
   };
 
   return (
-    <div className={styles.infosInterventionContainer}>
+    <div
+      className={styles.infosInterventionContainer}
+      style={{ borderColor: currentColor }}
+    >
       <div className={styles.closeButtonContainer}>
-        <Link to="/secretariat/intervention">
-          <FaRegWindowClose className={styles.closeIcon} />
+        <Link to={`${routeRole}/intervention`}>
+          <FaRegWindowClose
+            className={styles.closeIcon}
+            style={{ color: currentColor }}
+          />
         </Link>
       </div>
       <div className={styles.gridContainer}>
-        <div className={styles.ButtonModifyInterventionContainer}>
+        <div
+          className={styles.ButtonModifyInterventionContainer}
+          style={{ backgroundColor: currentColor }}
+        >
           <form onSubmit={handleSubmit}>Modifier</form>
         </div>
-        <div className={styles.ButtonDeleteInterventionContainer}>
+        <div
+          className={styles.ButtonDeleteInterventionContainer}
+          style={{ backgroundColor: currentColor }}
+        >
           <form onSubmit={handleSubmit}>Supprimer</form>
         </div>
         <div className={styles.titleFormContainer}>
@@ -111,5 +124,10 @@ function InfoIntervention() {
     </div>
   );
 }
+
+InfoIntervention.propTypes = {
+  currentColor: PropTypes.string.isRequired,
+  routeRole: PropTypes.string.isRequired,
+};
 
 export default InfoIntervention;

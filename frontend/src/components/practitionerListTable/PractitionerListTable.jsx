@@ -2,9 +2,10 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { FaEye } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 import styles from "./PractitionerList.module.css";
 
-function PractitionerListTable() {
+function PractitionerListTable({ currentColor, routeRole }) {
   const [practitioners, setPractitioners] = useState([]);
 
   useEffect(() => {
@@ -23,8 +24,8 @@ function PractitionerListTable() {
 
   return (
     <table className={styles.tableContainer}>
-      <thead>
-        <tr>
+      <thead style={{ backgroundColor: currentColor }}>
+        <tr style={{ borderBottomColor: currentColor }}>
           <th className={styles.theadRow}>Nom</th>
           <th className={styles.theadRow}>Prénom</th>
           <th className={styles.theadRow}>Spécialité</th>
@@ -41,9 +42,12 @@ function PractitionerListTable() {
             <td className={styles.rows}>{practitioner.identifier_rpps}</td>
             <td className={styles.rows}>
               <Link
-                to={`/secretariat/practitioner/infos/${practitioner.identifier_rpps}`}
+                to={`${routeRole}/practitioner/infos/${practitioner.identifier_rpps}`}
               >
-                <FaEye className={styles.eyeIcon} />
+                <FaEye
+                  className={styles.eyeIcon}
+                  style={{ color: currentColor }}
+                />
               </Link>
             </td>
           </tr>
@@ -52,5 +56,10 @@ function PractitionerListTable() {
     </table>
   );
 }
+
+PractitionerListTable.propTypes = {
+  currentColor: PropTypes.string.isRequired,
+  routeRole: PropTypes.string.isRequired,
+};
 
 export default PractitionerListTable;

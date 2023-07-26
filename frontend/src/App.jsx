@@ -83,8 +83,42 @@ function App() {
         <Route path="" element={<AdminDashboardPage />} />
         <Route path="unit" element={<AdminUnitPage />} />
         <Route path="practitioner" element={<AdminPractitionerPage />} />
+        <Route
+          path="practitioner/add"
+          element={
+            <AddPractitioner currentColor="var(--red)" routeRole="/admin" />
+          }
+        />
+        <Route
+          path="practitioner/infos/:identifier_rpps"
+          element={
+            <InfosPractitioner currentColor="var(--red)" routeRole="/admin" />
+          }
+        />
         <Route path="patient" element={<AdminPatientPage />} />
+        <Route
+          path="patient/add"
+          element={<AddPatient currentColor="var(--red)" routeRole="/admin" />}
+        />
+        <Route
+          path="patient/infos/:social_secu_number"
+          element={
+            <InfosPatient currentColor="var(--red)" routeRole="/admin" />
+          }
+        />
         <Route path="intervention" element={<AdminInterventionPage />} />
+        <Route
+          path="intervention/add"
+          element={
+            <AddIntervention currentColor="var(--red)" routeRole="/admin" />
+          }
+        />
+        <Route
+          path="intervention/infos/:id"
+          element={
+            <InfoIntervention currentColor="var(--red)" routeRole="/admin" />
+          }
+        />
         <Route path="staff" element={<AdminStaffPage />} />
         <Route path="staff/add" element={<AddStaff />} />
       </Route>
@@ -98,23 +132,65 @@ function App() {
             path="practitioner"
             element={<SecretariatPractitionerPage />}
           />
-          <Route path="practitioner/add" element={<AddPractitioner />} />
+          <Route
+            path="practitioner/add"
+            element={
+              <AddPractitioner
+                currentColor="var(--main-purple)"
+                routeRole="/secretariat"
+              />
+            }
+          />
           <Route
             path="practitioner/infos/:identifier_rpps"
-            element={<InfosPractitioner />}
+            element={
+              <InfosPractitioner
+                currentColor="var(--main-purple)"
+                routeRole="/secretariat"
+              />
+            }
           />
           <Route path="patient" element={<SecretariatPatientPage />} />
-          <Route path="patient/add" element={<AddPatient />} />
+          <Route
+            path="patient/add"
+            element={
+              <AddPatient
+                currentColor="var(--main-purple)"
+                routeRole="/secretariat"
+              />
+            }
+          />
           <Route
             path="patient/infos/:social_secu_number"
-            element={<InfosPatient />}
+            element={
+              <InfosPatient
+                currentColor="var(--main-purple)"
+                routeRole="/secretariat"
+              />
+            }
           />
           <Route
             path="intervention"
             element={<SecretariatInterventionPage />}
           />
-          <Route path="intervention/add" element={<AddIntervention />} />
-          <Route path="intervention/infos/:id" element={<InfoIntervention />} />
+          <Route
+            path="intervention/add"
+            element={
+              <AddIntervention
+                currentColor="var(--main-purple)"
+                routeRole="/secretariat"
+              />
+            }
+          />
+          <Route
+            path="intervention/infos/:id"
+            element={
+              <InfoIntervention
+                currentColor="var(--main-purple)"
+                routeRole="/secretariat"
+              />
+            }
+          />
         </Route>
       </Route>
 
