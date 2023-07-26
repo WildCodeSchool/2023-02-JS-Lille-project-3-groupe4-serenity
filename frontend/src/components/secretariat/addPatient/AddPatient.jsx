@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaRegWindowClose } from "react-icons/fa";
 import axios from "axios";
+import PropTypes from "prop-types";
 import styles from "./AddPatient.module.css";
 
-function AddPatient() {
+function AddPatient({ currentColor, routeRole }) {
   const [inputs, setInputs] = useState({});
   const navigate = useNavigate();
 
@@ -17,24 +18,33 @@ function AddPatient() {
     event.preventDefault();
     try {
       await axios.post(`${import.meta.env.VITE_BACKEND_URL}/patients`, inputs);
-      navigate("/secretariat/patient");
+      navigate(`${routeRole}/patient`);
     } catch (err) {
       console.error(err);
     }
   };
 
   return (
-    <div className={styles.addPatientContainer}>
+    <div
+      className={styles.addPatientContainer}
+      style={{ borderColor: currentColor }}
+    >
       <div className={styles.closeButtonContainer}>
-        <Link to="/secretariat/patient">
-          <FaRegWindowClose className={styles.closeIcon} />
+        <Link to={`${routeRole}/patient`}>
+          <FaRegWindowClose
+            className={styles.closeIcon}
+            style={{ color: currentColor }}
+          />
         </Link>
       </div>
       <div className={styles.AddPatientFormContainer}>
         <div className={styles.AddNewPatientContainer}>
           Ajout d'un nouveau patient
         </div>
-        <div className={styles.ButtonAddPatientContainer}>
+        <div
+          className={styles.ButtonAddPatientContainer}
+          style={{ backgroundColor: currentColor }}
+        >
           <form onSubmit={handleSubmit}>
             <button type="submit">Ajouter</button>
           </form>
@@ -251,5 +261,10 @@ function AddPatient() {
     </div>
   );
 }
+
+AddPatient.propTypes = {
+  currentColor: PropTypes.string.isRequired,
+  routeRole: PropTypes.string.isRequired,
+};
 
 export default AddPatient;

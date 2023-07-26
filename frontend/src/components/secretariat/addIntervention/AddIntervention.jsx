@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaRegWindowClose } from "react-icons/fa";
 import axios from "axios";
+import PropTypes from "prop-types";
 import styles from "./AddIntervention.module.css";
 
-function AddIntervention() {
+function AddIntervention({ currentColor, routeRole }) {
   const [inputs, setInputs] = useState({ roles: "patient" });
   const [practitionerList, setPractitionerList] = useState([]);
   const [patientsList, setPatientsList] = useState([]);
@@ -52,17 +53,23 @@ function AddIntervention() {
         inputs
       );
 
-      navigate("/secretariat/intervention");
+      navigate(`${routeRole}/intervention`);
     } catch (err) {
       console.error(err);
     }
   };
 
   return (
-    <div className={styles.addInterventionContainer}>
+    <div
+      className={styles.addInterventionContainer}
+      style={{ borderColor: currentColor }}
+    >
       <div className={styles.closeButtonContainer}>
-        <Link to="/secretariat/intervention">
-          <FaRegWindowClose className={styles.closeIcon} />
+        <Link to={`${routeRole}/intervention`}>
+          <FaRegWindowClose
+            className={styles.closeIcon}
+            style={{ color: currentColor }}
+          />
         </Link>
       </div>
       <h3>Ajout d'une nouvelle intervention</h3>
@@ -171,12 +178,21 @@ function AddIntervention() {
                 disabled
               />
             </label>
-            <input type="submit" className={styles.sendButton} />
+            <input
+              type="submit"
+              className={styles.sendButton}
+              style={{ backgroundColor: currentColor }}
+            />
           </div>
         </form>
       </div>
     </div>
   );
 }
+
+AddIntervention.propTypes = {
+  currentColor: PropTypes.string.isRequired,
+  routeRole: PropTypes.string.isRequired,
+};
 
 export default AddIntervention;

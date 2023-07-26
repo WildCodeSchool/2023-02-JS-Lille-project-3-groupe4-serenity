@@ -3,7 +3,51 @@
   height: 100%;
   border: solid 3px var(--red);
   border-radius: 1.5rem;
-  background-color: var(--white);
-  box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%),
-    0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
+  box-shadow: var(--basic-shadow);
+  background-color: var(--light-grey);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.buttonsContainer {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pageTitle {
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.addButton {
+  width: 15rem;
+  height: 3rem;
+  background-color: var(--red);
+  border: none;
+  color: var(--white);
+  border-radius: 0.8rem;
+  box-shadow: var(--basic-shadow);
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--white);
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+
+.addButton:hover {
+  background-color: var(--red);
+}
+
+.dataContainer {
+  flex: 5;
+  width: 100%;
+  background-color: azure;
+  border-radius: 10px;
+  box-shadow: var(--basic-shadow);
+  overflow: hidden;
 }
