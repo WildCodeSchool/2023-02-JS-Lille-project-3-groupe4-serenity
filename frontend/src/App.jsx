@@ -36,6 +36,7 @@ import SecretariatInterventionPage from "./pages/secretariat/SecretariatInterven
 import SecretariatPatientPage from "./pages/secretariat/SecretariatPatientPage";
 import SecretariatPractitionerPage from "./pages/secretariat/SecretariatPractitionerPage";
 import SecretariatUnitPage from "./pages/secretariat/SecretariatUnitPage";
+import PractitionerPatientInfoPage from "./pages/practitioner/PractitionerPatientInfoPage";
 
 const router = createBrowserRouter([
   {
@@ -179,16 +180,24 @@ const router = createBrowserRouter([
     element: <PractitionerLayout />,
     children: [
       {
-        path: "",
+        path: ":identifierRpps",
         element: <PractitionerDashboardPage />,
       },
       {
-        path: "patient",
+        path: "interventions/:identifierRpps",
+        element: <PractitionerInterventionPage />,
+      },
+      {
+        path: "interventions/infos/:identifierRpps",
+        element: <PractitionerInterventionPage />,
+      },
+      {
+        path: "patient/:identifierRpps",
         element: <PractitionerPatientPage />,
       },
       {
-        path: "intervention",
-        element: <PractitionerInterventionPage />,
+        path: "patient/infos/:social_secu_number",
+        element: <PractitionerPatientInfoPage />,
       },
     ],
   },

@@ -40,6 +40,22 @@ const count = (req, res) => {
     });
 };
 
+const select = (req, res) => {
+  models.intervention
+    .findInterventionByIdentifierRpps(req.params.identifierRpps)
+    .then((rows) => {
+      if (!rows || rows.length === 0) {
+        res.sendStatus(404);
+      } else {
+        res.send(rows);
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
 const edit = (req, res) => {
   const intervention = req.body;
 
@@ -101,4 +117,5 @@ module.exports = {
   add,
   destroy,
   count,
+  select,
 };

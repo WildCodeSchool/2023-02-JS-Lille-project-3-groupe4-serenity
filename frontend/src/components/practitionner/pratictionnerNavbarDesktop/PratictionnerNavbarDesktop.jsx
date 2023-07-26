@@ -29,7 +29,7 @@ function PratictionnerNavbarDesktop() {
         </NavLink>
 
         <NavLink
-          to="/practitioner/patient"
+          to="patient/:identifierRpps"
           className={({ isActive }) =>
             isActive ? styles.activeLink : styles.pendingLink
           }
@@ -40,7 +40,7 @@ function PratictionnerNavbarDesktop() {
           </div>
         </NavLink>
         <NavLink
-          to="/practitioner/intervention"
+          to="interventions/:identifierRpps"
           className={({ isActive }) =>
             isActive ? styles.activeLink : styles.pendingLink
           }

@@ -1,0 +1,42 @@
+.titleContainer {
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.titleAndSpecialityContainer {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 5%;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.numberOffutureInterventionContainer {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 5%;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.interventionContainer {
+  padding-top: 7%;
+  padding-left: 10%;
+  padding-right: 10%;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.NumberInterventionOfPractitionerContainer {
+  padding-top: 5%;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.numberPatientsCOntainer {
+  padding-top: 5%;
+  padding-left: 10%;
+  padding-right: 10%;
+  font-size: 1.5rem;
+  font-weight: 400;
+}

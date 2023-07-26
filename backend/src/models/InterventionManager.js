@@ -84,6 +84,29 @@ class InterventionManager extends AbstractManager {
     const [rows] = await this.database.query(query);
     return rows;
   }
+
+  async findInterventionByIdentifierRpps(IdentifierRpps) {
+    const query = `
+      SELECT
+        p.speciality,
+        i.nom_intervention,
+        i.social_secu_number,
+        p.identifier_rpps,
+        u.first_name AS patient_first_name,
+        u.last_name AS patient_last_name,
+        i.type_intervention,
+        i.procedure_date AS intervention_date
+      FROM serenity.practitioner p
+      JOIN serenity.intervention i ON p.identifier_rpps = i.identifier_rpps
+      JOIN serenity.patient pt ON i.social_secu_number = pt.social_secu_number
+      JOIN serenity.user u ON pt.user_id = u.id
+      WHERE p.identifier_rpps = ?;
+    `;
+
+    const [result] = await this.database.query(query, [IdentifierRpps]);
+
+    return result;
+  }
 }
 
 module.exports = InterventionManager;

@@ -25,7 +25,6 @@ function InfoIntervention() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Logique de soumission du formulaire de modification
   };
 
   return (

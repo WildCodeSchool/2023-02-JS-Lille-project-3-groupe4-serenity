@@ -34,6 +34,8 @@ router.delete("/practitioners/:id", practitionerControllers.destroy);
 
 const interventionControllers = require("./controllers/interventionControllers");
 
+router.get("/patient/:identifierRpps", interventionControllers.select);
+router.get("/interventions/:identifierRpps", interventionControllers.select);
 router.get("/interventions", interventionControllers.browse);
 router.get("/interventions/count", interventionControllers.count);
 router.get("/interventions/:id", interventionControllers.read);

@@ -1,11 +1,11 @@
 import React from "react";
 import styles from "./PractitionerPatientPage.module.css";
-import PatientListTable from "../../components/practitionner/PatientListTable/PatientListTable";
+import PractitionerPatient from "../../components/practitionner/PatientPage/PractitionerPatient";
 
 function PractitionerPatientPage() {
   return (
     <div className={styles.patientsContainer}>
-      <PatientListTable />
+      <PractitionerPatient />
     </div>
   );
 }
