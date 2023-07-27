@@ -4,6 +4,34 @@ const nodemailer = require("nodemailer");
 require("dotenv").config();
 const models = require("../models");
 
+const browse = (req, res) => {
+  models.staff
+    .findAllStaff()
+    .then((rows) => {
+      res.send(rows);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
+const read = (req, res) => {
+  models.staff
+    .findStaffById(req.params.id)
+    .then((rows) => {
+      if (rows.length === 0) {
+        res.sendStatus(404);
+      } else {
+        res.send(rows[0]);
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
 const add = (req, res) => {
   const staff = req.body;
 
@@ -53,5 +81,7 @@ const add = (req, res) => {
 };
 
 module.exports = {
+  browse,
+  read,
   add,
 };

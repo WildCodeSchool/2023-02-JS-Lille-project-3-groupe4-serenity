@@ -57,6 +57,22 @@ const readBySocialSecuNumber = async (req, res) => {
   }
 };
 
+const select = (req, res) => {
+  models.intervention
+    .findInterventionByIdentifierRpps(req.params.identifierRpps)
+    .then((rows) => {
+      if (!rows || rows.length === 0) {
+        res.sendStatus(404);
+      } else {
+        res.send(rows);
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
 const count = (req, res) => {
   models.intervention
     .findCountIntervention()
@@ -127,6 +143,7 @@ module.exports = {
   browse,
   read,
   readBySocialSecuNumber,
+  select,
   edit,
   add,
   destroy,

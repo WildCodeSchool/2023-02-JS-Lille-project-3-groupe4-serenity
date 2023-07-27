@@ -2,21 +2,44 @@ import React from "react";
 import {
   FaChartBar,
   FaPlusSquare,
-  FaRocketchat,
-  FaUserInjured,
-  FaBell,
   FaPowerOff,
+  FaUserInjured,
 } from "react-icons/fa";
-import { NavLink, Link } from "react-router-dom";
+import axios from "axios";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import useAuth from "../../../hooks/useAuth";
 import styles from "./PratictionnerNavbarDesktop.module.css";
 
 function PratictionnerNavbarDesktop() {
+  const { auth } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    try {
+      // Envoyer une requête POST à la route /logout pour se déconnecter
+      await axios.post(`${import.meta.env.VITE_BACKEND_URL}/logout`);
+
+      localStorage.removeItem("auth");
+      toast.success("Déconnexion réussie !", {
+        progressClassName: styles.toastProgress,
+        autoClose: 1500,
+      });
+
+      navigate("/login");
+    } catch (error) {
+      console.error("Error logging out:", error);
+      // Gérer les erreurs éventuelles
+    }
+  };
+
   return (
     <div className={styles.navbarContainer}>
       <div className={styles.logoContainer}>Serenity</div>
       <div className={styles.pageLinksContainer}>
         <NavLink
-          to="/practitioner"
+          to={`/practitioner/${auth.identifierRpps}`}
           className={({ isActive }) =>
             isActive ? styles.activeLink : styles.pendingLink
           }
@@ -29,7 +52,7 @@ function PratictionnerNavbarDesktop() {
         </NavLink>
 
         <NavLink
-          to="/practitioner/patient"
+          to={`/practitioner/patient/${auth.identifierRpps}`}
           className={({ isActive }) =>
             isActive ? styles.activeLink : styles.pendingLink
           }
@@ -40,7 +63,7 @@ function PratictionnerNavbarDesktop() {
           </div>
         </NavLink>
         <NavLink
-          to="/practitioner/intervention"
+          to={`/practitioner/interventions/${auth.identifierRpps}`}
           className={({ isActive }) =>
             isActive ? styles.activeLink : styles.pendingLink
           }
@@ -53,7 +76,7 @@ function PratictionnerNavbarDesktop() {
       </div>
       <div className={styles.separator} />
       <div className={styles.newsContainer}>
-        <NavLink
+        {/* <NavLink
           to="/admin/notifications"
           className={({ isActive }) =>
             isActive ? styles.activeLink : styles.pendingLink
@@ -74,10 +97,10 @@ function PratictionnerNavbarDesktop() {
             <FaRocketchat className={styles.linkIcons} />
             Messagerie
           </div>
-        </NavLink>
+        </NavLink> */}
       </div>
       <div className={styles.logoutContainer}>
-        <Link to="/" className={styles.logoutLink}>
+        <Link to="/" className={styles.logoutLink} onClick={handleLogout}>
           <div className={styles.iconAndTextContainer}>
             <FaPowerOff className={styles.linkIcons} />
             Déconnexion

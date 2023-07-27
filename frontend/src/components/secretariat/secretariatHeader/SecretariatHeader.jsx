@@ -9,7 +9,7 @@ function SecretariatHeader() {
   return (
     <div className={styles.headerContainer}>
       <div className={styles.infosContainer}>
-        Secrétariat <span>({auth.email})</span>
+        Secrétariat <span className={styles.emailText}>({auth.email})</span>
       </div>
 
       <DateComponent />

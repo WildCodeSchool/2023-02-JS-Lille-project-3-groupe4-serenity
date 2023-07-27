@@ -1,8 +1,133 @@
-// eslint-disable-next-line no-unused-vars
-import React from "react";
-// eslint-disable-next-line no-unused-vars
+import axios from "axios";
+import React, { useState, useEffect } from "react";
+import { FaRegWindowClose } from "react-icons/fa";
+import { Link, useParams } from "react-router-dom";
+import { PropTypes } from "prop-types";
+import formatDate from "../../../services/dateUtils";
 import styles from "./PractitionerIntervention.module.css";
 
-function PractitionerIntervention() {}
+function PractitionerIntervention({ currentColor, routeRole }) {
+  const { idIntervention } = useParams();
+  const [intervention, setIntervention] = useState([]);
+
+  axios.defaults.withCredentials = true;
+
+  useEffect(() => {
+    const fetchInterventionByProcedureDate = async () => {
+      try {
+        const response = await axios.get(
+          `${import.meta.env.VITE_BACKEND_URL}/interventions/${idIntervention}`
+        );
+
+        setIntervention(response.data[0]);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    fetchInterventionByProcedureDate();
+  }, []);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Logique de soumission du formulaire de modification
+  };
+
+  return (
+    <div
+      className={styles.infosInterventionContainer}
+      style={{ borderColor: currentColor }}
+    >
+      <div className={styles.closeButtonContainer}>
+        <Link to={routeRole}>
+          <FaRegWindowClose
+            className={styles.closeIcon}
+            style={{ color: currentColor }}
+          />
+        </Link>
+      </div>
+      <div className={styles.gridContainer}>
+        <div
+          className={styles.ButtonModifyInterventionContainer}
+          style={{ backgroundColor: currentColor }}
+        >
+          <form onSubmit={handleSubmit}>Modifier</form>
+        </div>
+        <div
+          className={styles.ButtonDeleteInterventionContainer}
+          style={{ backgroundColor: currentColor }}
+        >
+          <form onSubmit={handleSubmit}>Supprimer</form>
+        </div>
+        <div className={styles.titleFormContainer}>
+          Gestion d'une intervention
+        </div>
+        {Object.keys(intervention).length > 0 && (
+          <>
+            <div className={styles.NameInterventionContainer}>
+              <label>
+                Nom de l'intervention:
+                <input
+                  type="text"
+                  name="nom_Intervention"
+                  value={intervention.nom_Intervention}
+                  disabled
+                />
+              </label>
+            </div>
+            <div className={styles.socialSecuNumberInterventionContainer}>
+              <label>
+                N° sécurité sociale:
+                <input
+                  type="text"
+                  name="social_secu_number"
+                  value={`${intervention.social_secu_number} ${intervention.patient_last_name} ${intervention.patient_first_name}`}
+                  disabled
+                />
+              </label>
+            </div>
+            <div className={styles.identifierRppsContainer}>
+              <label>
+                Identifiant RPPS:
+                <input
+                  type="text"
+                  name="identifier_rpps"
+                  value={`${intervention.identifier_rpps} ${intervention.practitioner_last_name} ${intervention.practitioner_first_name}`}
+                  disabled
+                />
+              </label>
+            </div>
+            <div className={styles.procedureDateContainer}>
+              <label>
+                Date de procédure:
+                <input
+                  type="text"
+                  name="procedure_date"
+                  value={formatDate(intervention.procedure_date)}
+                  disabled
+                />
+              </label>
+            </div>
+            <div className={styles.typeInterventionContainer}>
+              <label>
+                Type d'intervention:
+                <input
+                  type="text"
+                  name="type_intervention"
+                  value={intervention.type_intervention}
+                  disabled
+                />
+              </label>
+            </div>
+          </>
+        )}
+      </div>
+    </div>
+  );
+}
+
+PractitionerIntervention.propTypes = {
+  currentColor: PropTypes.string.isRequired,
+  routeRole: PropTypes.string.isRequired,
+};
 
 export default PractitionerIntervention;

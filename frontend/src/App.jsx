@@ -31,12 +31,15 @@ import InfosPatient from "./components/secretariat/infosPatient/InfosPatient";
 import SecretariatInterventionPage from "./pages/secretariat/SecretariatInterventionPage";
 import AddIntervention from "./components/secretariat/addIntervention/AddIntervention";
 import InfoIntervention from "./components/secretariat/infosIntervention/InfosIntervention";
+import PractitionerPatientInfoPage from "./pages/practitioner/PractitionerPatientInfoPage";
 import PractitionerLayout from "./components/practitionner/practitionerLayout/PractitionerLayout";
 import PractitionerDashboardPage from "./pages/practitioner/PractitionerDashboardPage";
 import PractitionerPatientPage from "./pages/practitioner/PractitionerPatientPage";
 import PractitionerInterventionPage from "./pages/practitioner/PractitionerInterventionPage";
+import PractitionerInterventionInfoPage from "./pages/practitioner/PractitionerInterventionInfoPage";
 import RequireAuth from "./components/auth/RequireAuth";
 import Unauthorized from "./components/unauthorized/Unauthorized";
+import InfosStaff from "./components/admin/infosStaff/InfosStaff";
 
 function App() {
   return (
@@ -121,6 +124,7 @@ function App() {
         />
         <Route path="staff" element={<AdminStaffPage />} />
         <Route path="staff/add" element={<AddStaff />} />
+        <Route path="staff/infos/:id" element={<InfosStaff />} />
       </Route>
 
       {/* Secretariat Routes */}
@@ -197,11 +201,25 @@ function App() {
       {/* Practitioner Routes */}
       <Route element={<RequireAuth allowedRoles="Praticien" />}>
         <Route path="/practitioner" element={<PractitionerLayout />}>
-          <Route path="" element={<PractitionerDashboardPage />} />
-          <Route path="patient" element={<PractitionerPatientPage />} />
           <Route
-            path="intervention"
+            path=":identifierRpps"
+            element={<PractitionerDashboardPage />}
+          />
+          <Route
+            path="patient/:identifierRpps"
+            element={<PractitionerPatientPage />}
+          />
+          <Route
+            path="patient/infos/:social_secu_number"
+            element={<PractitionerPatientInfoPage />}
+          />
+          <Route
+            path="interventions/:identifierRpps"
             element={<PractitionerInterventionPage />}
+          />
+          <Route
+            path="interventions/:identifierRpps/infos/:idIntervention"
+            element={<PractitionerInterventionInfoPage />}
           />
         </Route>
       </Route>

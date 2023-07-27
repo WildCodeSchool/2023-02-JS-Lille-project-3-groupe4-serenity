@@ -1,3 +1,7 @@
+const crypto = require("crypto");
+const bcrypt = require("bcrypt");
+const nodemailer = require("nodemailer");
+require("dotenv").config();
 const models = require("../models");
 
 const browse = (req, res) => {
@@ -67,17 +71,51 @@ const edit = (req, res) => {
 const add = (req, res) => {
   const practitioner = req.body;
 
-  // TODO validations (length, format...)
+  // Generate a random password
+  const password = crypto.randomBytes(10).toString("hex");
+  // Hash and salt the password using bcrypt
+  bcrypt.hash(password, 10, async (hashError, hashedPassword) => {
+    if (hashError) {
+      console.error(hashError);
+      res.sendStatus(500);
+      return;
+    }
 
-  models.practitioner
-    .insert(practitioner)
-    .then((result) => {
-      res.location(`/practitioners/${result}`).sendStatus(201);
-    })
-    .catch((err) => {
+    // Add the hashed password to the patient object
+    practitioner.password = hashedPassword;
+
+    try {
+      const result = await models.practitioner.insert(
+        practitioner,
+        hashedPassword
+      );
+
+      // Create a transporter
+      const transporter = nodemailer.createTransport({
+        service: "gmail", // use your email service
+        auth: {
+          user: process.env.MAIL, // your email
+          pass: process.env.MAIL_PWD, // your email password
+        },
+      });
+
+      // Set up email data
+      const mailOptions = {
+        from: process.env.MAIL, // sender address
+        to: practitioner.email, // list of receivers
+        subject: "Your new account", // Subject line
+        text: `Welcome! Your password is ${password}`, // plain text body
+      };
+
+      // Send the email
+      await transporter.sendMail(mailOptions);
+
+      res.location(`/practitioner/${result}`).sendStatus(201);
+    } catch (err) {
       console.error(err);
       res.sendStatus(500);
-    });
+    }
+  });
 };
 
 const destroy = (req, res) => {

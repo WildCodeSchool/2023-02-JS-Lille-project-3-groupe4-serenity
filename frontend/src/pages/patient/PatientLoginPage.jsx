@@ -54,6 +54,9 @@ function PatientLoginPage() {
           case "Secrétaire":
             navigate("/secretariat");
             break;
+          case "Praticien":
+            navigate(`/practitioner/${user.identifierRpps}`);
+            break;
           default:
             console.error("Unknown role. Cannot redirect.");
             break;
@@ -99,6 +102,7 @@ function PatientLoginPage() {
               className={styles.emailField}
               type="email"
               name="email"
+              autoComplete="off"
               placeholder="Saisissez votre adresse mail"
               value={email}
               onChange={(e) => setEmail(e.target.value)}

@@ -23,7 +23,9 @@ router.delete("/patients/:id", patientControllers.destroy);
 
 const staffControllers = require("./controllers/staffControllers");
 
-router.post("/staff", staffControllers.add);
+router.get("/admin/staff", staffControllers.browse);
+router.get("/admin/staff/:id", staffControllers.read);
+router.post("/admin/staff", staffControllers.add);
 
 const identificationControllers = require("./controllers/identificationControllers");
 
@@ -48,6 +50,14 @@ router.get(
   "/interventions/social_secu_number/:socialSecuNumber",
   verifyJWT,
   interventionControllers.readBySocialSecuNumber
+);
+router.get(
+  "/interventions/patients/:identifierRpps",
+  interventionControllers.select
+);
+router.get(
+  "/interventions/practitioner/:identifierRpps",
+  interventionControllers.select
 );
 router.put("/interventions/:id", interventionControllers.edit);
 router.post("/interventions", interventionControllers.add);

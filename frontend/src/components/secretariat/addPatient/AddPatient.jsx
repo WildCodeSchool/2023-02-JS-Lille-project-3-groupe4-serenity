@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaRegWindowClose } from "react-icons/fa";
 import axios from "axios";
+import { toast } from "react-toastify";
 import PropTypes from "prop-types";
 import styles from "./AddPatient.module.css";
 
@@ -18,6 +19,12 @@ function AddPatient({ currentColor, routeRole }) {
     event.preventDefault();
     try {
       await axios.post(`${import.meta.env.VITE_BACKEND_URL}/patients`, inputs);
+
+      toast.success("Patient créé !", {
+        progressClassName: styles.toastProgress,
+        autoClose: 1500,
+      });
+
       navigate(`${routeRole}/patient`);
     } catch (err) {
       console.error(err);

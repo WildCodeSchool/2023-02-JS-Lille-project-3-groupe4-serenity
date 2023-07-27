@@ -89,6 +89,9 @@ function PatientHeaderDesktop() {
             <p className={styles.normalText}>
               {currentIntervention?.type_intervention}
             </p>
+            <p className={styles.practitionerText}>
+              Dr. {currentIntervention?.practitioner_last_name}
+            </p>
             <p className={styles.littleText}>
               {formatDate(currentIntervention?.procedure_date)}
             </p>
