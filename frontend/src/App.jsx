@@ -39,6 +39,7 @@ import PractitionerInterventionPage from "./pages/practitioner/PractitionerInter
 import PractitionerInterventionInfoPage from "./pages/practitioner/PractitionerInterventionInfoPage";
 import RequireAuth from "./components/auth/RequireAuth";
 import Unauthorized from "./components/unauthorized/Unauthorized";
+import InfosStaff from "./components/admin/infosStaff/InfosStaff";
 
 function App() {
   return (
@@ -123,6 +124,7 @@ function App() {
         />
         <Route path="staff" element={<AdminStaffPage />} />
         <Route path="staff/add" element={<AddStaff />} />
+        <Route path="staff/infos/:id" element={<InfosStaff />} />
       </Route>
 
       {/* Secretariat Routes */}

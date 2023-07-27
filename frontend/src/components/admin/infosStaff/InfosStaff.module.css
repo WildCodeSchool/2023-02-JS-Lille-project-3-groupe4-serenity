@@ -1,0 +1,167 @@
+@import url("../../../GlobalVariables.css");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+.closeButtonContainer {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.ManagementStaffContainer {
+  width: 100%;
+  border: solid 0.1875rem;
+  border-color: var(--red);
+  border-radius: 1.5rem;
+  background-color: var(--white);
+  box-shadow: var(--basic-shadow);
+  background-color: var(--light-grey);
+  padding: 1.25rem;
+}
+
+.ManagementStaffSelectedContainer {
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+.ManageStaffContainer {
+  display: grid;
+  grid-template-columns: 1fr 0.5fr 1fr 0.5fr 1fr;
+  grid-template-rows: 1fr 0.5fr repeat(2, 1fr) 0.5fr repeat(2, 1fr);
+  grid-column-gap: 0rem;
+  grid-row-gap: 0.2rem;
+}
+
+.ManagementStaffSelectedContainer {
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.ButtonModifyStaffContainer {
+  grid-area: 1 / 3 / 2 / 4;
+  display: grid;
+  place-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 4rem;
+  border: none;
+  background-color: var(--red);
+  border-radius: 0.8rem;
+  box-shadow: var(--basic-shadow);
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--white);
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+
+.ButtonDeleteStaffContainer {
+  grid-area: 1 / 5 / 2 / 6;
+  display: grid;
+  place-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 4rem;
+  border: none;
+  background-color: var(--red);
+  border-radius: 0.8rem;
+  box-shadow: var(--basic-shadow);
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--white);
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+
+.ButtonDeleteStaffContainer:hover {
+  background-color: var(--red);
+}
+
+.ButtonModifyStaffContainer:hover {
+  background-color: var(--red);
+}
+
+.ButtonDeleteStaffContainer form {
+  margin: 0;
+}
+
+.ButtonModifyStaffContainer form {
+  margin: 0;
+}
+
+.MaritalStatusContainer {
+  grid-area: 2 / 1 / 3 / 2;
+  font-size: 1.2rem;
+  font-weight: 300;
+  padding-top: 1.2rem;
+  padding-bottom: 1.3rem;
+}
+
+.GenderContainer {
+  display: flex;
+  align-items: center;
+  grid-area: 3 / 1 / 4 / 2;
+}
+
+.GenderContainer > div {
+  display: flex;
+  align-items: center;
+}
+
+.RadioButtonContainer {
+  margin-right: 0.625rem;
+}
+
+.RadioButtonLabelContainer {
+  margin-left: 0.3125rem;
+}
+
+.LastNameStaffContainer {
+  grid-area: 3 / 3 / 4 / 4;
+}
+
+.FirstNameStaffContainer {
+  grid-area: 3 / 5 / 4 / 6;
+}
+
+.RoleContainer {
+  grid-area: 4 / 1 / 5 / 2;
+}
+
+.NationalityContainer {
+  grid-area: 4 / 3 / 5 / 4;
+}
+
+.AgeContainer {
+  grid-area: 4 / 5 / 5 / 6;
+}
+
+.AdressAndContactContainer {
+  grid-area: 5 / 1 / 6 / 2;
+  font-size: 1.2rem;
+  font-weight: 300;
+  padding-top: 1.2rem;
+  padding-bottom: 1.3rem;
+}
+
+.AdressContainer {
+  grid-area: 6 / 1 / 7 / 2;
+}
+
+.ZipCodeContainer {
+  grid-area: 6 / 3 / 7 / 4;
+}
+
+.CityContainer {
+  grid-area: 6 / 5 / 7 / 6;
+}
+
+.PhoneNumberContainer {
+  grid-area: 7 / 1 / 8 / 2;
+}
+
+.emailContainer {
+  grid-area: 7 / 5 / 8 / 6;
+}
+
+.ManageStaffContainer {
+  grid-template-rows: 1fr 0.5fr repeat(2, 1fr) 0.5fr repeat(1, 1fr);
+}
