@@ -102,6 +102,7 @@ function PatientLoginPage() {
               className={styles.emailField}
               type="email"
               name="email"
+              autoComplete="off"
               placeholder="Saisissez votre adresse mail"
               value={email}
               onChange={(e) => setEmail(e.target.value)}

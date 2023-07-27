@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaRegWindowClose } from "react-icons/fa";
 import axios from "axios";
+import { toast } from "react-toastify";
 import PropTypes from "prop-types";
 import styles from "./AddIntervention.module.css";
 
@@ -78,6 +79,11 @@ function AddIntervention({ currentColor, routeRole }) {
         `${import.meta.env.VITE_BACKEND_URL}/interventions`,
         inputs
       );
+
+      toast.success("Intervention créée !", {
+        progressClassName: styles.toastProgress,
+        autoClose: 1500,
+      });
 
       navigate(`${routeRole}/intervention`);
     } catch (err) {
