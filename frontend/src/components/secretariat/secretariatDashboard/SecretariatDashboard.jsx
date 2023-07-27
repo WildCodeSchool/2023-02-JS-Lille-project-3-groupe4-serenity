@@ -57,60 +57,52 @@ function SecretariatDashboard() {
   return (
     <div className={styles.dashboardContainer}>
       <div className={styles.leftContainer}>
-        <h1 className={styles.titleContainer}>Les chiffres du secrétariat:</h1>
-        {countPatient && (
-          <div key="patient-count" className={styles.NumberPatientContainer}>
-            <h2>Nombre de patients: {countPatient}</h2>
+        <h1 className={styles.titleContainer}>Les chiffres du secrétariat</h1>
+        <div className={styles.dataContainer}>
+          <div className={styles.dataCard}>
+            <h2 className={styles.dataTitle}>Nombre de patients</h2>
+            <h3 className={styles.dataValue}>{countPatient}</h3>
           </div>
-        )}
-        {countIntervention && (
-          <div
-            key="intervention-count"
-            className={styles.NumberInterventionContainer}
-          >
-            <h2>Nombre d'interventions: {countIntervention}</h2>
+          <div className={styles.dataCard}>
+            <h2 className={styles.dataTitle}>Nombre d'interventions</h2>
+            <h3 className={styles.dataValue}>{countIntervention}</h3>
           </div>
-        )}
-        {countPractitioner && (
-          <div
-            key="practitioner-count"
-            className={styles.NumberPractitionerContainer}
-          >
-            <h2>Nombre de practiciens: {countPractitioner}</h2>
+          <div className={styles.dataCard}>
+            <h2 className={styles.dataTitle}>Nombre de practiciens</h2>
+            <h3 className={styles.dataValue}>{countPractitioner}</h3>
           </div>
-        )}
+        </div>
       </div>
       <div className={styles.rightContainer}>
-        <h1 className={styles.titleContainer}>Prochaine intervention:</h1>
-
-        <div className={styles.NumberPatientContainer}>
-          <h2>
-            {" "}
-            <span className={styles.nextInterTitle}>Date: </span>
-            {formatDate(oldestIntervention.dateIntervention)}
-          </h2>
-        </div>
-
-        <div className={styles.NumberInterventionContainer}>
-          <h2>
-            <span className={styles.nextInterTitle}>Patient: </span>
-            {oldestIntervention.patientFirstName}{" "}
-            {oldestIntervention.patientLastName}
-          </h2>
-        </div>
-
-        <div className={styles.NumberInterventionContainer}>
-          <h2>
-            <span className={styles.nextInterTitle}>Practicien: </span>
-            {oldestIntervention.practitionerFirstName}{" "}
-            {oldestIntervention.practitionerLastName}
-          </h2>
-        </div>
-        <div className={styles.NumberInterventionContainer}>
-          <h2>
-            <span className={styles.nextInterTitle}>Intervention: </span>
-            {oldestIntervention.typeIntervention}
-          </h2>
+        <h1 className={styles.titleContainer}>Prochaine intervention</h1>
+        <div className={styles.dataContainer}>
+          <div className={styles.dataCard}>
+            <h2 className={styles.dataTitle}>Date</h2>
+            <h3 className={styles.dataNextValue}>
+              {formatDate(oldestIntervention.dateIntervention)}
+            </h3>
+          </div>
+          <div className={styles.dataCard}>
+            <h2 className={styles.dataTitle}>Patient</h2>
+            <h3 className={styles.dataNextValue}>
+              {oldestIntervention.patientFirstName}{" "}
+              {oldestIntervention.patientLastName}
+            </h3>
+          </div>
+          <div className={styles.dataCard}>
+            <h2 className={styles.dataTitle}>Practicien</h2>
+            <h3 className={styles.dataNextValue}>
+              {oldestIntervention.practitionerFirstName}{" "}
+              {oldestIntervention.practitionerLastName}
+            </h3>
+          </div>
+          <div className={styles.dataCard}>
+            <h2 className={styles.dataTitle}>Intervention</h2>
+            <h3 className={styles.dataNextValue}>
+              {" "}
+              {oldestIntervention.typeIntervention}
+            </h3>
+          </div>
         </div>
       </div>
     </div>
