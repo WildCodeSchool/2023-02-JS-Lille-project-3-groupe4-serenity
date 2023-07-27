@@ -49,6 +49,29 @@ class StaffManager extends AbstractManager {
       [hashedPassword, userId, userId, userId, staffRoleId]
     );
   }
+
+  async findAllStaff() {
+    const query = `SELECT user.id, user.last_name, user.first_name, user.roles, user.email 
+    FROM user
+    JOIN staff ON user.id = staff.id
+    JOIN identification ON user.id = identification.id`;
+
+    const [rows] = await this.database.query(query);
+    return rows;
+  }
+
+  async findStaffById(id) {
+    const query = `SELECT user.id, user.last_name, user.first_name, user.gender, 
+    user.nationality, user.age, user.address, user.zip_code, user.city, 
+    user.phone, user.roles, user.email 
+    FROM user
+    JOIN staff ON user.id = staff.id
+    JOIN identification ON user.id = identification.id
+    WHERE user.id = ?`;
+
+    const [rows] = await this.database.query(query, [id]);
+    return rows;
+  }
 }
 
 module.exports = StaffManager;

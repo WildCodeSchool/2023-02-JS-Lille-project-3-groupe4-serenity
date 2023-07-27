@@ -23,7 +23,9 @@ router.delete("/patients/:id", patientControllers.destroy);
 
 const staffControllers = require("./controllers/staffControllers");
 
-router.post("/staff", staffControllers.add);
+router.get("/admin/staff", staffControllers.browse);
+router.get("/admin/staff/:id", staffControllers.read);
+router.post("/admin/staff", staffControllers.add);
 
 const identificationControllers = require("./controllers/identificationControllers");
 
