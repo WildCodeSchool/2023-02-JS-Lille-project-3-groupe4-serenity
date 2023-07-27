@@ -54,6 +54,9 @@ function PatientLoginPage() {
           case "Secrétaire":
             navigate("/secretariat");
             break;
+          case "Praticien":
+            navigate(`/practitioner/${user.identifierRpps}`);
+            break;
           default:
             console.error("Unknown role. Cannot redirect.");
             break;

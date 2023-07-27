@@ -197,25 +197,29 @@ function App() {
       </Route>
 
       {/* Practitioner Routes */}
-
-      <Route path="/practitioner" element={<PractitionerLayout />}>
-        <Route path=":identifierRpps" element={<PractitionerDashboardPage />} />
-        <Route
-          path="patient/:identifierRpps"
-          element={<PractitionerPatientPage />}
-        />
-        <Route
-          path="patient/infos/:social_secu_number"
-          element={<PractitionerPatientInfoPage />}
-        />
-        <Route
-          path="interventions/:identifierRpps"
-          element={<PractitionerInterventionPage />}
-        />
-        <Route
-          path="interventions/infos/:identifierRpps"
-          element={<PractitionerInterventionInfoPage />}
-        />
+      <Route element={<RequireAuth allowedRoles="Praticien" />}>
+        <Route path="/practitioner" element={<PractitionerLayout />}>
+          <Route
+            path=":identifierRpps"
+            element={<PractitionerDashboardPage />}
+          />
+          <Route
+            path="patient/:identifierRpps"
+            element={<PractitionerPatientPage />}
+          />
+          <Route
+            path="patient/infos/:social_secu_number"
+            element={<PractitionerPatientInfoPage />}
+          />
+          <Route
+            path="interventions/:identifierRpps"
+            element={<PractitionerInterventionPage />}
+          />
+          <Route
+            path="interventions/:identifierRpps/infos/:idIntervention"
+            element={<PractitionerInterventionInfoPage />}
+          />
+        </Route>
       </Route>
     </Routes>
   );

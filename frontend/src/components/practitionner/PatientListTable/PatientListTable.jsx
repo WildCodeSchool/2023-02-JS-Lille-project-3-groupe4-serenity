@@ -1,19 +1,22 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { FaEye } from "react-icons/fa";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
 import formatDate from "../../../services/dateUtils";
 import styles from "./PatientListTable.module.css";
 
 function PatientListTable() {
   const [patients, setPatient] = useState([]);
-  const { identifierRpps } = useParams();
+  const { auth } = useAuth();
 
   useEffect(() => {
     const fetchAllPatientByIdentifierRpps = async () => {
       try {
         const response = await axios.get(
-          `${import.meta.env.VITE_BACKEND_URL}/patient/${identifierRpps}`
+          `${import.meta.env.VITE_BACKEND_URL}/interventions/patients/${
+            auth.identifierRpps
+          }`
         );
         setPatient(response.data);
       } catch (err) {

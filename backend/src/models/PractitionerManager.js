@@ -5,7 +5,7 @@ class PractitionerManager extends AbstractManager {
     super({ table: "practitioner" });
   }
 
-  async insert(practitioner) {
+  async insert(practitioner, hashedPassword) {
     await this.database.query(
       `INSERT INTO user (last_name, first_name, age, gender, phone, nationality, address, city, zip_code, roles, email) VALUES (?,?,?,?,?,?,?,?,?,"Practitioner",?)`,
       [
@@ -37,12 +37,12 @@ class PractitionerManager extends AbstractManager {
       ]
     );
     await this.database.query(
-      `INSERT INTO identification (pwd, roles, email, user_id, identifier_rpps, staff_id)
-       SELECT 'Smith123', 'Practitioner', 
+      `INSERT INTO identification (pwd, roles, email, user_id, identifier_rpps)
+       SELECT ?, 'Practitioner', 
        (SELECT email FROM serenity.user AS U WHERE U.id = @user_id), 
        @user_id, 
-       (SELECT identifier_rpps FROM serenity.practitioner P WHERE P.user_id = @user_id),
-       2`
+       (SELECT identifier_rpps FROM serenity.practitioner P WHERE P.user_id = @user_id)`,
+      [hashedPassword]
     );
   }
 

@@ -104,6 +104,7 @@ class InterventionManager extends AbstractManager {
     const query = `
       SELECT
         p.speciality,
+        i.id,
         i.nom_intervention,
         i.social_secu_number,
         p.identifier_rpps,
