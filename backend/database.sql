@@ -342,7 +342,9 @@ VALUES
     (12, 'Gaudemer', 'Emma', 27, 'Femme', '0645679567', 'Française', '123 rue de la Bassée', 'Lille', 59000, 'Patient', 'emma.gaudemer@gmail.com'),
     (13, 'Foubert', 'Edouard', 33, 'Homme', '0667987809', 'Française', '45 rue nationale', 'Lille', 59000, 'Patient', 'edouard.foubert@gmail.com'),
     (14, 'Rondo', 'Olivia', 29, 'Femme', '0698678984', 'Française', '34 rue des bouchers', 'Lille', 59000, 'Patient', 'olivia.rondo@gmail.com'),
-    (15, 'Miller', 'Sophia', 31, 'Femme', '0645678909', 'Française', '1 rue des penitentes', 'Lille', 59000, 'Patient', 'sophia.miller@gmail.com');
+    (15, 'Miller', 'Sophia', 31, 'Femme', '0645678909', 'Française', '1 rue des penitentes', 'Lille', 59000, 'Patient', 'sophia.miller@gmail.com'),
+    (16, 'Roche', 'Sarah', 36, 'Femme', '0645678909', 'Française', '13 rue Bertrant Rocq', 'Lille', 59000, 'Praticien', 'sarah.roche@gmail.com'),
+    (17, 'Bacq', 'Jacques', 56, 'Homme', '06456785869', 'Française', '18 rue Pierre Berlot', 'Lille', 59000, 'Praticien', 'jacques.bacq@gmail.com');
 
 -- Insertion des membres du personnel
 INSERT INTO serenity.staff (id, roles, user_id)
@@ -367,7 +369,9 @@ VALUES
     (1002, 'Orthopédie', '3.031752109527588', '50.63371658325195','Prothèse du genou', 7, 2),
     (1003, 'Chirurgie dentaire', '3.0612124', '50.6288448','Pose implant dentaire', 8, 3),
     (1004, 'Chirurgie esthétique', '3.0685616', '50.6395922','Pose implant mammaire', 9, 4),
-    (1005, 'Gastro-Pediatre', '3.030643', '50.6338748','Appendicectomie', 10, 5);
+    (1005, 'Gastro-Pediatre', '3.030643', '50.6338748','Appendicectomie', 10, 5),
+    (1007, 'Orthopédie', '3.0685616', '50.6395922','Prothèse du genou', 16, 2),
+    (1008, 'Orthopédie', '3.0612124', '50.6288448','Prothèse du genou', 17, 2);
 -- Insertion des patients
 INSERT INTO serenity.patient (social_secu_number, blood_group, allergy, remark, user_id)
 VALUES

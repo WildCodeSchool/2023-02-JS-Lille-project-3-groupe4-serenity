@@ -86,7 +86,7 @@ const add = (req, res) => {
 
   // Generate a random password
   const password = crypto.randomBytes(10).toString("hex");
-
+  // console.log(password);
   // Hash and salt the password using bcrypt
   bcrypt.hash(password, 10, async (hashError, hashedPassword) => {
     if (hashError) {

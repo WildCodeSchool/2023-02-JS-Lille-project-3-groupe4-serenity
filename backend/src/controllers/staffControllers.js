@@ -2,6 +2,7 @@ const crypto = require("crypto");
 const bcrypt = require("bcrypt");
 const nodemailer = require("nodemailer");
 require("dotenv").config();
+// const { log } = require("console");
 const models = require("../models");
 
 const add = (req, res) => {
@@ -9,7 +10,7 @@ const add = (req, res) => {
 
   // Generate a random password
   const password = crypto.randomBytes(10).toString("hex");
-
+  // console.log(password);
   // Hash and salt the password using bcrypt
   bcrypt.hash(password, 10, async (hashError, hashedPassword) => {
     if (hashError) {
