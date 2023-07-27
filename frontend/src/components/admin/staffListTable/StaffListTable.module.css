@@ -7,7 +7,7 @@
   border-collapse: collapse;
 }
 
-tr {
+.trStyle {
   border-bottom: solid 2px var(--red);
 }
 

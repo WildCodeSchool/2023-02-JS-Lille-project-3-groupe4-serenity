@@ -11,7 +11,9 @@ function ServiceListTable({ currentColor, routeRole }) {
   useEffect(() => {
     const fecthAllservice = async () => {
       try {
-        const response = await axios.get("http://localhost:5050/service");
+        const response = await axios.get(
+          `${import.meta.env.VITE_BACKEND_URL}/service`
+        );
         setservice(response.data);
       } catch (err) {
         console.error(err);

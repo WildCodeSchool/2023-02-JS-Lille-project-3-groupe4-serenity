@@ -24,7 +24,7 @@ function StaffListTable() {
   return (
     <table className={styles.tableContainer}>
       <thead>
-        <tr>
+        <tr className={styles.trStyle}>
           <th className={styles.theadRow}>Nom</th>
           <th className={styles.theadRow}>Prénom</th>
           <th className={styles.theadRow}>Rôle</th>

@@ -16,7 +16,10 @@ function AddStaff() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post(`${import.meta.env.VITE_BACKEND_URL}/staff`, inputs);
+      await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}/admin/staff`,
+        inputs
+      );
       navigate("/admin/staff");
     } catch (err) {
       console.error(err);

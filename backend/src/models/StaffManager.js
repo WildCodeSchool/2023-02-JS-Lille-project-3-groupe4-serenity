@@ -51,10 +51,10 @@ class StaffManager extends AbstractManager {
   }
 
   async findAllStaff() {
-    const query = `SELECT user.id, user.last_name, user.first_name, user.roles, user.email 
-    FROM user
-    JOIN staff ON user.id = staff.id
-    JOIN identification ON user.id = identification.id`;
+    const query = `SELECT user.id, user.last_name, user.first_name, user.roles, user.email
+    FROM identification
+    JOIN user ON user.id = identification.user_id
+    WHERE identification.roles = 'Staff';`;
 
     const [rows] = await this.database.query(query);
     return rows;
@@ -65,7 +65,6 @@ class StaffManager extends AbstractManager {
     user.nationality, user.age, user.address, user.zip_code, user.city, 
     user.phone, user.roles, user.email 
     FROM user
-    JOIN staff ON user.id = staff.id
     JOIN identification ON user.id = identification.id
     WHERE user.id = ?`;
 
